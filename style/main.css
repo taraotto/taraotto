@@ -33,5 +33,5 @@ p           { @apply leading-8 text-[0.9rem] tracking-[0.03em]; }
 /* ------------ Button styles ------------ */
 
 .button { 
-    @apply py-3 px-6 text-xs font-semibold uppercase tracking-[.2em] no-underline rounded-full text-black border-black border hover:bg-sage-500/20 transition; 
+    @apply inline-block py-3 px-6 text-xs font-semibold uppercase tracking-[.2em] no-underline rounded-full text-black border-black border hover:bg-sage-500/20 transition; 
   }
