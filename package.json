@@ -1,0 +1,33 @@
+{
+  "name": "ioc-jekyll-tailwind",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PollockCR/ioc-jekyll-tailwind.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "jekyll:dev": "bundle exec jekyll serve -l",
+    "jekyll:dev:trace": "bundle exec jekyll serve --trace",
+    "jekyll:dev:poll": "bundle exec jekyll serve -l --force_polling",
+    "jekyll:build": "JEKYLL_ENV=production bundle exec jekyll build",
+    "css:dev": "npx tailwindcss -i ./style/main.css -o ./dist/main.css --watch --poll",
+    "css:build": "NODE_ENV=production npx tailwindcss -i ./style/main.css -o ./_site/dist/main.css",
+    "dev": "npm run css:build && concurrently \"npm run css:dev\" \"npm run jekyll:dev\" --kill-others",
+    "dev:poll": "npm run css:build && concurrently \"npm run css:dev\" \"npm run jekyll:dev:poll\" --kill-others",
+    "dev:trace": "concurrently \"npm run css:dev\" \"npm run jekyll:dev:trace\" --kill-others",
+    "build": "npm run jekyll:build && npm run css:build"
+  },
+  "keywords": [],
+  "author": "Catherine Pollock",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PollockCR/ioc-jekyll-tailwind/issues"
+  },
+  "homepage": "https://github.com/PollockCR/ioc-jekyll-tailwind#readme",
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "tailwindcss": "^3.2.4"
+  }
+}
