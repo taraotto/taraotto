@@ -1,0 +1,50 @@
+<head>
+       
+  <!-- Meta Data -->
+  <meta charset="utf-8">
+  
+      <!-- Meta data for SEO purposes. -->
+      <title> {{page.seo.title}} </title>
+      <meta name="description" content="{{page.seo.meta-description}}">
+      <meta name="keywords" content="{{page.seo.meta-keywords}}">
+  
+      <!-- meta data to tell the browser that your devide is responsive -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="robots" content="index, follow">
+      <meta name="mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+      <!--  Social media sharing META Tags -->
+      <meta property="og:title" content="{{page.seo.title}}">
+      <meta property="og:description" content="{{page.seo.meta-description}}">
+      <meta property="og:image" content="{{page.seo.featured-image_path}}">
+      <meta property="og:url" content="{{page.url}}">
+      <meta name="twitter:card" content="{{page.seo.meta-description}}">
+      <meta name="og:site_name" content="{{site.data.settings.general.site-name}}">
+  
+      {% if page.seo.hide-from-google == true %}
+        <meta name="robots" content="noindex">
+      {% endif %}
+  
+  <!-- End of Meta tags -->
+  
+  <!-- Google fonts -->
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/b620c9a27f.js" crossorigin="anonymous"></script>
+  
+  <!--- Slick Slider – Main CSS that handles all the functionality --->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!--- Slick Slider – Theme that handles the way everything slides. Optional but very helpful --->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ '/dist/main.css' | relative_url }}">
+
+</head>

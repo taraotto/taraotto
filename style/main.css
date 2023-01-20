@@ -1,7 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
-.button {
-    @apply inline-block p-6 bg-blue-600 text-white hover:bg-blue-800 transition;
+
+@font-face {
+  font-family: 'canelathin';
+  src: url('/assets/fonts/canela-thin-webfont.woff2') format('woff2'),
+       url('/assets/fonts/canela-thin-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
 }
+
+@font-face {
+  font-family: 'canelathin';
+  src: url('/assets/fonts/canela-thinitalic-webfont.woff2') format('woff2'),
+       url('/assets/fonts/canela-thinitalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+
+}
+
+html {
+  scroll-behavior: smooth;
+}  
+
+/* ------------ Typography styles ------------ */
+
+h1, h2, h3  { @apply font-display font-light text-[3.5rem] leading-[4.5rem] tracking-[.02em]; }
+
+p           { @apply leading-8 text-[0.9rem] tracking-[0.03em]; }
