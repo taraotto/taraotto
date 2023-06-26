@@ -36,7 +36,7 @@ about:
 image-banner:
   - bg-image: assets/images/moods/elsewhere-mood-plants-1.jpg
     text: Let’s work<br><em>together</em>
-    link-text: Apply now
+    link-text: Book now
     link-url: 
     overlay: true   
 ---
@@ -98,11 +98,7 @@ image-banner:
 
 <!------------- Image banner ------------->
 {% for item in page.image-banner limit:1 %}
-<section> 
-  <div class="{% if item.overlay == true %} bg-blend-multiply bg-black/50 text-white {% endif %} bg-fixed bg-cover h-[60vh] bg-center flex flex-col justify-center items-center"
-  style="background-image: url('{{item.bg-image}}')">
-    <h2 class="text-[4rem] leading-[4.5rem] md:text-[5rem] md:leading-[5.5rem] pb-6 text-center">{{item.text}}</h2>
-    <a href="{{item.link-url}}" class="button-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">{{item.link-text}}</a>
-  </div>
-</section>
+
+{% include image-banner.html %}
+
 {% endfor %}
