@@ -81,8 +81,7 @@ module.exports = {
     fontFamily: {
       sans: ['Montserrat', 'sans-serif'],
       serif: ['EB Garamond', 'serif'],
-      display: ['canelathin', 'serif'],
-      handwritten: ['Anderson', 'serif'],
+      display: ['Canela Web', 'serif'],
     },
   },
   plugins: [],

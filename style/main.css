@@ -2,22 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @font-face {
-  font-family: 'canelathin';
-  src: url('/assets/fonts/canela-thin-webfont.woff2') format('woff2'),
-       url('/assets/fonts/canela-thin-webfont.woff') format('woff');
-  font-weight: normal;
+  font-family: 'Canela Web';
+  src: url('/assets/fonts/Canela-Thin-Web.woff2') format('woff2'),
+  url('/assets/fonts/Canela-Thin-Web.woff') format('woff');
+  font-weight: 100;
   font-style: normal;
-}
+  font-stretch: normal;
+  }
 
 @font-face {
-  font-family: 'canelathin';
-  src: url('/assets/fonts/canela-thinitalic-webfont.woff2') format('woff2'),
-       url('/assets/fonts/canela-thinitalic-webfont.woff') format('woff');
-  font-weight: normal;
+  font-family: 'Canela Web';
+  src: url('/assets/fonts/Canela-ThinItalic-Web.woff2') format('woff2'),
+  url('/assets/fonts/Canela-ThinItalic-Web.woff') format('woff');
+  font-weight: 100;
   font-style: italic;
-
-}
+  font-stretch: normal;
+  }
 
 
 html {
