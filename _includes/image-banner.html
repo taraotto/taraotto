@@ -1,7 +1,9 @@
 <!------------------ Image banner ------------------>
 
 <section> 
-  <div class="{% if block.overlay == true %} bg-blend-multiply bg-neutral-500 text-white {% endif %} bg-cover h-[50vh] bg-center my-10 flex justify-center items-center text-2xl bg-[url('{{block.featured-image}}')]">
-    <div class="text-lg leading">{{block.text}}</div>
+  <div class="{% if item.overlay == true %} bg-blend-multiply bg-black/50 text-white {% endif %} md:bg-fixed bg-cover h-[60vh] bg-center flex flex-col justify-center items-center"
+  style="background-image: url('{{item.bg-image}}')">
+    <h2 class="text-[4rem] leading-[4.5rem] md:text-[5rem] md:leading-[5.5rem] p-10 md:pb-10 text-center">{{item.text}}</h2>
+    <a href="{{item.link-url}}" class="button-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">{{item.link-text}}</a>
   </div>
 </section>

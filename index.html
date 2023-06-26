@@ -3,18 +3,13 @@ layout: default
 title: Homepage
 header-bg: bg-sage-200/0
 image-banner:
-  - bg-image: /assets/images/moods/elsewhere-mood-plants-1.jpg
-    text: Are you ready to take<br>your business to the next level?
-    link-text: My services
-    link-url: /services.html
-    overlay: true
   - bg-image: /assets/images/moods/elsewhere-mood-waterfall.jpg
     text: So much world.<br><em>So little time.</em>
     link-text: Read the blog
     link-url: /blog.html
     overlay: true    
   - bg-image: /assets/images/moods/elsewhere-mood-plants-1.jpg
-    text: Let’s explore<br><em>togetherb</em>
+    text: Let’s explore<br><em>together</em>
     link-text: Send me a postcard
     link-url: /contact.html
     overlay: true    
@@ -123,14 +118,10 @@ image-banner:
 
 <!-------------------------- Image banner -------------------------->
 
-{% for item in page.image-banner limit:1 offset:1 %}
-<section> 
-  <div class="{% if item.overlay == true %} bg-blend-multiply bg-black/50 text-white {% endif %} bg-fixed bg-cover h-[60vh] bg-center flex flex-col justify-center items-center"
-  style="background-image: url('{{item.bg-image}}')">
-    <h2 class="text-[4rem] leading-[4.2rem] md:text-[5rem] md:leading-[5.5rem] pb-10 text-center">{{item.text}}</h2>
-    <a href="{{item.link-url}}" class="button-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">{{item.link-text}}</a>
-  </div>
-</section>
+{% for item in page.image-banner limit:1 %}
+
+{% include image-banner.html %}
+
 {% endfor %}
 
 <!-------------------------- Travel blog -------------------------->
@@ -211,12 +202,9 @@ image-banner:
 </section>
 
 <!-------------------------- Image banner -------------------------->
-{% for item in page.image-banner limit:1 offset:2 %}
-<section> 
-  <div class="{% if item.overlay == true %} bg-blend-multiply bg-black/50 text-white {% endif %} md:bg-fixed md:bg-cover h-[60vh] bg-center flex flex-col justify-center items-center"
-  style="background-image: url('{{item.bg-image}}')">
-    <h2 class="text-[4rem] leading-[4.5rem] md:text-[5rem] md:leading-[5.5rem] pb-10 text-center">{{item.text}}</h2>
-    <a href="{{item.link-url}}" class="button-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">{{item.link-text}}</a>
-  </div>
-</section>
+{% for item in page.image-banner limit:1 offset:1 %}
+
+{% include image-banner.html %}
+
 {% endfor %}
+

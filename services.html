@@ -4,7 +4,7 @@ title: Homepage
 header-bg: bg-sage-200
 image-banner:
   - bg-image: /assets/images/moods/elsewhere-mood-laptop.jpg
-    text: Let's take your brand<br><em>to new heights</em>
+    text: Let's take your brand<br><em>to new heights1</em>
     link-text: Inquire now
     link-url: 
     overlay: true
@@ -47,16 +47,11 @@ image-banner:
   </section>
 
 <!-------------------------- Image banner -------------------------->
+  {% for item in page.image-banner limit:1 %}
 
-{% for item in page.image-banner limit:1 %}
-<section> 
-  <div class="{% if item.overlay == true %} bg-blend-multiply bg-black/50 text-white {% endif %} bg-fixed bg-cover h-[60vh] bg-center flex flex-col justify-center items-center"
-  style="background-image: url('{{item.bg-image}}')">
-    <h2 class="md:text-[5rem] md:leading-[5.5rem] pb-10 text-center">{{item.text}}</h2>
-    <a href="{{item.link-url}}" class="button-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">{{item.link-text}}</a>
-  </div>
-</section>
-{% endfor %}
+  {% include image-banner.html %}
+
+  {% endfor %}
 
 <!------------- Service package | Branding ------------->
 
@@ -119,12 +114,9 @@ image-banner:
 
 <!-------------------------- Image banner -------------------------->
 
+<!-------------------------- Image banner -------------------------->
 {% for item in page.image-banner limit:1 offset:1 %}
-<section> 
-  <div class="{% if item.overlay == true %} bg-blend-multiply bg-black/50 text-white {% endif %} bg-fixed bg-cover h-[60vh] bg-center flex flex-col justify-center items-center"
-  style="background-image: url('{{item.bg-image}}')">
-    <h2 class="md:text-[5rem] md:leading-[5.5rem] pb-10 text-center">{{item.text}}</h2>
-    <a href="{{item.link-url}}" class="button-white">{{item.link-text}}</a>
-  </div>
-</section>
+
+{% include image-banner.html %}
+
 {% endfor %}
