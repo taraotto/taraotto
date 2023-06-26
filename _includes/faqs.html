@@ -1,0 +1,15 @@
+<!------------------ Custom packages ------------------>
+
+<div class="pt-0 pb-5 md:py-5">
+  
+  {% for item in faqs %}
+  
+    <div class="expandButton cursor-pointer my-5" data-target-button="{{item.data}}">
+      <h4 class="tinytitle"><strong><span class="symbol"></span> {{item.question}}</strong></h4>
+    </div>
+    <div class="expandable hide-answer"  data-target-more="{{item.data}}">
+      <p class="mb-5">{{item.answer}}</div>
+    <hr>
+  
+  {% endfor %}
+</div>

@@ -45,10 +45,15 @@ module.exports = {
         'peach': '#fac8aa',
         'mint': '#8cdcb4', 
         'rose': '#e6b9b4',
-      },   
+      },
+      'waves': {
+        DEFAULT: '#6B8394',
+        'dark': '#242C36',
+      },      
       'camino': {
-        DEFAULT: '#c5aca4',
-        'blue': '#a1c5d9',
+        DEFAULT: '#d8cfcf',
+        'blue': '#c0ccd8',
+        'dark': '#9aa3ac',
       },
       'galeria': {
         DEFAULT: '#D2D6EF',

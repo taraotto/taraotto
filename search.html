@@ -1,0 +1,56 @@
+---
+layout: default
+title: Search
+header-bg: bg-sage-200
+---
+
+<section class="h-screen bg-sage-200 p-20">
+<!-- HTML elements for search -->
+<div class="flex flex-row mb-10 border-b border-black w-full justify-items-stretch p-3">
+  <input class="bg-sage-200 text-s uppercase tracking-[.3em] text-xs w-full inline-block placeholder-black focus:outline-none text-black" type="text" id="search-input" placeholder="Search">
+  <img src="/assets/icons/search.svg" class="h-5 searchButton justify-self-end">
+
+</div>
+<h3 id="results-container" class="grid-4 font-display text-[3rem]"></h3>
+
+<style >
+/* #results-container > div:nth-child(1n+9) {display: none;} */
+
+</style>
+</section>
+
+<!-- or without installing anything -->
+<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+
+
+<script defer>
+
+    const initial = location.search.replace("?", "" );
+    const searchInput = document.querySelector("#search-input");
+    
+    if (initial != ''){
+      searchInput.value = initial;
+    }
+
+
+    function log() {
+      console.log(searchInput.value)
+    }
+
+    searchInput.addEventListener('mouseenter', log)
+
+    var sjs = SimpleJekyllSearch({
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('results-container'),
+            json: '/search.json',
+            searchResultTemplate: '<div class="text-xl mb-20"><img src="{imgPath}" alt=""><a href="{{ site.url }}{url}" class="grid-4 font-display border-b pb-5 text-[3rem]">{title}</a></div>'
+        });
+
+        function initialRun() {
+            sjs.search( initial )
+        }
+
+    const start = setTimeout(initialRun, 100 );
+
+        
+    </script>

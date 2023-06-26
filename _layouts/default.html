@@ -4,10 +4,19 @@
     {% include head.html %}
 
 <body>
+    {% if page.site-header == 'travel' %}
+    {% include site-header-travel.html %}
+    {% elsif page.site-header != 'travel' %}
+    {% include site-header.html %}
+    {% endif %}
 
-   
     {{content}}
 
+    {% include site-footer.html %}
+
+    {% include cookie-banner.html %}
+
+    {% include body-scripts.html %}
     
 </body>
 

@@ -1,0 +1,38 @@
+<!------------------ Text / Image block ------------------>
+
+<section class="{{block.background-color}} {{block.overlap}} p-6">
+  <div class="grid {{block.grid-size}} {{block.position}} h-full {{block.gap}} {{block.width}}">
+    
+    {% for item in block.columns %}
+    
+    <!------------------ Text ------------------>
+    {% if item._type == 'text' %}
+
+    <div class="h-auto {{item.text-alignment}} {{item.col-size}}" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+      <h2 class="">{{item.title}}</h2>
+      <p>{{item.description-html}}</p>
+    </div>
+
+    <!------------------ Image ------------------>
+    {% elsif item._type == 'image' %}
+    
+    <div class="{{item.col-size}} {{item.padding}}" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+      <img src="{{item.image}}" class="h-full w-full object-cover">
+      <p class="text-xs pt-3">{{item.caption}}</p>
+    </div>    
+
+    <!------------------ Image ------------------>
+    {% elsif item._type == 'image-text' %}
+
+    <div class="{{item.col-size}} {{item.text-alignment}}" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+      <img src="{{item.image}}" class="h-full {{item.width}} object-cover mx-auto">
+      <h3 class="text-2xl pt-6"><em>{{item.title}}</em></h3>
+      <p>{{item.description-html}}</ü>
+    </div>    
+    
+    {% endif %}
+    
+    {% endfor %}
+
+  </div>
+</section>

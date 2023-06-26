@@ -1,0 +1,75 @@
+---
+layout: default
+title: Travel Journal
+header-bg: bg-sage-200
+site-header: travel
+---
+
+<!------------- Intro ------------->
+<section class="bg-sage-200 w-[100%] relative overflow-hidden z-0">
+
+    <!------------- Title ------------->
+    <div class="col-span-3 pt-20 text-center px-10">
+      <span class="tinytitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">Travel Journal & Recommendations</span>
+      <h1 class="lg:text-[5rem] lg:leading-[5.5rem] pt-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Life is not meant to<br>be lived in one place.</h1>
+      <p class="md:w-[40vw] mx-auto mt-5 mb-20" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">Discovering new cities, exploring museums, finding beautiful places and learning about different cultures – I feel the most inspired when I get the chance to explore new corners of the world, especially since moving abroad. Always on the lookout for design-oriented hotels, restaurants and shops (while keeping it budget-friendly) I hope to share these recommendations with you to make your future trips unique and unforgettable.</p>
+    </div>
+
+
+  <!------------- Illustration ------------->
+  <div class="z-0">
+   <div class="absolute top-72 -left-16 md:-left-32" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+    <img class="opacity-20 w-[60vw] md:w-[30vw] rotate-12" src="/assets/images/illustrations/palmtree2.svg">
+  </div>
+  <div class="absolute top-20 -right-52" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+    <img class="hidden md:block opacity-20 w-[40vw] -rotate-12" src="/assets/images/illustrations/palmtree1.svg"></div>
+  </div>
+</div>
+   
+
+<!------------- Categories ------------->
+
+  <div class="container z-40 text-center flex flex-wrap space-x-3 justify-center" id="portfolio-filter" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
+        
+        <a class="z-40 button active mb-5 last:mr-0" data-filter="All" href="/blog.html">All</a>
+        {% for item in site.archives %}
+        {% if item.nav-bar == true %}
+        <a class="z-40 button mb-5 last:mr-0" data-filter="{{item.title | replace:' ','-'}}" href="{{item.url}}">{{item.title}}</a>
+        {% endif %}
+        {% endfor %}
+  </div>
+
+
+<!------------- Blog preview ------------->
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 container z-40 pt-10 pb-20 lg:pb-40" id="portfolio-grid" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+
+      {% for post in site.posts limit:9 %}
+
+      <div href="{{post.url}}" class="bg-sage-200 gallery-item hover:bg-sage-300/30 border text-center pb-20 z-40
+      {% for item in post.categories %} {{item | replace:' ','-'}} {% endfor %}" >
+
+        <!------------- Image ------------->
+        <img class="h-[60vh] w-full object-cover mb-10 p-4" src="{{post.featured-image}}">
+        
+        <!------------- Categories ------------->
+        <span class="block">
+          {% for item in post.categories %}
+            <div class="mx-1 inline-block border-b border-b-orange-400 pb-1 text-xs uppercase tracking-[.3em]">{{item}}</div>
+          {% endfor %}
+          
+        </span>
+        
+        <!------------- Title ------------->
+        <h2 class="text-center inline-block tracking-[.03em] my-8 p-5">{{post.title}}</h2>
+        
+        <!------------- Date ------------->
+        <span class="text-xs uppercase tracking-[.3em] block"><strong>Coming soon</strong></span>
+        <!-- <span class="text-xs uppercase tracking-[.3em] block"><strong>{{post.date | date: "%d %b %Y"}}</strong></span>
+       -->
+      </div>
+          
+      {% endfor %}
+
+    </div>
+</section>

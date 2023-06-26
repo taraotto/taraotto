@@ -1,0 +1,28 @@
+<!------------------ Body scripts ------------------>
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<!-- Slick Slider -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js" integrity="sha512-WNZwVebQjhSxEzwbettGuQgWxbpYdoLf7mH+25A7sfQbbxKeS5SQ9QBf97zOY4nOlwtksgDA/czSTmfj4DUEiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<!-- Deactivation of Google Analytics | Before Google Analytics, replace G-XXXXXXXX with Google Analytics Mess-ID -->
+
+<script type="text/javascript">
+  var gaProperty = 'G-XXXXXXXX';
+  var disableStr = 'ga-disable-' + gaProperty;
+  if (document.cookie.indexOf(disableStr + '=true') > -1) {
+  window[disableStr] = true;
+  }
+  function gaOptout() {
+  document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+  window[disableStr] = true;
+  alert('Das Tracking durch Google Analytics wurde in Ihrem Browser für diese Website deaktiviert.');
+  }
+  </script>
+
+<!-- Custom Javascript -->
+<script type="module" src="/main.js"></script>

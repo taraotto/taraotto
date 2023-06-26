@@ -1,0 +1,19 @@
+<!------------------ This is the blog post preview for index / related posts ------------------>
+
+<div class="bg-sage-200 hover:bg-sage-300/30 md:first:border-l border-b md:border-r text-center pb-28">
+  
+  <img class="h-[75vh] w-full object-cover mb-16" src="{{post.featured-image}}">
+
+  <span class="block">
+    {% for item in post.categories %}
+      <div class="mx-1 inline-block border-b pb-1 tinytitle">{{item}}</div>
+    {% endfor %}
+  </span>
+
+  <h2 class="text-center inline-block tracking-[.03em] my-8 px-20">{{post.title}}</h2>
+  
+  <span class="tinytitle block"><strong>{{post.date | date: "%d %b %Y"}}</strong></span>
+
+</div>
+
+<!-- include in the link: {{post.url}} -->

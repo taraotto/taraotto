@@ -1,0 +1,19 @@
+---
+layout: none
+---
+
+
+[
+  {% assign products = site.projects %}
+  {% for item in products %}
+    {
+      "title"    : "{{ item.title | strip_html }}",
+      "categories" : "{{ item.categories | join: ' | ' }}",
+      "tags"     : "{{ item.tags | join: ', ' }}",
+      "url"      : "{{ item.baseurl }}{{ item.url }}",
+      "date"     : "{{ item.date }}"
+    } 
+    
+    {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]

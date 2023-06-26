@@ -1,22 +1,222 @@
 ---
 layout: default
+title: Homepage
+header-bg: bg-sage-200/0
+image-banner:
+  - bg-image: /assets/images/moods/elsewhere-mood-plants-1.jpg
+    text: Are you ready to take<br>your business to the next level?
+    link-text: My services
+    link-url: /services.html
+    overlay: true
+  - bg-image: /assets/images/moods/elsewhere-mood-waterfall.jpg
+    text: So much world.<br><em>So little time.</em>
+    link-text: Read the blog
+    link-url: /blog.html
+    overlay: true    
+  - bg-image: /assets/images/moods/elsewhere-mood-plants-1.jpg
+    text: Let’s explore<br><em>together</em>
+    link-text: Send me a postcard
+    link-url: /contact.html
+    overlay: true    
+
 ---
 
+<!-------------------------- Intro -------------------------->
+<section class="bg-sage-200 min-h-screen -mt-[20vh] bg-cover bg-center z-0 overflow-hidden pt-40 pb-10 lg:pb-32 relative">
 
-<section class="relative">
-  <div class="md:px-[25vw] lg:px-[30vw] flex flex-col justify-center items-center text-left md:text-center absolute inset-0 bg-sage-300 h-screen w-screen p-10" style="background-image: url('/assets/elsewhere-mood-palmtree-shadow.png');">
-    <img src="assets/ofelsewherestudio_logo.svg" class="w-28 h-28 mb-6 md:self-end">
-    <h2 class="leading-[3rem] md:leading-[5rem] text-4xl md:text-6xl pb-5">Coming soon.<br><em>Coming soon.</em><br>Coming soon.</h2>
-    <a href="mailto:design@ofelsewhere.com" class="button my-10">Say hello</a>
-    <div class="space-x-5">    
-      <a href="https://www.instagram.com/ofelsewherestudio/" rel="nofollow" target="_blank">
-        <i class="fab fa-instagram hover:opacity-60"></i>
-      </a>
-      <a href="https://www.pinterest.de/ofelsewhere/" rel="nofollow" target="_blank">
-        <i class="fab fa-pinterest-p hover:opacity-60"></i>
-      </a>
-    </div>   
+  <div class="bg-image-rotate absolute -top-10 -bottom-20 -left-10 z-30 object-cover overflow-hidden pointer-events-none"><img src="/assets/images/moods/elsewhere-mood-palmtree-shadow.png"></div>
+
+    <!------------- Grid ------------->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 p-10 md:p-20 lg:p-0 xl:px-10">
+
+      <!------------- Left column / Headline ------------->
+      <div class="col-span-1 lg:ml-20 lg:pt-20 lg:pb-10 relative z-20">
+        <span class="hidden md:block tinytitle mb-4" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200">Of Elsewhere | Design & Travel</span>
+        <!------------- Desktop ------------->
+        <h1 class="hidden md:block text-[3rem] leading-[3.5rem] md:text-[4rem] md:leading-[4.5rem] xl:text-[4.5rem] xl:leading-[5rem] 2xl:text-[5.5rem] 2xl:leading-[6rem] mb-10" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200">
+        Your <em>creative guide</em><br>on your <em>brand &<br>web design journey.</em>
+        </h1>
+        <!------------- Mobile ------------->
+        <h1 class="md:hidden text-[3.5rem] leading-[4rem] mb-10" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200">
+          Your <em>creative guide</em> on your <em>brand & web design journey.</em>
+          </h1>
+        <a href="#categories" class="button z-50" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">Explore more</a>
+      </div>
+
+      <!------------- Right column / Images ------------->
+      <div class="col-span-1 md:mt-8 lg:mr-20 lg:relative h-[30vh] md:h-[55vh] z-0" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="500">
+        <img src="/assets/images/portfolio/emye/design-emye-website-home.png" class="inset-0 absolute h-full w-full object-cover">
+        <img src="/assets/images/portfolio/galeria/elsewhere-design-galeria-logo.jpg" class="hidden lg:block lg:absolute h-[45%] aspect-[6/4] -bottom-24 -left-32 object-cover" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="600">
+      </div>  
+    </div>
+        
+  <!------------- Scroll Text ------------->
+
+
+  <div class="py-2 flex absolute overflow-hidden bottom-0 border-t border-t-black border-b border-b-black">
+    <div class="flex items-center justify-start whitespace-nowrap">
+      <h5 class="scroll-text"> Design Strategy. Brand Design. Web Design. Web Development. Now booking June & July.&nbsp;</h5>
+      <h5 class="scroll-text"> Design Strategy. Brand Design. Web Design. Web Development. Now booking June & July.&nbsp;</h5>
+      <h5 class="scroll-text"> Design Strategy. Brand Design. Web Design. Web Development. Now booking June & July.&nbsp;</h5>
+      <h5 class="scroll-text"> Design Strategy. Brand Design. Web Design. Web Development. Now booking June & July.&nbsp;</h5>
+    </div>
   </div>
+
 </section>
 
 
+<!-------------------------- CTA -------------------------->
+
+<!-------------------------- Categories -------------------------->
+
+<section class="" id="categories">
+  <div class="grid grid-cols-1 md:grid-cols-2 text-center items-center">
+
+    <!------------- Design ------------->
+    <a href="/services.html" class="border-b md:border-b-0 md:border-r py-40 md:py-64 bg-cover bg-bottom relative w-full h-full" style="background-image: url('assets/images/moods/elsewhere-mood-pear.jpg');">
+      <div class="absolute text-center text-white inset-0 flex justify-center items-center cursor-pointer bg-black/[.1] hover:bg-black/[.3] transition duration-300 ">
+      <h2 class=" text-[5rem] leading-[5rem]">For<br><em>Businesses</em></h2>
+      </div>
+    </a>
+
+    <!------------- Travel ------------->
+    <a href="/blog.html" class="md:border-r py-40 md:py-64 bg-cover bg-center relative w-full h-full" style="background-image: url('/assets/images/moods/elsewhere-mood-plants-2.jpg');">
+      <div class="absolute text-center text-white inset-0 flex justify-center items-center cursor-pointer bg-black/[.2] hover:bg-black/[.4] transition duration-500 ">
+      <h2 class=" text-[5rem] leading-[5rem]">For<br><em>Travellers</em></h2>
+      </div>
+    </a>
+  </div>
+  <hr>
+</section>
+
+<!-------------------------- Services -------------------------->
+
+<section class="py-20 lg:py-32 lg:relative w-full h-full"> 
+  <div class="container grid grid-cols-1 lg:grid-cols-2 gap-20">
+
+    <!------------- Left column ------------->
+    <div class="hidden lg:block">
+      <img src="/assets/logos/ofelsewherestudio_logo.svg"
+           class="w-36 absolute top-36 left-20 z-40" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
+      <img src="/assets/images/portfolio/emye/design-emye-candle.png"
+           class="h-[35vh] w-[30vw] object-cover absolute top-52 left-48 z-20" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+      <img src="/assets/images/portfolio/waves/design-waves-phone.png"
+           class="h-[45vh] w-[25vw] object-cover absolute top-[28rem] left-24 mb-20 z-10" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+    </div>
+
+    <!------------- Right column ------------->
+    <div class="flex-col items-center px-6 md:px-0">
+      <span class="tinytitle"  data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">Of Elsewhere Studio</span>
+      <h1 class="my-5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">Uncover your brand’s<br><em>full potential.</em></h1>
+      <p class="my-5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Beautiful design is nice to look at but without a clear strategic foundation it lacks certainty and is easily replaceable. Together we will get to the core of your brand, discover what sets you apart from the competition and connect with your ideal audience.</p>
+      <p class="my-0 md:my-5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">Services I offer include:</p>
+      <ul class="">
+        <div class="" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+          {% assign faqs = site.data.faqs | where:'product-type','index' %}
+          {% include faqs.html %}
+        </div>
+        <a href="/services.html" class="button mt-5 md:mt-10 mr-5 mb-5 md:mb-0" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">Package details</a> <a href="/portfolio.html" class="button" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">My work</a>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-------------------------- Image banner -------------------------->
+
+{% for item in page.image-banner limit:1 offset:1 %}
+<section> 
+  <div class="{% if item.overlay == true %} bg-blend-multiply bg-black/50 text-white {% endif %} bg-fixed bg-cover h-[60vh] bg-center flex flex-col justify-center items-center"
+  style="background-image: url('{{item.bg-image}}')">
+    <h2 class="text-[4rem] leading-[4.2rem] md:text-[5rem] md:leading-[5.5rem] pb-10 text-center">{{item.text}}</h2>
+    <a href="{{item.link-url}}" class="button-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">{{item.link-text}}</a>
+  </div>
+</section>
+{% endfor %}
+
+<!-------------------------- Travel blog -------------------------->
+
+<section class="bg-sage-200 pt-20">
+
+  <!------------- Blog description ------------->
+  <div class="grid grid-cols-1 md:grid-cols-8 container items-center px-6 md:px-0">
+    <div class="md:col-start-1 md:col-end-5 mb-10 md:mb-20">
+      <h2 class="text-[5rem] leading-[5.5rem]">Inspired<br><em>by travel.</em></h2>
+    </div>
+    <div class="md:col-start-5 md:col-end-9 mb-20">
+      <p>Discovering new cities, exploring museums, finding beautiful places and learning about different cultures – I feel the most inspired when I get the chance to explore new corners of the world. Always on the lookout for design-oriented hotels, restaurants and shops (while keeping it budget-friendly) I hope to share these recommendations with you to make your future trips unique and unforgettable.</p>
+    </div>
+  </div>
+  <hr>
+
+  <!------------- Blog preview (Desktop) ------------->
+  <div class="hidden lg:block">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3">
+
+  		{% for post in site.posts limit:3 %}
+
+        {% include post-preview.html %}
+      		
+  		{% endfor %}
+ 		
+	  </div>
+
+    <!------------- Blog link ------------->
+    <div class="text-center items-center relative">
+      <div class="absolute -top-6 w-full mx-auto"><a href="/blog.html" class="button bg-sage-200 hover:bg-sage-300">Coming soon</a></div>
+    </div>   
+  </div>
+
+  <!------------- Blog preview (Mobile) ------------->
+    
+  <div class="lg:hidden">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+
+  		{% for post in site.posts limit:4 %}
+
+        {% include post-preview.html %}
+      		
+  		{% endfor %}
+ 		
+	</div>
+
+    <!------------- Blog link ------------->
+    <div class="text-center items-center relative">
+      <div class="absolute -top-6 w-full mx-auto"><a href="" class="button bg-sage-200 hover:bg-sage-300">Coming soon</a></div>
+   </div>   
+  </div>
+
+</section>
+
+<!-------------------------- About me -------------------------->
+
+<section class="bg-sage-200 overflow-hidden">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center py-32 container px-10 md:px-0">
+    
+    <!------------- Description ------------->
+    <div class="col-span-1" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
+      <h2>Hey, I'm <em>Tara.</em></h2>
+      <p class="my-10">
+        After graduating from design school, I spent six years making my way from hard-working design intern to award-winning Senior Art Director at a strategy-focused design agency. But while I enjoyed being part of the inspiring team atmosphere, I was longing for more freedom and the ability to see the world. 
+        <br><br>
+        So when my husband received an offer to work abroad, we didn’t hesitate. I realized, that I don’t need an office to construct distinctive and intentional brands. Luckily I can take my creativity and experience wherever I go – which lead me to pursue my dream of starting a location independent studio that combines my two passions: Design & Travel.</p>
+      <a href="/about.html" class="button">Learn more</a>
+    </div>
+
+    <!------------- Image ------------->
+    
+    <div class="col-span-1">
+      <img src="/assets/images/moods/elsewhere-mood-portrait-2.png" class="lg:h-[85vh] w-full object-cover object-bottom border p-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="100">
+    </div>
+  </div>
+</section>
+
+<!-------------------------- Image banner -------------------------->
+{% for item in page.image-banner limit:1 offset:2 %}
+<section> 
+  <div class="{% if item.overlay == true %} bg-blend-multiply bg-black/50 text-white {% endif %} bg-fixed bg-cover h-[60vh] bg-center flex flex-col justify-center items-center"
+  style="background-image: url('{{item.bg-image}}')">
+    <h2 class="text-[4rem] leading-[4.5rem] md:text-[5rem] md:leading-[5.5rem] pb-10 text-center">{{item.text}}</h2>
+    <a href="{{item.link-url}}" class="button-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">{{item.link-text}}</a>
+  </div>
+</section>
+{% endfor %}

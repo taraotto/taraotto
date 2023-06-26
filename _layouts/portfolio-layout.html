@@ -1,0 +1,116 @@
+---
+layout: default
+---
+
+<!-------------------------- Intro -------------------------->
+
+<section class="{{page.header-color}} lg:min-h-screen -mt-[20vh] bg-cover bg-center z-30 w-full overflow-hidden p-6 md:p-0" style="background-image: url('{{page.header-image}}');">
+
+  <div class="container grid grid-cols-1 lg:grid-cols-5 gap-20 pt-40 pb-40">
+
+    <!------------- Left column ------------->
+    <div class="col-span-1 md:col-span-2 mt-20 md:h-full">
+      <div class="tinytitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">{{page.title}}</div>
+      <h1 class="lg:text-[4.5vw] lg:leading-[5vw] mt-5 pb-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        {{page.headline}}
+      </h1>
+      <p class="mb-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">{{page.description-html}}</p>
+      {% if page.link-target != nil %}
+      <a href="{{page.link-target}}" target="_blank" class="button z-50" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">{{page.link-description}}</a>
+      {% endif %}
+    </div>
+
+    <!------------- Right column ------------->
+    <div class="col-span-1 md:col-span-3 lg:mt-20 z-0 ">
+      <img src="{{page.featured-image}}" class="{% if page.image-hidden == true %} hidden {% endif %} h-full w-full object-cover">
+    </div>  
+  </div>
+</section>
+
+
+<!------------------ Blocks ------------------>
+
+{% for block in page.page_blocks %}
+  {% include /blocks/{{block._id}}.html %}
+{% endfor %}
+
+<!------------- Testimonial ------------->
+{% if page.testimonial == true %}
+<section class="{{page.bottom-color}} {{page.bottom-overlap}}">
+  <div class="pb-10 w-full md:max-w-4xl mx-auto text-center">
+
+    <h4 class="mb-10 border-b pb-2 inline-block">Client Feedback:</h4>
+  
+    <div class="">
+      {% for item in page.testimonials %}
+      <div class="items-center justify-center flex-col flex">
+        {% if item.client-image != nil %}
+        <img src="{{item.client-image}}" class="rounded-full aspect-square object-cover w-60 mb-10">
+        {% endif %}
+        <div class="flex flex-row items-center">
+          <div class="p-5 md:p-10 text-6xl text-medium-beige opacity-50">“</div>
+  
+            <div>
+              <p>{{item.quote}}</p>
+            </div>
+  
+          <div class="p-5 md:p-10  text-6xl text-medium-beige opacity-50">”</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  
+  </div>   
+</section>
+{% endif %}
+
+<!-------------------------- Arrows -------------------------->
+
+<section class="{{page.arrow-color}} pb-20 {% if page.testimonial != true %} md:-mt-40 pt-10 md:pt-60 {% endif %}">
+  <div class="container">
+  <div class="flex md:flex-row justify-center">
+    <div class="md:self-start mr-3">
+
+      {% unless page.previous %}
+
+      {% assign last_page = site.projects | last %}
+
+      <a href="{{ last_page.url }}" class="button">Previous</a>
+
+      {% else %}
+      
+      <a href="{{ page.previous.url }}" class="button">Previous</a>
+      
+      {% endunless %}
+
+    </div>
+    <hr class="mx-auto md:w-[80%] mt-5 hidden md:block">
+    <div class="md:self-end ml-3">
+
+      {% unless page.next %}
+
+      {% assign first_page = site.projects | first %}
+      
+      <a href="{{ first_page.url }}" class="button">Next</a>
+      
+      {% else %}
+      
+      <a href="{{ page.next.url }}" class="button">Next</a>
+      
+      {% endunless %}
+
+    </div>
+  </div>
+</div>
+</section>
+
+<!-------------------------- Image banner -------------------------->
+{% for item in page.image-banner limit:1 %}
+<section> 
+  <div class="{% if item.overlay == true %} bg-blend-multiply bg-black/50 text-white {% endif %} bg-fixed bg-cover h-[60vh] bg-center flex flex-col justify-center items-center"
+  style="background-image: url('{{item.bg-image}}')">
+    <h2 class="text-[4rem] leading-[4.5rem] md:text-[5rem] md:leading-[5.5rem] pb-10 text-center">{{item.text}}</h2>
+    <a href="{{item.link-url}}" class="button-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">{{item.link-text}}</a>
+  </div>
+</section>
+{% endfor %}

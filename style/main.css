@@ -8,7 +8,6 @@
        url('/assets/fonts/canela-thin-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-
 }
 
 @font-face {
@@ -20,18 +19,146 @@
 
 }
 
+
 html {
   scroll-behavior: smooth;
 }  
 
 /* ------------ Typography styles ------------ */
 
-h1, h2, h3  { @apply font-display font-light text-[3.5rem] leading-[4.5rem] tracking-[.02em]; }
+h1, h2, h3 { @apply font-display font-light text-[3.5rem] leading-[4.5rem] tracking-[.01em] pb-3; }
 
-p           { @apply leading-8 text-[0.9rem] tracking-[0.03em]; }
+h1 { @apply text-[3.5rem] leading-[4.2rem] }
+h2 { @apply text-[3.5rem] md:text-[2.5rem] leading-[4rem] md:leading-[3rem] }
+h3 { @apply text-[1.5rem] leading-[1.5rem] tracking-[0.03em] italic}
+h4 { @apply text-xs uppercase tracking-[.05em] leading-6 font-medium}
+
+p           { @apply leading-6 text-[0.8rem] tracking-[0.03em] pb-3; }
+
+p a         { @apply underline }
+
+nav         { @apply inline-block py-3 px-6 text-xs font-semibold uppercase tracking-[.2em]; }
+
+.subtitle   { @apply text-sm uppercase tracking-[.2em] }
+
+.tinytitle  { @apply text-xs uppercase tracking-[.3em] leading-6 font-semibold }
+
+li          { @apply border-b border-black text-xs uppercase tracking-[.3em] font-semibold py-2 }
+
+.privacy li {
+@apply leading-6 text-[0.7rem] tracking-[0.03em] pb-3 font-normal my-3 normal-case
+}
 
 /* ------------ Button styles ------------ */
 
 .button { 
-    @apply inline-block py-3 px-6 text-xs font-semibold uppercase tracking-[.2em] no-underline rounded-full text-black border-black border hover:bg-sage-500/20 transition; 
-  }
+  @apply inline-block py-3 px-6 text-xs font-semibold uppercase tracking-[.2em] no-underline rounded-full text-black border-black border hover:bg-graphit/10 transition; 
+}
+
+.button-white { 
+  @apply inline-block py-3 px-6 text-xs font-semibold uppercase tracking-[.2em] no-underline rounded-full text-white border-white border hover:bg-white/10 transition; 
+}
+
+.button.active { 
+  @apply bg-black/10; 
+}
+
+/* ------------ Cookie banner ------------ */
+
+#cookie-notice { @apply p-4 hidden text-center text-xs tracking-[.1em] fixed left-0 right-0 bottom-0 w-full bg-sage-900 text-white }
+
+#cookie-notice a { @apply inline-block cursor-pointer ml-2 }
+
+#close-cookie-banner { @apply p-4 cursor-pointer text-sm opacity-50 }
+
+/* ------------ FAQs Accordion ------------ */
+
+.expandable { 
+  overflow: hidden;
+  max-height: 20rem; 
+  transition: 1s;
+}
+
+.hide-answer { 
+  max-height: 0;
+  transition: 0.5s;
+  margin-bottom: 0rem;
+}
+
+.expandButton .symbol::before {
+  content: '\002B';
+  margin-right: 0.5rem;
+}
+.expandButton.active .symbol::before {
+  content: '\2212';
+  margin-right: 0.5rem;
+}
+
+/* ------------ Slick Slider ------------ */
+
+.slick-dots {
+  right:0;
+  bottom: -4rem;
+  border-bottom: none;
+}
+
+.slick-dots li {
+  border-bottom: none;
+}
+
+.slick-next::before, .slick-prev::before {
+  font-family: Mons;
+  font-size: 20px;
+  line-height: 1;
+  opacity: .75;
+  @apply text-sage-200
+}
+
+.slick-track {
+  display: flex;
+}
+.slick-track .slick-slide {
+  display: flex;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ------------ Mobile menu ------------ */
+
+.mobile-menu-hidden  { @apply left-[100vw] -right-[100vw] pointer-events-none }  
+.menu-logo           { @apply transition-all duration-500 }
+.burger.active       { @apply stroke-white fill-white }
+
+
+/* ------------ Scroll Text ------------ */
+
+.scroll-text {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: .3em;
+  display: flex;
+  animation: scrollText 60s infinite linear;
+  transition: all 1s ease;
+  margin-bottom: 0; }
+
+  @keyframes scrollText {
+    from {transform:translate(0);}
+    to {transform:translate(-200%);}
+}
+
+  .bg-image-rotate {
+    display: flex;
+    width: max-content;
+    animation: spin 9s infinite linear;
+    transition: all 1s ease;
+    margin-bottom: 0;  }
+
+    @keyframes spin {
+        0% {transform:rotate(-5deg);}
+        50% {transform:rotate(5deg);}
+        100% {transform:rotate(-5deg);}
+    }
+    
+    

@@ -1,0 +1,87 @@
+- question: Creative direction
+  product-type: branding
+  data: 1
+  answer: 
+    •&ensp; Basic analysis of competion + target groups
+    <br>•&ensp; Defining a design strategy
+    <br>•&ensp; Moodboard
+- question: Logo
+  product-type: branding
+  data: 2
+  answer: 
+    •&ensp; Research & first ideas
+    <br>•&ensp; Logo concepts
+    <br>•&ensp; Defining logo colors and typography
+    <br>•&ensp; Revisions
+    <br>•&ensp; Final artwork & data preparation</span>
+- question: Basic design elements
+  product-type: branding
+  data: 3
+  answer: 
+    •&ensp; Defining general color palette and brand fonts
+    <br>•&ensp; Additional design elements
+    <br>•&ensp; First look of imagery
+- question: Brand style guide
+  product-type: branding
+  data: 4
+  answer: 
+    •&ensp; Brand style guide of 15+ pages to ensure consistent use of the new branding
+- question: Collateral items
+  product-type: branding
+  data: 5
+  answer: 
+    <br>•&ensp; Stationary
+    <br>•&ensp; Social Media templates
+    <br>•&ensp; Presentation slides
+  
+
+
+- question: Structure & Wireframing
+  product-type: digital
+  data: 6
+  answer: 
+    •&ensp; Basic analysis of competion + target groups
+    <br>•&ensp; Website structure through wireframing  
+- question: Web Design
+  product-type: digital
+  data: 7
+  answer: 
+    •&ensp; Research & first ideas
+    <br>•&ensp; Adobe XD layout
+    <br>•&ensp; Defining colors and typography
+    <br>•&ensp; Sourcing icons and imagery
+- question: Web Development
+  product-type: digital
+  data: 8
+  answer: 
+    •&ensp; Custom HTML & CSS
+    <br>•&ensp; Basic Javascript animations
+    <br>•&ensp; Editable moduls for CloudCannon (optional)
+- question: Hosting & Maintenance
+  product-type: digital
+  data: 9
+  answer: 
+    •&ensp; Set up domain & hosting
+    <br>•&ensp; Trouble-shooting & ongoing support            
+
+
+- question: Design Strategy
+  product-type: index
+  data: 1
+  answer: 
+    Our journey begins with understanding the foundation of your brand through a basic analysis of your competition and target audience. Together we visualize design parameters and moodboards to ensure we are on the same page before starting the creative process.
+- question: Brand Design
+  product-type: index
+  data: 2
+  answer: 
+    By crafting a logo with purpose and setting the mood with strategic colors and typography we are building a brand your audience trusts. Additional design elements grab your customer’s attention and enhance your recognizability.
+- question: Web Design & Development
+  product-type: index
+  data: 3
+  answer: 
+    Connect with your audience through a professional and aesthetic website, that is tailored to your needs. Custom-coded and easily editable – no more complicated templates and content management systems that limit your possibilities.
+- question: Print, Editorial & Packaging design
+  product-type: index
+  data: 4
+  answer: 
+    Consistency is key. We want to ensure your carefully crafted branding is implemented seamlessly across all media touchpoints. This can include magazines, brochures, ebooks, posters, labels and whatever we come up with to best communicate your message. 

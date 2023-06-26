@@ -1,0 +1,170 @@
+---
+layout: default
+title: Homepage
+header-bg: bg-sage-200
+image-banner:
+  - bg-image: /assets/images/moods/elsewhere-mood-plants-1.jpg
+    text: Let’s explore<br><em>together</em>
+    link-text: Book now
+    link-url: /contact.html
+    overlay: true  
+
+---
+
+<!------------- Intro ------------->
+
+<section class="bg-sage-200 min-h-[60vh] z-0 relative w-full h-full overflow-hidden">
+
+
+  <div class="grid grid-cols-5 z-20 p-10 xl:p-0">
+  
+    <!------------- Left column ------------->
+    <div class="col-span-5 xl:col-span-3 xl:pt-10 md:px-10 xl:pl-24">
+      <div class="xl:hidden flex justify-end mb-10"><img src="/assets/logos/ofelsewherestudio_logo.svg" class="h-32"></div>
+      <span class="hidden md:block tinytitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Of Elsewhere Studio | Portfolio</span>
+      <h1 class="text-[2.8rem] leading-[3.3rem] md:text-[4rem] md:leading-[4.5rem] pt-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        Explore the <em>creative adventures</em> I shared with my clients and get inspired by <em>ideas that turned into reality.</em></em>
+      </h1>
+    </div>
+    
+    <!------------- Right column ------------->
+    <div class="col-span-5 xl:col-span-2 xl:pt-10 md:px-10 xl:pr-24 xl:pl-10 flex-col items-center mb-20 md:pb-0">
+      <div class="hidden xl:flex justify-end -mt-6 xl:mt-0" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300"><img src="/assets/logos/ofelsewherestudio_logo.svg" class="h-32"></div>
+        <p class="mt-10 xl:-mt-20 xl:pt-40 pb-10 w-full md:w-[50vw] xl:w-full" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+          Having spent six exciting years in a design agency, I had the chance to dive into an incredible mix of projects across diverse industries. It was during this time that I realized something special: any business has the potential to become a truly captivating and unforgettable brand.
+          <br><br>
+          If you're someone who appreciates the power of design, dares to stand out from the crowd, and understands the game-changing impact a well-crafted brand can have on your business, we can achieve great things together.
+        </p>
+        <a href="#projects" class="button mr-5 mb-5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">Explore more</a>
+    </div>
+
+  </div>
+
+  <!------------- Illustration ------------->
+  <img class="opacity-20 h-32 sm:h-44 absolute -bottom-8 -left-10" src="/assets/images/illustrations/cloud.svg">
+
+  </section>
+
+  <hr>
+
+<!-------------------------- Portfolio -------------------------->  
+
+<!---------------------- EMYE ---------------------->
+
+<section class="grid grid-cols-1 lg:grid-cols-8 odd:space-x-reverse" id="projects">
+    
+  {% for item in site.projects limit:1 %}
+  <!------------- Project image ------------->
+  <div class="col-span-1 lg:col-span-5 p-10 md:p-20 lg:border-r lg:border-b">
+    <img src="{{item.featured-image}}" class="h-[40vh] lg:h-full w-full object-cover">
+  </div>
+
+  <!------------- Project description ------------->
+
+  <div class="col-span-1 lg:col-span-3 pb-10 md:pb-20 px-10 md:px-20 lg:p-20 border-b">
+    <span class="tinytitle">{{item.title}}</span>
+    <h2 class="text-[3rem] leading-[3.5rem] md:text-[4rem] md:leading-[4.5rem] mt-5">{{item.headline}}</h2>
+    <p class="py-5 mb-5">{{item.description-html}}</p>
+    <a href="{{item.url}}" class="button mr-5">Explore more</a>
+  </div>
+  {% endfor %}
+
+<!---------------------- Buen Camino ---------------------->  
+  
+  {% for item in site.projects limit:1 offset:1 %}
+  <!------------- Project image ------------->
+  <div class="lg:order-2 col-span-1 lg:col-span-5 p-10 md:p-20 lg:border-b">
+    <img src="{{item.featured-image}}" class="h-[40vh] lg:h-full w-full object-cover">
+  </div>
+  <!------------- Project description ------------->
+
+  <div class="col-span-1 lg:col-span-3 pb-10 md:pb-20 px-10 md:px-20 lg:p-20 lg:border-r border-b">
+    <span class="tinytitle">{{item.title}}</span>
+    <h2 class="text-[3rem] leading-[3.5rem] md:text-[4rem] md:leading-[4.5rem] mt-5">{{item.headline}}</h2>
+    <p class="py-5 mb-5">{{item.description-html}}</p>
+    <a href="{{item.url}}" class="button mr-5">Explore more</a>
+  </div>
+  {% endfor %}  
+
+</section>
+
+<!---------------------- Waves ---------------------->
+
+<section class="grid grid-cols-1 lg:grid-cols-8 odd:space-x-reverse">
+    
+  {% for item in site.projects limit:1 offset:2 %}
+  <!------------- Project image ------------->
+  <div class="col-span-1 lg:col-span-5 p-10 md:p-20 lg:border-r lg:border-b">
+    <img src="{{item.featured-image}}" class="h-[40vh] lg:h-full w-full object-cover">
+  </div>
+
+  <!------------- Project description ------------->
+
+  <div class="col-span-1 lg:col-span-3 pb-10 md:pb-20 px-10 md:px-20 lg:p-20 border-b">
+    <span class="tinytitle">{{item.title}}</span>
+    <h2 class="text-[3rem] leading-[3.5rem] md:text-[4rem] md:leading-[4.5rem] mt-5">{{item.headline}}</h2>
+    <p class="py-5 mb-5">{{item.description-html}}</p>
+    <a href="{{item.url}}" class="button">Explore more</a>
+  </div>
+  {% endfor %}
+
+  <!---------------------- DFM ----------------------> 
+
+  {% for item in site.projects limit:1 offset:3 %}
+  <!------------- Project image ------------->
+  <div class="lg:order-2 col-span-1 lg:col-span-5 p-10 md:p-20 lg:border-b">
+    <img src="{{item.featured-image}}" class="h-[40vh] lg:h-full lg:min-h-[60vh] w-full object-cover object-[70%]">
+  </div>
+  <!------------- Project description ------------->
+
+  <div class="col-span-1 lg:col-span-3 pb-10 md:pb-20 px-10 md:px-20 lg:p-20 lg:border-r border-b">
+    <span class="tinytitle">{{item.title}}</span>
+    <h2 class="text-[3rem] leading-[3.5rem] md:text-[4rem] md:leading-[4.5rem] mt-5">{{item.headline}}</h2>
+    <p class="py-5 mb-5">{{item.description-html}}</p>
+    <a href="{{item.url}}" class="button">Explore more</a>
+  </div>
+  {% endfor %}  
+
+</section>
+
+<!---------------------- Small projects ---------------------->
+
+<section>
+<div class="grid grid-cols-1 lg:grid-cols-8">
+    
+    {% for item in site.projects limit:0 offset:4 %}
+    <!------------- Project left ------------->
+    <div class="col-span-1 lg:col-span-4 lg:border-b-0 border-b lg:border-r last:border-r-0 p-10 md:p-20">
+      <img src="{{item.featured-image}}" class="h-[60vh] lg:h-[50vh] w-full object-cover pb-10">
+      <span class="tinytitle">{{item.title}}</span>
+      <h2 class="text-[3rem] leading-[3.5rem] md:text-[4rem] md:leading-[4.5rem] lg:text-[3rem] lg:leading-[3.5rem] mt-5">
+        {{item.headline}}
+      </h2>
+      <p class="py-5 mb-5">{{item.description-html}}</p>
+      <a href="{{item.url}}" class="button">Explore more</a>
+    </div>
+    {% endfor %}
+
+  </div>
+</section>
+
+<!-------------------------- Testimonials -------------------------->
+
+{% assign testimonials = site.data.testimonials %}
+<section class="bg-sage-200 p-6">
+
+    {% include testimonials.html %}
+
+</section>
+
+<!-------------------------- Image banner -------------------------->
+
+{% for item in page.image-banner limit:1 %}
+<section> 
+  <div class="{% if item.overlay == true %} bg-blend-multiply bg-black/50 text-white {% endif %} bg-fixed bg-cover h-[60vh] bg-center flex flex-col justify-center items-center"
+  style="background-image: url('{{item.bg-image}}')">
+    <h2 class="text-[4rem] leading-[4.5rem] md:text-[5rem] md:leading-[5.5rem] pb-6 text-center">{{item.text}}</h2>
+    <a href="{{item.link-url}}" class="button-white">{{item.link-text}}</a>
+  </div>
+</section>
+{% endfor %}
