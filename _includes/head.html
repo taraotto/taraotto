@@ -4,28 +4,41 @@
   <meta charset="utf-8">
   
       <!-- Meta data for SEO purposes. -->
-      <title> {{page.seo.title}} </title>
-      <meta name="description" content="{{page.seo.meta-description}}">
-      <meta name="keywords" content="{{page.seo.meta-keywords}}">
+      <title> {{ page.seo.title | default: site.data.site-settings.seo.title }} </title> 
+      <meta name="description" content="{{ page.seo.description | default: site.data.site-settings.seo.description }}">
+      <meta name="keywords" content="{{ page.seo.keywords | default: site.data.site-settings.seo.keywords }}">
+
+      {% if page.seo.hide-from-google == true %}
+      <meta name="robots" content="noindex, nofollow">
+      {% else %}
+      <meta name="robots" content="index, follow">
+      {% endif %}
+
+      <!--------------------- Favicon ----------------------->
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+      <link rel="manifest" href="/favicon/site.webmanifest">
+      <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#adb3a2">
+      <link rel="shortcut icon" href="/favicon/favicon.ico">
+      <meta name="msapplication-TileColor" content="#adb3a2">
+      <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+      <meta name="theme-color" content="#ffffff">
   
-      <!-- meta data to tell the browser that your devide is responsive -->
+      <!--------------------- Responsiveness ----------------------->
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="index, follow">
       <meta name="mobile-web-app-capable" content="yes">
       <meta name="apple-mobile-web-app-capable" content="yes">
       <meta name="apple-mobile-web-app-status-bar-style" content="default">
   
-      <!--  Social media sharing META Tags -->
+      <!--------------------- Social Media Sharing ----------------------->
       <meta property="og:title" content="{{page.seo.title}}">
       <meta property="og:description" content="{{page.seo.meta-description}}">
       <meta property="og:image" content="{{page.seo.featured-image_path}}">
       <meta property="og:url" content="{{page.url}}">
       <meta name="twitter:card" content="{{page.seo.meta-description}}">
       <meta name="og:site_name" content="{{site.data.settings.general.site-name}}">
-  
-      {% if page.seo.hide-from-google == true %}
-        <meta name="robots" content="noindex">
-      {% endif %}
   
   <!-- End of Meta tags -->
   
