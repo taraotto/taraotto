@@ -160,11 +160,7 @@ image-banner:
 <!-------------------------- Image banner -------------------------->
 
 {% for item in page.image-banner limit:1 %}
-<section> 
-  <div class="{% if item.overlay == true %} bg-blend-multiply bg-black/50 text-white {% endif %} bg-fixed bg-cover h-[60vh] bg-center flex flex-col justify-center items-center"
-  style="background-image: url('{{item.bg-image}}')">
-    <h2 class="text-[4rem] leading-[4.5rem] md:text-[5rem] md:leading-[5.5rem] pb-6 text-center">{{item.text}}</h2>
-    <a href="{{item.link-url}}" class="button-white">{{item.link-text}}</a>
-  </div>
-</section>
+
+{% include image-banner.html %}
+
 {% endfor %}
