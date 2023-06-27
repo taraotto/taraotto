@@ -6,10 +6,10 @@ layout: default
 
 <section class="{{page.header-color}} lg:min-h-screen -mt-[20vh] bg-cover bg-center z-30 w-full overflow-hidden p-6 md:p-0" style="background-image: url('{{page.header-image}}');">
 
-  <div class="container grid grid-cols-1 lg:grid-cols-5 gap-20 pt-40 pb-40">
+  <div class="container grid grid-cols-1 lg:grid-cols-5 md:gap-20 pt-40 pb-20 md:pb-40">
 
     <!------------- Left column ------------->
-    <div class="col-span-1 md:col-span-2 mt-20 md:h-full">
+    <div class="col-span-1 md:col-span-2 md:mt-20 md:h-full">
       <div class="tinytitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">{{page.title}}</div>
       <h1 class="lg:text-[4.5vw] lg:leading-[5vw] mt-5 pb-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
         {{page.headline}}
@@ -21,7 +21,7 @@ layout: default
     </div>
 
     <!------------- Right column ------------->
-    <div class="col-span-1 md:col-span-3 lg:mt-20 z-0 ">
+    <div class="col-span-1 md:col-span-3 lg:mt-20 z-0">
       <img src="{{page.featured-image}}" class="{% if page.image-hidden == true %} hidden {% endif %} h-full w-full object-cover">
     </div>  
   </div>
@@ -105,6 +105,7 @@ layout: default
 </section>
 
 <!-------------------------- Image banner -------------------------->
+
 
 {% for item in page.image-banner limit:1 %}
 
