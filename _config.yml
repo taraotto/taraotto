@@ -6,6 +6,7 @@ collections:
     output: true
   projects:
     output: true
+    permalink: /portfolio/:slug
 
 
 assets:
