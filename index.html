@@ -143,7 +143,7 @@ image-banner:
   <hr>
 
   <!------------- Blog preview (Desktop) ------------->
-  <div class="hidden lg:block">
+  <div class="hidden xl:block">
     <div class="grid md:grid-cols-2 lg:grid-cols-3">
 
   		{% for post in site.posts limit:3 %}
@@ -162,8 +162,8 @@ image-banner:
 
   <!------------- Blog preview (Mobile) ------------->
     
-  <div class="lg:hidden">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+  <div class="xl:hidden">
+    <div class="grid grid-cols-3">
 
   		{% for post in site.posts limit:4 %}
 
