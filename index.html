@@ -17,12 +17,12 @@ image-banner:
 ---
 
 <!-------------------------- Intro -------------------------->
-<section class="bg-sage-200 min-h-screen -mt-[20vh] bg-cover bg-center z-0 overflow-hidden pt-36 pb-10 lg:pb-32 relative">
+<section class="bg-sage-200 min-h-screen -mt-[20vh] bg-cover bg-center z-0 md:overflow-hidden pt-36 pb-10 lg:pb-32 relative">
 
   <div class="bg-image-rotate absolute -top-10 -bottom-20 -left-10 z-30 object-cover overflow-hidden pointer-events-none"><img src="/assets/images/moods/elsewhere-mood-palmtree-shadow.png"></div>
 
     <!------------- Grid ------------->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:p-20 lg:p-0 xl:px-10">
+    <div class="hidden md:grid grid-cols-1 lg:grid-cols-2 gap-10 md:p-20 lg:p-0 xl:px-10">
 
       <!------------- Left column / Headline ------------->
       <div class="col-span-1 lg:ml-20 lg:pt-16 lg:pb-10 relative z-20">
@@ -39,16 +39,38 @@ image-banner:
         </h1>
         
         <!-- <p class="hidden lg:block mb-6 px-10 md:px-0">Join my adventures as a location independent designer, where I help brands and service providers reach their destination, while sharing some exciting places along the way.</p> -->
-        <a href="#categories" class="button z-50 mx-10 md:mx-0">Start exploring</a>
+
+        <a href="#categories" class="button z-50 mx-10 md:mx-0 hidden" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">Start exploring</a>
         
       </div>
 
       <!------------- Right column / Images ------------->
-      <div class="col-span-1 lg:relative h-[30vh] md:h-[55vh] z-0 mx-10 mb-10 md:m-0 md:mt-8 lg:mr-20" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="0">
+      <div class="col-span-1 lg:relative h-[30vh] md:h-[55vh] z-0 mx-10 mb-10 md:m-0 md:mt-8 lg:mr-20" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="500">
         <img src="/assets/images/portfolio/emye/design-emye-website-home.png" class="inset-0 absolute h-full w-full object-cover">
         <img src="/assets/images/portfolio/galeria/elsewhere-design-galeria-logo.jpg" class="hidden lg:block lg:absolute h-[45%] aspect-[6/4] -bottom-24 -left-32 object-cover" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="600">
       </div>  
-      
+    </div>
+
+    <!------------- Mobile Grid ------------->
+    <div class="grid md:hidden grid-cols-1 lg:grid-cols-2 gap-5">
+
+      <!------------- Left column / Headline ------------->
+      <div class="col-span-1 pt-4 z-20">
+
+        <p class="text-xs uppercase tracking-[.2em] leading-6 font-semibold mx-10 md:mx-0" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200">Of Elsewhere | Design & Travel</p>
+        
+        <!------------- Mobile ------------->
+        <h1 class="md:hidden text-[3.5rem] leading-[4rem] mb-6 px-10" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200">
+          Your <em>creative guide</em> on your <em>brand & web design journey.</em>
+        </h1>
+        
+      </div>
+
+      <!------------- Right column / Images ------------->
+      <div class="col-span-1 z-0 mx-10 mb-10">
+        <img src="/assets/images/portfolio/emye/design-emye-website-home.png" class="h-[30vh] w-full object-cover mb-6">
+        <img src="/assets/images/portfolio/galeria/elsewhere-design-galeria-logo.jpg" class="h-[30vh] w-full object-cover">
+      </div>  
     </div>
         
   <!------------- Scroll Text ------------->
