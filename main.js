@@ -34,8 +34,8 @@ dropDownButtons.forEach( button => {
 $('.slider-container-testimonials').slick({
 	// Setting name: setting-value
   autoplay: true, // Do we want it to autoplay? true or false
-	autoplaySpeed: 4000, // How long between each slide when auto-playing
-	speed: 2000, // How fast is the transition in milliseconds
+	autoplaySpeed: 8000, // How long between each slide when auto-playing
+	speed: 3000, // How fast is the transition in milliseconds
 	arrows: false, // Do you want to show arrows to trigger each slide
 	accessibility: true, // Enables keyboard tabbing and arrow key navigation
 	dots: true, // Enables the dots below to show how many slides
