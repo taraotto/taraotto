@@ -38,7 +38,7 @@ image-banner:
           Your <em>creative guide</em> on your <em>brand & web design journey.</em>
         </h1>
         
-        <a href="#categories" class="button z-50 mx-10" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">Explore more</a>
+        <a href="#categories" class="button z-50 mx-10 md:mx-0" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">Explore more</a>
       </div>
 
       <!------------- Right column / Images ------------->
@@ -144,7 +144,7 @@ image-banner:
 
   <!------------- Blog preview (Desktop) ------------->
   <div class="hidden xl:block">
-    <div class="grid md:grid-cols-2 lg:grid-cols-3">
+    <div class="grid xl:grid-cols-3">
 
   		{% for post in site.posts limit:3 %}
 
@@ -163,9 +163,9 @@ image-banner:
   <!------------- Blog preview (Mobile) ------------->
     
   <div class="xl:hidden">
-    <div class="grid grid-cols-3">
+    <div class="grid grid-cols-1 md:grid-cols-2">
 
-  		{% for post in site.posts limit:4 %}
+  		{% for post in site.posts limit:2 %}
 
         {% include post-preview.html %}
       		
@@ -199,7 +199,7 @@ image-banner:
     <!------------- Image ------------->
     
     <div class="col-span-1">
-      <img src="/assets/images/moods/elsewhere-mood-portrait-2.png" class="md:h-[85vh] w-full object-cover object-bottom border p-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="100">
+      <img src="/assets/images/moods/elsewhere-mood-portrait-2.png" class="md:h-[60vh] lg:h-[85vh] w-full object-cover object-bottom border p-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="100">
     </div>
   </div>
 </section>
