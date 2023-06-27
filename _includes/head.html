@@ -3,7 +3,7 @@
   <!-- Meta Data -->
   <meta charset="utf-8">
   
-      <!-- Meta data for SEO purposes. -->
+      <!--------------------- SEO ----------------------->
       <title> {{ page.seo.title | default: site.data.site-settings.seo.title }} </title> 
       <meta name="description" content="{{ page.seo.description | default: site.data.site-settings.seo.description }}">
       <meta name="keywords" content="{{ page.seo.keywords | default: site.data.site-settings.seo.keywords }}">
@@ -39,6 +39,16 @@
       <meta property="og:url" content="{{page.url}}">
       <meta name="twitter:card" content="{{page.seo.meta-description}}">
       <meta name="og:site_name" content="{{site.data.settings.general.site-name}}">
+
+      <!--------------------- Google tag (gtag.js) ----------------------->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVVVF12VPV"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-EVVVF12VPV');
+      </script>
   
   <!-- End of Meta tags -->
   
