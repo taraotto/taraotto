@@ -7,7 +7,9 @@
       
       <!------------------ Where to eat ------------------>
 
-      <h2 class="pb-5 editable">Headline</h2>
+      <h2 class="pb-5 editable">
+          Where to eat
+      </h2>
 
       {% for item in block.eat %}
 
@@ -21,15 +23,17 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:hidden mb-10">
         {% for item in block.eat %}
-        <div><img src="{{item.image}}"></div>
+        <div><img src="{{item.image}}" /></div>
         {% endfor %}
       </div>
 
-      <hr>
+      <hr />
       
       <!------------------ Where to stay ------------------>
 
-      <h2 class="pt-10 pb-5 editable">Headline</h2>
+      <h2 class="pt-10 pb-5 editable">
+          Where to stay
+      </h2>
 
       {% for item in block.stay %}
 
@@ -43,16 +47,18 @@
       {% for item in block.stay %}
 
       <div class="block lg:hidden mb-10">
-        <img src="{{item.image}}">
+        <img src="{{item.image}}" />
       </div>
 
       {% endfor %}
       
-      <hr>
+      <hr />
 
       <!------------------ What to see ------------------>
 
-      <h2 class="pt-10 pb-5 editable">Headline</h2>
+      <h2 class="pt-10 pb-5 editable">
+          What to see
+      </h2>
 
       {% for item in block.see %}
 
@@ -66,7 +72,7 @@
       {% for item in block.see %}
 
       <div class="block lg:hidden mb-10">
-        <img src="{{item.image}}">
+        <img src="{{item.image}}" />
       </div>
 
       {% endfor %}
@@ -112,4 +118,4 @@
 </div>
         
     </div>
-  </section>
+  </div></section>
