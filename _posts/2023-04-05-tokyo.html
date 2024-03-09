@@ -1,0 +1,158 @@
+---
+layout: post-layout
+site-header: travel
+title: Exciting <br><em>Tokyo</em>
+header-bg: 
+author: Tara Otto
+categories:
+  - asia
+  - japan
+date: 2023-04-05 02:00:00
+featured-image: /assets/images/posts/japan/tokyo/travel-tokyo-35.jpg
+header-image: /assets/images/posts/japan/tokyo/travel-tokyo-42.jpg
+
+restaurant:
+  - title: Riso e Latte
+    url: https://risoelatte.com/
+    description-html: "This tiny restaurant is a hidden gem - you will feel like you travelled back to Italy in the 60s and it is so lovely. Be sure to make a reservation and check out theadorable bathroom while your there."
+  - title: Bar Luce
+    url: https://www.fondazioneprada.org/
+    description-html: "This cafe is a part of the Fondazione Prada museumand is designed by none other but Wes Anderson.Definitelv a must-see for any fans of his movies."
+  - title: Obicà Mozzarella Bar
+    url: https://www.obica.com/
+    description-html: "This pizzeria is located on the 7th Floor of Rinascente Milan in
+    Piazza Duomo and offers a great view of the Duomo. Great place to
+    start of your trip with some delicious mozzarella and Aperol Spritz."    
+    
+location:
+  - title: Duomo
+    url: https://www.duomomilano.it/en/
+    description-html: "The Piazza del Duomo be most likely be the first stopon your sightseeing journey as the Duomo di Milano isthe most famous landmark
+    of the city. You can visit the inside of the Duomo and then catch the gorgeous viewsfrom its famous rooftop. It's 15€ to enter and walk up
+    the stairs and 20€ for the elevator."
+  - title: Galleria Vittorio Emanuele II
+    url:
+    description-html: "Galleria Vittorio Emanuele II is just to the left side ofthe Duomo. It is Italy's oldest active
+    shopping galleryand stands out due to its gorgeous architecture. Theshops might be slightly out of budget, but I was morefocused on the
+    pretty glass roof anyway."  
+  - title: Sforza Castle & Parco Sempione
+    url: 
+    description-html: "One of the things I like to do while exploring other citiesis take a stroll through one of their parks. After you've immersed yourself in a piece of history of Milan at theSforza Castle you can take a break in the nearby Parco Sempione."
+  - title: Cimitero Monumentale
+    url:
+    description-html: "This may sound a bit weird but the cementary of Milanwas a true highlight of my visit. It was beyond fascinating to see the
+  extraordinary tombs and walking around felt so peaceful."
+  - title: Fondazione Prada
+    url: https://www.fondazioneprada.org/
+    description-html: "This is the place to go for all lovers of modern art (andif you want to see the Bar Luce as mentioned above). Avery cool place to
+  spend a few hours. I especially lovedthe exterior of the museum the Carsten Höller's UpsideDown Mushroom Room."
+  - title: Navigli
+    url: ''
+    description-html: "There are endless bars and restaurants to choose from along the canal for a fun night out in Navigli. If you want to come earlier, you can check out the cute shops around this area, like TENOHA, Europe's
+    first Japanese concept store."
+
+hotel:
+  - title: Combo Milano
+    url: https://thisiscombo.com/de/location/milano/
+    description-html: "The hostel is located in Navigli (read more below), with a lot of
+    bars and restaurants just around the corner."  
+  - title: TBD
+    url: https://thisiscombo.com/de/location/milano/
+    description-html: "The hostel is located in Navigli (read more below), with a lot of
+    bars and restaurants just around the corner."  
+  - title: TBD
+    url: https://thisiscombo.com/de/location/milano/
+    description-html: "The hostel is located in Navigli (read more below), with a lot of
+    bars and restaurants just around the corner."      
+
+gallery:
+  - image: /assets/images/posts/italy/elsewhere-travel-bologna-7.jpg
+    column-size: col-span-4 md:col-span-2
+  - image: /assets/images/posts/italy/elsewhere-travel-bologna-3.jpg
+    column-size: col-span-4 md:col-span-2  
+  - image: /assets/images/posts/italy/elsewhere-travel-bologna-6.jpg
+    column-size: col-span-4 
+  - image: /assets/images/posts/italy/elsewhere-travel-bologna-2.jpg
+    column-size: col-span-4 md:col-span-2  
+  - image: /assets/images/posts/italy/elsewhere-travel-bologna-5.jpg
+    column-size: col-span-4 md:col-span-2  
+  - image: /assets/images/posts/italy/elsewhere-travel-bologna-1.jpg
+    column-size: col-span-4     
+ 
+seo:
+  title: Lovely Florence
+  meta-description: florence
+  meta-keywords: florence, italy, travel, city, food, guide
+  featured-image_path: /assets/images/posts/italy/elsewhere-travel-bologna-7.jpg
+  hide-from-google: true
+---
+
+<!------------------------------ Intro ------------------------------>
+
+<section class="container pt-20" id="">
+  <div class="flex-col justify-center text-center">
+    <p class="mx-auto pb-20 px-10 md:w-[80%]"> Milan, the bustling heart of Northern Italy, is a city that combines history and modernity with effortless grace. Known as the fashion capital
+      of the world and the home of Italian design, Milan is a city that always
+      keeps you on your toes with its energetic pace. From the iconic Cathedral
+      of Milan to the cutting-edge museums, this city is a feast for the senses.
+      Whether you're looking for haute couture, historical landmarks, or
+      delicious Italian cuisine, Milan has it all. Join us as we delve into the
+      vibrant culture of this city and uncover the hidden gems that make Milan
+      one of the most exciting places to visit in Italy.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:px-28">
+    <div><img src="/assets/images/posts/italy/elsewhere-travel-bologna-10.jpg" class="inline-block object-cover"></div>
+    <div><img src="/assets/images/posts/italy/elsewhere-travel-bologna-8.jpg" class="inline-block object-cover"></div>
+    </div>
+</section>
+
+
+<!------------------------------ Where to eat ------------------------------>
+
+<section class="container pt-20" id="">
+
+  <h2 class="lg:text-center pb-10 px-10 md:px-0">Where to eat</h2>
+
+  <!------------ Text ------------>
+  <div class="grid grid-cols-6 gap-5 md:gap-10 lg:gap-20 px-10 md:px-0">
+
+    {% for item in page.restaurant %}
+    <div class="col-span-6 md:col-span-3 lg:col-span-2">
+      <a href="{{ite.url}}" target="_blank" class="underline font-medium">{{item.title}}</a>
+      <p>{{item.description-html}}</p>
+    </div>
+    {% endfor %}
+
+  </div>  
+
+</section>
+
+<!------------------------------ What to see ------------------------------>
+
+<section class="container pt-20" id="">
+
+  <h2 class="lg:text-center pb-10 px-10 lg:px-0">What to see</h2>
+
+  <!------------ Text ------------>
+  <div class="grid grid-cols-6 gap-5 md:gap-10 lg:gap-20 px-10 lg:px-0">
+
+    {% for item in page.location %}
+    <div class="col-span-6 md:col-span-3 lg:col-span-2">
+      <a href="{{ite.url}}" target="_blank" class="underline font-medium">{{item.title}}</a>
+      <p>{{item.description-html}}</p>
+    </div>
+    {% endfor %}
+
+  </div>  
+
+  <!------------ Gallery ------------>
+  <div class="grid grid-cols-4 gap-5 lg:gap-10 pt-20 lg:px-28">
+
+    {% for item in page.gallery %}
+    <div class="{{item.column-size}}">
+      <img src="{{item.image}}">
+    </div>
+    {% endfor %}
+  
+  </div>
+
+</section>

@@ -4,9 +4,9 @@ layout: default
 
 <!------------------------------ Title section ------------------------------>
 
-<section class="bg-sage-200 py-20 overflow-hidden">
+<section class="py-20 overflow-hidden">
   <div class="container text-center">
-    <span class="tinytitle block">{{page.date | date: "%d %b %Y"}}</span>
+    <span class="tinytitle block">{{page.date | date: "%B %Y"}}</span>
 
     <h1 class="text-[5rem] leading-[5.5rem] my-10">{{page.title}}</h1>
 
@@ -18,10 +18,29 @@ layout: default
 
 <!------------------ Image banner ------------------>
 
-<section class="bg-sage-200 overflow-hidden"> 
-  <img src="{{page.featured-image-landscape}}" class="container max-h-[50vh] w-full object-cover">
+<section class="overflow-hidden"> 
+  <img src="{{page.header-image}}" class="container md:max-h-[65vh] lg:max-h-[60vh] w-full object-cover">
   </div>
 </section>
+
+<!------------------------------ Intro ------------------------------>
+
+<section class="container pt-20" id="">
+  <div class="flex-col justify-center text-center">
+    <p class="mx-auto px-10 lg:w-[80%]">{{page.intro-html}}</p>
+  </div>
+    
+  <!------------ Gallery ------------>
+  <div class="grid grid-cols-4 gap-5 lg:gap-10 pt-20 lg:px-28">
+
+    {% for item in page.gallery limit:2 %}
+    <div class="{{item.column-size}}">
+      <img src="{{item.image}}">
+    </div>
+    {% endfor %}
+  
+  </div>
+</section>  
 
 {{content}}
 
@@ -31,47 +50,35 @@ layout: default
   {% include /blocks/{{block._id}}.html %}
 {% endfor %}
 
-
 <!------------------ Social sharing ------------------>
 
-<section class="bg-sage-200 py-20">
+<section class="bg-sage-200 py-20 mt-20">
   <div class="container">
+
     <div class="md:col-span-2 text-center">
-      <h3 class="mx-10 md:mx-0">Share on socials:</h3>
-      <div class="flex space-x-8 justify-center py-6">
-        <a href="http://pinterest.com/pin/create/link/?url={{page.url}}&description={{page.title}}" rel="nofollow" target="_blank" title="Share on Pinterest">
-          <i class="fab fa-pinterest-p border rounded-full p-2 w-10 h-10 flex justify-center items-center hover:bg-sage-300/40"></i>
-        </a>
-        <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook">
-          <i class="fab fa-facebook-f border rounded-full p-2 w-10 h-10 flex justify-center items-center hover:bg-sage-300/40"></i>
-        </a>
-        <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via={{ site.twitter_username }}&related={{ site.twitter_username }}" rel="nofollow" target="_blank" title="Share on Twitter">
-          <i class="fab fa-twitter border rounded-full p-2 w-10 h-10 flex justify-center items-center hover:bg-sage-300/40"></i>
-        </a>
-        <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via={{ site.twitter_username }}&related={{ site.twitter_username }}" rel="nofollow" target="_blank" title="Share on Twitter">
-          <i class="fa-regular fa-envelope border rounded-full p-2 w-10 h-10 flex justify-center items-center hover:bg-sage-300/40"></i>
-        </a>
-      </div>
+      <h4 class="mx-10 tinytitle md:mx-0">Share on socials:</h4>
     </div>
 
-    <div class="lg:mx-40 grid grid-cols-1 md:grid-cols-2 gap-5 pt-10">
-      <div class="">
-        <img src="/assets/images/posts/italy/elsewhere-travel-pinterest-1.jpg">
-      </div>
-      <div class="">
-        <img src="/assets/images/posts/italy/elsewhere-travel-pinterest-2.jpg">
-      </div>
+    <!------------------ Icons ------------------>
+    <div class="flex space-x-8 justify-center pt-6">
+      <a href="http://pinterest.com/pin/create/link/?url={{page.url}}&description={{page.title}}" rel="nofollow" target="_blank" title="Share on Pinterest">
+        <i class="fab fa-pinterest-p border rounded-full p-2 w-10 h-10 flex justify-center items-center hover:bg-sage-300/40"></i>
+      </a>
+      <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook">
+        <i class="fab fa-facebook-f border rounded-full p-2 w-10 h-10 flex justify-center items-center hover:bg-sage-300/40"></i>
+      </a>
+      <a href="" rel="nofollow" target="_blank" title="Share on Twitter">
+        <i class="fa-regular fa-envelope border rounded-full p-2 w-10 h-10 flex justify-center items-center hover:bg-sage-300/40"></i>
+      </a>
     </div>
-    
-  </div>
-</section>
-
+  </section>
 <hr>
+
 <!------------------ Related posts ------------------>
 
 <section class="bg-sage-200 py-16">
   <div class="container text-center">
-    <h3 class="pb-10 text-3xl"> You may <em>also enjoy:</em></h3>
+    <h4 class="pb-10 tinytitle"> You may also like:</h4>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
 
       {% assign pageCategory = page.categories[0] %}
@@ -97,5 +104,10 @@ layout: default
         {% endfor %}
         
     </div>
+  </div>
+</section>
+
+<hr>
+
   </div>
 </section>
