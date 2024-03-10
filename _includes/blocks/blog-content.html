@@ -1,7 +1,8 @@
 <section class="container mt-20" id="">
 
+  {% if block.headline != null and block.headline != "" %}
   <h2 class="lg:text-center pb-10 px-10 md:px-0">{{block.headline}}</h2>
-
+  {% endif %}
 
   {% if block.type == 'recommendation' %}
   <!------------ Recommendation ------------>
@@ -17,11 +18,11 @@
   </div>
 
   {% elsif block.type == 'text' %}
-  <div class="grid grid-cols-6 gap-5 md:gap-10 lg:gap-20 px-10 md:px-0">
 
-    <p>{{block.description-html}}</p>
-
+  <div class="flex-col justify-center text-center">
+    <p class="mx-auto px-10 lg:w-[80%] pb-0">{{block.description-html}}</p>
   </div>
+
   {% endif %}
   
   <!------------------ Gallery ------------------>
