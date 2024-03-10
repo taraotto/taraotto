@@ -43,11 +43,11 @@ page_blocks: []
 
 _array_structures:
   page_blocks:
-    - label: Content Section
+    - label: Portfolio Content
       icon: article
       value:    
-        _id: content-section
-        title: Content Section
+        _id: portfolio-content
+        title: Portfolio Content
         grid-size: md:grid-cols-2
         background-color: bg-white
         width: container
