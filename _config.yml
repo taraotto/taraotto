@@ -75,8 +75,4 @@ _array_structures:
         _type: text
         title: text
         description-html: Lorem ipsum dolor sit amet
-<<<<<<< Updated upstream
         col-size:                
-=======
-        col-size: 
->>>>>>> Stashed changes
