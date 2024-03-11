@@ -1,3 +1,16 @@
+
+sass:
+  dir: _sass
+  style: compressed  
+
+css_dir: "/style"
+
+plugins:
+  - jekyll-postcss
+
+postcss:
+  cache: false
+
 collections:
   posts:
     output: true
@@ -175,26 +188,4 @@ _array_structures:
         _type: text
         title: text
         description-html: Lorem ipsum dolor sit amet
-        col-size: 
-
-  gallery:
-    - label: three-images
-      icon: photo_camera
-      value:    
-        _type: three-images          
-    - label: two-images-small
-      icon: photo_camera
-      value:    
-        _type: two-images-small
-    - label: two-images-portrait
-      icon: photo_camera
-      value:    
-        _type: two-images-portrait       
-    - label: one-image-landscape
-      icon: photo_camera
-      value:    
-        _type: one-image-landscape
-    - label: one-image-portrait
-      icon: photo_camera
-      value:    
-        _type: one-image-portrait                
+        col-size:                
