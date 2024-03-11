@@ -49,3 +49,136 @@ page_blocks: []
 
 _array_structures:
   page_blocks:
+    - label: Portfolio Content
+      icon: article
+      value:    
+        _id: portfolio-content
+        title: Portfolio Content
+        grid-size: md:grid-cols-2
+        background-color: bg-white
+        width: container
+        overlap:
+        padding-top: pt-20
+        padding-bottom: pb-20
+        columns:
+          - _type: image
+            image: /assets/images/elsewhere_blog_hoi_an.jpg
+            col-size: col-span-1
+          - _type: text
+            description-html: Lorem ipsum dolor sit
+            col-size: col-span-1
+    - label: Blog Intro
+      icon: article
+      value:    
+        _id: blog-intro
+        title: Blog Intro
+        background-color: bg-white
+        headline-html: Headline
+        description-html: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo corporis
+              voluptatum saepe quidem!
+        left-image: /assets/images/elsewhere_blog_hoi_an.jpg
+        right-image: /assets/images/elsewhere_blog_hoi_an.jpg
+    - label: Recommendations
+      icon: article
+      value:    
+        _id: recommendations
+        title: Recommendations
+        background-color: bg-white
+        position: left
+        eat:
+          - name: Obica
+            link-url: www.google.de
+            description-html: >-
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo corporis
+              voluptatum saepe quidem!
+        stay:
+          - name: Obica
+            link-url: www.google.de
+            description-html: >-
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo corporis
+              voluptatum saepe quidem!
+        see:
+          - name: Obica
+            url: www.google.de
+            description-html: >-
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo corporis
+              voluptatum saepe quidem!
+        blog-gallery:
+          - _type: three-images
+            first-image:
+            first-caption-html:
+            second-image:
+            second-caption-html:
+            third-image:
+            third-caption-html:
+          - _type: two-images-small
+            first-image:
+            first-caption-html:
+            second-image:
+            second-caption-html:
+          - _type: two-images-portrait
+            first-image:
+            first-caption-html:
+            second-image:
+            second-caption-html:
+          - _type: one-image-landscape
+            first-image:
+            first-caption-html:
+          - _type: one-image-portrait
+            first-image:
+            first-caption-html:                   
+    - label: Project Gallery
+      icon: article
+      value:    
+        _id: project-gallery
+        title: Project Gallery
+        background-color: bg-white
+        image: /assets/images/SiennaPhoto9.jpg
+        image-position: left
+        caption-html:
+        width: container
+        overlap: mt-0
+    - label: Image Grid
+      icon: article
+      value:    
+        _id: image-grid
+        title: Image Grid
+        background-color: bg-white
+        padding: py-20
+        columns:
+          - image: /assets/images/emye_me.png
+            title: Me
+            description-html: Lorem ipsum dolor
+          - image: /assets/images/emye_me.png
+            title: Me
+            description-html: Lorem ipsum dolor
+          - image: /assets/images/emye_me.png
+            title: Me
+            description-html: Lorem ipsum dolor                        
+    - label: Full Width Grid
+      icon: article
+      value:    
+        _id: full-width-grid
+        title: Full Width Grid
+        background-color: bg-white
+        padding-top: pt-20
+        padding-bottom: pb-20
+        first-image: /assets/images/emye_stilprinzip_01-1536x1154.png
+        second-image: /assets/images/emye_stilprinzip_01-1536x1154.png
+        third-image: /assets/images/emye_stilprinzip_01-1536x1154.png          
+
+
+  columns:
+    - label: Image
+      icon: photo_camera
+      value:    
+        _type: image
+        image:
+        col-size: 
+    - label: Text
+      icon: description
+      value:    
+        _type: text
+        title: text
+        description-html: Lorem ipsum dolor sit amet
+        col-size:                
