@@ -6,42 +6,47 @@ collections:
     output: true
   projects:
     output: true
-    permalink: /portfolio/:slug
 
-# This is for CloudCannon options 
+    permalink: /:slug
 
-# This is to set collections
-
-collections:
-  posts:
-    output: true
-    permalink: /posts/:slug
-  archives:
-    output: true
+assets:
+   sources:
+       -assets/fonts
 
 # This is for CloudCannon options 
 
 _select_data:
+  layouts:
+    default: Default
+    lookbook-layout: Lookbook
   background-colors:
-    bg-sage-200: Light Background
-    bg-sage-500: Dark Background
+    bg-sb-lightblue: Light Background
+    bg-black: Dark Background
     bg-white: White Background
-  grid-sizes:
-    grid-cols-1: 1 Column
-    grid-cols-2: 2 Columns
-    grid-cols-3: 3 Columns
-    grid-cols-4: 4 Columns
   image-positions:
     left: Left
     right: Right
   widths:
     container: Container
     w-full: Full-Width
+  positions:
+    items-start: Top
+    items-center: Center  
+    items-end: Bottom      
   col-sizes:
-    col-span-1: 1 Column
-    col-span-2: 2 Columns  
-    col-span-3: 3 Columns  
-    col-span-4: 4 Columns    
+    col-span-4 lg:col-span-2: 2 Columns / Mobile 4 Columns
+    col-span-4 lg:col-span-3 lg:row-span-1: 3 Columns / Mobile 4 Columns
+    col-span-6 lg:col-span-3 lg:row-span-1: 3 Columns / Mobile 6 Columns
+    col-span-12 lg:col-span-3 lg:row-span-1: 3 Columns / Mobile Full Width
+    col-span-4: 4 Columns
+    col-span-6: 6 Columns 
+    col-span-4 lg:col-span-6: 6 Columns / Mobile 4 Columns
+    col-span-12 lg:col-span-6: 6 Columns / Mobile Full Width
+    col-span-4 lg:col-span-6 lg:row-span-2: 6 Columns / 2 Rows / Mobile 4 Columns
+    col-span-6 lg:row-span-2: 6 Columns / 2 Rows
+    col-span-8: 8 Columns
+    col-span-8 lg:col-span-6 : 8 Columns / Mobile 6 Columns
+    col-span-12: Full width
 
 # This is for Page blocks
 
@@ -49,126 +54,28 @@ page_blocks: []
 
 _array_structures:
   page_blocks:
-    - label: Portfolio Content
+    - label: Intro Section
       icon: article
       value:    
-        _id: portfolio-content
-        title: Portfolio Content
-        grid-size: md:grid-cols-2
-        background-color: bg-white
+        _id: intro-section
+        title: Intro Section
+        vendors:
+          - title: 
+            name: 
+            link-url: 
+
+    - label: Content Section
+      icon: article
+      value:    
+        _id: content-section
+        title: Gallery
         width: container
-        overlap:
-        padding-top: pt-20
-        padding-bottom: pb-20
-        columns:
+        gallery:
           - _type: image
-            image: /assets/images/elsewhere_blog_hoi_an.jpg
-            col-size: col-span-1
-          - _type: text
-            description-html: Lorem ipsum dolor sit
-            col-size: col-span-1
-    - label: Blog Intro
-      icon: article
-      value:    
-        _id: blog-intro
-        title: Blog Intro
-        background-color: bg-white
-        headline-html: Headline
-        description-html: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo corporis
-              voluptatum saepe quidem!
-        left-image: /assets/images/elsewhere_blog_hoi_an.jpg
-        right-image: /assets/images/elsewhere_blog_hoi_an.jpg
-    - label: Recommendations
-      icon: article
-      value:    
-        _id: recommendations
-        title: Recommendations
-        background-color: bg-white
-        position: left
-        eat:
-          - name: Obica
-            link-url: www.google.de
-            description-html: >-
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo corporis
-              voluptatum saepe quidem!
-        stay:
-          - name: Obica
-            link-url: www.google.de
-            description-html: >-
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo corporis
-              voluptatum saepe quidem!
-        see:
-          - name: Obica
-            url: www.google.de
-            description-html: >-
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo corporis
-              voluptatum saepe quidem!
-        blog-gallery:
-          - _type: three-images
-            first-image:
-            first-caption-html:
-            second-image:
-            second-caption-html:
-            third-image:
-            third-caption-html:
-          - _type: two-images-small
-            first-image:
-            first-caption-html:
-            second-image:
-            second-caption-html:
-          - _type: two-images-portrait
-            first-image:
-            first-caption-html:
-            second-image:
-            second-caption-html:
-          - _type: one-image-landscape
-            first-image:
-            first-caption-html:
-          - _type: one-image-portrait
-            first-image:
-            first-caption-html:                   
-    - label: Project Gallery
-      icon: article
-      value:    
-        _id: project-gallery
-        title: Project Gallery
-        background-color: bg-white
-        image: /assets/images/SiennaPhoto9.jpg
-        image-position: left
-        caption-html:
-        width: container
-        overlap: mt-0
-    - label: Image Grid
-      icon: article
-      value:    
-        _id: image-grid
-        title: Image Grid
-        background-color: bg-white
-        padding: py-20
-        columns:
-          - image: /assets/images/emye_me.png
-            title: Me
-            description-html: Lorem ipsum dolor
-          - image: /assets/images/emye_me.png
-            title: Me
-            description-html: Lorem ipsum dolor
-          - image: /assets/images/emye_me.png
-            title: Me
-            description-html: Lorem ipsum dolor                        
-    - label: Full Width Grid
-      icon: article
-      value:    
-        _id: full-width-grid
-        title: Full Width Grid
-        background-color: bg-white
-        padding-top: pt-20
-        padding-bottom: pb-20
-        first-image: /assets/images/emye_stilprinzip_01-1536x1154.png
-        second-image: /assets/images/emye_stilprinzip_01-1536x1154.png
-        third-image: /assets/images/emye_stilprinzip_01-1536x1154.png          
+            image: 
+            col-size:                    
 
-
-  columns:
+  gallery:
     - label: Image
       icon: photo_camera
       value:    
@@ -181,4 +88,15 @@ _array_structures:
         _type: text
         title: text
         description-html: Lorem ipsum dolor sit amet
-        col-size:                
+        col-size: 
+
+  image-banner:
+  - label: Image Banner
+    icon: photo_camera
+
+  header-slide:
+  - label: Slide
+    icon: photo_camera
+    value:    
+      image: /assets/bilder/roncolo/sb-roncolo-wallpaper.jpg
+      alt-text: This is an image  
