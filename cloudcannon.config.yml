@@ -68,6 +68,10 @@ _inputs:
     type: select
     comment: "The layout of this post"
     label: Layout
+  gallery-size:
+    type: select
+    comment: "The layout of this post"
+    label: Gallery Size  
 
 _select_data:
   authors:
