@@ -4,12 +4,18 @@
   <h2 class="lg:text-center pb-10 px-10 md:px-0">{{block.headline}}</h2>
   {% endif %}
 
-  <!------------------ Text ------------------>
+  <!------------ Recommendation ------------>
 
-  <div class="flex-col justify-center text-center">
-    <p class="mx-auto px-10 lg:w-[80%] pb-0">{{block.description}}</p>
+  <div class="grid grid-cols-6 gap-5 md:gap-10 lg:gap-20 px-10 md:px-0">
+
+    {% for item in block.recommended %}
+    <div class="col-span-6 md:col-span-3 lg:col-span-2">
+      <a href="{{item.url}}" target="_blank" class="underline font-medium">{{item.title}}</a>
+      <p>{{item.description-html}}</p>
+    </div>
+    {% endfor %}
+
   </div>
-
   
   <!------------------ Gallery ------------------>
 
