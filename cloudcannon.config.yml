@@ -73,8 +73,33 @@ _select_data:
   - Tara
   - Otto
   - Lio
-  layout-list:
-  - name: Tara
-    role: Designer
-  - name: Otto
-    role: Developer
+ layouts:
+    default: Default
+    lookbook-layout: Lookbook
+  background-colors:
+    bg-black: Dark Background
+    bg-white: White Background
+  image-positions:
+    left: Left
+    right: Right
+  widths:
+    container: Container
+    w-full: Full-Width
+  positions:
+    items-start: Top
+    items-center: Center  
+    items-end: Bottom      
+  col-sizes:
+    col-span-4 lg:col-span-2: 2 Columns / Mobile 4 Columns
+    col-span-4 lg:col-span-3 lg:row-span-1: 3 Columns / Mobile 4 Columns
+    col-span-6 lg:col-span-3 lg:row-span-1: 3 Columns / Mobile 6 Columns
+    col-span-12 lg:col-span-3 lg:row-span-1: 3 Columns / Mobile Full Width
+    col-span-4: 4 Columns
+    col-span-6: 6 Columns 
+    col-span-4 lg:col-span-6: 6 Columns / Mobile 4 Columns
+    col-span-12 lg:col-span-6: 6 Columns / Mobile Full Width
+    col-span-4 lg:col-span-6 lg:row-span-2: 6 Columns / 2 Rows / Mobile 4 Columns
+    col-span-6 lg:row-span-2: 6 Columns / 2 Rows
+    col-span-8: 8 Columns
+    col-span-8 lg:col-span-6 : 8 Columns / Mobile 6 Columns
+    col-span-12: Full width
