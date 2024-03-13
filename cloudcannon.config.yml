@@ -76,6 +76,15 @@ _inputs:
     type: select
     comment: "The layout of this post"
     label: Types
+  description:
+    type: html
+    comment: "The layout of this post"
+    label: Description
+  main-headline:
+    type: html
+    comment: "The layout of this post"
+    label: Headline 
+    initial_height: 135
 
 _select_data:
   authors:
