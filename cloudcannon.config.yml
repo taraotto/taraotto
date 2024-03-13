@@ -73,5 +73,10 @@ _select_data:
   - Tara
   - Otto
   - Lio
+  layouts:
+  - default: Default
+  - blog-layout: Blog
+  - portfolio-layout: Portfolio
+  - archives: Archive
 
   
