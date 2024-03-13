@@ -79,10 +79,10 @@ _select_data:
   - Otto
   - Lio
   layouts:
-  - default
-  - blog-layout
-  - portfolio-layout
-  - archives
+    default: Default
+    blog-layout: Blog
+    portfolio-layout: Portfolio
+    archives: Archive
   gallery-sizes:
   - col-span-6 md:col-span-2
   - col-span-6 md:col-span-3
