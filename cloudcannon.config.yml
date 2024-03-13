@@ -64,9 +64,16 @@ _inputs:
     type: select
     comment: "The author of this post"
     label: Author Name
+  layout:
+    type: select
+    label: Layout
 
 _select_data:
-  author_list:
+  authors:
+  - Tara
+  - Otto
+  - Lio
+  layout-list:
   - name: Tara
     role: Designer
   - name: Otto
