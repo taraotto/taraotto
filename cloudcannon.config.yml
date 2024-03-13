@@ -71,7 +71,15 @@ _inputs:
   gallery-size:
     type: select
     comment: "The layout of this post"
-    label: Gallery Size  
+    label: Gallery Size
+  types:
+    type: select
+    comment: "The layout of this post"
+    label: Types
+  intro-html:
+    type: text
+    comment: "The layout of this post"
+    label: Description  
 
 _select_data:
   authors:
@@ -85,5 +93,8 @@ _select_data:
     col-span-6 md:col-span-2: One Third
     col-span-6 md:col-span-3: One Half
     col-span-6: Full Width
+  types: 
+    recommendation: Recommendation
+    text: Text
 
   
