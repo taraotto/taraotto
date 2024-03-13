@@ -10,6 +10,7 @@ collections_config:
     output: false
   posts:
     path: _posts
+    icon: 
     output: true
     create:
       path: >-
@@ -56,3 +57,17 @@ source_editor:
 # Timezone of your site in IANA format. This is used by date and datetime inputs
 # within the CloudCannon Data Editor.
 timezone: Etc/UTC
+
+# Input configuration video
+_inputs:
+  author:
+  type: select
+  comment: "The author of this post"
+  label: Author Name
+
+_select_data:
+  author_list:
+  - name: Tara
+    role: Designer
+  - name: Otto
+    role: Developer
