@@ -75,17 +75,15 @@ _inputs:
 
 _select_data:
   authors:
-  - Tara
-  - Otto
-  - Lio
+  - Tara Otto
   layouts:
     default: Default
     blog-layout: Blog
     portfolio-layout: Portfolio
     archives: Archive
   gallery-sizes:
-  - col-span-6 md:col-span-2
-  - col-span-6 md:col-span-3
-  - col-span-6
+    col-span-6 md:col-span-2: One Third
+    col-span-6 md:col-span-3: One Half
+    col-span-6: Full Width
 
   

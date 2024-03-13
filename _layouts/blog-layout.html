@@ -33,7 +33,7 @@ layout: default
   <!------------ Gallery ------------>
   <div class="grid grid-cols-4 gap-5 lg:gap-10 pt-20 lg:px-28">
 
-    {% for item in page.gallery limit:2 %}
+    {% for item in page.intro-gallery limit:2 %}
     <div class="{{item.gallery-size}}">
       <img src="{{item.image}}">
     </div>
