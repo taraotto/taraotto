@@ -61,9 +61,9 @@ timezone: Etc/UTC
 # Input configuration video
 _inputs:
   author:
-  type: select
-  comment: "The author of this post"
-  label: Author Name
+    type: select
+    comment: "The author of this post"
+    label: Author Name
 
 _select_data:
   author_list:
