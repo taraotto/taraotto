@@ -95,8 +95,8 @@ _select_data:
     portfolio-layout: Portfolio
     archives: Archive
   gallery-sizes:
-    col-span-6 md:col-span-2: 2 Columns
-    col-span-6 md:col-span-3: 3 Columns
+    col-span-6 lg:col-span-2: 2 Columns
+    col-span-6 lg:col-span-3: 3 Columns
     col-span-6: Full Width
   content-types: 
     recommendation: Recommendation
