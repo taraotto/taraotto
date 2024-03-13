@@ -72,14 +72,10 @@ _inputs:
     type: select
     comment: "The layout of this post"
     label: Gallery Size
-  types:
+  content-type:
     type: select
     comment: "The layout of this post"
     label: Types
-  intro-html:
-    type: text
-    comment: "The layout of this post"
-    label: Description  
 
 _select_data:
   authors:
@@ -90,10 +86,10 @@ _select_data:
     portfolio-layout: Portfolio
     archives: Archive
   gallery-sizes:
-    col-span-6 md:col-span-2: One Third
-    col-span-6 md:col-span-3: One Half
+    col-span-6 md:col-span-2: 2 Columns
+    col-span-6 md:col-span-3: 3 Columns
     col-span-6: Full Width
-  types: 
+  content-types: 
     recommendation: Recommendation
     text: Text
 
