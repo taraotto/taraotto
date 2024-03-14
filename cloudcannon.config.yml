@@ -71,7 +71,6 @@ _inputs:
     label: Gallery Size
   description:
     type: html
-    comment: "The layout of this post"
     label: Description
   blog-headline:
     type: html

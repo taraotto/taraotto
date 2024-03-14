@@ -6,9 +6,9 @@
   {% endif %}
 
   <!------------------ Text ------------------>
-  {% if block.description-html != null and block.description-html != "" %}
+  {% if block.description != null and block.description != "" %}
   <div class="flex-col justify-center lg:text-center {% if block.recommended != null %} pb-10 {% endif %}">
-    <p class="mx-auto lg:px-10 lg:w-[80%]">{{block.description-html}}</p>
+    <p class="mx-auto lg:px-10 lg:w-[80%]">{{block.description}}</p>
   </div>
   {% endif %}
  
