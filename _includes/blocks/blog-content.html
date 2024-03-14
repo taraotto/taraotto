@@ -17,8 +17,29 @@
 
     {% for item in block.recommended %}
     <div class="col-span-6 md:col-span-3 lg:col-span-2">
+
+      <!------------ Title ------------>
+      {% if item.url != null and item.url != "" %}
       <a href="{{item.url}}" target="_blank" class="underline font-medium">{{item.title}}</a>
-      <p>{{item.description-html}}</p>
+      {% else %}
+      <span class="underline font-medium">{{item.title}}</span>
+      {% endif %}
+
+      <!------------ Description ------------>
+      <p>{{item.description}}</p>
+
+      <!------------ Icons ------------>
+      <div class ="space-x-3 flex flex-row">
+        {% if item.instagram-url != null and item.instagram-url != "" %}
+        <a href="{{item.instagram-url}}" target="_blank" >
+          <i class="fab fa-instagram hover:opacity-60"></i>
+        </a>
+        {% endif%}
+        <a href="{{item.map-url}}" target="_blank" >
+          <i class="fa fa-location-dot hover:opacity-60"></i>
+        </a>
+      </div>
+
     </div>
     {% endfor %}
 
