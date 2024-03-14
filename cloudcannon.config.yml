@@ -84,7 +84,7 @@ _inputs:
     type: html
     comment: "The layout of this post"
     label: Headline 
-    initial_height: 135px
+    initial_height: 900px
 
 _select_data:
   authors:
