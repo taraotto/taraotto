@@ -62,29 +62,23 @@ timezone: Etc/UTC
 _inputs:
   author:
     type: select
-    comment: "The author of this post"
     label: Author Name
   layout:
     type: select
-    comment: "The layout of this post"
     label: Layout
   gallery-size:
     type: select
-    comment: "The layout of this post"
     label: Gallery Size
-  content-type:
-    type: select
-    comment: "The layout of this post"
-    label: Types
   description:
     type: html
     comment: "The layout of this post"
     label: Description
-  main-headline:
+  blog-headline:
     type: html
-    comment: "The layout of this post"
     label: Headline 
-    initial_height: 900px
+  instagram-url:
+    type: url
+    label: Instagram   
 
 _select_data:
   authors:
@@ -110,7 +104,6 @@ _array_structures:
     icon: article
     value:    
       _id: blog-content
-      title: recommendation
       headline: What to see
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa cupiditate animi adipisci quia, voluptatem pariatur aperiam, doloribus a fugit minus nobis repellat laudantium rerum dolores. Non voluptatum delectus nostrum earum?"
       recommended:
