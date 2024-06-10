@@ -4,28 +4,35 @@ layout: default
 
 <!------------------------------ Title section ------------------------------>
 
-<section class="py-20 overflow-hidden">
+<section class="pt-20 pb-10 overflow-hidden z-10">
   <div class="container text-center">
     <span class="tinytitle block">{{page.date | date: "%B %Y"}}</span>
 
     <h1 class="text-[5rem] leading-[5.5rem] my-10">{{page.title}}</h1>
 
     {% for item in page.categories %}
-    <a href="/archives/{{item}}" class="mx-1 inline-block border-b pb-1 tinytitle">{{item}}</a>
+    <a href="/archives/{{item | replace:' ','-'}}" class="mx-1 inline-block border-b pb-1 tinytitle z-10">{{item}}</a>
     {% endfor %}
   </div>
 </section>
 
 <!------------------ Image banner ------------------>
 
-<section class="overflow-hidden"> 
-  <img src="{{page.header-image}}" class="container md:max-h-[65vh] lg:max-h-[60vh] w-full object-cover">
-  </div>
+{% if page.header-image != null and page.header-image != "" %}
+<section class="overflow-hidden justify-center items-center flex z-0 container lg:px-28"> 
+  <img src="{{page.header-image}}" class="object-cover h-96 w-full">
 </section>
+{% endif %}
+
+{% if page.header-illustration != null and page.header-illustration != "" %}
+<section class="overflow-hidden justify-center items-center flex z-0 container lg:px-28"> 
+  <img src="{{page.header-illustration}}" class="object-cover h-80">
+</section>
+{% endif %}
 
 <!------------------------------ Intro ------------------------------>
 
-<section class="container pt-20" id="">
+<section class="container pt-10" id="">
   <div class="flex-col justify-center text-center">
     <p class="mx-auto px-10 lg:w-[80%] pb-0">{{page.description}}</p>
   </div>
@@ -52,25 +59,18 @@ layout: default
 
 <!------------------ Social sharing ------------------>
 
-<section class="bg-sage-200 py-20 mt-20">
-  <div class="container">
-
-    <div class="md:col-span-2 text-center">
-      <h4 class="mx-10 tinytitle md:mx-0">Share on socials:</h4>
-    </div>
+<section class="mt-20">
+  <hr>
+  <div class="container py-20">
 
     <!------------------ Icons ------------------>
-    <div class="flex space-x-8 justify-center pt-6">
-      <a href="http://pinterest.com/pin/create/link/?url={{page.url}}&description={{page.title}}" rel="nofollow" target="_blank" title="Share on Pinterest">
-        <i class="fab fa-pinterest-p border rounded-full p-2 w-10 h-10 flex justify-center items-center hover:bg-sage-300/40"></i>
+      <a href="http://pinterest.com/pin/create/link/?url={{page.url}}&media={{page.featured-image}}&description={{page.pinterest-title}}" rel="nofollow" target="_blank" title="Share on Pinterest" class="flex justify-center">
+        <div class="flex flex-row items-center space-x-4">
+          <i class="fab fa-pinterest-p border rounded-full p-2 w-10 h-10 flex justify-center items-center hover:bg-sage-300/40"></i>
+          <h4 class="tinytitle">Share on Pinterest</h4>
+        </div>
       </a>
-      <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook">
-        <i class="fab fa-facebook-f border rounded-full p-2 w-10 h-10 flex justify-center items-center hover:bg-sage-300/40"></i>
-      </a>
-      <a href="" rel="nofollow" target="_blank" title="Share on Twitter">
-        <i class="fa-regular fa-envelope border rounded-full p-2 w-10 h-10 flex justify-center items-center hover:bg-sage-300/40"></i>
-      </a>
-    </div>
+
   </section>
 <hr>
 

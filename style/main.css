@@ -26,6 +26,8 @@ html {
   scroll-behavior: smooth;
 }  
 
+li { cursor: pointer; }
+
 /* ------------ Typography styles ------------ */
 
 h1, h2, h3 { @apply font-display font-light text-[3.5rem] leading-[4.5rem] tracking-[.01em] pb-3; }
