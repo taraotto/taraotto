@@ -1,0 +1,66 @@
+<section class="container my-20" id="">
+
+  <!------------------ Headline ------------------>
+  {% if block.headline != null and block.headline != "" %}
+  <h2 class="lg:text-center pb-10 lg:px-10 md:px-0">{{block.headline}}</h2>
+  {% endif %}
+
+  <!------------------ Text ------------------>
+  {% if block.description != null and block.description != "" %}
+  <div class="flex-col justify-center lg:text-center {% if block.recommended != null %} pb-10 {% endif %}">
+    <p class="mx-auto lg:text-center lg:px-10 lg:w-[80%]">{{block.description}}</p>
+  </div>
+  {% endif %}
+
+  <!------------------ Illustration ------------------>
+  {% if block.illustration != null and illustration.headline != "" %}
+  <div class="flex justify-center pb-10">
+  <img src="{{block.illustration}}" class="object-cover h-60 self-center">
+  </div>
+  {% endif %}
+ 
+  <!------------ Recommendation ------------>
+  <div class="grid grid-cols-6 gap-5 md:gap-10 lg:gap-20 px-10 md:px-0">
+
+    {% for item in block.recommended %}
+    <div class="col-span-6 md:col-span-3 lg:col-span-2">
+
+      <!------------ Title ------------>
+      {% if item.url != null and item.url != "" %}
+      <a href="{{item.url}}" target="_blank" class="underline font-medium">{{item.title}}</a>
+      {% else %}
+      <span class="underline font-medium">{{item.title}}</span>
+      {% endif %}
+
+      <!------------ Description ------------>
+      <p>{{item.description}}</p>
+
+      <!------------ Icons ------------>
+      <div class ="space-x-3 flex flex-row">
+        {% if item.instagram-url != null and item.instagram-url != "" %}
+        <a href="{{item.instagram-url}}" target="_blank" >
+          <i class="fab fa-instagram hover:opacity-60"></i>
+        </a>
+        {% endif%}
+        <a href="{{item.maps-url}}" target="_blank" >
+          <i class="fa fa-location-dot hover:opacity-60"></i>
+        </a>
+      </div>
+
+    </div>
+    {% endfor %}
+
+  </div>
+  
+  <!------------------ Gallery ------------------>
+
+  <div class="grid grid-cols-6 gap-5 lg:gap-10 lg:px-28 pt-20">
+
+    {% for item in block.gallery %}
+    <div class="{{item.gallery-size}}">
+      <img src="{{item.image}}" alt=“{{item.alt-text}} class="h-full w-full">
+    </div>
+    {% endfor %}
+
+  </div>
+</section>

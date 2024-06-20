@@ -2,7 +2,6 @@
 layout: default
 title: Travel Journal
 header-bg: bg-sage-200
-site-header: travel
 ---
 
 <!------------- Intro ------------->
@@ -44,9 +43,9 @@ site-header: travel
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 container z-40 pt-10 pb-20 lg:pb-40" id="portfolio-grid" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
 
-      {% for post in site.posts limit:9 %}
+      {% for post in site.posts %}
 
-      <div href="{{post.url}}" class="bg-sage-200 gallery-item hover:bg-sage-300/30 border text-center pb-20 z-40
+      <a href="{{post.url}}" class="bg-sage-200 gallery-item hover:bg-sage-300/30 border text-center pb-20 z-40
       {% for item in post.categories %} {{item | replace:' ','-'}} {% endfor %}" >
 
         <!------------- Image ------------->
@@ -55,7 +54,7 @@ site-header: travel
         <!------------- Categories ------------->
         <span class="block">
           {% for item in post.categories %}
-            <div class="mx-1 inline-block border-b border-b-orange-400 pb-1 text-xs uppercase tracking-[.3em]">{{item}}</div>
+          <div class="mx-1 inline-block border-b pb-1 tinytitle">{{item}}</div>
           {% endfor %}
           
         </span>
@@ -67,7 +66,7 @@ site-header: travel
         <span class="text-xs uppercase tracking-[.3em] block"><strong>Coming soon</strong></span>
         <!-- <span class="text-xs uppercase tracking-[.3em] block"><strong>{{post.date | date: "%d %b %Y"}}</strong></span>
        -->
-      </div>
+      </a>
           
       {% endfor %}
 

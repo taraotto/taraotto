@@ -1,0 +1,113 @@
+---
+layout: default
+---
+
+<!------------------------------ Title section ------------------------------>
+
+<section class="pt-20 pb-10 overflow-hidden z-10">
+  <div class="container text-center">
+    <span class="tinytitle block">{{page.date | date: "%B %Y"}}</span>
+
+    <h1 class="text-[5rem] leading-[5.5rem] my-10">{{page.title}}</h1>
+
+    {% for item in page.categories %}
+    <a href="/archives/{{item | replace:' ','-'}}" class="mx-1 inline-block border-b pb-1 tinytitle z-10">{{item}}</a>
+    {% endfor %}
+  </div>
+</section>
+
+<!------------------ Image banner ------------------>
+
+{% if page.header-image != null and page.header-image != "" %}
+<section class="overflow-hidden justify-center items-center flex z-0 container lg:px-28"> 
+  <img src="{{page.header-image}}" class="object-cover h-96 w-full">
+</section>
+{% endif %}
+
+{% if page.header-illustration != null and page.header-illustration != "" %}
+<section class="overflow-hidden justify-center items-center flex z-0 container lg:px-28"> 
+  <img src="{{page.header-illustration}}" class="object-cover h-80">
+</section>
+{% endif %}
+
+<!------------------------------ Intro ------------------------------>
+
+<section class="container pt-10" id="">
+  <div class="flex-col justify-center text-center">
+    <p class="mx-auto px-10 lg:w-[80%] pb-0">{{page.description}}</p>
+  </div>
+    
+  <!------------ Gallery ------------>
+  <div class="grid grid-cols-6 gap-5 lg:gap-10 pt-20 lg:px-28">
+
+    {% for item in page.intro-gallery limit:2 %}
+    <div class="{{item.gallery-size}}">
+      <img src="{{item.image}}">
+    </div>
+    {% endfor %}
+  
+  </div>
+</section>  
+
+{{content}}
+
+<!------------------ Blocks ------------------>
+
+{% for block in page.page_blocks %}
+  {% include /blocks/{{block._id}}.html %}
+{% endfor %}
+
+<!------------------ Social sharing ------------------>
+
+<section class="mt-20">
+  <hr>
+  <div class="container py-20">
+
+    <!------------------ Icons ------------------>
+      <a href="http://pinterest.com/pin/create/link/?url={{page.url}}&media={{page.featured-image}}&description={{page.pinterest-title}}" rel="nofollow" target="_blank" title="Share on Pinterest" class="flex justify-center">
+        <div class="flex flex-row items-center space-x-4">
+          <i class="fab fa-pinterest-p border rounded-full p-2 w-10 h-10 flex justify-center items-center hover:bg-sage-300/40"></i>
+          <h4 class="tinytitle">Share on Pinterest</h4>
+        </div>
+      </a>
+
+  </section>
+<hr>
+
+<!------------------ Related posts ------------------>
+
+<section class="bg-sage-200 py-16">
+  <div class="container text-center">
+    <h4 class="pb-10 tinytitle"> You may also like:</h4>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
+
+      {% assign pageCategory = page.categories[0] %}
+      {% assign relevant = site.categories[pageCategory] | where_exp:"post","post.url != page.url" %}
+        {% for post in relevant limit:3 %}
+
+          <a href="{{post.url}}" class="bg-sage-200 hover:bg-sage-300/30 border text-center pb-20">
+  
+            <img class="h-[60vh] w-full object-cover mb-16" src="{{post.featured-image}}">
+          
+            <span class="block">
+              {% for item in post.categories %}
+                <div class="mx-1 inline-block border-b pb-1 tinytitle">{{item}}</div>
+              {% endfor %}
+            </span>
+          
+            <h2 class="text-center inline-block tracking-[.03em] my-8">{{post.title}}</h2>
+            
+            <span class="tinytitle block"><strong>{{post.date | date: "%d %b %Y"}}</strong></span>
+          
+          </a>
+            
+        {% endfor %}
+        
+    </div>
+  </div>
+</section>
+
+<hr>
+
+  </div>
+</section>
