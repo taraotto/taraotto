@@ -24,6 +24,7 @@
 
 html {
   scroll-behavior: smooth;
+  cursor: pointer;
 }  
 
 li { cursor: pointer; }
