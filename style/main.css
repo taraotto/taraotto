@@ -140,7 +140,7 @@ li          { @apply border-b border-black text-xs uppercase tracking-[.3em] fon
 
 .scroll-text {
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 0.7rem;
   letter-spacing: .3em;
   display: flex;
