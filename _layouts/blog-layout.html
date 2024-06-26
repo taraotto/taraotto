@@ -34,11 +34,11 @@ layout: default
 
 <section class="container pt-10" id="">
   <div class="flex-col justify-center text-center">
-    <p class="mx-auto px-10 lg:w-[80%] pb-0">{{page.description}}</p>
+    <p class="mx-auto px-6 lg:px-10 lg:w-[80%] pb-0">{{page.description}}</p>
   </div>
     
   <!------------ Gallery ------------>
-  <div class="grid grid-cols-6 gap-5 lg:gap-10 pt-20 lg:px-28">
+  <div class="grid grid-cols-6 gap-5 lg:gap-10 px-4 pt-20 lg:px-28">
 
     {% for item in page.intro-gallery limit:2 %}
     <div class="{{item.gallery-size}}">
