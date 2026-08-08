@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<!------------------------------ Meta header ------------------------------>
+
+<section class="bg-sage-200 pt-16 pb-10">
+  <div class="text-center xl:w-[60%] mx-auto px-6">
+    <h1 class="font-display font-light italic normal-case text-[2.25rem] leading-[2.75rem] md:text-[3rem] md:leading-[3.5rem] tracking-[.01em] mb-6">{{ page.title }}</h1>
+    <span class="tinytitle block mb-4">{{ page.doc_type | default: "Angebot" }}</span>
+    <div class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-xs uppercase tracking-[.1em]">
+      {% if page.client %}<span>Für {{ page.client }}</span>{% endif %}
+      {% if page.date %}<span>{{ page.date }}</span>{% endif %}
+      {% if page.valid_until %}<span>Gültig bis {{ page.valid_until }}</span>{% endif %}
+    </div>
+  </div>
+</section>
+
+<!------------------------------ Content ------------------------------>
+
+<section class="container pt-16 pb-20">
+  <div class="angebot-content xl:w-[60vw] mx-auto">
+    {{ content }}
+  </div>
+</section>

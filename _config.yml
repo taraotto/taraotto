@@ -13,6 +13,21 @@ assets:
    sources:
        -assets/fonts
 
+# This is for Angebot pages — every .md file under /angebot/ gets the
+# layout, a pretty permalink and noindex automatically, so a new offer
+# only needs a new markdown file with its own front matter.
+
+defaults:
+  - scope:
+      path: "angebot"
+    values:
+      layout: "angebot"
+      permalink: /angebot/:basename/
+      sitemap: false
+      header-bg: bg-sage-200
+      seo:
+        hide-from-google: true
+
 # This is for CloudCannon options 
 
 _select_data:
