@@ -86,7 +86,7 @@ Die Website im Template-Layout, minimal angepasst an die Hochzeit.
 
 **Gestaltung**
 - Individuelle Farben werden im System hinterlegt
-- Schriftauswahl aus den hinterlegten Kombinationen.
+- Schriftauswahl aus den hinterlegten Kombinationen
 - Freie Anordnung und Auswahl der Sektionen
 
 **Aufbau**
@@ -146,7 +146,7 @@ Du gibst die Richtung vor — ich mache daraus eine fertige Gestaltung.
 - Farbpalette in Bildschirm- und Druckfarben
 - Gestalterische Elemente oder Illustrationen, ausgewählt und als Vektoren aufbereitet
 - Zweiseitiger Leitfaden zur weiteren Anwendung
-- Zwei Korrekturschleife am Entwurf
+- Zwei Korrekturschleifen am Entwurf
 
 Damit steht ein System, das über die Website hinaus funktioniert — auf Papier genauso wie auf dem Bildschirm.
 
@@ -208,7 +208,7 @@ Die Preisgestaltung liegt bei dir — das hier ist nur eine Orientierung.
 
 Bei Paket 1 ist dein Aufwand höher, weil du die Inhalte selbst einpflegst.
 
-Amortisation des Templates: Innerhalb von 1-2 Jahren — vorausgesetzt, es bleibt nicht ausschließlich bei der Einstiegsvariante.
+Amortisation des Templates: Nach etwa drei Hochzeiten — vorausgesetzt, es bleibt nicht ausschließlich bei der Einstiegsvariante.
 
 ---
 
