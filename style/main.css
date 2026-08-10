@@ -166,15 +166,15 @@ li          { @apply border-b border-black text-xs uppercase tracking-[.3em] fon
 /* ------------ Angebot content (markdown typography) ------------ */
 
 .angebot-content h1 {
-  @apply font-display font-light italic normal-case text-[2.25rem] leading-[2.75rem] md:text-[3rem] md:leading-[3.5rem] tracking-[.01em] pt-1 pb-4;
+  @apply font-display font-light normal-case text-[2.25rem] leading-[2.75rem] md:text-[3rem] md:leading-[3.5rem] tracking-[.01em] pt-1 pb-4;
 }
 
 .angebot-content h2 {
-  @apply text-xs uppercase tracking-[.3em] leading-6 font-semibold text-sage-500 pt-12 pb-1;
+  @apply font-sans text-xs uppercase tracking-[.3em] leading-6 font-semibold pt-12 pb-4;
 }
 
 .angebot-content h2:first-child {
-  @apply pt-0;
+  @apply font-sans pt-0;
 }
 
 .angebot-content h3 {
@@ -182,7 +182,7 @@ li          { @apply border-b border-black text-xs uppercase tracking-[.3em] fon
 }
 
 .angebot-content h4 {
-  @apply text-xs uppercase tracking-[.1em] leading-6 font-medium pt-4 pb-1;
+  @apply font-sans text-xs uppercase tracking-[.1em] leading-6 font-medium pt-4 pb-1;
 }
 
 .angebot-content p {
@@ -242,7 +242,7 @@ li          { @apply border-b border-black text-xs uppercase tracking-[.3em] fon
 }
 
 .angebot-content tr td:first-child {
-  @apply text-sage-600 font-medium;
+  @apply font-medium;
 }
 
 .angebot-content tr td:last-child {

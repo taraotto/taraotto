@@ -1,16 +1,17 @@
 ---
-title: Hochzeitswebsites
+image: /assets/images/portfolio/sb-puglia-anthurium-peach.jpg
+title: Digital Wedding Invite
 doc_type: Projektskizze
-client: Events by Stefanie Barz
+client: Studio Barz
 date: August 2026
-valid_until: 30. September 2026
+valid_until: 31. Oktober 2026
 ---
 
 ## Projektziele
 
 Liebe Steffi,
 
-hier ist die Projektskizze zu unserer Idee mit den Hochzeitswebsites. Sie gibt dir einen Überblick über das Template, die drei Pakete, unseren gemeinsamen Ablauf und die Aufteilung zwischen uns.
+hier ist die Projektskizze zu der Idee mit den Hochzeitswebsites. Sie gibt dir einen Überblick über das Template, die drei Pakete, unseren gemeinsamen Ablauf und die Aufteilung zwischen uns.
 
 **Unsere Ziele**
 
@@ -22,7 +23,8 @@ hier ist die Projektskizze zu unserer Idee mit den Hochzeitswebsites. Sie gibt d
 
 ---
 
-## Das Template
+## Unsere Basis
+# *Das Template*
 
 Die Grundlage für alle Hochzeitswebsites. Einmalig entwickelt, danach für jede Hochzeit wiederverwendbar.
 
@@ -30,9 +32,10 @@ Die Grundlage für alle Hochzeitswebsites. Einmalig entwickelt, danach für jede
 
 - Grundstruktur mit allen Sektionen: Startseite mit Namen und Datum, Unsere Geschichte, Ablauf, Location und Anfahrt, Unterkunft, Dresscode, Geschenke, RSVP, FAQ
 - Module: Galerie, Textmodul, Bild-Text, Timeline für den Ablauf, Akkordeon für FAQ und Details, Kachelmodul für Unterkünfte und Empfehlungen
-- Zwei Schrift-Kombinationen, zwischen denen gewählt werden kann
+- 2-3 integrierte Schriften
 - Farbsystem mit fünf Farbfeldern — Grundton, Kontrastton, Text, Akzent, Fläche — pro Modul zuweisbar
 - Bild-Slots mit festen Seitenverhältnissen: Bilder passen sich automatisch ein, unabhängig von Format oder Dateigröße
+- Demo-Seite für Paare
 
 **Technik**
 
@@ -51,23 +54,39 @@ Die Grundlage für alle Hochzeitswebsites. Einmalig entwickelt, danach für jede
 
 **Deine Mitgestaltung**
 
-Zwei Korrekturschleifen sind enthalten. Nach der ersten steht die Struktur fest — ab dann geht es um Details. Weitere Schleifen rechne ich mit 100 €/h ab.
+Drei Korrekturschleifen sind enthalten. Nach der ersten steht die Struktur fest — ab dann geht es um Details. Weitere Schleifen rechne ich mit 100 €/h ab.
 
 | | |
 |---|---|
-| **Einmalig** | **2.400 € netto\*** |
+| **Einmalig** | **2.000 € netto\*** |
 | Timing | ca. 4 Wochen |
+
+---
+
+## Laufende Kosten
+
+Die Hochzeitswebsites laufen über CloudCannon — das Redaktionssystem, mit dem du die Inhalte pflegst. Dafür gibt es einen eigenen Bereich, in dem alle Hochzeitsseiten liegen.
+
+**Du wirst dort als Nutzerin angelegt**, mit eigenem Zugang. Kein geteiltes Passwort: Zum einen kommen wir uns so nicht in die Quere, zum anderen ist bei den RSVP-Daten nachvollziehbar, wer wann worauf zugreift.
+
+| | |
+|---|---|
+| CloudCannon, Bereich für alle Hochzeitsseiten | **ca. 120 $ im Jahr** |
+
+Der Betrag fällt einmal für den gesamten Bereich an, unabhängig davon, wie viele Hochzeiten darin liegen. Er lässt sich deshalb nicht sinnvoll auf einzelne Seiten umlegen — sinnvoller ist es, ihn in deiner Kalkulation als laufende Position zu führen.
+
+Hosting, Domain und technischer Betrieb der einzelnen Seiten sind in den Paketen enthalten und kommen hier nicht dazu.
 
 ---
 
 ## Paket 1 — Du gestaltest, ich baue
 # *Der erste Eindruck*
 
-Die Website im Template-Layout, angepasst an die Hochzeit.
+Die Website im Template-Layout, minimal angepasst an die Hochzeit.
 
 **Gestaltung**
 - Individuelle Farben werden im System hinterlegt
-- Schriftauswahl aus den beiden hinterlegten Schrift-Kombinationen
+- Schriftauswahl aus den hinterlegten Kombinationen.
 - Freie Anordnung und Auswahl der Sektionen
 
 **Aufbau**
@@ -90,27 +109,29 @@ Die Website im Template-Layout, angepasst an die Hochzeit.
 
 | | |
 |---|---|
-| **Preis** | **500 € netto\*** |
+| **Preis** | **500€ netto\*** |
 | Timing | ca. 1 Woche |
+
+Hinweis: Bei Paket 1 ist keine Korrekturschleife enthalten, da du die Gestaltung selbst festlegst. Wenn du magst, schaue ich vor dem Launch einmal drüber und gebe Rückmeldung. Änderungen daran rechne ich nach Aufwand ab.
 
 ---
 
 ## Paket 2 — Du gibst die Richtung, ich gestalte
 # *Ganz nach Konzept*
 
-Alles aus Paket 1 — zusätzlich gestalte ich die Seite auf Basis deines Konzepts.
+Das Template bleibt unser Fundament, wird aber auf Basis deines Konzepts individualisiert.
 
-**Zusätzlich enthalten**
-- Individualisierung der Farben innerhalb der Module
+**Alles aus Paket 1 – zusätzlich enthalten:**
+- Individualisierung deiner Farben innerhalb der Module
 - Eigenes Schriftpaar, eingebunden und typografisch abgestimmt
 - Ein gestalterisches Element aus deiner Auswahl, als Vektordatei geliefert, eingebunden und farblich angepasst
 - Texte und Bilder werden initial eingepflegt und optimiert
-- Eine Korrekturschleife am Entwurf
+- Zwei Korrekturschleifen am Entwurf
 
 | | |
 |---|---|
-| **Preis** | **1.000 € netto\*** |
-| Timing | ca. 3 Wochen ab vollständigen Inhalten |
+| **Preis** | **1.000€ netto\*** |
+| Timing | ca. 2 Wochen ab vollständigen Inhalten |
 
 ---
 
@@ -119,20 +140,20 @@ Alles aus Paket 1 — zusätzlich gestalte ich die Seite auf Basis deines Konzep
 
 Du gibst die Richtung vor — ich mache daraus eine fertige Gestaltung.
 
-**Alles aus Paket 2 — zusätzlich entwickle ich die Gestaltung**
+**Alles aus Paket 2 — zusätzlich enthalten:**
 - Monogramm oder Wortmarke, inklusive Varianten für unterschiedliche Größen
 - Schriftsystem für Bildschirm und Druck
 - Farbpalette in Bildschirm- und Druckfarben
 - Gestalterische Elemente oder Illustrationen, ausgewählt und als Vektoren aufbereitet
 - Zweiseitiger Leitfaden zur weiteren Anwendung
-- Eine Korrekturschleife an der Gestaltung
+- Zwei Korrekturschleife am Entwurf
 
 Damit steht ein System, das über die Website hinaus funktioniert — auf Papier genauso wie auf dem Bildschirm.
 
 | | |
 |---|---|
-| **Preis** | **2.000 € netto\*** |
-| Timing | ca. 4–5 Wochen ab vollständigen Inhalten |
+| **Preis** | **2.400€ netto\*** |
+| Timing | ca. 4 Wochen ab vollständigen Inhalten |
 
 ---
 
@@ -149,7 +170,7 @@ Nur zusammen mit Paket 3 buchbar — sie baut auf dem Gestaltungssystem auf.
 - Als druckfertige Daten
 - Eine Korrekturschleife
 
-**Optional:** Druckabwicklung 200 €, zzgl. Druckkosten. Auswahl der Druckerei, Datenübergabe, Prüfung des Andrucks, Terminverfolgung. Nachdrucke aufgrund nachträglicher Änderungen nach Aufwand.
+**Optional:** Druckabwicklung 300 €, zzgl. Druckkosten. Auswahl der Druckerei, Datenübergabe, Prüfung des Andrucks, Terminverfolgung. Veredelungen und Nachdrucke aufgrund nachträglicher Änderungen nach Aufwand.
 
 | | |
 |---|---|
@@ -165,10 +186,10 @@ Nur zusammen mit Paket 3 buchbar — sie baut auf dem Gestaltungssystem auf.
 
 | | Preis |
 |---|---|
-| Template, einmalig | 2.400 € |
+| Template, einmalig | 2.000 € |
 | Paket 1 — Der erste Eindruck | 500 € |
 | Paket 2 — Ganz nach Konzept | 1.000 € |
-| Paket 3 — Eigene Handschrift | 2.000 € |
+| Paket 3 — Eigene Handschrift | 2.400 € |
 | Tagespapeterie (nur mit Paket 3) | 800 € |
 | Verlängerung um 12 Monate, inkl. Domain | 100 € |
 
@@ -176,18 +197,18 @@ Nur zusammen mit Paket 3 buchbar — sie baut auf dem Gestaltungssystem auf.
 
 ## Was du verlangen kannst
 
-Die Preisgestaltung liegt bei dir — das hier ist nur eine Orientierung. Dein eigener Aufwand ist mitgerechnet: Konzept, Inhalte einsammeln, Pflege bis zur Hochzeit, RSVP-Verwaltung.
+Die Preisgestaltung liegt bei dir — das hier ist nur eine Orientierung.
 
-| | An mich | Dein Aufwand | Vorschlag | Deine Marge |
-|---|---|---|---|---|
-| Paket 1 | 500 € | ca. 5 h | **1.000 €** | 500 € |
-| Paket 2 | 1.000 € | ca. 3 h | **1.700 €** | 700 € |
-| Paket 3 | 2.000 € | ca. 3 h | **3.000 €** | 1.000 € |
-| Tagespapeterie | 800 € | ca. 1 h | **1.200 €** | 400 € |
+| | An mich | Vorschlag | Deine Marge |
+|---|---|---|---|
+| Paket 1 | 500 € | **1.000 €** | 500 € |
+| Paket 2 | 1000 € | **1.650 €** | 650 € |
+| Paket 3 | 2.400 € | **3.200 €** | 800 € |
+| Tagespapeterie | 800 € | **1.200 €** | 400 € |
 
 Bei Paket 1 ist dein Aufwand höher, weil du die Inhalte selbst einpflegst.
 
-**Amortisation des Templates:** nach etwa vier Verkäufen von Paket 1, nach dreieinhalb bei Paket 2, nach zweieinhalb bei Paket 3. Also innerhalb des ersten Jahres — vorausgesetzt, es bleibt nicht ausschließlich bei der Einstiegsvariante.
+Amortisation des Templates: Innerhalb von 1-2 Jahren — vorausgesetzt, es bleibt nicht ausschließlich bei der Einstiegsvariante.
 
 ---
 
@@ -195,29 +216,11 @@ Bei Paket 1 ist dein Aufwand höher, weil du die Inhalte selbst einpflegst.
 
 **Paket 2 ist der Normalfall, Paket 1 die Ausnahme.**
 
-Der Grund: Bei wenig Individualisierung konkurriert die Website mit kostenlosen Anbietern. Die machen ihre Sache technisch gut, und ein Paar, das anfängt zu vergleichen, findet sie in zehn Sekunden.
+Der Grund: Bei wenig Individualisierung konkurriert die Website mit kostenlosen Anbietern. 
 
-Unser Unterschied ist die Gestaltung. Das Template sieht hochwertig und modern aus, wo die kostenlosen Vorlagen generisch bleiben — aber dieser Vorteil wird erst sichtbar, wenn die Seite tatsächlich nach der Hochzeit aussieht. Also ab Paket 2.
-
-Zwei praktische Folgerungen:
+Unser Unterschied ist die Gestaltung. Das Template sieht hochwertig und modern aus, wo die kostenlosen Vorlagen generisch bleiben — aber dieser Vorteil wird erst sichtbar, wenn die Seite tatsächlich nach der Hochzeit aussieht. 
 
 **Stell Paket 2 als Standard vor.** Paket 1 nennst du nur, wenn ein Paar zögert oder ein knappes Budget hat.
-
-**Erwähne die kostenlosen Anbieter nie von dir aus.** Sobald sie im Gespräch stehen, ist es ein Preisvergleich — und den gewinnt kein bezahltes Angebot. Der Vorteil liegt darin, dass das Paar gar nicht erst sucht, weil es bei dir am Tisch sitzt.
-
----
-
-## Aufbau und Pflege
-
-**Ich baue auf, du pflegst.**
-
-Enthalten ist in allen Paketen der komplette initiale Aufbau: Gestaltung, Einrichtung, Seite live.
-
-Alle Änderungen danach übernimmst du selbst im CMS — Texte, Daten, Bilder, Programmpunkte, FAQ-Einträge. Also alles, was sich vor einer Hochzeit typischerweise ändert.
-
-Nicht änderbar sind Layout, Struktur und Farbdefinitionen. Das ist Absicht: Es schützt die Gestaltung und stellt sicher, dass die Seite bis zum Schluss aussieht wie am ersten Tag.
-
-Strukturelle Änderungen rechne ich mit 100 €/h ab.
 
 ---
 
@@ -247,25 +250,13 @@ Strukturelle Änderungen rechne ich mit 100 €/h ab.
 
 ---
 
-## Bildvorgaben
-
-| Slot | Format | Mindestgröße |
-|---|---|---|
-| Startseite | Querformat 16:9 | 2400 × 1350 px |
-| Galerie | beliebig, wird beschnitten | 1600 px lange Kante |
-| Bild-Text | Hochformat 3:4 | 1200 × 1600 px |
-
-JPG, unter 5 MB, keine Screenshots. Diese Liste ist Teil des Inhaltsformulars und geht direkt an das Paar.
-
----
-
 ## Prozess
 
 **Schritt 1 — Konzept**
 Du übergibst mir Moodboard, Farbwelt und die gestalterischen Elemente der Hochzeit. Wenn nötig, klären wir offene Punkte in einem kurzen Call.
 
 **Schritt 2 — Gestaltung**
-Je nach Paket setze ich deine Vorgaben um oder entwickle daraus ein eigenes Gestaltungssystem. Hier liegt die Korrektur am Entwurf — bevor gebaut wird, weil Änderungen an dieser Stelle am günstigsten sind.
+Je nach Paket setze ich deine Vorgaben um oder entwickle daraus ein eigenes Gestaltungssystem. 
 
 **Schritt 3 — Aufbau**
 Ich richte die Seite ein: Domain, Hosting, Schriften, RSVP, Passwortschutz. Parallel sammelst du Texte und Bilder beim Paar.
@@ -285,15 +276,15 @@ Die Seite geht online. Du bekommst deinen Zugang und eine kurze Einführung — 
 
 **Wie entsteht der Preis?**
 
-Alle Preise sind mit einem Stundensatz von 100 € kalkuliert. Dahinter stehen etwa 24 Stunden für das Template, 5 Stunden bei Paket 1, 10 bei Paket 2 und 20 bei Paket 3.
+Alle Preise sind mit einem Stundensatz von 100€ kalkuliert. 
 
 **Wie läuft die Zahlung ab?**
 
-Nach Freigabe eine Anzahlung von 25 %, zahlbar innerhalb von zwei Wochen. Dann startet das Projekt. Der Rest ist nach dem Launch fällig.
+Für das Template und Paket 3 gilt eine Anzahlung von 25%, zahlbar innerhalb von zwei Wochen. Dann startet das Projekt. Der Rest ist nach dem Launch fällig.
 
-**Und wenn Korrekturen anfallen?**
+**Wie viele Korrekturen gibt es?**
 
-Beim Template sind zwei Schleifen enthalten, ab Paket 2 jeweils eine am Entwurf. Wichtig ist, dass du das Feedback aus Paar und deiner Sicht zu einer Liste bündelst — sonst arbeiten wir gegeneinander. Zusätzliche Schleifen rechne ich mit 100 €/h ab.
+Beim Template sind drei Schleifen enthalten, ab Paket 2 jeweils zwei am Entwurf. Wichtig ist, dass du das Feedback aus Paar und deiner Sicht zu einer Liste bündelst — sonst arbeiten wir gegeneinander. Zusätzliche Schleifen rechne ich mit 100 €/h ab.
 
 **Was passiert, wenn die Inhalte spät kommen?**
 
@@ -305,7 +296,7 @@ Wir beide, jeweils über einen eigenen Zugang. Kein geteiltes Passwort — in de
 
 **Was passiert nach 12 Monaten?**
 
-Entweder Verlängerung um 12 Monate für 100 € inklusive Domain, oder Abschluss mit PDF-Archiv als Erinnerung. Die Domain kann auf das Paar übertragen werden.
+Entweder Verlängerung um 12 Monate für 100€ inklusive Domain, oder Abschluss mit PDF-Archiv als Erinnerung. Die Domain kann auf das Paar übertragen werden.
 
 **Wem gehört das Template?**
 
@@ -319,29 +310,16 @@ Die Gestaltung jeder einzelnen Hochzeit gehört dem jeweiligen Paar und wird nic
 
 Wir bauen das Template auf Basis einer echten Hochzeit — so entsteht es gegen reale Anforderungen statt gegen vermutete.
 
-Für dieses erste Projekt berechne ich **Template plus Paket 1**, also 2.900 €. Die Gestaltung entsteht ohnehin im Template, deshalb fällt sie nicht doppelt an.
+Für dieses erste Projekt berechne ich **Template plus Paket 1**, also 2.500 €. Die Gestaltung entsteht ohnehin im Template, deshalb fällt sie nicht doppelt an.
 
 | | |
 |---|---|
-| Template | 2.400 € |
+| Template | 2.000 € |
 | Erste Website (Paket 1) | 500 € |
-| **Gesamt** | **2.900 € netto** |
-
-Zwei Dinge, die dabei wichtig sind:
-
-**Das Paar sollte wissen, dass es das erste ist.** Beim Pilotprojekt wird etwas dazwischenkommen — eine Sektion, die nicht passt, ein Umbau, der Zeit kostet. Ehrliches Feedback ist mir dabei mehr wert als höfliche Zustimmung.
-
-**Zwischen der ersten und zweiten Hochzeit brauche ich ein bis zwei Wochen Abstand.** In der Zeit trenne ich das, was zu dieser einen Hochzeit gehört, sauber vom Allgemeinen — sonst sieht die zweite Seite aus wie die erste.
+| **Gesamt** | **2.500 € netto** |
 
 ---
 
 ## Vielen Dank
 
-Ich freue mich sehr auf das Projekt. Falls Fragen oder Bedenken aufkommen, bin ich telefonisch, per WhatsApp oder per Mail erreichbar.
-
-Tara Hunka
-Moltkeplatz 35
-45138 Essen
-
-hello@taraotto.com
-+49 173 77 88 272
+Ich freue mich auf das Projekt. Falls Fragen oder Bedenken aufkommen, bin ich telefonisch, per WhatsApp oder per Mail erreichbar.
