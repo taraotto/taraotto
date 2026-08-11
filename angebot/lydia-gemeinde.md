@@ -29,7 +29,7 @@ hier ist mein Angebot für das Erscheinungsbild der Lydia Gemeinde. Es gibt Ihne
 
 Fragebogen, Auswertung der Rückmeldungen und ein gemeinsamer Kickoff per Videokonferenz (60 bis 120 Minuten).
 
-Die Ergebnisse werden in einer Präsentation inkl. Mooodboard zusammengefasst, das die strategische Basis und die gestalterische Richtung festhält. Dieses Dokument ist die Grundlage für alle weiteren Bausteine.
+Die Ergebnisse werden in einer Präsentation inkl. Moodboard zusammengefasst, das die strategische Basis und die gestalterische Richtung festhält. Dieses Dokument ist die Grundlage für alle weiteren Bausteine.
 
 | | |
 |---|---|
@@ -74,7 +74,7 @@ Ableitung des Siegels aus der entwickelten Gestaltung und Entwurf nach den Vorga
 Voraussetzung ist, dass mir die Siegelordnung und gegebenenfalls Mustersiegel zu Projektbeginn vorliegen. Für das Genehmigungsverfahren ist zusätzlicher zeitlicher Vorlauf einzuplanen.
 
 |---|---|
-| **Preis** | **2.400 € netto*** |
+| **Preis** | **1.600 € netto*** |
 | **Timing** | **ca. 2 Wochen** |
 
 ---
@@ -94,20 +94,20 @@ Darüber hinausgehender Abstimmungsaufwand wird nach Aufwand mit 100 € netto j
 
 | Leistung | Aufwand | Netto |
 |---|---|---|
-| Strategische Basis | 1 Tag | 800 € |
-| Designkonzept, Logo und Styleguide | 3 Tage | 2.400 € |
-| Grundlayout Gemeindebrief | 3 Tage | 2.400 € |
-| Kirchensiegel | 2 Tage | 1.600 € |
-| Projektkoordination und Abstimmung | 1 Tag | 800 € |
+| Strategische Basis | 1 Tag | 800 €* |
+| Designkonzept, Logo und Styleguide | 3 Tage | 2.400 €* |
+| Grundlayout Gemeindebrief | 3 Tage | 2.400 €* |
+| Kirchensiegel | 2 Tage | 1.600 €* |
+| Projektkoordination und Abstimmung | 1 Tag | 800 €* |
 
 ## Beauftragungsvarianten
 
 | Variante | Aufwand | Netto |
 |---|---|---|
-| **A** Erscheinungsbild und Gemeindebrief (Bausteine 1–3, 5) | 8 Tage | 6.400 € |
-| **B** Zusätzlich mit Kirchensiegel (Bausteine 1–5) | 10 Tage | 8.000 € |
+| **A** Erscheinungsbild und Gemeindebrief (Bausteine 1–3, 5) | 8 Tage | 6.400 €* |
+| **B** Zusätzlich mit Kirchensiegel (Bausteine 1–5) | 10 Tage | 8.000 €* |
 
-Alle Preise verstehen sich netto zuzüglich der gesetzlichen Mehrwertsteuer von 19 Prozent.
+*Alle Preise verstehen sich netto zuzüglich der gesetzlichen Mehrwertsteuer von 19 Prozent.
 
 ---
 
@@ -122,7 +122,7 @@ Je Baustein sind zwei Korrekturschleifen enthalten. Weitergehende Anpassungen un
 
 Die Zusammenarbeit erfolgt digital: Kickoff, Abstimmungen und Präsentationen finden per Videokonferenz statt. Reisekosten fallen dadurch nicht an.
 
-Ich bitte darum, 1-2 feste Ansprechperson zu benennen, über die Rückmeldungen gebündelt und Freigaben erteilt werden. Das beschleunigt den Prozess und vermeidet widersprüchliche Anforderungen.
+Ich bitte darum, ein bis zwei feste Ansprechpersonen zu benennen, über die Rückmeldungen gebündelt und Freigaben erteilt werden. Das beschleunigt den Prozess und vermeidet widersprüchliche Anforderungen.
 
 
 **Nebenkosten**
@@ -145,13 +145,13 @@ Nicht ausgeführte Entwurfsvarianten verbleiben bei mir. Ich behalte mir das Rec
 Nach Beauftragung beginne ich innerhalb von 4 Wochen. Für die Bausteine 1 bis 3 rechne ich mit einer Projektdauer von etwa 8 Wochen, abhängig von Ihren Rückmeldezeiten. Das Siegel kann parallel oder im Anschluss entwickelt werden.
 
 **Zahlungsbedingungen**
-25% Prozent des Honorars werden bei Auftragserteilung fällig, die verbleibenden 75% Prozent nach Abschluss des jeweiligen Bausteins. Das Zahlungsziel beträgt 14 Tage.
+25% des Honorars werden bei Auftragserteilung fällig, die verbleibenden 75% nach Abschluss des jeweiligen Bausteins. Das Zahlungsziel beträgt 14 Tage.
 
 ---
 
 ## Nächster Schritt
 
-Wenn Sie sich für Zusammenarbeit entschieden haben, genügt eine kurze Rückmeldung. Für Rückfragen stehe ich Ihnen gerne zur Verfügung.
+Wenn Sie sich für eine Zusammenarbeit entschieden haben, genügt eine kurze Rückmeldung. Für Rückfragen stehe ich Ihnen gerne zur Verfügung.
 
 Mit freundlichen Grüßen,
 Tara Hunka
