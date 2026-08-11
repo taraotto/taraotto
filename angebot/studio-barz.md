@@ -308,7 +308,7 @@ Die Gestaltung jeder einzelnen Hochzeit gehört dem jeweiligen Paar und wird nic
 
 ## Der Start
 
-Wir bauen das Template auf Basis einer echten Hochzeit — so entsteht es gegen reale Anforderungen statt gegen vermutete.
+Wir bauen das Template auf Basis einer echten Hochzeit — so sehen wir gleich, was wirklich gebraucht wird.
 
 Für dieses erste Projekt berechne ich **Template plus Paket 1**, also 2.500 €. Die Gestaltung entsteht ohnehin im Template, deshalb fällt sie nicht doppelt an.
 
