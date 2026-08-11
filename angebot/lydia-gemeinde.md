@@ -1,10 +1,10 @@
 ---
-image: /assets/images/portfolio/sb-puglia-anthurium-peach.jpg
+image: /assets/images/portfolio/window.jpg
 title: Visuelles Erscheinungsbild
 doc_type: Projektskizze
 client: Lydiakirchengemeinde Hildesheim
 date: August 2026
-valid_until: 31. Oktober 2026
+valid_until: 30. September 2026
 ---
 
 ## Projektziele
@@ -18,7 +18,7 @@ hier ist mein Angebot für das Erscheinungsbild der Lydia Gemeinde. Es gibt Ihne
 
 - ein Erscheinungsbild, in dem sich alle vier Gemeinden wiederfinden — ohne dass es nach Kompromiss aussieht
 - eine gestalterische Idee, die den Gemeindebrief, das Siegel und alles Weitere trägt
-- ein Gemeindebrief, den die Arbeitsgruppe selbst gestalten kann, ohne auf mich zu warten
+- ein Gemeindebrief, den die Arbeitsgruppe langfristig selbst gestalten kann
 - ein Siegel, das den Vorgaben der Landeskirche standhält und trotzdem nach Ihrer Gemeinde aussieht
 
 ---
@@ -57,9 +57,9 @@ Entwicklung von ein bis zwei Entwurfsrichtungen und Ausarbeitung der ausgewählt
 
 # *3. Grundlayout Gemeindebrief*
 
-Titelkonzept, Seitenraster und Musterseiten für die wiederkehrenden Rubriken – etwa Titel, Editorial, Andacht, Bericht, Termine und Gottesdienstplan, Freud und Leid, Kontakte und Rückseite. Das Layout wird für einen Gesamtumfang von bis zu 50 Seiten angelegt.
+Titelkonzept, Seitenraster und Musterseiten für die wiederkehrenden Rubriken – etwa Titel, Editorial, Berichte, Termine und Gottesdienstplan, Angebote, Kontakte und Rückseite. Das Layout wird für einen Gesamtumfang von bis zu 50 Seiten angelegt.
 
-Die Übergabe erfolgt als bearbeitbare Vorlage im Programm Ihrer Arbeitsgruppe, ergänzt um eine Einweisung per Videokonferenz. Der Satz der einzelnen Ausgaben erfolgt durch die Gemeinde.
+Die Vorlage wird in Adobe InDesign angelegt und per Videokonferenz an Ihre Arbeitsgruppe übergeben, inklusive Einweisung. Arbeitet die Arbeitsgruppe mit einem anderen Programm, stimmen wir die Umsetzung vorab ab. Für die Übertragung berechne ich je nach Programm einen halben bis einen Tag zusätzlich. Der Satz der einzelnen Ausgaben erfolgt durch die Gemeinde.
 
 |---|---|
 | **Preis** | **2.400 € netto*** |
@@ -81,7 +81,7 @@ Voraussetzung ist, dass mir die Siegelordnung und gegebenenfalls Mustersiegel zu
 
 # *5. Projektkoordination und Abstimmung*
 
-Terminkoordination, bis zu vier Termine per Videokonferenz zur Präsentation und Abstimmung der Zwischenstände (je bis 60 Minuten), die laufende Kommunikation per E-Mail und Telefon sowie die Datenübergabe zum Projektabschluss. Den Teilnehmerkreis der Termine bestimmt die Gemeinde.
+Terminkoordination, bis zu vier Termine per Videokonferenz zur Präsentation und Abstimmung der Zwischenstände (je bis 60 Minuten), die laufende Kommunikation per E-Mail und Telefon sowie die Datenübergabe zum Projektabschluss. .
 
 Darüber hinausgehender Abstimmungsaufwand wird nach Aufwand mit 100 € netto je Stunde berechnet.
 
@@ -131,7 +131,13 @@ Nicht im Honorar enthalten sind:
 
 - Schriftlizenzen. Ich schlage Schriften vor und weise die Lizenzkosten vorab aus; wo möglich, berücksichtige ich kostenfrei lizenzierte Alternativen.
 - Bildlizenzen, sofern Bildmaterial zugekauft wird
-- Druckkosten sowie die Kosten für die Herstellung des Siegelstempels
+- Produktions- und Druckkosten
+
+**Freigabe und Schutzrechte**
+
+Mit der Freigabe übernimmt der Auftraggeber die Verantwortung für die inhaltliche Richtigkeit von Texten, Namen, Terminen und Bildmaterial.
+
+Die Prüfung, Anmeldung und der Schutz von Marken sowie sonstigen Schutzrechten liegen in der Verantwortung des Auftraggebers.
 
 
 **Nutzungsrechte**
@@ -144,7 +150,10 @@ Nicht ausgeführte Entwurfsvarianten verbleiben bei mir. Ich behalte mir das Rec
 
 Nach Beauftragung beginne ich innerhalb von 4 Wochen. Für die Bausteine 1 bis 3 rechne ich mit einer Projektdauer von etwa 8 Wochen, abhängig von Ihren Rückmeldezeiten. Das Siegel kann parallel oder im Anschluss entwickelt werden.
 
+Hinweis: Vom 2.9.-8.9. bin ich im Urlaub und nur eingeschränkt erreichbar.
+
 **Zahlungsbedingungen**
+
 25% des Honorars werden bei Auftragserteilung fällig, die verbleibenden 75% nach Abschluss des jeweiligen Bausteins. Das Zahlungsziel beträgt 14 Tage.
 
 ---
