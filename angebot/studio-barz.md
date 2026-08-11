@@ -80,7 +80,7 @@ Hosting, Domain und technischer Betrieb der einzelnen Seiten sind in den Paketen
 ---
 
 ## Paket 1 — Du gestaltest, ich baue
-# *Der erste Eindruck*
+# *Erster Eindruck*
 
 Die Website im Template-Layout, minimal angepasst an die Hochzeit.
 
@@ -126,7 +126,7 @@ Das Template bleibt unser Fundament, wird aber auf Basis deines Konzepts individ
 - Eigenes Schriftpaar, eingebunden und typografisch abgestimmt
 - Ein gestalterisches Element aus deiner Auswahl, als Vektordatei geliefert, eingebunden und farblich angepasst
 - Texte und Bilder werden initial eingepflegt und optimiert
-- Zwei Korrekturschleifen am Entwurf
+- Zwei Korrekturschleifen
 
 | | |
 |---|---|
@@ -146,7 +146,7 @@ Du gibst die Richtung vor — ich mache daraus eine fertige Gestaltung.
 - Farbpalette in Bildschirm- und Druckfarben
 - Gestalterische Elemente oder Illustrationen, ausgewählt und als Vektoren aufbereitet
 - Zweiseitiger Leitfaden zur weiteren Anwendung
-- Zwei Korrekturschleifen am Entwurf
+- Zwei Korrekturschleifen
 
 Damit steht ein System, das über die Website hinaus funktioniert — auf Papier genauso wie auf dem Bildschirm.
 
@@ -174,7 +174,7 @@ Nur zusammen mit Paket 3 buchbar — sie baut auf dem Gestaltungssystem auf.
 
 | | |
 |---|---|
-| **Preis** | **800 € netto\*** |
+| **Preis** | **1.000 € netto\*** |
 
 ---
 
@@ -186,12 +186,12 @@ Nur zusammen mit Paket 3 buchbar — sie baut auf dem Gestaltungssystem auf.
 
 | | Preis |
 |---|---|
-| Template, einmalig | 2.000 € |
-| Paket 1 — Der erste Eindruck | 500 € |
-| Paket 2 — Ganz nach Konzept | 1.000 € |
-| Paket 3 — Eigene Handschrift | 2.400 € |
-| Tagespapeterie (nur mit Paket 3) | 800 € |
-| Verlängerung um 12 Monate, inkl. Domain | 100 € |
+| Template, einmalig | 2.000 €* |
+| Paket 1 — Erster Eindruck | 500 €* |
+| Paket 2 — Ganz nach Konzept | 1.000 €* |
+| Paket 3 — Eigene Handschrift | 2.400 €* |
+| Tagespapeterie (nur mit Paket 3) | 1.000 €* |
+| Verlängerung um 12 Monate, inkl. Domain | 100 €* |
 
 ---
 
@@ -201,14 +201,16 @@ Die Preisgestaltung liegt bei dir — das hier ist nur eine Orientierung.
 
 | | An mich | Vorschlag | Deine Marge |
 |---|---|---|---|
-| Paket 1 | 500 € | **1.000 €** | 500 € |
-| Paket 2 | 1000 € | **1.650 €** | 650 € |
-| Paket 3 | 2.400 € | **3.200 €** | 800 € |
-| Tagespapeterie | 800 € | **1.200 €** | 400 € |
+| Paket 1 | 500 €* | **1.000 €*** | 500 € |
+| Paket 2 | 1.000 €* | **1.650 €*** | 650 € |
+| Paket 3 | 2.400 €* | **3.200 €*** | 800 € |
+| Tagespapeterie | 1.000 €* | **1.400 €*** | 400 € |
 
 Bei Paket 1 ist dein Aufwand höher, weil du die Inhalte selbst einpflegst.
 
 Amortisation des Templates: Nach etwa drei Hochzeiten — vorausgesetzt, es bleibt nicht ausschließlich bei der Einstiegsvariante.
+
+*\* zzgl. 19 % USt.*
 
 ---
 
@@ -226,7 +228,7 @@ Unser Unterschied ist die Gestaltung. Das Template sieht hochwertig und modern a
 
 ## Wer macht was
 
-### Du
+# *Du*
 
 - Gestalterische Richtung: Farbwelt, Bildsprache, Elemente, Referenzen
 - Texte und Bildmaterial beim Paar einsammeln, über das Inhaltsformular
@@ -234,7 +236,7 @@ Unser Unterschied ist die Gestaltung. Das Template sieht hochwertig und modern a
 - Laufende Inhaltspflege nach dem Launch
 - RSVP-Verwaltung
 
-### Ich
+# *Ich*
 
 - Gestaltung und Umsetzung nach gebuchtem Paket
 - Technische Einrichtung: Domain, Hosting, Schriften, RSVP, Passwortschutz
@@ -242,7 +244,7 @@ Unser Unterschied ist die Gestaltung. Das Template sieht hochwertig und modern a
 - Technische Betreuung über 12 Monate
 - Abschluss
 
-### Das Paar
+# *Das Paar*
 
 - Liefert Texte und Bilder bis zum vereinbarten Stichtag
 - Ist Inhaber der Domain
@@ -280,11 +282,11 @@ Alle Preise sind mit einem Stundensatz von 100€ kalkuliert.
 
 **Wie läuft die Zahlung ab?**
 
-Für das Template und Paket 3 gilt eine Anzahlung von 25%, zahlbar innerhalb von zwei Wochen. Dann startet das Projekt. Der Rest ist nach dem Launch fällig.
+Für das Template und Paket 3 (und Tagespapeterie) gilt eine Anzahlung von 25%, zahlbar innerhalb von zwei Wochen. Dann startet das Projekt. Der Rest ist nach dem Launch fällig.
 
 **Wie viele Korrekturen gibt es?**
 
-Beim Template sind drei Schleifen enthalten, ab Paket 2 jeweils zwei am Entwurf. Wichtig ist, dass du das Feedback aus Paar und deiner Sicht zu einer Liste bündelst — sonst arbeiten wir gegeneinander. Zusätzliche Schleifen rechne ich mit 100 €/h ab.
+Beim Template sind drei Schleifen enthalten, ab Paket 2 jeweils zwei. Wichtig ist, dass du das Feedback aus Paar und deiner Sicht zu einer Liste bündelst — sonst arbeiten wir gegeneinander. Zusätzliche Schleifen rechne ich mit 100 €/h ab.
 
 **Was passiert, wenn die Inhalte spät kommen?**
 
