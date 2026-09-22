@@ -5,10 +5,3 @@
 [[edge_functions]]
   path = "/*"
   function = "suite-life-gate"
-
-[[redirects]]
-  from = "/*"
-  to = "/suite-life-of/:splat"
-  status = 200
-  force = true
-  conditions = {Host = ["thesuitelifeof.taraotto.com"]}

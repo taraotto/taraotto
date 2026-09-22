@@ -141,6 +141,14 @@ const htmlResponse = (body: string, status: number) =>
     },
   });
 
+// Netlify-Redirects unterstützen kein Host-basiertes "conditions" — das
+// Routing auf /suite-life-of/* passiert deshalb hier per context.rewrite(),
+// nicht über netlify.toml.
+function rewriteToSuiteLife(url: URL, context: Context) {
+  const target = "/suite-life-of" + url.pathname + url.search;
+  return context.rewrite(target);
+}
+
 export default async (request: Request, context: Context) => {
   const url = new URL(request.url);
 
@@ -150,13 +158,13 @@ export default async (request: Request, context: Context) => {
   }
 
   const password = Netlify.env.get("PW_THESUITELIFEOF");
-  if (!password) return context.next(); // kein Passwort gesetzt → offen
+  if (!password) return rewriteToSuiteLife(url, context); // kein Passwort gesetzt → offen
 
   const expected = await tokenFor(password);
   const cookies = request.headers.get("cookie") ?? "";
 
   if (cookies.includes(`${COOKIE_NAME}=${expected}`)) {
-    return context.next();
+    return rewriteToSuiteLife(url, context);
   }
 
   if (request.method === "POST") {
