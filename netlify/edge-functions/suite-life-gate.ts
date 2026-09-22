@@ -149,10 +149,21 @@ function rewriteToSuiteLife(url: URL, context: Context) {
   return context.rewrite(target);
 }
 
+function isSuiteLifePath(pathname: string): boolean {
+  return pathname === "/suite-life-of" || pathname.startsWith("/suite-life-of/");
+}
+
 export default async (request: Request, context: Context) => {
   const url = new URL(request.url);
 
-  if (url.hostname !== HOST) return context.next();
+  if (url.hostname !== HOST) {
+    // Der echte Pfad /suite-life-of/* darf nur über die Subdomain
+    // erreichbar sein — auf taraotto.com selbst bleibt er unsichtbar.
+    if (isSuiteLifePath(url.pathname)) {
+      return new Response("Not found", { status: 404 });
+    }
+    return context.next();
+  }
   if (ASSET_PREFIXES.some((prefix) => url.pathname.startsWith(prefix))) {
     return context.next();
   }
