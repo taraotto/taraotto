@@ -5,190 +5,298 @@ sitemap: false
 ---
 
 <style>
+  @font-face {
+    font-family: 'Switzer';
+    src: url('/assets/birthday/switzer/Switzer-Regular.woff2') format('woff2'),
+         url('/assets/birthday/switzer/Switzer-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Switzer';
+    src: url('/assets/birthday/switzer/Switzer-Medium.woff2') format('woff2'),
+         url('/assets/birthday/switzer/Switzer-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Switzer';
+    src: url('/assets/birthday/switzer/Switzer-Bold.woff2') format('woff2'),
+         url('/assets/birthday/switzer/Switzer-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Pinyon Script';
+    src: url('/assets/birthday/pinyon/pinyonscript-regular-webfont.woff2') format('woff2'),
+         url('/assets/birthday/pinyon/pinyonscript-regular-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
   .invite {
-    --cream: #efece3;
-    --ink: #1a1a1a;
-    background: var(--cream);
+    --ink: #111111;
+    position: relative;
     color: var(--ink);
     min-height: 100dvh;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Switzer', sans-serif;
+  }
+
+  /* Vorhang-Hintergrund bleibt beim Scrollen stehen (fixed statt sticky,
+     damit es auch auf iOS Safari zuverlässig funktioniert). */
+  .invite .curtain-bg {
+    position: fixed;
+    inset: 0;
+    background: url('/assets/birthday/vorhang.png') center / cover no-repeat;
+    z-index: 0;
+  }
+
+  p {
+    letter-spacing: 0;
+  }
+
+  .invite {
+    padding: 0 clamp(.75rem, 4vw, 4rem);
   }
 
   .invite .wrap {
-    max-width: 34rem;
-    margin: 0 auto;
-    padding: 5rem 1.5rem 6rem;
+    position: relative;
+    z-index: 1;
+    max-width: 40rem;
+    margin: 60px auto;
+    padding: 4rem 1.25rem 5rem;
     text-align: center;
+    background: #ffffff;
+  }
+
+  @media (min-width: 640px) {
+    .invite .wrap {
+      padding: 5rem 10rem 6rem;
+    }
   }
 
   .invite .eyebrow {
     font-size: .7rem;
-    letter-spacing: .35em;
     text-transform: uppercase;
-    font-weight: 600;
-    opacity: .6;
+    font-weight: 500;
     margin: 0 0 1.5rem;
   }
 
   .invite h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .04em;
-    font-size: 1.9rem;
-    line-height: 1.25;
-    margin: 0 0 1.25rem;
+    font-family: 'Pinyon Script', cursive;
+    font-weight: 400;
+    font-size: 3.25rem;
+    line-height: 1.2;
+    margin: 0 0 2rem;
   }
 
   .invite .tagline {
-    font-family: 'EB Garamond', serif;
-    font-style: italic;
-    font-size: 1.35rem;
-    margin: 0 0 .5rem;
+    font-size: .8rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 0 0 3rem;
   }
 
-  .invite .edition {
-    font-size: .75rem;
-    letter-spacing: .2em;
+  .invite .venue {
+    font-size: .8rem;
     text-transform: uppercase;
-    font-weight: 600;
-    opacity: .6;
-    margin: 0 0 3.5rem;
+    font-weight: 500;
+    line-height: 1.8;
+    margin: 0 0 1rem;
+  }
+
+  .invite .venue a {
+    color: inherit;
+  }
+
+  .invite .venue .location-pin {
+    display: inline-flex;
+    align-items: center;
+    gap: .35em;
+    text-decoration: underline;
+    text-underline-offset: .2em;
+  }
+
+  .invite .venue .location-pin img {
+    width: .8em;
+    height: .8em;
+    flex: none;
   }
 
   .invite .schedule {
     display: grid;
-    gap: 2.25rem;
-    margin: 0 0 4.5rem;
+    gap: 3rem;
+    margin: 4rem 0;
   }
 
   .invite .schedule .time {
-    font-size: .7rem;
-    letter-spacing: .2em;
+    font-size: .75rem;
     text-transform: uppercase;
-    font-weight: 600;
-    opacity: .55;
-    margin: 0 0 .35rem;
+    font-weight: 500;
+    margin: 0 0 .1rem;
   }
 
   .invite .schedule .title {
-    font-family: 'EB Garamond', serif;
-    font-style: italic;
-    font-size: 1.5rem;
-    margin: 0 0 .25rem;
+    font-family: 'Pinyon Script', cursive;
+    font-weight: 400;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin: 0 0 .2rem;
   }
 
   .invite .schedule .desc {
-    font-size: .85rem;
-    opacity: .75;
-    margin: 0;
+    font-size: .8rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 0 0 0.5rem;
   }
 
-  .invite .rule {
-    width: 2.5rem;
-    height: 1px;
-    background: var(--ink);
-    opacity: .3;
-    margin: 0 auto 4.5rem;
+  .invite .schedule img {
+    display: block;
+    width: 100%;
+    max-width: 22rem;
+    margin: 0 auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .invite .schedule .schedule-video,
+  .invite .schedule .schedule-gif {
+    display: block;
+    width: 100%;
+    max-width: 11rem;
+    margin: 0 auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
   }
 
   .invite .fineprint {
-    text-align: left;
+    text-align: center;
     display: grid;
-    gap: 2.25rem;
+    gap: 2rem;
   }
 
   .invite .fineprint .label {
-    font-size: .7rem;
-    letter-spacing: .2em;
+    font-size: .8rem;
     text-transform: uppercase;
-    font-weight: 600;
-    opacity: .6;
-    margin: 0 0 1.5rem;
-    text-align: center;
-  }
-
-  .invite .fineprint .item b {
-    display: block;
-    font-size: .95rem;
-    margin: 0 0 .4rem;
-  }
-
-  .invite .fineprint .item p {
-    font-size: .85rem;
-    line-height: 1.6;
-    opacity: .8;
+    font-weight: 700;
     margin: 0;
   }
 
-  .invite .rsvp {
-    margin-top: 4.5rem;
+  .invite .fineprint .item h3 {
+    font-family: 'Switzer', sans-serif;
+    font-style: normal;
     font-size: .8rem;
-    opacity: .75;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0 0 .75rem;
   }
 
-  .invite .rsvp a {
+  .invite .fineprint .item p {
+    font-size: .9rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .invite .fineprint .item p + p {
+    margin-top: .75rem;
+  }
+
+  .invite .fineprint .item a {
     color: inherit;
-    text-decoration: underline;
-    text-underline-offset: .2em;
   }
 </style>
 
 <div class="invite">
+  <div class="curtain-bg"></div>
   <div class="wrap">
 
     <p class="eyebrow">You're invited</p>
-    <h1>The Suite Life Of<br>Tara Otto</h1>
-    <p class="tagline">A Millennial Karaoke Dance Party</p>
-    <p class="edition">Edition #36</p>
+    <h1>The Suite Life<br>of Tara Otto</h1>
+    <p class="tagline">A Millennial Karaoke Dance Party<br>#36 – 24.10.2026</p>
+
+    <p class="venue">
+      Hotel Hotel<br>
+      Andreasstraße 13<br>
+      40213 Düsseldorf<br>
+      <a class="location-pin" href="https://maps.app.goo.gl/WC96ELL5H71BHTMD9" target="_blank" rel="noopener">
+        <img src="/assets/birthday/map-pin-fill.svg" alt="" width="14" height="14">
+      </a>
+    </p>
 
     <div class="schedule">
       <div>
-        <p class="time">19–20 Uhr — Mickey Mouse Club</p>
+        <p class="time">19–20 Uhr</p>
+        <p class="title">Mickey Mouse Club</p>
         <p class="desc">Early Access: Disney &amp; Musicals</p>
+        <img class="schedule-gif" src="/assets/birthday/goofy.gif" alt="">
       </div>
       <div>
-        <p class="time">20–21 Uhr — Welcome (to the O.C.)</p>
+        <p class="time">20–21 Uhr</p>
+        <p class="title">Welcome<br>(to the O.C., Bitch)</p>
         <p class="desc">Cocktail Hour</p>
+        <img class="schedule-gif" src="/assets/birthday/marissa.gif" alt="">
       </div>
       <div>
-        <p class="time">21–24 Uhr — Raise Your Voice</p>
-        <p class="desc">Sing-Along</p>
+        <p class="time">21–24 Uhr</p>
+        <p class="title">Raise Your Voice</p>
+        <p class="desc">Karaoke Bar</p>
+        <video class="schedule-video" src="/assets/birthday/hilardyduff.mp4" autoplay muted loop playsinline></video>
       </div>
       <div>
-        <p class="time">00–02 Uhr — Save the Last Dance</p>
+        <p class="time">0–2 Uhr</p>
+        <p class="title">Save the Last Dance</p>
         <p class="desc">Private Disco</p>
+        <img class="schedule-gif" src="/assets/birthday/savethelastdace.gif" alt="">
       </div>
       <div>
-        <p class="time">02 Uhr – Open End</p>
+        <p class="time">2 – Open End</p>
+        <p class="title">Coyote Ugly</p>
         <p class="desc">Altstadt</p>
+        <img class="schedule-gif" src="/assets/birthday/coyoteugly.gif" alt="">
       </div>
     </div>
-
-    <div class="rule"></div>
 
     <div class="fineprint">
-      <p class="label">Kleingedrucktes</p>
+      <p class="label">Small Print</p>
 
       <div class="item">
-        <b>🎤 Songwünsche</b>
-        <p>Die Playlist wird vorab kuratiert – schickt mir eure Songwünsche deshalb bitte bis zum <strong>20. Oktober</strong>. Danach müsst ihr mit meinen Entscheidungen leben.</p>
+        <h3>Guest List</h3>
+        <p>Da wir eine Suite haben, ist die Gästeliste leider begrenzt. Sagt deshalb bitte bis zum <strong>10. Oktober</strong> verbindlich zu – oder gerne schon früher ab, wenn ihr bereits wisst, dass ihr nicht dabei sein könnt.</p>
+        <p>Die Einladungen sind zunächst ohne +1. Wenn ihr gerne jemanden mitbringen möchtet, schreibt mir – sobald ich einen besseren Überblick über die Gästeliste habe, schaue ich, was sich machen lässt.</p>
+        <p>Am Abend könnt ihr direkt zum Einlass gehen, euren Namen sagen und müsst nicht anstehen.</p>
       </div>
 
       <div class="item">
-        <b>🍕 Food</b>
-        <p>Für den kleinen Hunger zwischendurch gibt's Pizza. Seht das bitte als Snack und sorgt vorher selbst für eine solide Grundlage – wer später noch Hunger hat, kann natürlich jederzeit Pizza nachbestellen.</p>
-        <p style="margin-top:.75rem;">Ein Geburtstagskuchen (max. 20 cm, ohne Sahne) darf übrigens mitgebracht werden, falls sich jemand berufen fühlt. Vielleicht sprecht ihr euch ab. 🎂</p>
+        <h3>Songwünsche</h3>
+        <p>Die Playlist wird vorab kuratiert – schickt mir eure Songwünsche deshalb bitte bis zum <strong>20. Oktober</strong>.</p>
       </div>
 
       <div class="item">
-        <b>🍸 Drinks statt Geschenke</b>
-        <p>Für eine Grundausstattung an Getränken ist gesorgt. Alles darüber hinaus kann vor Ort selbst bestellt werden – leider zu eher unnostalgischen Preisen.</p>
-        <p style="margin-top:.75rem;">Deshalb: <strong>Bitte keine Geschenke!</strong> Ich wünsche mir nichts und außer euch nichts weiter.</p>
+        <h3>Food</h3>
+        <p>Für den kleinen Hunger zwischendurch gibt's Pizza. Am besten sorgt ihr vorher schon für eine solide Grundlage – wer später noch Hunger hat, kann natürlich jederzeit Pizza nachbestellen oder im Pizzarestauren (1.OG) eine Partypause einlegen.</p>
+      </div>
+
+      <div class="item">
+        <h3>Terasse</h3>
+        <p>Unsere kleine Terrasse ist bis 23.30 Uhr zugänglich. Danach gibt es nur unten frische Luft.</p>
+      </div>
+
+      <div class="item">
+        <h3>Geschenke</h3>
+        <p>Für eine Grundausstattung an Getränken ist gesorgt. Darüber hinaus kann vor Ort selbst bestellt werden. Es ist leider nicht ganz so günstig, die genauen Details muss ich noch in Erfahrung bringen.</p>
+        <p>Deshalb: Bitte keine Geschenke! Ich wünsche mir nichts und wir dürfen nicht alles mit in die Location nehmen. Wer sich trotzdem beteiligen möchte, findet vor Ort eine kleine Partykasse.</p>
+      </div>
+
+      <div class="item">
+        <h3>Anfahrt</h3>
+        <p>Da wir mitten in der Altstadt feiern, würde ich empfehlen mit der Bahn zu kommen. Ansonsten könnt ihr in <a href="https://maps.app.goo.gl/1L1hebqPSJHxooJi8"><u>diesem</u></a> Parkhaus ganz gut unterkommen.</p>
       </div>
     </div>
-
-    <p class="rsvp">Details &amp; RSVP: <a href="#">wird ergänzt</a></p>
 
   </div>
 </div>
