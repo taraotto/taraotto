@@ -65,6 +65,10 @@ module.exports = {
         'darkblue': '#1E375F',
         'orange': '#FF641E',
       },        
+      // Redesign 2026
+      'cream': '#fff4d4',
+      'olive': '#7a6737',
+      'espresso': '#1f1805',
       'graphit': {
         DEFAULT: '#444444',
         '50': '#A0A0A0',
@@ -83,6 +87,7 @@ module.exports = {
       sans: ['Montserrat', 'sans-serif'],
       serif: ['EB Garamond', 'serif'],
       display: ['Canela Web', 'serif'],
+      inter: ['Inter', 'sans-serif'],
     },
   },
   plugins: [],

@@ -249,3 +249,18 @@ li          { @apply border-b border-black text-xs uppercase tracking-[.3em] fon
   @apply font-semibold;
 }
 
+
+
+/* ------------ Redesign 2026 ------------ */
+
+/* Resets the legacy global typography for pages on the redesign layout */
+.rd, .rd p, .rd nav, .rd li {
+  @apply font-inter text-base leading-[normal] tracking-normal font-normal normal-case p-0 border-0 cursor-auto;
+}
+.rd a { @apply no-underline cursor-pointer; }
+
+.rd-link { @apply transition-opacity hover:opacity-60; }
+
+.rd-button {
+  @apply inline-flex items-center justify-center h-[46px] px-[42px] rounded-full border border-cream text-cream uppercase transition-colors hover:bg-cream hover:text-espresso;
+}
