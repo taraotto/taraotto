@@ -253,14 +253,123 @@ li          { @apply border-b border-black text-xs uppercase tracking-[.3em] fon
 
 /* ------------ Redesign 2026 ------------ */
 
-/* Resets the legacy global typography for pages on the redesign layout */
-.rd, .rd p, .rd nav, .rd li {
-  @apply font-inter text-base leading-[normal] tracking-normal font-normal normal-case p-0 border-0 cursor-auto;
+/* Resets the legacy global typography for pages on the redesign layout.
+   :where() keeps the specificity at element level, so it beats the legacy
+   element rules above but Tailwind utilities still win. */
+:where(.rd), :where(.rd) :is(p, nav, li, h1, h2, h3, h4) {
+  @apply font-inter text-[14px] leading-[normal] tracking-normal font-normal not-italic normal-case p-0 border-0 cursor-auto;
 }
-.rd a { @apply no-underline cursor-pointer; }
+:where(.rd) a, :where(.rd) p a { @apply no-underline cursor-pointer; }
 
-.rd-link { @apply transition-opacity hover:opacity-60; }
+/* Headlines in Canela Thin, all one size */
+:where(.rd) :is(h1, h2) { @apply font-display font-thin text-[40px] md:text-[64px] leading-[1.05]; }
 
+.rd-link { @apply transition-opacity duration-300 hover:opacity-60; }
+
+/* Underline that grows from the left on hover */
+.rd-underline { @apply relative hover:opacity-100; }
+.rd-underline::after {
+  content: '';
+  background-color: currentColor;
+  @apply absolute left-0 -bottom-1 h-px w-full origin-right scale-x-0 transition-transform duration-500 ease-[cubic-bezier(.65,0,.35,1)];
+}
+.rd-underline:hover::after { @apply origin-left scale-x-100; }
+
+/* Pill button whose fill rises from the bottom. Colours via --rd-btn (line, text, fill)
+   and --rd-btn-hover (text on the fill); the defaults suit dark backgrounds. */
+/* :where() keeps the defaults overridable by [--rd-btn:…] utilities */
+:where(.rd-button) {
+  --rd-btn: #fff4d4;
+  --rd-btn-hover: #1f1805;
+}
 .rd-button {
-  @apply inline-flex items-center justify-center h-[46px] px-[42px] rounded-full border border-cream text-cream uppercase transition-colors hover:bg-cream hover:text-espresso;
+  color: var(--rd-btn);
+  border-color: var(--rd-btn);
+  @apply relative inline-flex items-center justify-center h-[42px] px-[38px] rounded-full border uppercase overflow-hidden isolate transition-colors duration-500;
 }
+.rd-button::before {
+  content: '';
+  background-color: var(--rd-btn);
+  @apply absolute inset-0 -z-10 rounded-full translate-y-full transition-transform duration-500 ease-[cubic-bezier(.65,0,.35,1)];
+}
+.rd-button:hover { color: var(--rd-btn-hover); }
+.rd-button:hover::before { @apply translate-y-0; }
+
+/* Stamp logo drawn in the current text colour (the SVGs are used as masks) */
+.rd-stamp {
+  background-color: currentColor;
+  -webkit-mask: url('/assets/images/redesign/stamp.svg') center / contain no-repeat;
+  mask: url('/assets/images/redesign/stamp.svg') center / contain no-repeat;
+}
+.rd-stamp-filled {
+  -webkit-mask-image: url('/assets/images/redesign/stamp-filled.svg');
+  mask-image: url('/assets/images/redesign/stamp-filled.svg');
+}
+
+/* Underline stays on for the current page */
+.rd-underline[aria-current="page"]::after { @apply origin-left scale-x-100; }
+[aria-current] > .rd-underline::after, button:hover > .rd-underline::after { @apply origin-left scale-x-100; }
+
+/* Spacing scale: two steps used everywhere on redesign pages
+   section = between sections, block = within a section (headline to content, content to button) */
+.rd-gap-section { @apply mt-20 md:mt-[120px]; }
+.rd-gap-block   { @apply mt-8 md:mt-12; }
+.rd-stack > * + * { @apply mt-8 md:mt-12; }
+.rd-pad-page    { @apply pt-44 md:pt-[240px] pb-20 md:pb-[120px]; }
+
+/* Journal: stamp-shaped card with the guide title that rises over the image on hover.
+   Tones alternate olive, cream and bark; landscape images get a landscape stamp. */
+.rd-journal-stamp {
+  -webkit-mask: url('/assets/images/redesign/stamp-filled.svg') center / contain no-repeat;
+  mask: url('/assets/images/redesign/stamp-filled.svg') center / contain no-repeat;
+  @apply absolute inset-x-[11%] inset-y-[10%] hidden md:flex items-center justify-center p-10 text-center bg-olive text-cream [clip-path:inset(100%_0_0_0)] transition-[clip-path] duration-700 ease-[cubic-bezier(.65,0,.35,1)] group-hover:[clip-path:inset(0_0_0_0)];
+}
+.rd-journal-stamp--landscape {
+  -webkit-mask-image: url('/assets/images/redesign/stamp-filled-landscape.svg');
+  mask-image: url('/assets/images/redesign/stamp-filled-landscape.svg');
+  @apply inset-x-[10%] inset-y-[11%];
+}
+.rd-journal-stamp--cream { @apply bg-cream text-olive; }
+.rd-journal-stamp--bark  { @apply bg-bark text-cream; }
+
+/* Journal filter: the active entry gets a small dot */
+[data-journal-filter] button[aria-current] span::before {
+  content: '';
+  background-color: currentColor;
+  @apply inline-block w-[5px] h-[5px] rounded-full mr-2 align-middle -translate-y-px;
+}
+
+/* Split headline words (see data-split in site.js); padding keeps descenders and italics unclipped */
+.rd-word { @apply inline-block overflow-hidden align-top pb-[0.15em] -mb-[0.15em] pr-[0.06em] -mr-[0.06em]; }
+.rd-word > span { @apply inline-block; }
+
+/* Floating image next to the cursor (see data-hover-image in site.js) */
+.rd-hover-preview { @apply fixed top-0 left-0 z-50 w-[280px] aspect-[4/3] overflow-hidden pointer-events-none opacity-0 scale-[.85]; }
+.rd-hover-preview img { @apply w-full h-full object-cover; }
+
+/* Fields written into a sentence: just an underline that grows with the text */
+.rd-inline-field {
+  field-sizing: content;
+  font: inherit;
+  color: inherit;
+  @apply inline-block max-w-full px-[0.1em] bg-transparent border-0 border-b border-current rounded-none outline-none placeholder:text-current placeholder:opacity-30 focus:placeholder:opacity-10;
+}
+/* The last field may run over several lines; it leaves room for the closing full stop */
+.rd-inline-area { @apply resize-none overflow-hidden align-bottom leading-[1.4] py-[0.3em] max-w-[calc(100%-0.5em)]; }
+
+/* Blinking caret for the typed claim */
+.rd-caret {
+  background-color: currentColor;
+  @apply inline-block w-px h-[1.1em] -mb-[0.2em] ml-[2px];
+  animation: rd-blink 1s steps(1) infinite;
+}
+@keyframes rd-blink { 50% { opacity: 0; } }
+
+/* Initial states for the intro, only while the animation script is active */
+.rd-js [data-intro="fade"], .rd-js [data-reveal], .rd-js [data-type], .rd-js [data-split] { opacity: 0; }
+.rd-js [data-intro="reveal"], .rd-js [data-reveal-image] { clip-path: inset(100% 0 0 0); }
+.rd-js .rd-card-img:not(:first-child) { clip-path: inset(100% 0 0 0); }
+
+/* Lenis smooth scrolling */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }

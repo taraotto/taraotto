@@ -1,0 +1,110 @@
+---
+layout: redesign
+title: Journal
+permalink: /journal/
+theme: light
+scripts:
+  - /assets/js/journal.js
+# Filter options; posts are matched by `continent` or their first category
+continents:
+  - name: Asia
+    slug: asia
+  - name: Europe
+    slug: europe
+  - name: North America
+    slug: north-america
+# Guides that are not published yet; they follow the published posts in the grid
+upcoming:
+  - title: Ubud
+    continent: asia
+    image: /assets/images/posts/bali/ubud/travel-ubud-7.jpg
+  - title: The Canadian Rockies
+    continent: north-america
+    image: /assets/images/posts/canada/banff/travel-banff-22.jpg
+  - title: Cinque Terre
+    continent: europe
+    image: /assets/images/posts/italy/cinqueterre/travel-cinque-terre-1.jpg
+  - title: Seoul
+    continent: asia
+    image: /assets/images/posts/seoul/travel-seoul-1.jpg
+  - title: Bangkok
+    continent: asia
+    image: /assets/images/posts/bangkok/travel-bangkok-1.jpg
+  - title: Singapore
+    continent: asia
+    image: /assets/images/posts/singapore/travel-singapore-1.jpg
+  - title: Nara
+    continent: asia
+    image: /assets/images/posts/japan/nara/travel-nara-1.jpg
+---
+
+{% comment %}
+  Entries repeat in groups of five: three staggered portraits (A), then a landscape and a portrait side by side (B).
+  The intro sits in the middle column of the first group; the continent filter sits top right at the page edge.
+  /assets/js/journal.js rebuilds the same pattern from the matching entries when filtering.
+{% endcomment %}
+{% assign entries = site.posts | concat: page.upcoming %}
+
+{% capture intro %}
+  <h1 data-split>Places worth<br><em>the trip.</em></h1>
+  <p class="rd-gap-block" data-intro="fade">City guides and travel notes, with the cafés,<br>corners and details I’d send to a friend.</p>
+{% endcapture %}
+
+{% capture filter %}
+  <nav class="block w-full border-y border-current divide-y divide-current" aria-label="Filter by continent" data-journal-filter>
+    <button type="button" class="block w-full py-3 text-center md:text-right" data-continent="all" aria-current="true"><span>All</span></button>
+    {% for continent in page.continents %}
+    <button type="button" class="block w-full py-3 text-center md:text-right" data-continent="{{ continent.slug }}"><span>{{ continent.name }}</span></button>
+    {% endfor %}
+  </nav>
+{% endcapture %}
+
+<div class="relative bg-cream text-olive rd-pad-page px-6 md:px-10">
+
+  <!-- Desktop filter, aligned with the page edge like the logo -->
+  <div class="hidden md:block absolute right-10 top-[240px] w-[220px] z-10" data-intro="fade">{{ filter }}</div>
+
+  <!-- Intro and filter on small screens; on desktop they sit inside the grid -->
+  <div class="md:hidden text-center mt-8 mb-12">
+    {{ intro }}
+    <div class="rd-gap-block" data-intro="fade">{{ filter }}</div>
+  </div>
+
+  <div data-journal-grid>
+  {% for item in entries %}
+  {% assign slot = forloop.index0 | modulo: 5 %}
+  {% assign image = item.featured-image | default: item.image %}
+  {% assign continent = item.continent | default: item.categories.first %}
+
+  {% comment %} Later three-image groups tuck up under the two-image group above, keeping some air to each image {% endcomment %}
+  {% if slot == 0 %}<div class="relative grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-[63px] max-w-[1620px] mx-auto items-start {% unless forloop.first %} mt-12 md:-mt-[60px] {% endunless %}">
+{% endif %}
+  {% if slot == 3 %}<div class="flex flex-col md:flex-row justify-center items-start gap-12 md:gap-[58px] mt-12 md:mt-[120px]">{% endif %}
+
+    <div class="{% if slot == 1 %} relative md:pt-[400px] {% elsif slot == 2 %} md:mt-[252px] {% elsif slot == 3 %} w-full md:w-[617px] {% elsif slot == 4 %} w-full md:w-[497px] md:mt-[200px] {% endif %}" data-entry data-continent="{{ continent }}">
+
+      {% if forloop.index0 == 1 %}<div class="hidden md:block absolute inset-x-0 top-0 text-center" data-journal-intro>{{ intro }}</div>{% endif %}
+
+      {% if item.url %}<a href="{{ item.url }}"{% else %}<div{% endif %}
+        class="group relative block overflow-hidden {% if slot == 3 %} aspect-[617/497] {% elsif slot == 4 %} aspect-[497/621] {% else %} aspect-[498/622] {% endif %}"
+        data-reveal-image data-card>
+        <img src="{{ image }}" alt="{{ item.title | replace: '<br>', ' ' | strip_html }}" class="w-full h-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-105">
+
+        <!-- Stamp that rises on hover (desktop) -->
+        <div class="rd-journal-stamp {% cycle '', 'rd-journal-stamp--cream', 'rd-journal-stamp--bark' %} {% if slot == 3 %} rd-journal-stamp--landscape {% endif %}" data-stamp>
+          <div>
+            <p class="font-display font-thin text-[30px] leading-[1.1]">{{ item.title }}</p>
+            <p class="mt-4">{% if item.url %}Read the guide{% else %}Coming soon{% endif %}</p>
+          </div>
+        </div>
+      {% if item.url %}</a>{% else %}</div>{% endif %}
+
+      <!-- Caption below the image on touch screens -->
+      <p class="md:hidden mt-4 text-center">{{ item.title | replace: '<br>', ' ' | strip_html }}{% unless item.url %} — coming soon{% endunless %}</p>
+    </div>
+
+  {% if slot == 2 or slot == 4 or forloop.last %}</div>{% endif %}
+  {% endfor %}
+  </div>
+
+</div>

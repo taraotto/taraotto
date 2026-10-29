@@ -5,15 +5,34 @@
 
 <body class="rd bg-espresso text-cream font-inter">
 
-    {% include rd-header.html %}
+    <!-- Hides animated elements until site.js runs; falls back to static after 3s -->
+    <script>
+      document.documentElement.classList.add('rd-js');
+      setTimeout(function () { if (!window.rd) document.documentElement.classList.remove('rd-js'); }, 3000);
+    </script>
 
-    {{content}}
+    {% comment %} Pages with a pinned hero (header-in-hero: true) include the header inside it {% endcomment %}
+    {% unless page.header-in-hero %}{% include rd-header.html %}{% endunless %}
+
+    <main>
+      {{content}}
+    </main>
+
+    {% unless page.booking == false %}{% include rd-booking.html %}{% endunless %}
 
     {% include rd-footer.html %}
 
     {% include cookie-banner.html %}
 
     {% include body-scripts.html %}
+
+    <!-- Animations: shared in site.js, page-specific scripts via front matter `scripts` -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="/assets/js/site.js"></script>
+    {% for script in page.scripts %}<script src="{{ script }}"></script>
+    {% endfor %}
 
 </body>
 

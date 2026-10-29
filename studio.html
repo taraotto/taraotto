@@ -1,0 +1,168 @@
+---
+layout: redesign
+title: Studio
+permalink: /studio/
+working-together:
+  - title: Projects
+    text: A new brand or a complete relaunch, from strategy to website.
+  - title: Ongoing support
+    text: A fixed monthly scope for brands that need a steady design partner.
+# Shown below "Working Together" once set, e.g. "€ 4.000"
+price-from:
+services:
+  - title: Brand Strategy
+    text: We define where your brand stands and where it wants to go. Competition, audience, tone and a clear visual direction, agreed before a single logo is drawn.
+    image: /assets/images/redesign/studio-service-strategy.jpg
+  - title: Brand Identity
+    text: Logo, colour, typography, imagery. A complete system that feels like you on every touchpoint and is easy for your team to use.
+    image: /assets/images/redesign/home-card-galeria.jpg
+  - title: Web Design & Development
+    text: Custom-built websites, designed and coded in-house. Fast, calm, easy to update, and free from the limits of templates.
+    image: /assets/images/redesign/studio-service-web.jpg
+  - title: Print, Editorial & Packaging
+    text: Brochures, books, labels, stationery. Where a brand becomes something you can hold.
+    image: /assets/images/redesign/home-card-somewhere.jpg
+process:
+  - title: Discover
+    text: We talk, I listen and research. Your market, your audience, your ambitions.
+  - title: Define
+    text: Positioning, moodboards and design principles. We agree on the direction before the design starts.
+  - title: Design
+    text: Identity and website take shape, refined together in focused feedback rounds.
+  - title: Launch
+    text: Final files, guidelines and a live website. Ready for your team to take forward.
+# Caption below each image on hover; left out when client is empty
+work:
+  - image: /assets/images/redesign/home-card-galeria.jpg
+    alt: Galeria postcard design
+    url: /portfolio/galeria.html
+    client: Galeria
+    service: Brand Identity
+  - image: /assets/images/redesign/studio-work-posters.jpg
+    alt: “Designed to be heard.” poster campaign
+    url: /portfolio.html
+    client:
+    service:
+  - image: /assets/images/redesign/studio-work-team.jpg
+    alt: Team portrait from a brand photo shoot
+    url: /portfolio.html
+    client:
+    service:
+---
+
+<div class="bg-cream text-olive pb-20 md:pb-[120px]" data-page>
+
+  <!-------------------------- Hero -------------------------->
+  <!-- Full-screen image with a dark overlay; header and headline turn cream -->
+  <section class="relative h-screen min-h-[560px] flex items-center justify-center overflow-hidden bg-olive" data-intro="reveal">
+    <img src="/assets/images/redesign/studio-hero.jpg" alt="Closed laptop, notebook and books on a linen sofa"
+         class="absolute inset-x-0 -top-[15%] w-full h-[130%] object-cover" data-intro-zoom data-parallax="0.08">
+    <div class="absolute inset-0 bg-espresso/40"></div>
+    <div class="relative px-6 text-center text-cream">
+      <h1 data-split>Brands with a <em>point of view.</em></h1>
+      <p class="rd-gap-block" data-intro="fade">Strategy, identity and website, shaped as one.<br>For companies that want to look as considered as they are.</p>
+      <p class="rd-gap-block" data-intro="fade"><a href="#inquiry" class="rd-button"><span>Book now</span></a></p>
+    </div>
+  </section>
+
+  <!-------------------------- Intro -------------------------->
+  <section class="rd-gap-section px-6 md:px-10">
+    <div class="max-w-[460px] mx-auto text-center">
+      <p data-reveal>Good design is easy to like and easy to forget. What stays is a brand that knows what it stands for. I start there: with your story, your audience and what sets you apart. Then I give it form, from the first sketch to the finished website.<br>One point of contact, no hand-offs, nothing lost in between.</p>
+    </div>
+  </section>
+
+  <!-------------------------- Services -------------------------->
+  <!-- Editorial list; on desktop each row shows a project image next to the cursor -->
+  <section class="rd-gap-section px-6 md:px-10">
+    <h2 class="text-center" data-reveal>Services</h2>
+    <ol class="rd-gap-block border-b border-current">
+      {% for item in page.services %}
+      <li class="grid grid-cols-[2.5rem_1fr] md:grid-cols-[4rem_1fr_minmax(0,420px)] gap-x-6 gap-y-3 items-center py-8 md:py-10 border-t border-current" data-reveal data-hover-image="{{ item.image }}">
+        <span>0{{ forloop.index }}</span>
+        <h3 class="font-display font-thin text-[32px] md:text-[48px] leading-[1.05]">{{ item.title }}</h3>
+        <p class="col-start-2 md:col-start-3">{{ item.text }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <!-------------------------- Process -------------------------->
+  <!-- The page turns olive while this section is in view; the headline stays put on desktop -->
+  <section class="rd-gap-section px-6 md:px-10 py-20 md:py-[120px] md:grid md:grid-cols-2 md:gap-[68px]" data-bg="#7a6737" data-fg="#fff4d4">
+    <div>
+      <h2 class="md:sticky md:top-[45vh]" data-reveal>Process</h2>
+    </div>
+    <ol class="mt-12 md:mt-0 space-y-14 md:space-y-[120px]">
+      {% for item in page.process %}
+      <li class="max-w-[420px]" data-reveal>
+        <span class="block font-display font-thin text-[64px] md:text-[96px] leading-none">0{{ forloop.index }}</span>
+        <p class="mt-6">{{ item.title }}. {{ item.text }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <!-------------------------- Selected Work -------------------------->
+  <!-- Staggered columns that drift at different speeds; the middle one carries the label -->
+  <section class="rd-gap-section px-6 md:px-10">
+    <p class="text-center md:hidden" data-reveal>Selected Work</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-[68px] max-w-[1536px] mx-auto mt-8 md:mt-0">
+      {% for item in page.work %}
+      {% if forloop.index == 2 %}<div class="md:pt-[284px]">
+        <p class="hidden md:block text-center mb-[193px]" data-reveal>Selected Work</p>{% endif %}
+
+        <a href="{{ item.url }}" class="group block self-start {% if forloop.index == 3 %} md:mt-[170px] {% endif %}" data-parallax="{% cycle '0.03', '0.07', '-0.03' %}">
+          <div class="overflow-hidden aspect-[467/583]" data-reveal-image>
+            <img src="{{ item.image }}" alt="{{ item.alt }}" class="w-full h-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-105">
+          </div>
+          {% if item.client %}
+          <p class="mt-4 transition-all duration-500 md:opacity-0 md:translate-y-2 md:group-hover:opacity-100 md:group-hover:translate-y-0">{{ item.client }} — {{ item.service }}</p>
+          {% endif %}
+        </a>
+
+      {% if forloop.index == 2 %}</div>{% endif %}
+      {% endfor %}
+    </div>
+
+    <p class="text-center rd-gap-block" data-reveal>
+      <a href="/portfolio.html" class="rd-button [--rd-btn:#7a6737] [--rd-btn-hover:#fff4d4]"><span>View more</span></a>
+    </p>
+  </section>
+
+  <!-------------------------- Working Together -------------------------->
+  <section class="rd-gap-section px-6 md:px-10 max-w-[900px] mx-auto text-center" data-reveal>
+    <h2>Working <em>Together</em></h2>
+    <ul class="rd-gap-block border-y border-current divide-y divide-current">
+      {% for item in page.working-together %}
+      <li class="py-6">{{ item.title }}. {{ item.text }}</li>
+      {% endfor %}
+    </ul>
+    {% if page.price-from %}<p class="rd-gap-block">Brand projects start from {{ page.price-from }}.</p>{% endif %}
+  </section>
+
+  <!-------------------------- Inquiry -------------------------->
+  <!-- Written as a sentence; the fields are part of the text -->
+  <section class="rd-gap-section px-6 md:px-10 max-w-[860px] mx-auto text-center" id="inquiry">
+    <h2 data-reveal>Inquiry</h2>
+
+    <form method="POST" action="https://api.web3forms.com/submit" class="rd-gap-block" data-reveal>
+      <input type="hidden" name="access_key" value="c24f59cd-3664-4d94-a404-bf1f88eb520e">
+      <input type="hidden" name="subject" value="New inquiry via taraotto.com/studio">
+      <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
+
+      <p class="font-display font-thin text-[22px] md:text-[30px] leading-[1.9]">
+        Hi, I’m <input class="rd-inline-field" type="text" name="name" placeholder="your name" autocomplete="name" aria-label="Name" required>
+        from <input class="rd-inline-field" type="text" name="website" placeholder="company" autocomplete="organization" aria-label="Company or website">.
+        You can reach me at <input class="rd-inline-field" type="email" name="email" placeholder="email address" autocomplete="email" aria-label="Email" required>.
+        I’d love some help with <textarea class="rd-inline-field rd-inline-area" name="message" rows="1" placeholder="my project" aria-label="Your project" required></textarea>.
+      </p>
+
+      <div class="rd-gap-block">
+        <button type="submit" class="rd-button [--rd-btn:#7a6737] [--rd-btn-hover:#fff4d4]"><span>Send</span></button>
+      </div>
+    </form>
+  </section>
+
+</div>

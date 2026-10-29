@@ -1,0 +1,262 @@
+/* ------------ Shared animations (Redesign 2026) ------------
+   Runs on every page with the redesign layout. Uses GSAP +
+   ScrollTrigger and Lenis (loaded in the layout). Without them, or
+   with reduced motion, the page stays static.
+
+   Markup hooks:
+   data-intro="fade"     fades in on load (above the fold)
+   data-intro="reveal"   is uncovered from the bottom on load
+   data-intro-zoom       slowly zooms out on load (images)
+   data-reveal           fades up when scrolled into view
+   data-reveal-image     is uncovered from the bottom when scrolled into view (wraps an img)
+   data-split            headline rises word by word on load
+   data-parallax="0.15"  moves against the scroll by that share of its height
+   data-bg / data-fg     colours the [data-page] wrapper while this section is in view
+   data-hover-image      shows that image next to the cursor on hover
+   data-type             typed claim, see data-endings
+   data-clock            live local time, see data-city / data-timezone
+
+   Page scripts can build on window.rd (ease, clip states, intro timeline). */
+
+(function () {
+  var root = document.documentElement;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var rd = window.rd = { enabled: false };
+
+  // ------------ Inline form fields ------------
+  // As wide as their placeholder, growing with the text. Browsers without
+  // CSS field-sizing (Safari, Firefox) get the width measured here instead.
+  if (!(window.CSS && CSS.supports('field-sizing', 'content'))) {
+    var measure = document.createElement('span');
+    measure.style.cssText = 'position:absolute;visibility:hidden;white-space:pre;';
+    document.body.appendChild(measure);
+
+    document.querySelectorAll('.rd-inline-field').forEach(function (field) {
+      var fit = function () {
+        measure.style.font = getComputedStyle(field).font;
+        measure.textContent = field.value || field.placeholder;
+        field.style.width = Math.min(Math.ceil(measure.offsetWidth) + 8, field.parentElement.clientWidth - 12) + 'px';
+        // Textareas also grow in height once the text wraps
+        if (field.tagName === 'TEXTAREA') {
+          field.style.height = 'auto';
+          field.style.height = field.scrollHeight + 'px';
+        }
+      };
+      field.addEventListener('input', fit);
+      fit();
+      if (document.fonts) document.fonts.ready.then(fit);
+    });
+  }
+
+  // ------------ Live local time ------------
+  // "Currently in Düsseldorf / 22:41 CET", the colon blinks with the seconds.
+  var clock = document.querySelector('[data-clock]');
+
+  if (clock) {
+    var format = function (options) {
+      return new Intl.DateTimeFormat('en-GB', Object.assign({ timeZone: clock.dataset.timezone }, options)).format(new Date());
+    };
+    var tick = function () {
+      var time = format({ hour: '2-digit', minute: '2-digit', hour12: false }).split(':');
+      var zone = format({ timeZoneName: 'short' }).split(' ').pop();
+      var colon = new Date().getSeconds() % 2 ? '<span style="opacity:0">:</span>' : ':';
+      clock.innerHTML = 'Currently in ' + clock.dataset.city + '<br>' + time[0] + colon + time[1] + ' ' + zone;
+    };
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  if (reduceMotion || !window.gsap || !window.ScrollTrigger) {
+    root.classList.remove('rd-js');
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  rd.enabled = true;
+  rd.ease = 'expo.out';
+  rd.hidden = 'inset(100% 0% 0% 0%)';
+  rd.shown = 'inset(0% 0% 0% 0%)';
+
+  // ------------ Smooth scrolling ------------
+  if (window.Lenis) {
+    var lenis = new Lenis({ lerp: 0.09, anchors: true }); // anchors: in-page links scroll smoothly
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  // ------------ Split headlines ------------
+  // Wraps every word in a clipping mask (keeping <em> etc.) so it can rise into view.
+  var splitWords = function (node) {
+    Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+      if (child.nodeType === 1) return splitWords(child);
+      if (child.nodeType !== 3 || !child.textContent.trim()) return;
+      var fragment = document.createDocumentFragment();
+      child.textContent.split(/(\s+)/).forEach(function (part) {
+        if (!part) return;
+        if (/^\s+$/.test(part)) return fragment.appendChild(document.createTextNode(part));
+        var mask = document.createElement('span');
+        mask.className = 'rd-word';
+        mask.innerHTML = '<span></span>';
+        mask.firstChild.textContent = part;
+        fragment.appendChild(mask);
+      });
+      child.replaceWith(fragment);
+    });
+  };
+
+  var splits = document.querySelectorAll('[data-split]');
+  splits.forEach(function (el) {
+    el.setAttribute('aria-label', el.innerHTML.replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, '').trim());
+    splitWords(el);
+    gsap.set(el, { opacity: 1 });
+  });
+
+  // ------------ Intro ------------
+  rd.intro = gsap.timeline({ defaults: { ease: rd.ease } })
+    .fromTo('[data-split] .rd-word > span', { yPercent: 110 }, { yPercent: 0, duration: 1.4, stagger: 0.07 }, 0.2)
+    .fromTo('[data-intro="reveal"]', { clipPath: rd.hidden }, { clipPath: rd.shown, duration: 1.6, stagger: 0.25 }, 0)
+    .fromTo('[data-intro-zoom]', { scale: 1.18 }, { scale: 1, duration: 2.2 }, 0)
+    .fromTo('[data-intro="fade"]',
+      { opacity: 0, y: 14, filter: 'blur(6px)' },
+      { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.4, stagger: 0.12, clearProps: 'filter,transform' }, 0.6);
+
+  // ------------ Reveal on scroll ------------
+  ScrollTrigger.batch('[data-reveal]', {
+    start: 'top 85%',
+    once: true,
+    onEnter: function (batch) {
+      gsap.fromTo(batch, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 1.2, ease: rd.ease, stagger: 0.1 });
+    }
+  });
+
+  ScrollTrigger.batch('[data-reveal-image]', {
+    start: 'top 85%',
+    once: true,
+    onEnter: function (batch) {
+      gsap.fromTo(batch, { clipPath: rd.hidden }, { clipPath: rd.shown, duration: 1.6, ease: rd.ease, stagger: 0.15 });
+      gsap.fromTo(batch.map(function (el) { return el.querySelector('img'); }), { scale: 1.2 }, { scale: 1, duration: 2, ease: rd.ease, stagger: 0.15 });
+    }
+  });
+
+  // ------------ Parallax ------------
+  gsap.utils.toArray('[data-parallax]').forEach(function (el) {
+    var amount = parseFloat(el.dataset.parallax) * 100;
+    gsap.fromTo(el, { yPercent: amount }, {
+      yPercent: -amount, ease: 'none',
+      scrollTrigger: { trigger: el.parentElement, start: 'top bottom', end: 'bottom top', scrub: true }
+    });
+  });
+
+  // ------------ Page colour per section ------------
+  // While a [data-bg] section fills the middle of the screen the page wrapper takes its colours.
+  var page = document.querySelector('[data-page]');
+
+  if (page) {
+    var base = { backgroundColor: getComputedStyle(page).backgroundColor, color: getComputedStyle(page).color };
+    var paint = function (colors) { gsap.to(page, Object.assign({ duration: 0.8, ease: 'power2.out', overwrite: true }, colors)); };
+
+    gsap.utils.toArray('[data-bg]').forEach(function (section) {
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top 55%',
+        end: 'bottom 45%',
+        onToggle: function (self) {
+          paint(self.isActive ? { backgroundColor: section.dataset.bg, color: section.dataset.fg || base.color } : base);
+        }
+      });
+    });
+  }
+
+  // ------------ Hover images ------------
+  // A floating preview that follows the cursor; mouse and trackpad only.
+  var hoverItems = document.querySelectorAll('[data-hover-image]');
+
+  if (hoverItems.length && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    var preview = document.createElement('div');
+    preview.className = 'rd-hover-preview';
+    preview.innerHTML = '<img alt="">';
+    document.body.appendChild(preview);
+
+    var previewImg = preview.firstChild;
+    var moveX = gsap.quickTo(preview, 'x', { duration: 0.6, ease: 'power3.out' });
+    var moveY = gsap.quickTo(preview, 'y', { duration: 0.6, ease: 'power3.out' });
+
+    window.addEventListener('mousemove', function (e) { moveX(e.clientX + 24); moveY(e.clientY - 120); });
+
+    hoverItems.forEach(function (item) {
+      new Image().src = item.dataset.hoverImage; // preload
+      item.addEventListener('mouseenter', function () {
+        previewImg.src = item.dataset.hoverImage;
+        gsap.to(preview, { opacity: 1, scale: 1, duration: 0.5, ease: 'power3.out', overwrite: 'auto' });
+      });
+      item.addEventListener('mouseleave', function () {
+        gsap.to(preview, { opacity: 0, scale: 0.85, duration: 0.4, ease: 'power3.out', overwrite: 'auto' });
+      });
+    });
+  }
+
+  // ------------ Booking band ------------
+  gsap.fromTo('.rd-booking-img', { yPercent: -12, scale: 1.25 }, {
+    yPercent: 12, ease: 'none',
+    scrollTrigger: { trigger: '.rd-booking', start: 'top bottom', end: 'bottom top', scrub: true }
+  });
+
+  // ------------ Typed claim ------------
+  // Types the claim after the intro. On hover the last words are deleted and
+  // replaced by the next ending from data-endings ("intention.|care.|…").
+  var claim = document.querySelector('[data-type]');
+
+  if (claim) {
+    var text = claim.innerHTML.split(/<br\s*\/?>/i).map(function (line) { return line.trim(); }).join('\n');
+    var endings = (claim.dataset.endings || '').split('|').filter(Boolean);
+    var prefix = endings.length ? text.slice(0, text.length - endings[0].length) : text;
+    var current = 0;
+    var typed = '';
+    var typing = false;
+    var caret = '<span class="rd-caret"></span>';
+
+    claim.setAttribute('aria-label', text.replace('\n', ' '));
+    // Keep the claim's footprint so nothing shifts while it is typed
+    claim.style.minWidth = claim.offsetWidth + 'px';
+    claim.style.minHeight = claim.offsetHeight + 'px';
+
+    var render = function () {
+      claim.innerHTML = '<span aria-hidden="true">' + typed.replace(/\n/g, '<br>') + caret + '</span>';
+    };
+
+    // Moves the visible text towards target: deletes back to the shared part, then types the rest
+    var typeTo = function (target, speed, done) {
+      typing = true;
+      (function step() {
+        var deleting = target.indexOf(typed) !== 0;
+        if (deleting) {
+          typed = typed.slice(0, -1);
+        } else if (typed.length < target.length) {
+          typed = target.slice(0, typed.length + 1);
+        } else {
+          typing = false;
+          return done && done();
+        }
+        render();
+        // Faster when deleting, a pause at the line break, slight jitter for a hand-typed feel
+        var delay = deleting ? speed * 0.5
+          : typed.slice(-1) === '\n' ? speed * 6
+          : speed * (0.6 + Math.random() * 0.8);
+        setTimeout(step, delay);
+      })();
+    };
+
+    gsap.set(claim, { opacity: 1, delay: 0.8, onComplete: function () { typeTo(text, 55); } });
+
+    claim.addEventListener('mouseenter', function () {
+      if (typing || endings.length < 2) return;
+      current = (current + 1) % endings.length;
+      var next = prefix + endings[current];
+      typeTo(next, 45, function () { claim.setAttribute('aria-label', next.replace('\n', ' ')); });
+    });
+  }
+
+  window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+})();

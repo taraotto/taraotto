@@ -1,32 +1,44 @@
 ---
 layout: redesign
 title: Homepage
+header-in-hero: true
+scripts:
+  - /assets/js/home.js
 ---
 
 <!-------------------------- Hero -------------------------->
-<section class="grid grid-cols-1 md:grid-cols-2 md:h-screen md:min-h-[720px]">
+<section class="rd-hero relative bg-olive grid grid-cols-1 md:grid-cols-2 md:h-screen md:min-h-[720px]">
+
+  {% include rd-header.html %}
 
   <!------------- Left column / Intro ------------->
   <div class="bg-olive relative flex flex-col items-center justify-center px-6 pt-56 pb-16 md:p-0">
-    <img src="/assets/images/redesign/home-postcard.jpg" alt="Postcard design on a sunlit white surface"
-         class="w-[72%] md:w-[40.6%] aspect-[351/439] object-cover">
-    <p class="self-start mt-16 max-w-[375px] md:absolute md:left-[60px] md:bottom-[76px] md:mt-0">
-      Tara Otto is a Brand Designer and Art Director. She collects on the road and refines in the studio, for brands like Galeria, NICI and TRO.
+
+    <!-- Image sequence: revealed on scroll (desktop) or on a timer (mobile), see /assets/js/home.js -->
+    <div class="rd-card relative w-[72%] md:w-[40.6%] aspect-[351/439] overflow-hidden" data-intro="reveal">
+      <img src="/assets/images/redesign/home-card-galeria.jpg" alt="Galeria postcard design on a sunlit white surface"
+           class="rd-card-img absolute inset-0 w-full h-full object-cover">
+      <img src="/assets/images/redesign/home-card-metro.jpg" alt="Paris Métro sign against the evening sky"
+           class="rd-card-img absolute inset-0 w-full h-full object-cover">
+      <img src="/assets/images/redesign/home-card-somewhere.jpg" alt="“Somewhere” postcard design with a deer"
+           class="rd-card-img absolute inset-0 w-full h-full object-cover">
+      <img src="/assets/images/redesign/home-card-cinema.jpg" alt="Facade of the Electric Cinema in London"
+           class="rd-card-img absolute inset-0 w-full h-full object-cover">
+    </div>
+
+    <p class="self-start mt-16 max-w-[375px] md:absolute md:left-10 md:bottom-10 md:mt-0" data-intro="fade">
+      Tara Otto is a Brand Designer and Art Director. She has worked with brands such as Galeria, NICI and TRO.
     </p>
   </div>
 
   <!------------- Right column / Portrait ------------->
-  <div class="relative aspect-[864/1117] md:aspect-auto">
+  <div class="relative aspect-[864/1117] md:aspect-auto overflow-hidden" data-intro="reveal">
     <img src="/assets/images/redesign/home-portrait.jpg" alt="Portrait of Tara Otto"
-         class="absolute inset-0 w-full h-full object-cover">
+         class="rd-portrait absolute inset-0 w-full h-full object-cover object-[50%_30%] origin-[50%_30%]" data-intro-zoom>
+
+    <!-- Live local time; change city and IANA time zone when travelling -->
+    <p class="absolute right-6 bottom-6 md:right-10 md:bottom-10 text-right" data-intro="fade"
+       data-clock data-city="Düsseldorf" data-timezone="Europe/Berlin">Currently in Düsseldorf</p>
   </div>
 
-</section>
-
-<!-------------------------- Booking -------------------------->
-<section class="relative h-[292px] flex items-center justify-center overflow-hidden">
-  <img src="/assets/images/redesign/home-booking.jpg" alt=""
-       class="absolute inset-0 w-full h-full object-cover object-[50%_64.4%]">
-  <div class="absolute inset-0 bg-espresso/50"></div>
-  <a href="/contact.html" class="rd-button relative">Book now</a>
 </section>

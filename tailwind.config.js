@@ -22,6 +22,8 @@ module.exports = {
       roman: 'upper-roman',
     },
     colors: {
+      'transparent': 'transparent',
+      'current': 'currentColor',
       'white': '#ffffff',
       'black': '#000000',
       'sage': {
@@ -69,6 +71,7 @@ module.exports = {
       'cream': '#fff4d4',
       'olive': '#7a6737',
       'espresso': '#1f1805',
+      'bark': '#2f190d',
       'graphit': {
         DEFAULT: '#444444',
         '50': '#A0A0A0',

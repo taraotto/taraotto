@@ -105,7 +105,8 @@ function openMobileMenu() {
   this.classList.toggle('active');
 }
 
-burgerButton.addEventListener('click', openMobileMenu);
+// The redesign layout has no burger menu
+burgerButton?.addEventListener('click', openMobileMenu);
 
 /////// Animate on scroll /////// 
 AOS.init();
@@ -180,5 +181,5 @@ function searchNow(e) {
         }
     }
 
-searchBox.addEventListener("change", updateSearch)
-searchBox.addEventListener("keyup", searchNow)
+searchBox?.addEventListener("change", updateSearch)
+searchBox?.addEventListener("keyup", searchNow)
