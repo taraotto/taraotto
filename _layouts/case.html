@@ -1,0 +1,95 @@
+---
+layout: redesign
+---
+{% comment %}
+  Case study. Front matter (each case also sets `header-in-hero: true`):
+  client, headline (HTML), hero, intro (HTML), facts (label/text list),
+  blocks: list of
+    - type: pair       images: [a, b]           two images, the second set lower
+    - type: text-image image, text, flip: true   text beside a large image (flip puts the image left)
+    - type: full       image                     one image across the page
+    - type: trio       images: [a, b, c], caption
+  The next case link follows the order in _data/cases.yml.
+{% endcomment %}
+
+<!-------------------------- Hero -------------------------->
+<section class="relative h-screen min-h-[560px] flex items-end overflow-hidden bg-espresso" data-intro="reveal">
+  {% include rd-header.html %}
+  <img src="{{ page.hero }}" alt="" class="absolute inset-x-0 -top-[10%] w-full h-[120%] object-cover" data-intro-zoom data-parallax="0.06">
+  <div class="absolute inset-0 bg-gradient-to-t from-espresso/60 via-espresso/10 to-transparent"></div>
+  <div class="relative w-full px-6 md:px-10 pb-10 md:pb-10 text-cream flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+    <h1 data-split>{{ page.headline }}</h1>
+    <p data-intro="fade">{{ page.client }}<br>{{ page.services }}</p>
+  </div>
+</section>
+
+<!-- flow-root keeps the first section's top margin inside the ivory area -->
+<div class="flow-root bg-ivory text-olive pb-20 md:pb-[120px]" data-page>
+
+  <!-------------------------- Intro -------------------------->
+  <section class="rd-gap-section px-6 md:px-10 grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-12 md:gap-[120px] max-w-[1200px] mx-auto">
+    <ul class="rd-ruled self-start" data-reveal>
+      {% for fact in page.facts %}
+      <li class="grid grid-cols-[110px_1fr] gap-x-6"><span class="opacity-70">{{ fact.label }}</span><span>{{ fact.text }}</span></li>
+      {% endfor %}
+    </ul>
+    <div class="rd-prose max-w-[520px]" data-reveal>{{ page.intro }}</div>
+  </section>
+
+  <!-------------------------- Blocks -------------------------->
+  {% for block in page.blocks %}
+
+  {% if block.type == 'pair' %}
+  <section class="rd-gap-section px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-[68px] max-w-[1536px] mx-auto items-start">
+    {% for image in block.images %}
+    <!-- The whole frame drifts, so portrait artwork is never cropped -->
+    <div class="{% if forloop.last %} md:mt-[240px] {% endif %}" data-parallax="{% if forloop.last %}-0.04{% else %}0.04{% endif %}">
+      <div class="overflow-hidden aspect-[2/3]" data-reveal-image>
+        <img src="{{ image }}" alt="{{ page.client }}" class="w-full h-full object-cover">
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+
+  {% elsif block.type == 'text-image' %}
+  <!-- The image always takes the wide column; flip moves it to the left -->
+  <section class="rd-gap-section px-6 md:px-10 grid grid-cols-1 {% if block.flip %} md:grid-cols-[2fr_1fr] {% else %} md:grid-cols-[1fr_2fr] {% endif %} gap-12 md:gap-[68px] max-w-[1536px] mx-auto items-center">
+    <div class="max-w-[420px] {% if block.flip %} md:order-last {% endif %}" data-reveal><p>{{ block.text }}</p></div>
+    <div class="overflow-hidden aspect-[3/2]" data-reveal-image>
+      <img src="{{ block.image }}" alt="{{ page.client }}" class="w-full h-full object-cover">
+    </div>
+  </section>
+
+  {% elsif block.type == 'full' %}
+  <section class="rd-gap-section relative h-[70vh] md:h-screen overflow-hidden" data-reveal-image>
+    <img src="{{ block.image }}" alt="{{ page.client }}" class="absolute inset-x-0 -top-[10%] w-full h-[120%] object-cover" data-parallax="0.08">
+  </section>
+
+  {% elsif block.type == 'trio' %}
+  <section class="rd-gap-section px-6 md:px-10 max-w-[1536px] mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+      {% for image in block.images %}
+      <div class="overflow-hidden aspect-[3/2]" data-reveal-image>
+        <img src="{{ image }}" alt="{{ page.client }}" class="w-full h-full object-cover">
+      </div>
+      {% endfor %}
+    </div>
+    {% if block.caption %}<p class="mt-4 opacity-70" data-reveal>{{ block.caption }}</p>{% endif %}
+  </section>
+  {% endif %}
+
+  {% endfor %}
+
+  <!-------------------------- Next case -------------------------->
+  {% assign cases = site.data.cases | where_exp: 'c', 'c.url' %}
+  {% for case in cases %}{% if case.url == page.url %}{% assign next_index = forloop.index | modulo: cases.size %}{% endif %}{% endfor %}
+  {% assign next = cases[next_index] %}
+  <section class="rd-gap-section px-6 md:px-10 text-center">
+    <a href="{{ next.url }}" class="group inline-block" data-hover-image="{{ next.image }}" data-reveal>
+      <p>Next case</p>
+      <h2 class="mt-6">{{ next.name }} <em>→</em></h2>
+    </a>
+    <p class="rd-gap-block" data-reveal><a href="/work/" class="rd-button [--rd-btn:#7a6737] [--rd-btn-hover:#fffcf4]"><span>All work</span></a></p>
+  </section>
+
+</div>

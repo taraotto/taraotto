@@ -31,23 +31,6 @@ process:
     text: Identity and website take shape, refined together in focused feedback rounds.
   - title: Launch
     text: Final files, guidelines and a live website. Ready for your team to take forward.
-# Caption below each image on hover; left out when client is empty
-work:
-  - image: /assets/images/redesign/home-card-galeria.jpg
-    alt: Galeria postcard design
-    url: /portfolio/galeria.html
-    client: Galeria
-    service: Brand Identity
-  - image: /assets/images/redesign/studio-work-posters.jpg
-    alt: “Designed to be heard.” poster campaign
-    url: /portfolio.html
-    client:
-    service:
-  - image: /assets/images/redesign/studio-work-team.jpg
-    alt: Team portrait from a brand photo shoot
-    url: /portfolio.html
-    client:
-    service:
 ---
 
 <div class="bg-cream text-olive pb-20 md:pb-[120px]" data-page>
@@ -103,33 +86,7 @@ work:
     </ol>
   </section>
 
-  <!-------------------------- Selected Work -------------------------->
-  <!-- Staggered columns that drift at different speeds; the middle one carries the label -->
-  <section class="rd-gap-section px-6 md:px-10">
-    <p class="text-center md:hidden" data-reveal>Selected Work</p>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-[68px] max-w-[1536px] mx-auto mt-8 md:mt-0">
-      {% for item in page.work %}
-      {% if forloop.index == 2 %}<div class="md:pt-[284px]">
-        <p class="hidden md:block text-center mb-[193px]" data-reveal>Selected Work</p>{% endif %}
-
-        <a href="{{ item.url }}" class="group block self-start {% if forloop.index == 3 %} md:mt-[170px] {% endif %}" data-parallax="{% cycle '0.03', '0.07', '-0.03' %}">
-          <div class="overflow-hidden aspect-[467/583]" data-reveal-image>
-            <img src="{{ item.image }}" alt="{{ item.alt }}" class="w-full h-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-105">
-          </div>
-          {% if item.client %}
-          <p class="mt-4 transition-all duration-500 md:opacity-0 md:translate-y-2 md:group-hover:opacity-100 md:group-hover:translate-y-0">{{ item.client }} — {{ item.service }}</p>
-          {% endif %}
-        </a>
-
-      {% if forloop.index == 2 %}</div>{% endif %}
-      {% endfor %}
-    </div>
-
-    <p class="text-center rd-gap-block" data-reveal>
-      <a href="/portfolio.html" class="rd-button [--rd-btn:#7a6737] [--rd-btn-hover:#fff4d4]"><span>View more</span></a>
-    </p>
-  </section>
+  {% include rd-selected-work.html button="[--rd-btn:#7a6737] [--rd-btn-hover:#fff4d4]" %}
 
   <!-------------------------- Working Together -------------------------->
   <section class="rd-gap-section px-6 md:px-10 max-w-[900px] mx-auto text-center" data-reveal>

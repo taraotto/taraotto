@@ -1,0 +1,103 @@
+---
+layout: redesign
+title: About
+permalink: /about/
+principles:
+  - title: Less, but better.
+    text: I’d rather get a few things exactly right than many things almost right.
+  - title: Strategy first.
+    text: A brand needs a reason before it needs a logo.
+  - title: One hand, start to finish.
+    text: From the first idea to the coded website, nothing gets lost in translation.
+# At a Glance, taken from the previous About page
+glance:
+  - label: Based in
+    text: Düsseldorf, working worldwide
+  - label: Background
+    text: Born in Canada, raised in Germany
+  - label: Experience
+    text: Six years at KW43 Branddesign, rising to Senior Art Director, followed by five years working independently
+  - label: Services
+    text: Brand Design, Web Design & Development, Editorial, Packaging, Art Direction
+  - label: Selected clients
+    text: Galeria, NICI, TRO, ZEISS, GROHE, Merck, Deichmann, Kaufland, ALDI Süd, Savills, Weber, Wobenzym, delfort, Disgusting Food Museum, EMYE, Zahnfachwerk
+  - label: Awards
+    text: ADC, DDC, Red Dot, iF Design Award, Corporate Design Preis
+  - label: Languages
+    text: German and English
+  - label: Countries visited
+    text: 23 and counting
+  - label: Things I love
+    text: The colour green, good humour, staying in hotels, the flavour of ginger, travel photography, going to the movies, a relaxing swim in the pool, flora and fauna, singing along to musicals, pretty books and magazines
+---
+
+<div class="bg-olive text-cream pb-20 md:pb-[120px]" data-page>
+
+  <!-------------------------- Intro -------------------------->
+  <!-- Split like the homepage: story on the left, portrait on the right -->
+  <section class="grid grid-cols-1 md:grid-cols-2 md:min-h-screen">
+    <div class="px-6 md:px-10 pt-44 md:pt-[200px] pb-16 md:pb-20 flex flex-col justify-center">
+      <h1 data-split>Hi, I’m <em>Tara.</em></h1>
+      <div class="rd-gap-block rd-prose max-w-[520px]" data-intro="fade">
+        <p>Brand Designer and Art Director, based in Düsseldorf. I design brands that feel considered, and I collect the things that inspire them along the way.</p>
+        <p>After design school, I spent six years at a strategy-focused design agency, working my way from intern to award-winning Senior Art Director. I loved the craft and the team. But I wanted more room to explore.</p>
+        <p>So I left to live abroad for a while. It taught me that good ideas don’t come from a desk. They come from noticing: the light in a street, the type on a shop sign, the way a place makes you feel.</p>
+        <p>Today my studio is based in Düsseldorf. I work with companies directly and join agency teams as a freelance Art Director. And I still travel whenever I can.</p>
+      </div>
+    </div>
+    <div class="relative aspect-[4/5] md:aspect-auto overflow-hidden" data-intro="reveal">
+      <img src="/assets/images/redesign/about-portrait.jpg" alt="Portrait of Tara Otto" class="absolute inset-0 w-full h-full object-cover object-top origin-top" data-intro-zoom>
+    </div>
+  </section>
+
+  <!-------------------------- How I Work -------------------------->
+  <section class="rd-gap-section px-6 md:px-10">
+    <h2 class="text-center" data-reveal>How I <em>Work</em></h2>
+    <ol class="rd-gap-block grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-[68px] max-w-[1536px] mx-auto">
+      {% for item in page.principles %}
+      <li class="border-t border-current pt-6" data-reveal>
+        <span>0{{ forloop.index }}</span>
+        <h3 class="mt-6 font-display font-thin text-[28px] md:text-[36px] leading-[1.1]">{{ item.title }}</h3>
+        <p class="mt-4 max-w-[380px]">{{ item.text }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <!-------------------------- Beyond the Studio -------------------------->
+  <!-- One large travel photo cut into the stamp shape -->
+  <section class="rd-gap-section px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-[68px] items-center max-w-[1536px] mx-auto">
+    <figure class="w-full max-w-[420px] mx-auto md:justify-self-center">
+      <div class="aspect-[114.842/146.732] rd-stamp-mask overflow-hidden" data-reveal-image>
+        <img src="/assets/images/posts/japan/kyoto/travel-kyoto-10.jpg" alt="Street in Kyoto" class="w-full h-[115%] object-cover" data-parallax="0.05">
+      </div>
+    </figure>
+    <div class="max-w-[460px]" data-reveal>
+      <h2>Beyond the <em>Studio</em></h2>
+      <p class="rd-gap-block">When I’m not designing, I’m usually somewhere new, notebook and camera in hand. The best of it ends up in my Journal: personal city guides with the places I’d send a friend to.</p>
+      <p class="rd-gap-block"><a href="/journal/" class="rd-button"><span>Read the Journal</span></a></p>
+    </div>
+  </section>
+
+  <!-------------------------- At a Glance -------------------------->
+  <section class="rd-gap-section px-6 md:px-10">
+    <div class="bg-cream text-olive max-w-[1536px] mx-auto px-6 py-12 md:p-20 grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-10 md:gap-[68px] items-start" data-reveal>
+      <h2>At a <em>Glance</em></h2>
+      <ul class="rd-ruled">
+        {% for item in page.glance %}
+        <li class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-x-6 gap-y-1"><span class="opacity-70">{{ item.label }}</span><span>{{ item.text }}</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+
+  <!-------------------------- Contact -------------------------->
+  <section class="rd-gap-section px-6 md:px-10 text-center">
+    <h2 data-reveal>Let’s work <em>together.</em></h2>
+    <p class="rd-gap-block flex flex-wrap justify-center gap-4" data-reveal>
+      <a href="/studio/#inquiry" class="rd-button"><span>Studio inquiry</span></a>
+      <a href="/freelance/#contact" class="rd-button"><span>Freelance</span></a>
+    </p>
+  </section>
+
+</div>

@@ -44,7 +44,8 @@
       snap: { snapTo: 'labelsDirectional', duration: { min: 0.3, max: 0.8 }, ease: 'power2.inOut' }
     });
     addLabels(tl);
-    tl.to('.rd-portrait', { scale: 1.06, duration: tl.duration(), ease: 'none' }, 0);
+    // Explicit start value: the intro zoom is still running when this timeline is created
+    tl.fromTo('.rd-portrait', { scale: 1 }, { scale: 1.06, duration: tl.duration(), ease: 'none', immediateRender: false }, 0);
   });
 
   mm.add('(max-width: 767px)', function () {

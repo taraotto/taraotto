@@ -71,7 +71,8 @@ module.exports = {
       'cream': '#fff4d4',
       'olive': '#7a6737',
       'espresso': '#1f1805',
-      'bark': '#2f190d',
+      'bark': '#3c2619',
+      'ivory': '#fffcf4',
       'graphit': {
         DEFAULT: '#444444',
         '50': '#A0A0A0',

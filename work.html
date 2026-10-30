@@ -1,0 +1,39 @@
+---
+layout: redesign
+title: Work
+permalink: /work/
+theme: light
+---
+
+{% comment %} Cases come from _data/cases.yml; rows alternate image left / image right {% endcomment %}
+
+<div class="bg-ivory text-olive pt-44 md:pt-[240px]" data-page>
+
+  <!-------------------------- Intro -------------------------->
+  <section class="px-6 md:px-10 text-center">
+    <h1 data-split>Selected <em>Work</em></h1>
+    <p class="rd-gap-block" data-intro="fade">Brands, identities and websites,<br>shaped from strategy to final detail.</p>
+  </section>
+
+  <!-------------------------- Cases -------------------------->
+  <section class="rd-gap-section">
+    {% for case in site.data.cases %}
+    {% assign flip = forloop.index0 | modulo: 2 %}
+    {% if case.url %}<a href="{{ case.url }}" class="group grid grid-cols-1 md:grid-cols-2">{% else %}<div class="grid grid-cols-1 md:grid-cols-2">{% endif %}
+      <div class="relative overflow-hidden aspect-[4/5] md:aspect-auto md:min-h-[min(1000px,110vh)] {% if flip == 1 %} md:order-last {% endif %}" data-reveal-image>
+        <img src="{{ case.image }}" alt="{{ case.name }}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-105">
+      </div>
+      <div class="flex items-center justify-center px-6 md:px-10 py-16 md:py-0 text-center">
+        <div class="max-w-[460px]" data-reveal>
+          <p>0{{ forloop.index }} — {{ case.services }}</p>
+          <h2 class="mt-6">{{ case.name }}</h2>
+          <p class="rd-gap-block">{{ case.text }}</p>
+          {% if case.url %}<p class="rd-gap-block"><span class="rd-button [--rd-btn:#7a6737] [--rd-btn-hover:#fffcf4]"><span>View case</span></span></p>
+          {% else %}<p class="rd-gap-block opacity-70">Case coming soon</p>{% endif %}
+        </div>
+      </div>
+    {% if case.url %}</a>{% else %}</div>{% endif %}
+    {% endfor %}
+  </section>
+
+</div>

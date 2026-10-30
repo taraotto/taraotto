@@ -1,0 +1,17 @@
+# Selected Work on the Studio and Freelance pages.
+# The caption below each image shows on hover and is left out when client is empty.
+- image: /assets/images/redesign/home-card-galeria.jpg
+  alt: Galeria postcard design
+  url: /work/galeria/
+  client: Galeria
+  service: Brand Identity
+- image: /assets/images/redesign/studio-work-posters.jpg
+  alt: “Designed to be heard.” poster campaign for TRO
+  url: /work/
+  client: TRO
+  service: Brand Design
+- image: /assets/images/redesign/studio-work-team.jpg
+  alt: Team portrait for Zahnfachwerk
+  url: /work/
+  client: Zahnfachwerk
+  service: Brand Design

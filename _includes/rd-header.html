@@ -14,11 +14,11 @@
   <!-- data-endings: the first entry must match the end of the claim; hovering cycles through the rest -->
   <p class="rd-claim" data-type data-endings="intention.|care.|curiosity.|purpose.|wanderlust.">Inspired by travel.<br>Designed with intention.</p>
 
-  <nav class="order-last w-full flex flex-wrap gap-x-6 gap-y-2 mt-6 md:order-none md:w-auto md:mt-0 md:absolute md:left-1/2 md:top-10 md:-translate-x-1/2 md:gap-[104px]" aria-label="Main" data-intro="fade">
+  <nav class="order-last w-full flex flex-wrap gap-x-6 gap-y-2 mt-6 md:order-none md:w-auto md:mt-0 md:absolute md:left-1/2 md:top-10 md:-translate-x-1/2 md:flex-nowrap md:whitespace-nowrap md:gap-10 lg:gap-[104px]" aria-label="Main" data-intro="fade">
     <a href="/studio/" class="rd-link rd-underline"{% if page.url == '/studio/' %} aria-current="page"{% endif %}>Studio</a>
-    <a href="/services.html" class="rd-link rd-underline">Freelance</a>
+    <a href="/freelance/" class="rd-link rd-underline"{% if page.url == '/freelance/' %} aria-current="page"{% endif %}>Freelance</a>
     <a href="/journal/" class="rd-link rd-underline"{% if page.url == '/journal/' %} aria-current="page"{% endif %}>Journal</a>
-    <a href="/about.html" class="rd-link rd-underline">About</a>
+    <a href="/about/" class="rd-link rd-underline"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
   </nav>
 
   <!-- On hover the stamp fills from the bottom and "TO" takes the background colour -->

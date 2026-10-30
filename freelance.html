@@ -1,0 +1,77 @@
+---
+layout: redesign
+title: Freelance
+permalink: /freelance/
+# Shown in the contact section once set, e.g. "June 2026"
+available-from:
+# Shows a "Download portfolio" button once set, e.g. /assets/downloads/tara-otto-portfolio.pdf
+portfolio-pdf:
+bring:
+  - Brand identities and design systems
+  - Editorial, print and packaging
+  - Pitch and presentation design
+  - Art direction for campaigns and shoots
+work-mode:
+  - Remote or on-site in Düsseldorf and Cologne
+  - By the day, by the week or for a full project
+  - Adobe Creative Cloud, Figma, HTML/CSS
+  - Briefings in English or German
+---
+
+<div class="bg-bark text-cream pt-40 md:pt-[180px] pb-20 md:pb-[120px]" data-page>
+
+  <!-------------------------- Intro -------------------------->
+  <section class="px-6 md:px-10 text-center">
+    <div class="mx-auto w-[150px] md:w-[200px] aspect-square rounded-full overflow-hidden" data-intro="reveal">
+      <img src="/assets/images/redesign/freelance-portrait.jpg" alt="Portrait of Tara Otto" class="w-full h-full object-cover" data-intro-zoom>
+    </div>
+    <h1 class="rd-gap-block" data-split>Senior support<br><em>for agencies.</em></h1>
+    <p class="rd-gap-block" data-intro="fade">Freelance Art Director &amp; Brand Designer in Düsseldorf.<br>From first concept to final artwork.</p>
+  </section>
+
+  <!-------------------------- Story & details -------------------------->
+  <!-- Story centred, then the two lists side by side -->
+  <section class="rd-gap-section px-6 md:px-10 max-w-[1200px] mx-auto">
+    <div class="max-w-[560px] mx-auto text-center" data-reveal>
+      <p class="font-display font-thin text-[28px] md:text-[36px] leading-[1.15]">“I bring calm, clear ideas and files that are ready to go.”</p>
+      <div class="rd-gap-block rd-prose">
+        <p>I spent six years at a strategy-focused design agency, growing from intern to award-winning Senior Art Director. Today I run my own studio and join agency teams when a project needs an extra pair of experienced eyes and hands.</p>
+        <p>I know how agencies work: tight timelines, shifting briefs, many voices.</p>
+      </div>
+    </div>
+
+    <div class="rd-gap-section grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-[120px] max-w-[1000px] mx-auto" data-reveal>
+      <div>
+        <h2>What I <em>Bring</em></h2>
+        <ul class="rd-ruled rd-gap-block">
+          {% for item in page.bring %}<li>{{ item }}</li>{% endfor %}
+        </ul>
+      </div>
+      <div>
+        <h2>How I <em>Work</em></h2>
+        <ul class="rd-ruled rd-gap-block">
+          {% for item in page.work-mode %}<li>{{ item }}</li>{% endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {% include rd-selected-work.html %}
+
+  <!-------------------------- Availability & contact -------------------------->
+  <section class="rd-gap-section px-6 md:px-10 max-w-[760px] mx-auto text-center" id="contact">
+    <h2 data-reveal>Let’s work <em>together.</em></h2>
+    <p class="rd-gap-block" data-reveal>
+      {% if page.available-from %}Available from {{ page.available-from }}.<br>{% endif %}
+      Book early for longer projects. Short-term requests are always worth a message.
+    </p>
+    <p class="rd-gap-block flex flex-wrap justify-center gap-4" data-reveal>
+      <a href="mailto:hello@taraotto.com" class="rd-button"><span>hello@taraotto.com</span></a>
+      <a href="https://www.linkedin.com/in/tara-hunka-74a4a21a5" target="_blank" rel="noopener" class="rd-button"><span>LinkedIn</span></a>
+    </p>
+    {% if page.portfolio-pdf %}
+    <p class="rd-gap-block" data-reveal><a href="{{ page.portfolio-pdf }}" class="rd-button" download><span>Download portfolio</span></a></p>
+    {% endif %}
+  </section>
+
+</div>

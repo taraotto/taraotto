@@ -1,0 +1,22 @@
+# Cases on /work/, in this order. `url` points to the case page; leave it empty while a case is not online yet.
+# The next case link at the bottom of a case follows this order and skips cases without a page.
+- name: Galeria
+  services: Brand Design
+  text: "A new identity for the merger of Karstadt and Galeria Kaufhof, built around the joy of shopping."
+  image: /assets/images/redesign/cases/galeria/poster.jpg
+  url: /work/galeria/
+- name: TRO
+  services: Brand Design
+  text: "A campaign look that is designed to be heard."
+  image: /assets/images/redesign/studio-work-posters.jpg
+  url:
+- name: Zahnfachwerk
+  services: Brand Design
+  text: "A warm, confident identity for a dental practice and its team."
+  image: /assets/images/redesign/studio-work-team.jpg
+  url:
+- name: Disgusting Food Museum
+  services: Brand Design, Art Direction, Web Design
+  text: "A museum that challenges what we find disgusting, with a brand that is as bold as its exhibits."
+  image: /assets/images/redesign/cases/dfm/cup.jpg
+  url: /work/dfm/

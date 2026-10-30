@@ -1,0 +1,8 @@
+{% comment %} Google Maps / Instagram icons of a guide recommendation; aligned like the text above them (`centered=true`) {% endcomment %}
+{% assign item = include.item %}
+{% if item.maps-url or item.instagram-url %}
+<p class="mt-6 flex gap-5 text-[16px] {% if include.centered %} justify-center {% endif %}">
+  {% if item.maps-url %}<a href="{{ item.maps-url }}" target="_blank" rel="noopener" class="rd-link" aria-label="{{ item.title }} on Google Maps"><i class="fa fa-location-dot" aria-hidden="true"></i></a>{% endif %}
+  {% if item.instagram-url %}<a href="{{ item.instagram-url }}" target="_blank" rel="noopener" class="rd-link" aria-label="{{ item.title }} on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>{% endif %}
+</p>
+{% endif %}

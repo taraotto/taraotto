@@ -294,6 +294,9 @@ li          { @apply border-b border-black text-xs uppercase tracking-[.3em] fon
 }
 .rd-button:hover { color: var(--rd-btn-hover); }
 .rd-button:hover::before { @apply translate-y-0; }
+/* A button inside a linked card fills when the whole card is hovered */
+.group:hover .rd-button { color: var(--rd-btn-hover); }
+.group:hover .rd-button::before { @apply translate-y-0; }
 
 /* Stamp logo drawn in the current text colour (the SVGs are used as masks) */
 .rd-stamp {
@@ -315,7 +318,18 @@ li          { @apply border-b border-black text-xs uppercase tracking-[.3em] fon
 .rd-gap-section { @apply mt-20 md:mt-[120px]; }
 .rd-gap-block   { @apply mt-8 md:mt-12; }
 .rd-stack > * + * { @apply mt-8 md:mt-12; }
+.rd-prose > * + * { @apply mt-4; }   /* paragraphs of running text */
 .rd-pad-page    { @apply pt-44 md:pt-[240px] pb-20 md:pb-[120px]; }
+
+/* Any element cut into the stamp shape, e.g. a small photo */
+.rd-stamp-mask {
+  -webkit-mask: url('/assets/images/redesign/stamp-filled.svg') center / contain no-repeat;
+  mask: url('/assets/images/redesign/stamp-filled.svg') center / contain no-repeat;
+}
+
+/* Ruled list: hairlines above, between and below the items */
+.rd-ruled { @apply border-y border-current divide-y divide-current; }
+.rd-ruled > li { @apply py-3; }
 
 /* Journal: stamp-shaped card with the guide title that rises over the image on hover.
    Tones alternate olive, cream and bark; landscape images get a landscape stamp. */
