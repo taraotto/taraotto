@@ -215,37 +215,51 @@
     var current = 0;
     var typed = '';
     var typing = false;
-    var caret = '<span class="rd-caret"></span>';
 
     claim.setAttribute('aria-label', text.replace('\n', ' '));
     // Keep the claim's footprint so nothing shifts while it is typed
     claim.style.minWidth = claim.offsetWidth + 'px';
     claim.style.minHeight = claim.offsetHeight + 'px';
 
-    var render = function () {
-      claim.innerHTML = '<span aria-hidden="true">' + typed.replace(/\n/g, '<br>') + caret + '</span>';
-    };
+    // Built once: only the text node changes per letter, so the caret keeps its blink
+    var textEl = document.createElement('span');
+    var caretEl = document.createElement('span');
+    textEl.setAttribute('aria-hidden', 'true');
+    textEl.style.whiteSpace = 'pre-line';
+    caretEl.className = 'rd-caret';
+    claim.textContent = '';
+    claim.appendChild(textEl);
+    claim.appendChild(caretEl);
 
-    // Moves the visible text towards target: deletes back to the shared part, then types the rest
+    // Moves the visible text towards target: deletes back to the shared part, then types the rest.
+    // Runs on animation frames with an even rhythm instead of chained timeouts.
     var typeTo = function (target, speed, done) {
       typing = true;
-      (function step() {
-        var deleting = target.indexOf(typed) !== 0;
-        if (deleting) {
-          typed = typed.slice(0, -1);
-        } else if (typed.length < target.length) {
-          typed = target.slice(0, typed.length + 1);
-        } else {
-          typing = false;
-          return done && done();
+      caretEl.classList.add('rd-caret--typing');
+      var due = 0;
+
+      (function frame(now) {
+        if (!due) due = now;
+        while (now >= due) {
+          var deleting = target.indexOf(typed) !== 0;
+          if (deleting) {
+            typed = typed.slice(0, -1);
+          } else if (typed.length < target.length) {
+            typed = target.slice(0, typed.length + 1);
+          } else {
+            textEl.textContent = typed;
+            typing = false;
+            caretEl.classList.remove('rd-caret--typing');
+            return done && done();
+          }
+          // Faster when deleting, a short pause at the line break, a little variation elsewhere
+          due += deleting ? speed * 0.5
+            : typed.slice(-1) === '\n' ? speed * 5
+            : speed * (0.85 + Math.random() * 0.3);
         }
-        render();
-        // Faster when deleting, a pause at the line break, slight jitter for a hand-typed feel
-        var delay = deleting ? speed * 0.5
-          : typed.slice(-1) === '\n' ? speed * 6
-          : speed * (0.6 + Math.random() * 0.8);
-        setTimeout(step, delay);
-      })();
+        textEl.textContent = typed;
+        requestAnimationFrame(frame);
+      })(performance.now());
     };
 
     gsap.set(claim, { opacity: 1, delay: 0.8, onComplete: function () { typeTo(text, 55); } });

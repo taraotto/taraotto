@@ -364,6 +364,7 @@ li          { @apply border-b border-black text-xs uppercase tracking-[.3em] fon
   animation: rd-blink 1s steps(1) infinite;
 }
 @keyframes rd-blink { 50% { opacity: 0; } }
+.rd-caret--typing { animation: none; }
 
 /* Initial states for the intro, only while the animation script is active */
 .rd-js [data-intro="fade"], .rd-js [data-reveal], .rd-js [data-type], .rd-js [data-split] { opacity: 0; }
