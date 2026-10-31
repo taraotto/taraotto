@@ -5,7 +5,8 @@ permalink: /journal/
 theme: light
 scripts:
   - /assets/js/journal.js
-# Filter options; posts are matched by `continent` or their first category
+# Filter options; posts are matched by `continent` or their first category,
+# and by `country` or their second category in the country list below each continent
 continents:
   - name: Asia
     slug: asia
@@ -13,29 +14,9 @@ continents:
     slug: europe
   - name: North America
     slug: north-america
-# Guides that are not published yet; they follow the published posts in the grid
-upcoming:
-  - title: Ubud
-    continent: asia
-    image: /assets/images/posts/bali/ubud/travel-ubud-7.jpg
-  - title: The Canadian Rockies
-    continent: north-america
-    image: /assets/images/posts/canada/banff/travel-banff-22.jpg
-  - title: Cinque Terre
-    continent: europe
-    image: /assets/images/posts/italy/cinqueterre/travel-cinque-terre-1.jpg
-  - title: Seoul
-    continent: asia
-    image: /assets/images/posts/seoul/travel-seoul-1.jpg
-  - title: Bangkok
-    continent: asia
-    image: /assets/images/posts/bangkok/travel-bangkok-1.jpg
-  - title: Singapore
-    continent: asia
-    image: /assets/images/posts/singapore/travel-singapore-1.jpg
-  - title: Nara
-    continent: asia
-    image: /assets/images/posts/japan/nara/travel-nara-1.jpg
+# Guides that are not published yet; they follow the published posts in the grid.
+# Remove an entry here once its post exists, or it shows up twice
+upcoming: []
 ---
 
 {% comment %}
@@ -50,11 +31,27 @@ upcoming:
   <p class="rd-gap-block" data-intro="fade">City guides and travel notes, with the cafés,<br>corners and details I’d send to a friend.</p>
 {% endcapture %}
 
+{% comment %} The countries of a continent unfold below it once it is picked; continents with a single country get no list {% endcomment %}
 {% capture filter %}
-  <nav class="block w-full border-y border-current divide-y divide-current" aria-label="Filter by continent" data-journal-filter>
+  <nav class="block w-full border-y border-current divide-y divide-current" aria-label="Filter by continent and country" data-journal-filter>
     <button type="button" class="block w-full py-3 text-center md:text-right" data-continent="all" aria-current="true"><span>All</span></button>
     {% for continent in page.continents %}
     <button type="button" class="block w-full py-3 text-center md:text-right" data-continent="{{ continent.slug }}"><span>{{ continent.name }}</span></button>
+    {% assign countries = '' %}
+    {% for item in entries %}
+      {% assign item_continent = item.continent | default: item.categories.first | slugify %}
+      {% assign item_country = item.country | default: item.categories[1] %}
+      {% if item_continent == continent.slug and item_country %}{% assign countries = countries | append: '|' | append: item_country %}{% endif %}
+    {% endfor %}
+    {% assign countries = countries | remove_first: '|' | split: '|' | uniq | sort %}
+    {% if countries.size > 1 %}
+    <div class="!border-t-0 flex flex-wrap justify-center md:justify-end gap-x-4 gap-y-1 -mt-1 pb-3" data-countries="{{ continent.slug }}" hidden>
+      {% for country in countries %}
+      {% capture label %}{% assign words = country | split: ' ' %}{% for word in words %}{{ word | capitalize }}{% unless forloop.last %}&nbsp;{% endunless %}{% endfor %}{% endcapture %}
+      <button type="button" class="text-[14px] opacity-70 hover:opacity-100 aria-[current]:opacity-100 transition-opacity" data-country="{{ country | slugify }}"><span>{{ label }}</span></button>
+      {% endfor %}
+    </div>
+    {% endif %}
     {% endfor %}
   </nav>
 {% endcapture %}
@@ -62,7 +59,7 @@ upcoming:
 <div class="relative bg-cream text-olive rd-pad-page px-6 md:px-10">
 
   <!-- Desktop filter, aligned with the page edge like the logo -->
-  <div class="hidden md:block absolute right-10 top-[240px] w-[220px] z-10" data-intro="fade">{{ filter }}</div>
+  <div class="hidden md:block absolute right-10 top-[240px] w-[280px] z-10" data-intro="fade" data-journal-filter-desktop>{{ filter }}</div>
 
   <!-- Intro and filter on small screens; on desktop they sit inside the grid -->
   <div class="md:hidden text-center mt-8 mb-12">
@@ -74,21 +71,28 @@ upcoming:
   {% for item in entries %}
   {% assign slot = forloop.index0 | modulo: 5 %}
   {% assign image = item.featured-image | default: item.image %}
-  {% assign continent = item.continent | default: item.categories.first %}
+  {% comment %} The landscape slot takes `featured-image-wide` when a post has one {% endcomment %}
+  {% assign wide = item.featured-image-wide | default: image %}
+  {% assign continent = item.continent | default: item.categories.first | slugify %}
+  {% assign country = item.country | default: item.categories[1] | slugify %}
 
   {% comment %} Later three-image groups tuck up under the two-image group above, keeping some air to each image {% endcomment %}
   {% if slot == 0 %}<div class="relative grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-[63px] max-w-[1620px] mx-auto items-start {% unless forloop.first %} mt-12 md:-mt-[60px] {% endunless %}">
 {% endif %}
   {% if slot == 3 %}<div class="flex flex-col md:flex-row justify-center items-start gap-12 md:gap-[58px] mt-12 md:mt-[120px]">{% endif %}
 
-    <div class="{% if slot == 1 %} relative md:pt-[400px] {% elsif slot == 2 %} md:mt-[252px] {% elsif slot == 3 %} w-full md:w-[617px] {% elsif slot == 4 %} w-full md:w-[497px] md:mt-[200px] {% endif %}" data-entry data-continent="{{ continent }}">
+    <div class="{% if slot == 1 %} relative md:pt-[400px] {% elsif slot == 2 %} md:mt-[252px] {% elsif slot == 3 %} w-full md:w-[617px] {% elsif slot == 4 %} w-full md:w-[497px] md:mt-[200px] {% endif %}" data-entry data-continent="{{ continent }}" data-country="{{ country }}">
 
       {% if forloop.index0 == 1 %}<div class="hidden md:block absolute inset-x-0 top-0 text-center" data-journal-intro>{{ intro }}</div>{% endif %}
 
       {% if item.url %}<a href="{{ item.url }}"{% else %}<div{% endif %}
         class="group relative block overflow-hidden {% if slot == 3 %} aspect-[617/497] {% elsif slot == 4 %} aspect-[497/621] {% else %} aspect-[498/622] {% endif %}"
         data-reveal-image data-card>
-        <img src="{{ image }}" alt="{{ item.title | replace: '<br>', ' ' | strip_html }}" class="w-full h-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-105">
+        {% if image %}
+        <img src="{% if slot == 3 %}{{ wide }}{% else %}{{ image }}{% endif %}" data-src="{{ image }}" data-src-wide="{{ wide }}" alt="{{ item.title | replace: '<br>', ' ' | strip_html }}" class="w-full h-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-105">
+        {% else %}
+        <div class="w-full h-full bg-olive/10"></div>
+        {% endif %}
 
         <!-- Stamp that rises on hover (desktop) -->
         <div class="rd-journal-stamp {% cycle '', 'rd-journal-stamp--cream', 'rd-journal-stamp--bark' %} {% if slot == 3 %} rd-journal-stamp--landscape {% endif %}" data-stamp>

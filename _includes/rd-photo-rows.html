@@ -1,0 +1,15 @@
+{% comment %}
+  Photos in rows of three, all in the same 3:4 upright format so a row lines up; the last row(s) of two when the count doesn't divide evenly
+  (five: three and two, four: two and two). Params: images (list of paths), alt, class (extra classes).
+{% endcomment %}
+{% assign photos = include.images %}
+{% assign over = photos.size | modulo: 3 %}
+{% if over == 2 %}{% assign halves = 2 %}{% elsif over == 1 and photos.size > 1 %}{% assign halves = 4 %}{% else %}{% assign halves = 0 %}{% endif %}
+{% assign first_half = photos.size | minus: halves %}
+<div class="flex flex-wrap justify-center items-start gap-6 md:gap-10 {{ include.class }}">
+  {% for img in photos %}
+  <div class="w-full {% if forloop.index0 >= first_half or photos.size == 1 %} md:w-[calc(50%-20px)] {% else %} md:w-[calc((100%-80px)/3)] {% endif %}" data-reveal-image>
+    {% include rd-media.html src=img alt=include.alt class="w-full aspect-[3/4] object-cover" %}
+  </div>
+  {% endfor %}
+</div>

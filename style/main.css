@@ -261,6 +261,14 @@ li          { @apply border-b border-black text-xs uppercase tracking-[.3em] fon
 }
 :where(.rd) a, :where(.rd) p a { @apply no-underline cursor-pointer; }
 
+/* Longer running text (travel guides): more air between lines, no single word on the last line */
+.rd-reading :is(p, li) { line-height: 1.5; text-wrap: pretty; }
+
+/* Photos inside a 1200px column that reach out to the page margin, at most to the 1536px photo width */
+@media (min-width: 768px) {
+  .rd-bleed { --rd-bleed: max(-168px, min(0px, (1200px - 100vw) / 2)); margin-inline: var(--rd-bleed); }
+}
+
 /* Headlines in Canela Thin, all one size */
 :where(.rd) :is(h1, h2) { @apply font-display font-thin text-[40px] md:text-[64px] leading-[1.05]; }
 
@@ -352,6 +360,8 @@ li          { @apply border-b border-black text-xs uppercase tracking-[.3em] fon
   background-color: currentColor;
   @apply inline-block w-[5px] h-[5px] rounded-full mr-2 align-middle -translate-y-px;
 }
+/* The country line stays closed until its continent is picked (beats the flex utility) */
+[data-journal-filter] [data-countries][hidden] { display: none; }
 
 /* Split headline words (see data-split in site.js); padding keeps descenders and italics unclipped */
 .rd-word { @apply inline-block overflow-hidden align-top pb-[0.15em] -mb-[0.15em] pr-[0.06em] -mr-[0.06em]; }
@@ -384,6 +394,11 @@ li          { @apply border-b border-black text-xs uppercase tracking-[.3em] fon
 .rd-js [data-intro="fade"], .rd-js [data-reveal], .rd-js [data-type], .rd-js [data-split] { opacity: 0; }
 .rd-js [data-intro="reveal"], .rd-js [data-reveal-image] { clip-path: inset(100% 0 0 0); }
 .rd-js .rd-card-img:not(:first-child) { clip-path: inset(100% 0 0 0); }
+
+/* Loading screen: only while the animation script is active and it hasn't shown this visit */
+.rd-loader { display: none; }
+.rd-js.rd-loading .rd-loader { display: flex; }
+.rd-js.rd-loading { overflow: hidden; }
 
 /* Lenis smooth scrolling */
 html.lenis, html.lenis body { height: auto; }

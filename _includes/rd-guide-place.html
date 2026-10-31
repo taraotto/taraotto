@@ -1,0 +1,7 @@
+{% comment %} Title, text and icons of a guide recommendation in the photo version {% endcomment %}
+{% assign item = include.item %}
+<h3 class="font-display font-thin text-[32px] md:text-[44px] leading-[1.05]">
+  {% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener" class="rd-link">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}
+</h3>
+<p class="mt-6">{{ item.description }}</p>
+{% include rd-guide-icons.html item=item %}

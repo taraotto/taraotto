@@ -8,8 +8,12 @@
     <!-- Hides animated elements until site.js runs; falls back to static after 3s -->
     <script>
       document.documentElement.classList.add('rd-js');
-      setTimeout(function () { if (!window.rd) document.documentElement.classList.remove('rd-js'); }, 3000);
+      // The loading screen shows once per visit, or whenever the URL has ?loader
+      try { if (!sessionStorage.getItem('rd-loaded') || /[?&]loader\b/.test(location.search)) document.documentElement.classList.add('rd-loading'); } catch (e) {}
+      setTimeout(function () { if (!window.rd) document.documentElement.classList.remove('rd-js', 'rd-loading'); }, 3000);
     </script>
+
+    {% include rd-loader.html %}
 
     {% comment %} Pages with a pinned hero (header-in-hero: true) include the header inside it {% endcomment %}
     {% unless page.header-in-hero %}{% include rd-header.html %}{% endunless %}

@@ -1,0 +1,10 @@
+{% comment %}
+  A guide photo, or a short silent video when the path ends in .mp4 (autoplays muted and loops, like a
+  moving photo). Params: src, alt, class.
+{% endcomment %}
+{% assign ext = include.src | split: '.' | last | downcase %}
+{% if ext == 'mp4' or ext == 'webm' or ext == 'mov' %}
+<video src="{{ include.src }}" class="{{ include.class }}" autoplay muted loop playsinline preload="metadata" aria-label="{{ include.alt }}"></video>
+{% else %}
+<img src="{{ include.src }}" alt="{{ include.alt }}" class="{{ include.class }}" loading="lazy">
+{% endif %}

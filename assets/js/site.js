@@ -8,7 +8,7 @@
    data-intro="reveal"   is uncovered from the bottom on load
    data-intro-zoom       slowly zooms out on load (images)
    data-reveal           fades up when scrolled into view
-   data-reveal-image     is uncovered from the bottom when scrolled into view (wraps an img)
+   data-reveal-image     is uncovered from the bottom when scrolled into view (wraps an img or video)
    data-split            headline rises word by word on load
    data-parallax="0.15"  moves against the scroll by that share of its height
    data-bg / data-fg     colours the [data-page] wrapper while this section is in view
@@ -86,6 +86,38 @@
     gsap.ticker.lagSmoothing(0);
   }
 
+  // ------------ Loading screen ------------
+  // The stamp appears, the sentences around its "TO" follow one after the other, then the screen
+  // wipes up. The page intro waits for it (rd.introDelay).
+  var loader = document.querySelector('[data-loader]');
+  rd.introDelay = 0;
+
+  if (loader && root.classList.contains('rd-loading')) {
+    var lineCount = loader.querySelectorAll('[data-loader-line]').length / 2;
+    var loading = gsap.timeline({ defaults: { ease: rd.ease } })
+      .fromTo('[data-loader-stamp]', { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 1.2 }, 0.1);
+
+    for (var i = 0; i < lineCount; i++) {
+      var parts = loader.querySelectorAll('[data-loader-line="' + i + '"]');
+      var at = 0.7 + i * 1.6;
+      loading.fromTo(parts, { opacity: 0, y: 10, filter: 'blur(6px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.9 }, at);
+      if (i < lineCount - 1) loading.to(parts, { opacity: 0, y: -10, filter: 'blur(6px)', duration: 0.5, ease: 'power2.in' }, at + 1.1);
+    }
+
+    if (lenis) lenis.stop();
+    loading
+      .to(loader, { clipPath: 'inset(0% 0% 100% 0%)', duration: 1.3, ease: 'expo.inOut' }, '+=0.6')
+      .add(function () {
+        root.classList.remove('rd-loading');
+        loader.remove();
+        if (lenis) lenis.start();
+      });
+
+    // The page intro starts while the screen is still wiping up
+    rd.introDelay = loading.duration() - 0.6;
+    try { sessionStorage.setItem('rd-loaded', '1'); } catch (e) {}
+  }
+
   // ------------ Split headlines ------------
   // Wraps every word in a clipping mask (keeping <em> etc.) so it can rise into view.
   var splitWords = function (node) {
@@ -114,7 +146,7 @@
   });
 
   // ------------ Intro ------------
-  rd.intro = gsap.timeline({ defaults: { ease: rd.ease } })
+  rd.intro = gsap.timeline({ defaults: { ease: rd.ease }, delay: rd.introDelay })
     .fromTo('[data-split] .rd-word > span', { yPercent: 110 }, { yPercent: 0, duration: 1.4, stagger: 0.07 }, 0.2)
     .fromTo('[data-intro="reveal"]', { clipPath: rd.hidden }, { clipPath: rd.shown, duration: 1.6, stagger: 0.25 }, 0)
     .fromTo('[data-intro-zoom]', { scale: 1.18 }, { scale: 1, duration: 2.2 }, 0)
@@ -136,7 +168,7 @@
     once: true,
     onEnter: function (batch) {
       gsap.fromTo(batch, { clipPath: rd.hidden }, { clipPath: rd.shown, duration: 1.6, ease: rd.ease, stagger: 0.15 });
-      gsap.fromTo(batch.map(function (el) { return el.querySelector('img'); }), { scale: 1.2 }, { scale: 1, duration: 2, ease: rd.ease, stagger: 0.15 });
+      gsap.fromTo(batch.map(function (el) { return el.querySelector('img, video'); }), { scale: 1.2 }, { scale: 1, duration: 2, ease: rd.ease, stagger: 0.15 });
     }
   });
 
@@ -262,7 +294,7 @@
       })(performance.now());
     };
 
-    gsap.set(claim, { opacity: 1, delay: 0.8, onComplete: function () { typeTo(text, 55); } });
+    gsap.set(claim, { opacity: 1, delay: 0.8 + rd.introDelay, onComplete: function () { typeTo(text, 55); } });
 
     claim.addEventListener('mouseenter', function () {
       if (typing || endings.length < 2) return;
