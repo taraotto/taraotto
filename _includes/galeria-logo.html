@@ -1,0 +1,28 @@
+{% comment %}
+  GALERIA signet, rebuilt from the logo construction in the styleguide: a centre ring and four arcs, split
+  the way the logo is constructed. The stem of the "g" belongs to the bottom arc, the small joint to the
+  right arc, so there are no seams. Every part is a stroke, so it can be drawn in and coloured on its own.
+  The signet is always shown whole, never built up from its parts or rotated. Params: class (size), color (default currentColor), id (data-galeria-logo
+  value for scripts), opacity (for the signet only, so the lines over it stay crisp), sketch-width (line weight), sketch (true adds the construction lines: five circles and a square, drawn in by the script).
+{% endcomment %}
+<svg viewBox="-640 -640 1280 1280" class="{{ include.class }}" fill="none" aria-hidden="true" data-galeria-logo="{{ include.id }}">
+  <g stroke="{{ include.color | default: 'currentColor' }}" stroke-width="114"{% if include.opacity %} opacity="{{ include.opacity }}"{% endif %}>
+    <circle data-part="ring" r="237"/>
+    <path data-part="top" d="M-237,-336 A237,237 0 0 1 237,-336"/>
+    <!-- The joint runs on into the stem, so the two overlap and no hairline shows between them -->
+    <path data-part="right" d="M335,-237 A237,237 0 0 1 335,237 H237"/>
+    <path data-part="bottom" d="M237,0 V335 A237,237 0 0 1 -237,335"/>
+    <path data-part="left" d="M-336,237 A237,237 0 0 1 -336,-237"/>
+  </g>
+  {% if include.sketch %}
+  <!-- Construction lines on top of the signet -->
+  <g data-sketch stroke="{{ include.sketch-color | default: '#ffffff' }}" stroke-width="{{ include.sketch-width | default: 2.5 }}">
+    {% assign centres = "0:0,0:-336,0:335,-336:0,335:0" | split: "," %}
+    {% for c in centres %}{% assign xy = c | split: ":" %}
+    <circle cx="{{ xy[0] }}" cy="{{ xy[1] }}" r="294"/>
+    <circle cx="{{ xy[0] }}" cy="{{ xy[1] }}" r="180"/>
+    {% endfor %}
+    <rect x="-336" y="-336" width="671" height="671"/>
+  </g>
+  {% endif %}
+</svg>

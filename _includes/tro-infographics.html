@@ -1,0 +1,76 @@
+{% comment %}
+  TRO infographics, rebuilt live from the styleguide (not copied): organic spheres combined with thin,
+  technical lines. A sphere annotation whose leader lines draw in, frequency faders built from the vertical
+  logo bar whose circles rise and fall in a loop, and a pie chart that fills to 40%. Motion lives in /assets/js/tro.js (data-tro-info-*).
+{% endcomment %}
+{% assign img = '/assets/images/redesign/cases/tro/' %}
+<div class="max-w-[1400px] mx-auto">
+
+  <!-- Sphere annotation -->
+  <figure data-tro-info-annotate>
+    <svg viewBox="0 0 900 560" class="w-full h-auto overflow-visible" fill="none" stroke="currentColor" stroke-width="0.75">
+      <image href="{{ img }}palette-pink-2-distorted.png" x="185" y="15" width="530" height="530"/>
+      <!-- The leader lines run to the centre of each ring, but are hidden inside it, so the rings stay open and clean -->
+      <defs>
+        <mask id="tro-leader-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="900" height="560">
+          <rect width="900" height="560" fill="white"/>
+          <g fill="black"><circle cx="410" cy="150" r="4.6"/><circle cx="420" cy="395" r="4.6"/><circle cx="610" cy="360" r="4.6"/></g>
+        </mask>
+      </defs>
+      <g data-tro-info-leaders mask="url(#tro-leader-mask)">
+        <polyline points="410,150 350,80 150,80"/>
+        <polyline points="420,395 110,395"/>
+        <polyline points="610,360 660,425 830,425"/>
+      </g>
+      <g data-tro-info-anchors fill="none">
+        <circle cx="410" cy="150" r="4"/><circle cx="420" cy="395" r="4"/><circle cx="610" cy="360" r="4"/>
+      </g>
+      <g data-tro-info-labels fill="currentColor" stroke="none" font-size="9.5" letter-spacing="1.8">
+        <text x="150" y="70">113 BPM</text>
+        <text x="110" y="385">HIGH ENERGY</text>
+        <text x="830" y="415" text-anchor="end">BASS-DRIVEN</text>
+      </g>
+    </svg>
+  </figure>
+
+  <!-- The infographics follow each other, each with room of its own -->
+  <div class="mt-24 md:mt-[160px] flex flex-col items-center gap-24 md:gap-[160px]">
+
+    <!-- Frequency faders across the full width: vertical logo bars whose circles rise and fall in a loop -->
+    <figure class="w-full" data-tro-info-bars>
+      <svg viewBox="0 0 1400 500" class="w-full h-auto" fill="none" stroke="currentColor">
+        <g stroke-width="1" opacity="0.3">
+          {% for i in (0..9) %}<line x1="0" x2="1400" y1="{{ i | times: 40 | plus: 60 }}" y2="{{ i | times: 40 | plus: 60 }}"/>{% endfor %}
+        </g>
+        <g fill="currentColor" stroke="none" font-size="12" letter-spacing="2" opacity="0.8">
+          <text x="0" y="48">HIGH FREQUENCY</text>
+          <text x="0" y="248">MID FREQUENCIES</text>
+          <text x="0" y="488">BASS</text>
+        </g>
+        {% for i in (0..4) %}{% assign x = i | times: 200 | plus: 437 %}
+        <g data-tro-fader>
+          <rect x="{{ x | minus: 17 }}" y="62" width="34" height="376" rx="17" stroke-width="1.5"/>
+          <circle cx="{{ x }}" cy="421" r="12" stroke="none" fill="currentColor"/>
+        </g>
+        {% endfor %}
+      </svg>
+    </figure>
+
+    <!-- Pie chart with a sphere -->
+    <figure class="w-full max-w-[680px]" data-tro-info-pie>
+      <svg viewBox="0 0 400 400" class="w-full h-auto" fill="none" stroke="currentColor" stroke-width="1.2">
+                <circle cx="200" cy="200" r="178" opacity="0.6"/>
+        <!-- The sphere sits just inside the ring -->
+        <image href="{{ img }}palette-lavender-1.png" x="0" y="0" width="400" height="400"/>
+        <!-- Everything outside the share is dimmed, so the share keeps the full colour of the sphere; drawn by the script -->
+        <path data-tro-pie-slice fill="#1e1e1e" fill-opacity="0.6" stroke="none" d=""/>
+        <line x1="200" y1="200" x2="200" y2="22"/>
+        <line data-tro-pie-edge x1="200" y1="200" x2="200" y2="22"/>
+        <!-- The other segment border (the remaining 60% split into 35% and 25%), placed by the script -->
+        <line data-tro-pie-rest="75" x1="200" y1="200" x2="200" y2="200" opacity="0"/>
+        <text data-tro-pie-value x="288" y="176" text-anchor="middle" fill="#1e1e1e" stroke="none" font-size="30" font-family="Poppins, sans-serif" font-weight="200" letter-spacing="1">0%</text>
+      </svg>
+    </figure>
+
+  </div>
+</div>

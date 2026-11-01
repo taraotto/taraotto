@@ -1,0 +1,95 @@
+{% comment %}
+  Animated TRO logo for the TRO case, following the brand's "Logo flexibility" rule: the bar stretches to the
+  width it needs, and the circle travels from left to right like a play button or progress indicator, then
+  everything returns to the compact logo. Paths from tro_logo_neg.svg; the circle always stays white.
+  Below the bar, a waveform plays along like a music player: the part behind the circle is lit, and the
+  bars move with the sound while it plays. Starts when scrolled into view and loops; reduced motion shows
+  the static logo.
+{% endcomment %}
+<div class="tro-logo bg-[#1e1e1e] text-[#f5f5f3] flex items-center justify-center overflow-hidden px-6 py-20 md:py-32" data-tro-logo>
+  <svg viewBox="0 0 1400 380" class="w-full max-w-[1100px] h-auto" role="img" aria-label="TRO logo">
+    <g data-tro-move>
+      <!-- The bar, drawn as a stroke so its width can change -->
+      <rect data-tro-bar x="50.6" y="51" height="137.8" width="417.8" rx="68.9" fill="none" stroke="currentColor" stroke-width="2.2"/>
+      <!-- Progress line the circle leaves behind -->
+      <line data-tro-trail x1="119.5" y1="119.9" x2="119.5" y2="119.9" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+      <circle data-tro-ghost cx="119.5" cy="119.9" r="49" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 5" opacity="0"/>
+      <!-- The circle -->
+      <circle data-tro-dot cx="119.5" cy="119.9" r="50" fill="currentColor"/>
+      <!-- Waveform under the bar, spanning exactly the circle's path; filled in by the script -->
+      <g data-tro-wave stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></g>
+      <!-- Wordmark, moves with the right end of the bar -->
+      <path data-tro-word fill="currentColor" d="M285.1,91v4.5h-20.4v53.3h-4.8v-53.3h-20.4v-4.5h45.6,0ZM352.4,148.8h-5.4l-14.6-24.6h-19.3v24.6h-4.8v-57.8h23.5c3.8,0,7.1.7,9.9,2,2.8,1.4,5,3.3,6.6,5.8,1.5,2.5,2.3,5.4,2.3,8.8s-1.3,7.9-3.8,10.8c-2.3,2.6-5.4,4.3-9.3,5.2l14.9,25.3h0ZM342,98.8c-2.5-2.2-6-3.3-10.3-3.3h-18.6v24.2h18.6c4.3,0,7.8-1.1,10.3-3.3,2.5-2.2,3.8-5.1,3.8-8.8s-1.2-6.6-3.7-8.8h0ZM399.5,94.3c-14.1,0-25.6,11.5-25.6,25.6s11.5,25.6,25.6,25.6,25.6-11.5,25.6-25.6-11.5-25.6-25.6-25.6M399.5,89.9c16.6,0,30,13.4,30,30s-13.4,30-30,30-30-13.4-30-30,13.4-30,30-30h0Z"/>
+    </g>
+  </svg>
+</div>
+
+<script>
+  // GSAP is loaded at the end of the page, so wait for it
+  window.addEventListener('DOMContentLoaded', function () {
+    var root = document.querySelector('[data-tro-logo]');
+    if (!root || !window.gsap || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var $ = function (name) { return root.querySelector('[data-tro-' + name + ']'); };
+    var bar = $('bar'), trail = $('trail'), ghost = $('ghost'), dot = $('dot'), word = $('word'), move = $('move');
+
+    // Geometry from the logo file: circle centre 119.5, the O sits on the bar's right end
+    var LEFT = 119.5, COMPACT = 399.5, WIDE = 1180, GAP = 275, VIEW = 1400;
+    var s = { right: COMPACT, x: LEFT, trail: 0, ghost: 0, wave: 0, live: 0 };
+
+    // Waveform: one bar every few units between the circle's start and end point
+    var WAVE_Y = 300, WAVE_H = 46, END = WIDE - GAP, COUNT = 84;
+    var wave = $('wave'), bars = [], shape = [];
+    for (var i = 0; i < COUNT; i++) {
+      var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', 0); line.setAttribute('x2', 0);
+      wave.appendChild(line);
+      bars.push(line);
+      // A fixed, song-like loudness curve: verses, a build-up and a chorus
+      var t = i / (COUNT - 1);
+      shape.push(0.25 + 0.45 * Math.abs(Math.sin(t * 9.5)) * (0.5 + 0.5 * Math.sin(t * 3.1 + 1)) + 0.3 * Math.abs(Math.sin(i * 1.7)) * t);
+    }
+
+    var draw = function () {
+      bar.setAttribute('width', s.right - LEFT + 137.8);
+      word.setAttribute('transform', 'translate(' + (s.right - COMPACT) + ' 0)');
+      dot.setAttribute('cx', s.x);
+      // The line always reaches the circle; trail only fades it in and out
+      trail.setAttribute('x2', s.x);
+      trail.setAttribute('opacity', 0.5 * s.trail);
+      ghost.setAttribute('opacity', s.ghost);
+      // Waveform: grows in with the bar, lit up to the circle, alive while it plays
+      var now = performance.now() / 1000;
+      bars.forEach(function (line, i) {
+        var x = LEFT + (END - LEFT) * i / (COUNT - 1);
+        var pulse = 1 + s.live * 0.35 * Math.sin(now * 9 + i * 0.9) * Math.sin(now * 4.3 + i * 0.37);
+        var h = Math.max(1, WAVE_H * Math.min(shape[i], 1) * s.wave * pulse);
+        line.setAttribute('x1', x); line.setAttribute('x2', x);
+        line.setAttribute('y1', WAVE_Y - h); line.setAttribute('y2', WAVE_Y + h);
+        line.setAttribute('opacity', (x <= s.x + 2 && s.trail > 0 ? 1 : 0.28) * Math.min(s.wave * 1.5, 1));
+      });
+      // Keep the whole logo centred while the bar changes width
+      move.setAttribute('transform', 'translate(' + ((VIEW - (s.right - LEFT + 140)) / 2 - 49.5) + ' 0)');
+    };
+    draw();
+
+    // The circle moves at an even pace while the music plays, like a real playhead
+    var tl = gsap.timeline({ repeat: -1, repeatDelay: 1.2, paused: true })
+      .to(s, { right: WIDE, duration: 1.4, ease: 'expo.inOut' }, 0.6)
+      .to(s, { wave: 1, duration: 1, ease: 'power2.out' }, 1.4)
+      .to(s, { ghost: 0.6, live: 1, duration: 0.6, ease: 'power2.out' }, 2)
+      .to(s, { trail: 1, duration: 0.4, ease: 'power2.out' }, 2.2)
+      .to(s, { x: END, duration: 4.2, ease: 'none' }, 2.2)
+      .to(s, { ghost: 0, live: 0, duration: 0.6, ease: 'power2.in' }, 6.4)
+      .to(s, { trail: 0, duration: 0.4, ease: 'power2.in' }, 6.8)
+      .to(s, { x: LEFT, duration: 1.2, ease: 'expo.inOut' }, 6.8)
+      .to(s, { wave: 0, duration: 0.8, ease: 'power2.in' }, 7.2)
+      .to(s, { right: COMPACT, duration: 1.4, ease: 'expo.inOut' }, 7.6);
+
+    // Plays (and redraws every frame, for the moving waveform) only while the logo is on screen
+    new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { tl.play(); gsap.ticker.add(draw); }
+      else { tl.pause(); gsap.ticker.remove(draw); }
+    }, { threshold: 0.3 }).observe(root);
+  });
+</script>

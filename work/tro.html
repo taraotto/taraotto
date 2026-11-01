@@ -1,0 +1,289 @@
+---
+layout: redesign
+title: TRO
+permalink: /work/tro/
+header-in-hero: true
+theme: tro
+scripts:
+  - /assets/js/tro.js
+---
+{% comment %}
+  TRO case, built in the TRO brand rather than the standard case layout: Poppins, Off-White sections
+  alternating with Charcoal, the spheres as moving key visual and the logo as the page's progress bar
+  (the circle travels along the bar as you scroll, as the brand's logo rules describe). Motion lives in
+  /assets/js/tro.js and the styles below; with reduced motion everything stands still.
+{% endcomment %}
+{% assign img = '/assets/images/redesign/cases/tro/' %}
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500&display=swap" rel="stylesheet">
+<style>
+  .tro { --tro-charcoal: #1e1e1e; --tro-white: #f5f5f3; }
+  /* No single words left alone on the last line; centred text is balanced across its lines */
+  .tro p { text-wrap: pretty; }
+  .tro .text-center p, .tro p.text-center { text-wrap: balance; }
+  /* Type stays in the site's own look; only the logo sentence speaks in TRO's Poppins */
+  .tro .tro-brand-type { font-family: 'Poppins', sans-serif; font-weight: 200; font-style: normal; letter-spacing: -0.01em; }
+  .tro .tro-brand-type em { font-style: normal; }
+  .tro-dark { background: var(--tro-charcoal); color: var(--tro-white); }
+  .tro-light { background: var(--tro-white); color: var(--tro-charcoal); }
+
+  /* Spheres slowly breathe and shift colour, like a held note */
+  @keyframes tro-breathe { 50% { transform: scale(1.07) rotate(8deg); } }
+  @keyframes tro-hue { 50% { filter: hue-rotate(14deg) saturate(1.1); } }
+  .tro-breathe { animation: tro-breathe 9s ease-in-out infinite, tro-hue 14s ease-in-out infinite; }
+  .tro-hue { animation: tro-hue 6s ease-in-out infinite; }
+  /* Design system: each sphere drifts slowly between two positions in its format */
+  @keyframes tro-drift-right  { from { left: 45%; top: -5%; } to { left: 30%; top: 15%; } }
+  @keyframes tro-drift-bottom { from { left: -5%; top: 70%; } to { left: -20%; top: 55%; } }
+  @keyframes tro-drift-corner { from { right: -45%; bottom: -45%; } to { right: -30%; bottom: -30%; } }
+  @keyframes tro-drift-center { from { left: -5%; top: 5%; } to { left: -15%; top: 15%; } }
+  .tro-drift-right  { animation: tro-drift-right 9s ease-in-out infinite alternate; }
+  .tro-drift-bottom { animation: tro-drift-bottom 11s ease-in-out infinite alternate; }
+  .tro-drift-corner { animation: tro-drift-corner 10s ease-in-out infinite alternate; }
+  .tro-drift-center { animation: tro-drift-center 12s ease-in-out infinite alternate; }
+  @media (prefers-reduced-motion: reduce) { .tro-breathe, .tro-hue, [class*="tro-drift-"] { animation: none; } }
+</style>
+
+<div class="tro">
+
+  <!-------------------------- Hero: a glowing sphere behind the brand idea -------------------------->
+  <section class="tro-dark relative h-screen min-h-[620px] overflow-hidden flex items-end" data-intro="reveal">
+    {% include rd-header.html %}
+    <!-- The wrapper is positioned and moved on scroll; the image inside breathes -->
+    <div class="absolute inset-0 -top-[10%] flex items-center justify-center pointer-events-none">
+      <div class="w-[120vw] md:w-[68vw] max-w-[1100px] aspect-square shrink-0" data-tro-hero-sphere>
+        <img src="{{ img }}sphere-orange.png" alt="" class="tro-breathe w-full h-full">
+      </div>
+    </div>
+    <div class="relative w-full px-6 md:px-10 pb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+      <h1 data-split>The Creators of<br>Symphonic <em>Worlds.</em></h1>
+      <p class="md:text-right" data-intro="fade">TRO<br>Brand Design, 2025</p>
+    </div>
+  </section>
+
+  <!-------------------------- Intro: the story in large type -------------------------->
+  <section class="tro-light px-6 md:px-10 py-28 md:py-[200px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>The challenge</p>
+      <p class="font-display font-thin mt-8 text-[30px] md:text-[52px] leading-[1.15]" data-split>Our world is loud. Images, messages and noise, all at once. TRO creates sound for brands that brings the pieces back <em>together.</em></p>
+      <div class="mt-12 md:mt-[72px] grid md:grid-cols-2 gap-10 md:gap-20 max-w-[1000px]" data-reveal>
+        <p>TRO is an agency for sound branding and audio communication in Düsseldorf. Their new brand needed to do what their work does: turn chaos into harmony, and make people want to stay.</p>
+        <p>The idea we landed on: TRO are the Creators of Symphonic Worlds. Sound that surrounds, connects and creates meaning. My task was to make that sound visible.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- Logo: a switch to turn sound on -------------------------->
+  <section class="tro-dark pt-28 md:pt-[180px]">
+    <div class="px-6 md:px-10 max-w-[1100px] mx-auto text-center">
+      <p class="opacity-70" data-reveal>The logo</p>
+      <h2 class="tro-brand-type mt-8" data-split>Let sound live. <em>Now.</em></h2>
+      <p class="mt-10 max-w-[560px] mx-auto" data-reveal>The logo became more than a logo: a switch, a moment to turn sound on. Its bar stretches to any format, and the circle travels along it like a play button or a progress bar.</p>
+    </div>
+    {% include tro-logo-animation.html %}
+  </section>
+
+  <!-------------------------- Design concept: a sphere that grows with the scroll -------------------------->
+  <section class="tro-light relative overflow-hidden px-6 md:px-10 py-28 md:py-[220px]" data-tro-grow>
+    <div class="absolute -right-[30vw] md:-right-[18vw] top-1/2 -translate-y-1/2 w-[90vw] md:w-[60vw] aspect-square pointer-events-none">
+      <img src="{{ img }}sphere-red.png" alt="" class="tro-hue w-full h-full" data-tro-grow-sphere>
+    </div>
+    <div class="relative max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Design concept</p>
+      <h2 class="mt-8 max-w-[700px]" data-split>Symphonic Worlds. Bold. Vibrant. <em>For real.</em></h2>
+      <p class="mt-10 max-w-[440px]" data-reveal>The sound TRO creates is more than what you can hear. So the identity turns it into something you can see and almost touch: large, glowing spheres that fill the space and change like a melody.</p>
+    </div>
+  </section>
+
+  <!-------------------------- Variables within a sound: one large sphere, its colour changes while you scroll -------------------------->
+  <!-- The section is several screens tall; its inner screen sticks while tro.js crossfades the sphere versions -->
+  <section class="tro-dark relative h-[420vh]" data-tro-variants>
+    <div class="sticky top-0 h-screen overflow-hidden flex flex-col items-center justify-center px-6">
+      <p class="opacity-70" data-reveal>Variables within a sound</p>
+      <div class="relative mt-10 w-[78vw] md:w-[52vh] max-w-[620px] aspect-square">
+        {% assign versions = "orange:Warm,red:Bright,lavender:Soft,eon:Deep,purple:Calm" | split: "," %}
+        {% for v in versions %}{% assign p = v | split: ":" %}
+        <img src="{{ img }}sphere-{{ p[0] }}.png" alt="" class="tro-breathe absolute inset-0 w-full h-full object-contain transition-opacity duration-700 {% unless forloop.first %} opacity-0 {% endunless %}" data-tro-variant="{{ p[1] }}">
+        {% endfor %}
+      </div>
+      <p class="font-display font-thin mt-10 text-[28px] md:text-[40px]" data-tro-variant-name>Warm</p>
+      <p class="mt-4 max-w-[440px] text-center opacity-70">Every sphere is a sound with its own character. Color, surface and blur change it, just like pitch, texture and volume.</p>
+      <!-- Small dots mark which version is showing -->
+      <div class="mt-10 flex gap-3" data-tro-variant-dots>
+        {% for v in versions %}<span class="w-[8px] h-[8px] rounded-full bg-current transition-opacity duration-500 {% unless forloop.first %} opacity-25 {% endunless %}"></span>{% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- First touchpoint, across the page -------------------------->
+  <section class="tro-light">
+    <div class="relative h-[70vh] md:h-screen overflow-hidden" data-reveal-image>
+      <img src="{{ img }}tro-mockup-macbook.jpg" alt="TRO website on a laptop" class="absolute inset-x-0 -top-[10%] w-full h-[120%] object-cover" data-parallax="0.08">
+    </div>
+  </section>
+
+  <!-------------------------- Colours -------------------------->
+  <section class="tro-light px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Colors</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>A calm base for a lot of <em>color.</em></h2>
+      <p class="mt-10 max-w-[480px]" data-reveal>Behind the spheres sits a quiet foundation. TRO Charcoal and Off-White carry the brand, and TRO Yellow is the one accent you remember.</p>
+    </div>
+    <div class="mt-16 md:mt-24 max-w-[1536px] mx-auto grid grid-cols-[2fr_2fr_1fr] h-[52vh] md:h-[480px]" data-tro-colors>
+      <div class="tro-dark p-5 md:p-10 flex flex-col justify-end"><p>Charcoal</p><p class="mt-2 opacity-70 text-[13px]">#1E1E1E</p></div>
+      <div class="tro-light border border-[#1e1e1e] p-5 md:p-10 flex flex-col justify-end"><p>Off-White</p><p class="mt-2 opacity-70 text-[13px]">#F5F5F3</p></div>
+      <div class="bg-[#ffc832] text-[#1e1e1e] border-y border-r border-[#1e1e1e] p-5 md:p-10 flex flex-col justify-end"><p>Yellow</p><p class="mt-2 opacity-70 text-[13px]">#FFC832</p></div>
+    </div>
+
+    <!-- The spheres may take on any colour: the full spectrum, then a row of examples drifting past -->
+    <div class="mt-28 md:mt-[180px] max-w-[1100px] mx-auto grid md:grid-cols-[1fr_1.4fr] gap-10 md:gap-20 items-end">
+      <h3 class="font-display font-thin text-[30px] md:text-[44px] leading-[1.1]" data-split>Every color is <em>allowed.</em></h3>
+      <p class="max-w-[460px]" data-reveal>The spheres are not limited to a palette. Any color works, and for client projects they take on the client's own colors, so every sound world can look like the brand it belongs to.</p>
+    </div>
+    <div class="mt-12 md:mt-16 max-w-[1536px] mx-auto h-[10px] rounded-full bg-[linear-gradient(90deg,#ff2d55,#ff9500,#ffcc00,#34c759,#00c7be,#007aff,#af52de,#ff2d55)]" data-reveal></div>
+    {% assign palette = "orange-2,red-1,pink-2-distorted,blush-2,lavender-1,purple-1,eon-1,lavender-3,red-3,orange-1-distorted" | split: "," %}
+    <div class="mt-16 md:mt-20 -mx-6 md:-mx-10 overflow-hidden">
+    <div class="flex gap-4 md:gap-8 w-max" data-tro-palette>
+      {% for c in palette %}<img src="{{ img }}palette-{{ c }}.png" alt="" loading="lazy" class="w-[38vw] md:w-[18vw] max-w-[280px] aspect-square shrink-0">{% endfor %}
+      {% for c in palette %}<img src="{{ img }}palette-{{ c }}.png" alt="" loading="lazy" class="w-[38vw] md:w-[18vw] max-w-[280px] aspect-square shrink-0" aria-hidden="true">{% endfor %}
+    </div>
+    </div>
+  </section>
+
+  <!-------------------------- Infographics -------------------------->
+  <section class="tro-dark px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Infographics</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>Data that sounds like <em>TRO.</em></h2>
+      <p class="mt-10 max-w-[480px]" data-reveal>Soft spheres meet thin, precise lines and technical annotations. The contrast between organic and technical makes complex information easy to read, from frequency charts to tempo and share.</p>
+    </div>
+    <div class="mt-16 md:mt-24">{% include tro-infographics.html %}</div>
+  </section>
+
+  <!-------------------------- Design system: the sphere moves freely within any format -------------------------->
+  <section class="tro-light px-6 md:px-10 pt-28 md:pt-[180px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Design system</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>One sphere, endless <em>layouts.</em></h2>
+      <p class="mt-10 max-w-[480px]" data-reveal>The sphere moves freely within any format: centered, cropped, pushed to the edge or reduced to a single arc in the corner. On light and dark backgrounds, it creates tension, depth and rhythm, while the logo bar always anchors the layout.</p>
+    </div>
+    <!-- Each format: a short headline (on the light arc format it inverts over the arc), the sphere drifting between two positions (CSS, see .tro-drift), the logo bar at the bottom -->
+    {% assign formats = "light:lavender-1:tro-drift-right,dark:orange-2:tro-drift-bottom,light:arc:tro-drift-corner,dark:red-1:tro-drift-center" | split: "," %}
+    <div class="mt-16 md:mt-24 max-w-[1536px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+      {% for f in formats %}{% assign p = f | split: ":" %}
+      <div class="relative overflow-hidden aspect-[4/5] {% if p[0] == 'dark' %} tro-dark {% else %} tro-light border border-[#1e1e1e]/15 {% endif %}" data-reveal-image>
+        {% if p[1] == 'arc' %}
+        <div class="{{ p[2] }} absolute w-[90%] aspect-square rounded-full bg-[#1e1e1e]"></div>
+        {% else %}
+        <img src="{{ img }}palette-{{ p[1] }}.png" alt="" class="{{ p[2] }} absolute w-[110%] max-w-none aspect-square" loading="lazy">
+        {% endif %}
+        <p class="tro-brand-type absolute left-[8%] top-[7%] text-[clamp(14px,1.6vw,26px)] leading-[1.1] {% if p[2] == 'tro-drift-corner' %} text-[#f5f5f3] mix-blend-difference {% endif %}">Designed<br>to be heard.</p>
+        <!-- Logo bar as signature -->
+        <div class="absolute left-[8%] right-[8%] bottom-[6%] h-[clamp(14px,1.6vw,22px)] rounded-full border border-current flex items-center {% if p[2] == 'tro-drift-corner' %} text-[#f5f5f3] mix-blend-difference {% endif %}">
+          <span class="ml-[3px] h-[70%] aspect-square rounded-full bg-current"></span>
+          <svg viewBox="239.9 89.9 189.6 60" class="ml-auto mr-[6%] h-[45%] w-auto" fill="currentColor"><path d="M285.1,91v4.5h-20.4v53.3h-4.8v-53.3h-20.4v-4.5h45.6,0ZM352.4,148.8h-5.4l-14.6-24.6h-19.3v24.6h-4.8v-57.8h23.5c3.8,0,7.1.7,9.9,2,2.8,1.4,5,3.3,6.6,5.8,1.5,2.5,2.3,5.4,2.3,8.8s-1.3,7.9-3.8,10.8c-2.3,2.6-5.4,4.3-9.3,5.2l14.9,25.3h0ZM342,98.8c-2.5-2.2-6-3.3-10.3-3.3h-18.6v24.2h18.6c4.3,0,7.8-1.1,10.3-3.3,2.5-2.2,3.8-5.1,3.8-8.8s-1.2-6.6-3.7-8.8h0ZM399.5,94.3c-14.1,0-25.6,11.5-25.6,25.6s11.5,25.6,25.6,25.6,25.6-11.5,25.6-25.6-11.5-25.6-25.6-25.6M399.5,89.9c16.6,0,30,13.4,30,30s-13.4,30-30,30-30-13.4-30-30,13.4-30,30-30h0Z"/></svg>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  <!-------------------------- Posters: designed to be heard (same section, so no seam between them) -------------------------->
+  <div class="pt-28 md:pt-[180px] pb-28 md:pb-[180px]">
+    <div class="max-w-[1536px] mx-auto grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-12 md:gap-[80px] items-center">
+      <div class="max-w-[440px]">
+        <p class="opacity-70" data-reveal>Campaign</p>
+        <h2 class="mt-8" data-split>Designed to be <em>heard.</em></h2>
+        <p class="mt-10" data-reveal>On posters, the spheres meet large, light typography and the logo bar as a quiet signature at the bottom. Black, white or full color, they always feel like one family.</p>
+      </div>
+      <div class="overflow-hidden aspect-[3/2]" data-reveal-image>
+        <img src="{{ img }}tro-mockup-poster.jpg" alt="Two TRO posters on a concrete wall" class="w-full h-full object-cover" data-parallax="0.05">
+      </div>
+    </div>
+    <div class="mt-12 md:mt-[120px] max-w-[1536px] mx-auto md:w-[62%] md:ml-auto overflow-hidden aspect-[4/3]" data-reveal-image>
+      <img src="{{ img }}tro-mockup-poster-3.jpg" alt="TRO poster on a stand" class="w-full h-full object-cover" data-parallax="-0.04">
+    </div>
+
+    <!-------------------------- Imagery: black and white, the sphere as the only colour -------------------------->
+    <div class="mt-28 md:mt-[180px] max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Imagery</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>Real moments, in black and <em>white.</em></h2>
+      <p class="mt-10 max-w-[480px]" data-reveal>Real people, unstaged moments, small gestures. The photography stays black and white on purpose, so the spheres are the only color and keep their full strength when the two meet.</p>
+    </div>
+    <div class="mt-16 md:mt-24 max-w-[1536px] mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        {% assign photos = "discoball:A disco ball on a wall,hand:A hand with rings holding a small object,violin:A hand reaching for a violin bow,hike:A man smiling on a snowy hillside" | split: "," %}
+        {% for ph in photos %}{% assign p = ph | split: ":" %}
+        <div class="overflow-hidden aspect-[4/5]" data-reveal-image>
+          <img src="{{ img }}tro-imagery-{{ p[0] }}.jpg" alt="{{ p[1] }}" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-------------------------- Touchpoints: a horizontal strip -------------------------->
+  <section class="tro-dark overflow-hidden" data-tro-strip>
+    <div class="px-6 md:px-10 pt-28 md:pt-[180px] max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Touchpoints</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>One system, from vinyl to <em>tote bag.</em></h2>
+    </div>
+    <div class="mt-16 md:mt-24 pb-28 md:pb-[180px] overflow-x-auto md:overflow-visible">
+      <div class="flex gap-6 md:gap-10 px-6 md:px-10 w-max" data-tro-track>
+        {% assign strip = "record:The Creators of Symphonic Worlds on vinyl,stationary:Stationery and business cards,social-media:Instagram feed on a phone,tote:Tote bag with a TRO sphere" | split: "," %}
+        {% for s in strip %}{% assign p = s | split: ":" %}
+        <figure class="w-[80vw] md:w-[52vw] max-w-[880px] shrink-0">
+          <div class="overflow-hidden aspect-[4/3]"><img src="{{ img }}tro-mockup-{{ p[0] }}.jpg" alt="{{ p[1] }}" class="w-full h-full object-cover" loading="lazy"></div>
+          <figcaption class="mt-5 opacity-70">0{{ forloop.index }} {{ p[1] }}</figcaption>
+        </figure>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- Icons -------------------------->
+  <section class="tro-light px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1100px] mx-auto text-center">
+      <p class="opacity-70" data-reveal>Icons</p>
+      <h2 class="mt-8" data-split>Eight services, one <em>rhythm.</em></h2>
+    </div>
+    {% assign icons = "sound,music,voice,orchestration,amplification,simplification,signification,inspiration" | split: "," %}
+    <div class="mt-16 md:mt-24 max-w-[1100px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-px bg-[#1e1e1e]/15" data-tro-icons>
+      {% for icon in icons %}
+      <div class="tro-light aspect-square flex flex-col items-center justify-center gap-6" data-tro-icon>
+        <img src="{{ img }}icons/tro_{{ icon }}_pos.svg" alt="" class="w-[56px] md:w-[80px] h-auto">
+        <p class="opacity-70">{{ icon }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-------------------------- Closing -------------------------->
+  <section class="tro-dark relative overflow-hidden px-6 md:px-10 min-h-[100vh] flex items-center justify-center text-center">
+    <!-- Much larger than the section, so the sphere is cropped on all sides -->
+    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[190vw] md:w-[120vw] aspect-square pointer-events-none" data-tro-closing-sphere>
+      <img src="{{ img }}sphere-purple.png" alt="" class="tro-breathe w-full h-full">
+    </div>
+    <h2 class="relative text-[#1e1e1e]" data-split>Let sound free.<br><em>Always.</em></h2>
+  </section>
+
+  <!-------------------------- Next case -------------------------->
+  {% assign cases = site.data.cases | where_exp: 'c', 'c.url' %}
+  {% for case in cases %}{% if case.url == page.url %}{% assign next_index = forloop.index | modulo: cases.size %}{% endif %}{% endfor %}
+  {% assign next = cases[next_index] %}
+  <section class="tro-light px-6 md:px-10 py-24 md:py-[140px] text-center">
+    <a href="{{ next.url }}" class="group inline-block" data-reveal>
+      <p class="opacity-70">Next case</p>
+      <h2 class="mt-6">{{ next.name }} <em>→</em></h2>
+    </a>
+    <p class="mt-12" data-reveal><a href="/work/" class="rd-button [--rd-btn:#1e1e1e] [--rd-btn-hover:#f5f5f3]"><span>All work</span></a></p>
+  </section>
+
+  <!-- The logo as the page's progress bar, in TRO's logo proportions at 60% of the header size (34px high,
+       24px circle with 5px padding, wordmark 46 × 14px with 10px padding): the circle travels along while you scroll -->
+  <div class="fixed left-1/2 bottom-5 md:bottom-8 -translate-x-1/2 z-40 w-[min(480px,80vw)] h-[34px] rounded-full border border-current text-[#f5f5f3] mix-blend-difference pointer-events-none opacity-0" data-tro-progress aria-hidden="true">
+    <span class="absolute left-[5px] top-[4px] w-[24px] h-[24px] rounded-full bg-current" data-tro-progress-dot></span>
+    <svg viewBox="239.9 89.9 189.6 60" class="absolute right-[10px] top-1/2 -translate-y-1/2 w-[46px] h-[14px]" fill="currentColor"><path d="M285.1,91v4.5h-20.4v53.3h-4.8v-53.3h-20.4v-4.5h45.6,0ZM352.4,148.8h-5.4l-14.6-24.6h-19.3v24.6h-4.8v-57.8h23.5c3.8,0,7.1.7,9.9,2,2.8,1.4,5,3.3,6.6,5.8,1.5,2.5,2.3,5.4,2.3,8.8s-1.3,7.9-3.8,10.8c-2.3,2.6-5.4,4.3-9.3,5.2l14.9,25.3h0ZM342,98.8c-2.5-2.2-6-3.3-10.3-3.3h-18.6v24.2h18.6c4.3,0,7.8-1.1,10.3-3.3,2.5-2.2,3.8-5.1,3.8-8.8s-1.2-6.6-3.7-8.8h0ZM399.5,94.3c-14.1,0-25.6,11.5-25.6,25.6s11.5,25.6,25.6,25.6,25.6-11.5,25.6-25.6-11.5-25.6-25.6-25.6M399.5,89.9c16.6,0,30,13.4,30,30s-13.4,30-30,30-30-13.4-30-30,13.4-30,30-30h0Z"/></svg>
+  </div>
+
+</div>

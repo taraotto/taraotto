@@ -1,49 +1,205 @@
 ---
-layout: case
+layout: redesign
 title: Galeria
 permalink: /work/galeria/
 header-in-hero: true
-client: Galeria
-services: Brand Design
-headline: The joy of<br><em>shopping.</em>
-hero: /assets/images/redesign/cases/galeria/hero.jpg
-facts:
-  - label: Client
-    text: Galeria (Karstadt & Galeria Kaufhof)
-  - label: Services
-    text: Brand Design
-  - label: Agency
-    text: KW43 Branddesign
-  - label: Team
-    text: Jürgen Adolph, Marc Schäde, Alexandra Sobota
-intro: >-
-  <p>When famous German institutions Karstadt and Galeria Kaufhof merged, they aimed for a branding that would communicate the joy of shopping in a department store full of possibilities.</p>
-  <p>The result is a memorable and precise logo that embodies happiness and variety. It was created together with my fellow designers and colleagues at KW43 Branddesign.</p>
-blocks:
-  # Landscape and portrait alternate; the small photo trio closes the case
-  - type: text-image
-    image: /assets/images/redesign/cases/galeria/flyer.jpg
-    text: The logo combines an array of hidden messages, each one a powerful symbol of positivity and inspiration. A delicate flower, a soft cloud and a playful smile create a harmonious blend of beauty and joy. Like a compass guiding the way, brackets encircle the centre of the logo, symbolising the bustling heart of a city.
-  - type: pair
-    images:
-      - /assets/images/redesign/cases/galeria/bag2.jpg
-      - /assets/images/redesign/cases/galeria/indoor2.jpg
-  - type: text-image
-    flip: true
-    image: /assets/images/redesign/cases/galeria/giftcard.jpg
-    text: Through careful selection and bold pairings, the vibrant colours within the branding elevate each medium, ensuring they stand out in the landscape of modern retail.
-  - type: pair
-    images:
-      - /assets/images/redesign/cases/galeria/poster.jpg
-      - /assets/images/redesign/cases/galeria/sign3.jpg
-  - type: pair
-    images:
-      - /assets/images/redesign/cases/galeria/ipad.jpg
-      - /assets/images/redesign/cases/galeria/colors2.jpg
-  - type: trio
-    images:
-      - /assets/images/redesign/cases/galeria/sign-1.jpg
-      - /assets/images/redesign/cases/galeria/indoor.jpg
-      - /assets/images/redesign/cases/galeria/sign-2.jpg
-    caption: "Photo credit: Galeria"
+theme: galeria
+scripts:
+  - /assets/js/galeria.js
 ---
+{% comment %}
+  Galeria case, built in the Galeria brand rather than the standard case layout: white sections alternating
+  with the brand's own colour fields, the signet as moving key element (drawn from its construction sketch,
+  lighting up its meanings, running through the colour pairs; never rotated) and the case images large.
+  Type stays in the site's own look; the greeting cards use a geometric sans as a stand-in for Gilroy.
+  Motion lives in /assets/js/galeria.js; with reduced motion everything stands still.
+{% endcomment %}
+{% assign img = '/assets/images/redesign/cases/galeria/' %}
+
+<style>
+  .gal { --gal-ink: #52545a; color: var(--gal-ink); }
+  .gal p { text-wrap: pretty; }
+  .gal .text-center p, .gal p.text-center { text-wrap: balance; }
+  .gal-white { background: #ffffff; }
+  .gal-ink { background: var(--gal-ink); color: #ffffff; }
+  /* The GALERIA logotype from the styleguide, used as a mask so it can take any colour */
+  .gal-wordmark { display: block; aspect-ratio: 1765 / 241; background: currentColor;
+    -webkit-mask: url('{{ img }}galeria-wordmark.png') center / contain no-repeat;
+    mask: url('{{ img }}galeria-wordmark.png') center / contain no-repeat; }
+  /* Stand-in for Gilroy Bold on the greeting cards */
+  .gal-card-type { font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: -0.01em; line-height: 1.05; }
+  /* Printed card stock: a fine paper grain, soft light from the top left, a bright cut edge and a shadow that
+     rests on the table. The grain is an SVG noise blended into the colour. */
+  /* No position here: the cards are absolutely positioned, which already holds the layers in place */
+  .gal-paper { isolation: isolate; }
+  .gal-paper::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; mix-blend-mode: multiply; opacity: 0.22;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .gal-paper::after { content: ''; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 40%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.08) 100%);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15), inset 0 -1px 0 rgba(0,0,0,0.1); }
+</style>
+
+<div class="gal">
+
+  <!-------------------------- Hero: the signet, cropped on mint, as on the styleguide cover -------------------------->
+  <section class="relative h-screen min-h-[620px] overflow-hidden flex items-end bg-[#c8e6cd]" data-intro="reveal">
+    {% include rd-header.html %}
+    <div class="absolute -right-[20vw] md:-right-[8vw] top-1/2 -translate-y-1/2 w-[110vw] md:w-[72vw] max-w-[1200px] aspect-square pointer-events-none">
+      {% include galeria-logo.html class="w-full h-full" color="#e6781e" %}
+    </div>
+    <div class="relative w-full px-6 md:px-10 pb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+      <h1 data-split>The joy of<br><em>shopping.</em></h1>
+      <p class="md:text-right" data-intro="fade">Galeria<br>Brand Design, 2021</p>
+    </div>
+  </section>
+
+  <!-------------------------- Intro -------------------------->
+  <section class="gal-white px-6 md:px-10 py-28 md:py-[200px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>The challenge</p>
+      <p class="font-display font-thin mt-8 text-[30px] md:text-[52px] leading-[1.15]" data-split>Two German department store icons became one. The new brand had to bring back the joy of <em>shopping.</em></p>
+      <div class="mt-12 md:mt-[72px] grid md:grid-cols-2 gap-10 md:gap-20 max-w-[1000px]" data-reveal>
+        <p>When Karstadt and Galeria Kaufhof merged, they needed an identity for a department store full of possibilities: modern, warm and open to everyone, in the heart of the city.</p>
+        <p>The result is a precise, memorable signet that stands for happiness and variety. I created it with my colleagues at KW43 Branddesign: Jürgen Adolph, Marc Schäde and Alexandra Sobota.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- Sketch: the construction lines draw over the light signet, then its meanings appear one by one -------------------------->
+  <section class="bg-[#d2d7f0] px-6 md:px-0 py-28 md:py-[160px]" data-galeria-sketch>
+    <!-- The graphic sits centred in the space left of the text, so it keeps the same distance to the edge as to the text -->
+    <div class="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_auto] gap-12 md:gap-0 items-center">
+      <div class="w-[86vw] md:w-[min(860px,46vw)] mx-auto aspect-square">
+        {% include galeria-logo.html class="w-full h-full" color="#ffffff" opacity="0.32" id="sketch" sketch=true sketch-color="#ffffff" sketch-width="1.4" %}
+      </div>
+      <div class="max-w-[480px] md:w-[min(480px,36vw)] md:mr-[8vw]">
+        <p class="opacity-70" data-reveal>The signet</p>
+        <h2 class="mt-8" data-split>Five circles and a <em>square.</em></h2>
+        <p class="mt-8" data-reveal>Precise geometry with a soft, friendly result. And in it, many small messages:</p>
+        <!-- Shown one after the other once the lines are drawn (galeria.js) -->
+        <ul class="mt-10 space-y-2">
+          <li class="font-display font-thin text-[26px] md:text-[36px] leading-[1.2]" data-meaning>A <em>flower,</em></li>
+          <li class="font-display font-thin text-[26px] md:text-[36px] leading-[1.2]" data-meaning>a soft <em>cloud,</em></li>
+          <li class="font-display font-thin text-[26px] md:text-[36px] leading-[1.2]" data-meaning>a playful <em>smile,</em></li>
+          <li class="font-display font-thin text-[26px] md:text-[36px] leading-[1.2]" data-meaning>and at its heart, the <em>city.</em></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- Colours: fifteen tones, each with its signet colour pair -------------------------->
+  <section class="gal-white px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Colors</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>Fifteen tones, one inviting <em>spectrum.</em></h2>
+      <p class="mt-10 max-w-[480px]" data-reveal>Five dark, five bright and five light tones that combine into strong contrasts, so the brand can show up in every color and still feel like one.</p>
+    </div>
+    {% assign tones = "145A5A,2D4669,464182,87005F,E6781E,A0D728,05C3DC,5F64BE,E11E69,FAB91E,C8E6CD,C3E6F5,D2D7F0,EBDCEB,F0EB73" | split: "," %}
+    <div class="mt-16 md:mt-24 max-w-[1536px] mx-auto grid grid-cols-5" data-galeria-tones>
+      {% for t in tones %}
+      <div class="aspect-square md:aspect-[4/3] p-3 md:p-5 flex items-end text-[11px] md:text-[13px] {% if forloop.index > 10 or forloop.index == 6 or forloop.index == 7 or forloop.index == 10 %} text-[#52545a] {% else %} text-white {% endif %}" style="background:#{{ t }}">#{{ t }}</div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-------------------------- Endless combinations: one large signet runs through the pairs while you scroll -------------------------->
+  <section class="relative h-[290vh]" data-galeria-pairs>
+    <div class="sticky top-0 h-screen overflow-hidden flex flex-col items-center justify-center px-6 transition-colors duration-700" data-galeria-pair-bg style="background:#145a5a">
+      <!-- Eyebrow, not part of the design: anthracite on light pairs, white on dark ones -->
+      <p class="mb-16 md:mb-24 text-center uppercase tracking-[0.12em] text-[12px] md:text-[13px] text-white transition-colors duration-700" data-galeria-pair-title>Endless combinations</p>
+      <div class="w-[56vw] md:w-[44vh] max-w-[480px] aspect-square">
+        {% include galeria-logo.html class="w-full h-full" color="#e6781e" id="pairs" %}
+      </div>
+      <span class="gal-wordmark mt-10 w-[48vw] md:w-[34vh] max-w-[400px] transition-colors duration-700 text-[#c8e6cd]" data-galeria-pair-word></span>
+    </div>
+  </section>
+
+  <!-------------------------- Greeting cards -------------------------->
+  <section class="gal-white overflow-hidden px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Greeting cards</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>A card for every <em>moment.</em></h2>
+      <p class="mt-10 max-w-[480px]" data-reveal>Bold type, one tone and the signet: a family of greeting cards that turns a gift into a small celebration.</p>
+    </div>
+    {% comment %} background : type : signet {% endcomment %}
+    {% assign cards = "Hello<br>Baby:C3E6F5:87005F:2D4669,With<br>love:203a63:E6781E:C8E6CD,Just<br>married:87005F:EBDCEB:C8E6CD,Happy<br>Birthday:F0EB73:5F64BE:05C3DC,Merry<br>Christmas:145A5A:C8E6CD:E6781E" | split: "," %}
+    <!-- The cards lie as a fanned stack with real shadows; they fan out in an arc as you scroll, like a hand of cards (galeria.js) -->
+    <div class="relative mt-10 md:mt-12 -mx-6 md:-mx-10 h-[99vw] md:h-[55vw]" data-galeria-cards>
+      {% for card in cards %}{% assign c = card | split: ":" %}
+      <div class="absolute left-1/2 top-[40%] w-[59.4vw] md:w-[34.1vw] aspect-[29/28] -ml-[29.7vw] md:-ml-[17.05vw] -mt-[28.7vw] md:-mt-[16.5vw] p-[5.35vw] md:p-[3.07vw] rounded-[2px] flex flex-col justify-between gal-paper shadow-[0_1px_1px_rgba(30,30,40,0.18),0_3px_6px_rgba(30,30,40,0.12),0_18px_36px_-10px_rgba(30,30,40,0.30),0_40px_80px_-30px_rgba(30,30,40,0.35)]" style="background:#{{ c[1] }}" data-galeria-card="{{ forloop.index0 }}">
+          <p class="gal-card-type text-[clamp(22px,3.96vw,68px)]" style="color:#{{ c[2] }}">{{ c[0] }}</p>
+          {% capture sc %}#{{ c[3] }}{% endcapture %}
+          <div class="w-[26%]">{% include galeria-logo.html class="w-full h-auto" color=sc %}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-------------------------- Campaign: poster, card poster, magazine, flyer and bag passing by sideways -------------------------->
+  <section class="bg-[#c8e6cd] px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Campaign</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>From poster to <em>shopping bag.</em></h2>
+      <p class="mt-10 max-w-[480px]" data-reveal>Posters, the customer card campaign, the digital magazine, flyers and bags share one confident look: bright tones from the palette, real people up front and the signet as a clear sender.</p>
+    </div>
+    <!-- The motifs pass by sideways while you scroll (swipe on small screens); each keeps its own format -->
+    <div class="mt-16 md:mt-24 -mx-6 md:-mx-10 overflow-x-auto md:overflow-hidden" data-galeria-strip>
+      <div class="flex items-center gap-6 md:gap-10 px-6 md:px-10 w-max" data-galeria-track>
+        {% assign strip = "poster:1192/1600:Galeria poster with the signet over a portrait,ipad:2/3:Galeria digital magazine on a tablet,flyer:1600/1070:Galeria flyer with the signet as a window onto a photo,bag2:2/3:Galeria shopping bag with flowers growing through the signet" | split: "," %}
+        {% for m in strip %}{% assign p = m | split: ":" %}
+        <div class="h-[70vh] md:h-[78vh] max-h-[860px] shrink-0 overflow-hidden" style="aspect-ratio:{{ p[1] }}">
+          <img src="{{ img }}{{ p[0] }}.jpg" alt="{{ p[2] }}" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- Signage and interior -------------------------->
+  <section class="gal-ink px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Signage & interior</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>At the heart of the <em>city.</em></h2>
+      <p class="mt-10 max-w-[480px]" data-reveal>On the facades, the new logo became a landmark again, visible from across the square. Inside, the signet turns into wall graphics, floor patterns and frames for the products.</p>
+    </div>
+    <div class="mt-16 md:mt-24 max-w-[1536px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start">
+      <div class="overflow-hidden aspect-[2/3]" data-reveal-image><img src="{{ img }}sign3.jpg" alt="Galeria Hauptwache in Frankfurt with the new logo" class="w-full h-full object-cover" loading="lazy"></div>
+      <div class="overflow-hidden aspect-[2/3]" data-reveal-image><img src="{{ img }}indoor2.jpg" alt="The signet as a wall graphic in a Galeria store" class="w-full h-full object-cover" loading="lazy"></div>
+    </div>
+    <div class="mt-6 md:mt-8 max-w-[1536px] mx-auto grid grid-cols-3 gap-6 md:gap-8">
+      {% assign trio = "sign-1:New Galeria facade,indoor:Floor pattern in the store,sign-2:Mounting the logo" | split: "," %}
+      {% for t in trio %}{% assign p = t | split: ":" %}
+      <div class="overflow-hidden aspect-[3/2]" data-reveal-image><img src="{{ img }}{{ p[0] }}.jpg" alt="{{ p[1] }}" class="w-full h-full object-cover" loading="lazy"></div>
+      {% endfor %}
+    </div>
+    <p class="mt-4 text-[13px] opacity-60" data-reveal>Photo credit: Galeria</p>
+  </section>
+
+  <!-------------------------- Snapshots: photos from on the road, flicking through like a GIF -------------------------->
+  <section class="gal-white relative overflow-hidden px-6 md:px-10 py-28 md:py-[180px] text-center" data-galeria-street>
+    <p class="opacity-70" data-reveal>Out in the wild</p>
+    <h2 class="mt-8" data-split>Spotted on the <em>street!</em></h2>
+    <p class="mt-10 max-w-[520px] mx-auto" data-reveal>Years later, I still smile every time I see it: on a receipt, a shopping bag on the train, a facade in a city I'm visiting. Every sighting is a small celebration.</p>
+    <div class="relative mt-16 md:mt-20 mx-auto w-[70vw] md:w-[360px]">
+      <!-- The snapshots replace each other quickly while the section is on screen -->
+      <div class="relative overflow-hidden aspect-[3/4] shadow-[0_20px_60px_rgba(82,84,90,0.25)]" data-galeria-snapshots>
+        {% for n in (1..7) %}
+        <img src="{{ img }}snapshot-{{ n }}.jpg" alt="A Galeria sighting, snapshot {{ n }}" class="absolute inset-0 w-full h-full object-cover {% unless forloop.first %} opacity-0 {% endunless %}" loading="lazy">
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- Next case -------------------------->
+  {% assign cases = site.data.cases | where_exp: 'c', 'c.url' %}
+  {% for case in cases %}{% if case.url == page.url %}{% assign next_index = forloop.index | modulo: cases.size %}{% endif %}{% endfor %}
+  {% assign next = cases[next_index] %}
+  <section class="bg-[#c8e6cd] px-6 md:px-10 py-24 md:py-[140px] text-center">
+    <a href="{{ next.url }}" class="group inline-block" data-reveal>
+      <p class="opacity-70">Next case</p>
+      <h2 class="mt-6">{{ next.name }} <em>→</em></h2>
+    </a>
+    <p class="mt-12" data-reveal><a href="/work/" class="rd-button [--rd-btn:#52545a] [--rd-btn-hover:#c8e6cd]"><span>All work</span></a></p>
+  </section>
+
+</div>

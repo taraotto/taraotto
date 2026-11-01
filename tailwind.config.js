@@ -5,7 +5,9 @@ module.exports = {
     './_*/**/*.{html,md,js}',
     '!./_site/**/*.{html,md,js}',
     './*.{html,md,js}',
-    './angebot/**/*.{html,md,js}'
+    './angebot/**/*.{html,md,js}',
+    './work/**/*.{html,md,js}',
+    './assets/js/**/*.js'
   ],
   theme: {
     extend: {
