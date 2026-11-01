@@ -1,29 +1,26 @@
 {% comment %}
   Loading screen, once per visit (add ?loader to the URL to see it again). The stamp stays in the middle and
-  each sentence is built around its "TO": the left and right parts of all sentences share one spot per side,
-  and site.js fades them in one after the other. Leave a side empty when the sentence starts with "TO".
+  site.js types each sentence around its "TO", one after the other; the last one stays. Clicking the stamp
+  opens the page. Write a sentence as "left|right"; leave a side empty when the sentence starts with "TO".
 {% endcomment %}
 {% assign lines = "From big ideas|small details.,From Düsseldorf|the world.,Welcome|my studio." | split: "," %}
-<div class="rd-loader fixed inset-0 z-[200] items-center justify-center overflow-hidden bg-espresso text-cream" data-loader aria-hidden="true">
+<div class="rd-loader fixed inset-0 z-[200] items-center justify-center overflow-hidden bg-espresso text-cream" data-loader
+     data-lines="{% for line in lines %}{{ line | escape }}{% unless forloop.last %}&#10;{% endunless %}{% endfor %}">
   <img src="/assets/images/redesign/booking.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-[50%_64.4%]">
   <div class="absolute inset-0 bg-espresso/30"></div>
 
   <div class="relative w-full grid grid-cols-[1fr_auto_1fr] items-center gap-4 md:gap-5 px-4 text-[15px] md:text-[18px]">
-    <div class="grid justify-items-end text-right">
-      {% for line in lines %}{% assign parts = line | split: "|" %}
-      <span class="[grid-area:1/1] opacity-0" data-loader-line="{{ forloop.index0 }}">{{ parts[0] }}</span>
-      {% endfor %}
-    </div>
+    <p class="text-right" aria-hidden="true"><span data-loader-left></span></p>
 
-    <div class="relative w-[96px] md:w-[116px]" data-loader-stamp>
+    <!-- On hover the stamp fills from the bottom and "TO" takes the background colour, like the logo in the header -->
+    <button type="button" class="group relative w-[96px] md:w-[116px] cursor-pointer" data-loader-stamp aria-label="Enter the site">
       <span class="rd-stamp block aspect-[114.842/146.732]"></span>
-      <span class="absolute inset-0 flex items-center justify-center text-[14px] md:text-[16px]">TO</span>
-    </div>
+      <span class="rd-stamp rd-stamp-filled absolute inset-0 [clip-path:inset(100%_0_0_0)] transition-[clip-path] duration-500 ease-[cubic-bezier(.65,0,.35,1)] group-hover:[clip-path:inset(0_0_0_0)] group-focus-visible:[clip-path:inset(0_0_0_0)]"></span>
+      <span class="absolute inset-0 flex items-center justify-center text-[14px] md:text-[16px] transition-colors duration-200 group-hover:delay-200 group-hover:text-espresso group-focus-visible:text-espresso">TO</span>
+    </button>
 
-    <div class="grid justify-items-start text-left">
-      {% for line in lines %}{% assign parts = line | split: "|" %}
-      <span class="[grid-area:1/1] opacity-0" data-loader-line="{{ forloop.index0 }}">{{ parts[1] }}</span>
-      {% endfor %}
-    </div>
+    <p class="text-left" aria-hidden="true"><span data-loader-right></span></p>
   </div>
+
+  <p class="absolute inset-x-0 bottom-10 text-center text-[13px] uppercase tracking-[0.08em] opacity-0" data-loader-hint aria-hidden="true">Click the stamp to enter</p>
 </div>

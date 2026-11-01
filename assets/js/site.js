@@ -87,35 +87,72 @@
   }
 
   // ------------ Loading screen ------------
-  // The stamp appears, the sentences around its "TO" follow one after the other, then the screen
-  // wipes up. The page intro waits for it (rd.introDelay).
+  // The stamp appears and each sentence is typed around its "TO", then deleted for the next one; the
+  // last one stays. Clicking the stamp wipes the screen up. Anything that should wait for the page to
+  // be revealed (the intro, the typed claim) goes through rd.onEnter.
   var loader = document.querySelector('[data-loader]');
-  rd.introDelay = 0;
+  var entered = !(loader && root.classList.contains('rd-loading'));
+  var waiting = [];
+  rd.onEnter = function (fn) { entered ? fn() : waiting.push(fn); };
 
-  if (loader && root.classList.contains('rd-loading')) {
-    var lineCount = loader.querySelectorAll('[data-loader-line]').length / 2;
-    var loading = gsap.timeline({ defaults: { ease: rd.ease } })
-      .fromTo('[data-loader-stamp]', { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 1.2 }, 0.1);
+  if (!entered) {
+    var left = loader.querySelector('[data-loader-left]');
+    var right = loader.querySelector('[data-loader-right]');
+    var stamp = loader.querySelector('[data-loader-stamp]');
+    var lines = loader.dataset.lines.split('\n').map(function (line) { return line.split('|'); });
+    var caret = document.createElement('span');
+    caret.className = 'rd-caret';
+    var timer;
 
-    for (var i = 0; i < lineCount; i++) {
-      var parts = loader.querySelectorAll('[data-loader-line="' + i + '"]');
-      var at = 0.7 + i * 1.6;
-      loading.fromTo(parts, { opacity: 0, y: 10, filter: 'blur(6px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.9 }, at);
-      if (i < lineCount - 1) loading.to(parts, { opacity: 0, y: -10, filter: 'blur(6px)', duration: 0.5, ease: 'power2.in' }, at + 1.1);
-    }
+    var wait = function (ms, next) { timer = setTimeout(next, ms); };
+    // Types (or deletes) one side, keeping the caret at the end of the text
+    var type = function (el, text, deleting, next) {
+      el.appendChild(caret);
+      caret.classList.add('rd-caret--typing');
+      (function step() {
+        var now = el.firstChild && el.firstChild.nodeType === 3 ? el.firstChild.textContent : '';
+        if (now === (deleting ? '' : text)) { caret.classList.remove('rd-caret--typing'); return next(); }
+        var value = deleting ? now.slice(0, -1) : text.slice(0, now.length + 1);
+        if (el.firstChild && el.firstChild.nodeType === 3) el.firstChild.textContent = value;
+        else el.insertBefore(document.createTextNode(value), caret);
+        wait(deleting ? 28 : 60 + Math.random() * 40, step);
+      })();
+    };
+    var play = function (i) {
+      var line = lines[i];
+      type(left, line[0] || '', false, function () {
+        type(right, line[1] || '', false, function () {
+          if (i === lines.length - 1) return gsap.to('[data-loader-hint]', { opacity: 0.7, duration: 1, delay: 0.6 });
+          wait(1400, function () {
+            type(right, '', true, function () {
+              type(left, '', true, function () { wait(300, function () { play(i + 1); }); });
+            });
+          });
+        });
+      });
+    };
 
     if (lenis) lenis.stop();
-    loading
-      .to(loader, { clipPath: 'inset(0% 0% 100% 0%)', duration: 1.3, ease: 'expo.inOut' }, '+=0.6')
-      .add(function () {
-        root.classList.remove('rd-loading');
-        loader.remove();
-        if (lenis) lenis.start();
-      });
+    gsap.fromTo(stamp, { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 1.2, ease: rd.ease, delay: 0.1 });
+    wait(900, function () { play(0); });
 
-    // The page intro starts while the screen is still wiping up
-    rd.introDelay = loading.duration() - 0.6;
-    try { sessionStorage.setItem('rd-loaded', '1'); } catch (e) {}
+    var enter = function () {
+      if (entered) return;
+      entered = true;
+      clearTimeout(timer);
+      try { sessionStorage.setItem('rd-loaded', '1'); } catch (e) {}
+      gsap.to(loader, {
+        clipPath: 'inset(0% 0% 100% 0%)', duration: 1.3, ease: 'expo.inOut',
+        onComplete: function () {
+          root.classList.remove('rd-loading');
+          loader.remove();
+          if (lenis) lenis.start();
+        }
+      });
+      // The page intro starts while the screen is still wiping up
+      gsap.delayedCall(0.7, function () { waiting.forEach(function (fn) { fn(); }); });
+    };
+    stamp.addEventListener('click', enter);
   }
 
   // ------------ Split headlines ------------
@@ -146,13 +183,15 @@
   });
 
   // ------------ Intro ------------
-  rd.intro = gsap.timeline({ defaults: { ease: rd.ease }, delay: rd.introDelay })
+  rd.intro = gsap.timeline({ defaults: { ease: rd.ease }, paused: true })
     .fromTo('[data-split] .rd-word > span', { yPercent: 110 }, { yPercent: 0, duration: 1.4, stagger: 0.07 }, 0.2)
     .fromTo('[data-intro="reveal"]', { clipPath: rd.hidden }, { clipPath: rd.shown, duration: 1.6, stagger: 0.25 }, 0)
     .fromTo('[data-intro-zoom]', { scale: 1.18 }, { scale: 1, duration: 2.2 }, 0)
     .fromTo('[data-intro="fade"]',
       { opacity: 0, y: 14, filter: 'blur(6px)' },
       { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.4, stagger: 0.12, clearProps: 'filter,transform' }, 0.6);
+
+  rd.onEnter(function () { rd.intro.play(); });
 
   // ------------ Reveal on scroll ------------
   ScrollTrigger.batch('[data-reveal]', {
@@ -294,7 +333,9 @@
       })(performance.now());
     };
 
-    gsap.set(claim, { opacity: 1, delay: 0.8 + rd.introDelay, onComplete: function () { typeTo(text, 55); } });
+    rd.onEnter(function () {
+      gsap.set(claim, { opacity: 1, delay: 0.8, onComplete: function () { typeTo(text, 55); } });
+    });
 
     claim.addEventListener('mouseenter', function () {
       if (typing || endings.length < 2) return;
