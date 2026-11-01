@@ -122,7 +122,7 @@
       var line = lines[i];
       type(left, line[0] || '', false, function () {
         type(right, line[1] || '', false, function () {
-          if (i === lines.length - 1) return gsap.to('[data-loader-hint]', { opacity: 0.7, duration: 1, delay: 0.6 });
+          if (i === lines.length - 1) return;
           wait(1400, function () {
             type(right, '', true, function () {
               type(left, '', true, function () { wait(300, function () { play(i + 1); }); });

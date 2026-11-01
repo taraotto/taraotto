@@ -3,7 +3,7 @@
   site.js types each sentence around its "TO", one after the other; the last one stays. Clicking the stamp
   opens the page. Write a sentence as "left|right"; leave a side empty when the sentence starts with "TO".
 {% endcomment %}
-{% assign lines = "From big ideas|small details.,From Düsseldorf|the world.,Welcome|my studio." | split: "," %}
+{% assign lines = "From big ideas|small details.,From Düsseldorf|anywhere.,Welcome|my studio." | split: "," %}
 <div class="rd-loader fixed inset-0 z-[200] items-center justify-center overflow-hidden bg-espresso text-cream" data-loader
      data-lines="{% for line in lines %}{{ line | escape }}{% unless forloop.last %}&#10;{% endunless %}{% endfor %}">
   <img src="/assets/images/redesign/booking.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-[50%_64.4%]">
@@ -22,5 +22,4 @@
     <p class="text-left" aria-hidden="true"><span data-loader-right></span></p>
   </div>
 
-  <p class="absolute inset-x-0 bottom-10 text-center text-[13px] uppercase tracking-[0.08em] opacity-0" data-loader-hint aria-hidden="true">Click the stamp to enter</p>
 </div>
