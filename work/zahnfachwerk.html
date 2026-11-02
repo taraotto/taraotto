@@ -1,0 +1,309 @@
+---
+layout: redesign
+title: Zahnfachwerk
+permalink: /work/zahnfachwerk/
+header-in-hero: true
+theme: zahnfachwerk
+scripts:
+  - /assets/js/zahnfachwerk.js
+---
+{% comment %}
+  Zahnfachwerk case, built in the Zahnfachwerk brand: sage, brick, anthracite and beige, the thin
+  "Fachwerk lines" as structure, and the whole way from strategy and naming to logo, practice and website.
+  Large and simple to read, with a few things to try: the signet explained beam by beam, colours to copy and
+  the website to scroll through.
+  Motion and interaction live in /assets/js/zahnfachwerk.js; without it everything is shown in its final state.
+{% endcomment %}
+{% assign img = '/assets/images/redesign/cases/zahnfachwerk/' %}
+
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&family=Outfit:wght@300;500&display=swap" rel="stylesheet">
+<style>
+  .zfw { --zfw-sage: #c3cdb9; --zfw-brick: #b4503c; --zfw-ink: #2d2d2d; --zfw-beige: #e8e6df; color: var(--zfw-ink); }
+  .zfw p { text-wrap: pretty; }
+  .zfw .text-center p, .zfw p.text-center { text-wrap: balance; }
+  .zfw-sage { background: var(--zfw-sage); }
+  .zfw-beige { background: var(--zfw-beige); }
+  .zfw-white { background: #ffffff; }
+  .zfw-ink { background: var(--zfw-ink); color: #ffffff; }
+  /* The practice's own type, used where the brand speaks for itself */
+  .zfw-serif { font-family: 'Libre Baskerville', serif; font-weight: 400; }
+  .zfw-sans { font-family: 'Outfit', sans-serif; font-weight: 300; }
+  .zfw-caps { font-family: 'Outfit', sans-serif; font-weight: 500; text-transform: uppercase; letter-spacing: 0.2em; }
+  /* Buttons that switch something on the page */
+  /* Hero frame: 16:9 like the brand guide's cover, always covering the screen */
+  .zfw-cover { width: max(100vw, 177.78vh); height: max(56.25vw, 100vh); }
+  .zfw-chip { border: 1px solid currentColor; border-radius: 999px; padding: 0.55em 1.2em; transition: background-color 0.3s, color 0.3s; }
+  .zfw-chip[aria-pressed="true"] { background: var(--zfw-ink); border-color: var(--zfw-ink); color: #ffffff; }
+</style>
+
+<div class="zfw">
+
+  <!-------------------------- Hero: a timber frame of thin lines like the brand guide's cover (mirrored), the type as in the other cases -------------------------->
+  <section class="zfw-sage relative h-screen min-h-[620px] overflow-hidden" data-intro="reveal">
+    {% include rd-header.html %}
+    <!-- The frame keeps the cover's 16:9 proportions and covers the screen, so the braced field stays square and its
+         brace runs at 45 degrees from corner to corner. The script draws the lines in. -->
+    <div class="zfw-cover absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+      <svg viewBox="0 0 1440 810" preserveAspectRatio="none" class="absolute inset-0 w-full h-full" fill="none" stroke="#ffffff" stroke-width="1" aria-hidden="true" data-zfw-hero-lines>
+        <path d="M1440,379 H0"/>
+        <path d="M1001,0 V810"/>
+        <path d="M298,0 V810"/>
+        <path d="M1440,199 H1001"/>
+        <path d="M1001,520 H0"/>
+        <path d="M1440,810 L1001,379"/>
+      </svg>
+    </div>
+    <div class="absolute inset-x-0 bottom-0 px-6 md:px-10 pb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+      <h1 data-split>A new feeling for<br>healthy <em>teeth.</em></h1>
+      <p class="md:text-right" data-intro="fade">Zahnfachwerk<br>Strategy, Naming, Brand & Web Design, 2024</p>
+    </div>
+  </section>
+
+  <!-------------------------- Intro -------------------------->
+  <section class="zfw-beige px-6 md:px-10 py-28 md:py-[200px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>The challenge</p>
+      <p class="font-display font-thin mt-8 text-[30px] md:text-[52px] leading-[1.15]" data-split>A new dental practice in an old half-timbered house in Braunschweig. Before the doors opened, it needed a strategy, a name, a brand and a <em>website.</em></p>
+      <div class="mt-12 md:mt-[72px] grid md:grid-cols-2 gap-10 md:gap-20 max-w-[1000px]" data-reveal>
+        <p>Dentist Carolin Hochberger was opening her own practice. Not a cold clinic, but a place people like to come back to, and where the team feels at home too.</p>
+        <p>I accompanied the whole way: from a shared design strategy and the search for the right name to the logo, the brand guide and the website.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- History: the house and the old city map -------------------------->
+  <section class="zfw-white px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>The house</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>A house with a <em>story.</em></h2>
+      <p class="mt-10 max-w-[520px]" data-reveal>The practice moved into a well-preserved half-timbered house from the 18th century at Hutfiltern 6, a piece of Braunschweig's history. Its past shaped the brand from the start. An old map of the city, with the house right in it, later became the wallpaper of the practice.</p>
+    </div>
+    <!-- One row of three, same width and height: square, so the map and the street photo are only cropped a little -->
+    <div class="mt-16 md:mt-24 max-w-[1300px] mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-8">
+      <div class="overflow-hidden aspect-square" data-reveal-image><img src="{{ img }}history-facade.jpg" alt="The house at Hutfiltern 6 with its red facade" class="w-full h-full object-cover" loading="lazy"></div>
+      <div class="overflow-hidden aspect-square" data-reveal-image><img src="{{ img }}history-map.jpg" alt="Historic map of Braunschweig" class="w-full h-full object-cover" loading="lazy"></div>
+      <div class="overflow-hidden aspect-square" data-reveal-image><img src="{{ img }}history-street.jpg" alt="The street in an old black and white photograph" class="w-full h-full object-cover object-[50%_45%]" loading="lazy"></div>
+    </div>
+  </section>
+
+  <!-------------------------- Strategy: positioning and values -------------------------->
+  <section class="zfw-sage px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Strategy</p>
+      <h2 class="mt-8 max-w-[820px]" data-split>Sustainable dental health for a new way of <em>feeling good.</em></h2>
+      <p class="mt-10 max-w-[520px]" data-reveal>Zahnfachwerk puts well-being and long-term health first. Excellent quality, talking at eye level and digital innovation, in rooms that feel calm for patients and team alike. Four values carry it all.</p>
+    </div>
+    <!-- Four values as circles, as in the brand guide; they fill with white on hover -->
+    <div class="mt-16 md:mt-24 max-w-[1300px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-14 md:gap-10">
+      {% assign values = "Appreciation:Every patient and every team member counts. We talk with respect, empathy and understanding.|Quality:First-class care with the most modern treatment methods and high-quality materials.|Innovation:Always up to date with technology, to treat patients as well as possible.|Sustainability:Treatments that don't just solve today's problem, but keep teeth healthy for years." | split: "|" %}
+      {% for v in values %}{% assign p = v | split: ":" %}
+      <div class="group text-center" data-reveal>
+        <div class="mx-auto w-[38vw] md:w-full max-w-[230px] aspect-square rounded-full border border-[#2d2d2d] flex items-center justify-center transition-colors duration-500 group-hover:bg-white">
+          <span class="uppercase tracking-[0.12em] text-[12px] md:text-[13px]">{{ p[0] }}</span>
+        </div>
+        <p class="mt-6 max-w-[240px] mx-auto text-[15px]">{{ p[1] }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-------------------------- Moodboard: the result of the strategy -------------------------->
+  <section class="zfw-white px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1100px] mx-auto grid md:grid-cols-[1fr_1.4fr] gap-10 md:gap-20 items-end">
+      <div>
+        <p class="opacity-70" data-reveal>Inspiration</p>
+        <h3 class="mt-8 font-display font-thin text-[30px] md:text-[44px] leading-[1.1]" data-split>Old walls, soft <em>greens.</em></h3>
+      </div>
+      <p class="max-w-[460px]" data-reveal>The moodboard is the result of the strategy: elegance through understatement, warm tones and fine details, with more of the old building's character. It serves as inspiration and gave the client and me a shared foundation before the first sketch.</p>
+    </div>
+    <figure class="mt-12 md:mt-16 max-w-[1536px] mx-auto" data-reveal-image>
+      <img src="{{ img }}moodboard.jpg" alt="Moodboard: a painted landscape, a laughing woman, sage furniture, a red brick facade and bright old rooms" class="w-full h-auto" loading="lazy">
+    </figure>
+  </section>
+
+  <!-------------------------- The name: three meanings in one word -------------------------->
+  <section class="zfw-ink px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1300px] mx-auto">
+      <p class="opacity-70" data-reveal>The name</p>
+      <p class="mt-10 zfw-serif text-[clamp(40px,10vw,170px)] leading-[1] tracking-[-0.01em] flex flex-wrap" data-reveal>
+        <span>Zahn</span><span class="text-[#c3cdb9]">fach</span><span>werk</span>
+      </p>
+      <div class="mt-16 md:mt-24 grid md:grid-cols-3 gap-12 md:gap-16">
+        {% assign parts = "Fachwerk:The half-timbered house the practice lives in. The name honours the house and gives it a new use.|vom Fach:German for being an expert. It stands for skill and care you can rely on.|Werk:A work, made with care. Lasting, stable and likeable, the qualities the name was chosen for." | split: "|" %}
+        {% for p in parts %}{% assign q = p | split: ":" %}
+        <div class="border-t border-white/40 pt-6" data-reveal>
+          <p class="font-display font-thin italic text-[28px] md:text-[36px]">{{ q[0] }}</p>
+          <p class="mt-5 opacity-80">{{ q[1] }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- Signet: in white, its parts lit up in anthracite to explain it -------------------------->
+  <section class="zfw-sage px-6 md:px-10 py-28 md:py-[180px]" data-zfw-logo>
+    <div class="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-14 md:gap-20 items-center">
+      <div class="w-[60vw] md:w-full max-w-[440px] mx-auto">
+        {% include zfw-mark.html id="explain" color="#ffffff" highlight=true highlight-color="#2d2d2d" highlight-opacity="0.1" class="w-full h-auto" %}
+      </div>
+      <div class="max-w-[480px]">
+        <p class="opacity-70" data-reveal>The signet</p>
+        <h2 class="mt-8" data-split>A tooth, a house and three <em>letters.</em></h2>
+        <p class="mt-8" data-reveal>The outer shape is a stylised tooth. Its lines follow the beams of a half-timbered house, a sign of quality and permanence. And hidden inside are the letters Z, F and W.</p>
+        <!-- Each button lights up the beams that form it -->
+        <div class="mt-10 flex flex-wrap gap-3" role="group" aria-label="Show in the signet" data-reveal>
+          {% assign shows = "Tooth:left top right legs,Timber frame:top diag mid left legs right,Z:top diag mid,F:top mid left,W:left legs right" | split: "," %}
+          {% for s in shows %}{% assign p = s | split: ":" %}
+          <button type="button" class="zfw-chip text-[14px]" aria-pressed="false" data-zfw-show="{{ p[1] }}">{{ p[0] }}</button>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- Logo: the versions edge to edge, then the text and the logotype large with its soft corners circled -------------------------->
+  <section class="zfw-beige px-6 md:px-10 pb-28 md:pb-[180px]">
+    <!-- First the logos, edge to edge: signet and wordmark together, and the round version with the city, whose ring turns with the scroll -->
+    <div class="-mx-6 md:-mx-10 grid md:grid-cols-[1.6fr_1fr]">
+      <div class="zfw-white flex items-center justify-center px-[8%] py-[14%]" data-reveal-image>
+        <img src="{{ img }}logo-horizontal.svg" alt="Zahnfachwerk logo, signet and wordmark" class="w-full max-w-[640px] h-auto" loading="lazy">
+      </div>
+      <div class="zfw-ink flex items-center justify-center p-[12%] aspect-square md:aspect-auto" data-reveal-image>
+        {% include zfw-badge.html class="w-full max-w-[360px] h-auto" %}
+      </div>
+    </div>
+    <div class="mt-28 md:mt-[180px] max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Logo</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>Precise, with soft <em>corners.</em></h2>
+      <p class="mt-10 max-w-[480px]" data-reveal>Geometric capitals with a special touch: subtle roundings pick up the details of the signet. Clear lines and soft contours, precision and warmth. For round formats, the name wraps around the signet together with the city.</p>
+    </div>
+    <!-- Then the details of the logotype -->
+    <div class="mt-20 md:mt-28 max-w-[1300px] mx-auto" data-reveal>
+      {% include zfw-wordmark.html class="w-full h-auto text-[#2d2d2d] overflow-visible" %}
+    </div>
+  </section>
+
+  <!-------------------------- Colours: large fields, click to copy -------------------------->
+  <section class="zfw-white px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Colors</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>Sage, brick and a lot of <em>calm.</em></h2>
+      <p class="mt-10 max-w-[480px]" data-reveal>Fresh sage brings the brand to life. The soft brick red recalls the practice's facade and adds warmth. Anthracite gives dark backgrounds depth, and beige keeps light areas timeless. Click a color to copy it.</p>
+    </div>
+    <div class="mt-16 md:mt-24 max-w-[1536px] mx-auto grid grid-cols-2 md:grid-cols-[2fr_1.4fr_1fr_1fr] h-[70vh] md:h-[520px]">
+      {% assign colors = "Sage:#C3CDB9:#2d2d2d,Brick:#B4503C:#ffffff,Anthracite:#2D2D2D:#ffffff,Beige:#E8E6DF:#2d2d2d" | split: "," %}
+      {% for c in colors %}{% assign p = c | split: ":" %}
+      <button type="button" class="text-left p-5 md:p-8 flex flex-col justify-end" style="background:{{ p[1] }};color:{{ p[2] }}" data-zfw-copy="{{ p[1] }}">
+        <span class="font-display font-thin text-[26px] md:text-[34px]">{{ p[0] }}</span>
+        <span class="mt-2 text-[13px] opacity-70" data-zfw-copy-label>{{ p[1] }}</span>
+      </button>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-------------------------- Typography: the two typefaces side by side -------------------------->
+  <section class="zfw-sage py-28 md:py-[180px]">
+    <div class="px-6 md:px-10 max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Typography</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>History meets <em>clarity.</em></h2>
+      <p class="mt-10 max-w-[480px]" data-reveal>Libre Baskerville has roots going back to 1750 and recalls the listed building. Outfit is clear and modern, made for reading. Together they connect history and today.</p>
+    </div>
+    <div class="px-6 md:px-10">
+      <div class="mt-16 md:mt-24 max-w-[1300px] mx-auto grid md:grid-cols-2 border-t border-[#2d2d2d]">
+        <div class="pt-8 md:pr-12 md:border-r border-[#2d2d2d] pb-12" data-reveal>
+          <p class="zfw-caps text-[11px] opacity-60">Headlines</p>
+          <p class="zfw-serif mt-6 text-[clamp(110px,16vw,240px)] leading-[0.9]">Aa</p>
+          <p class="zfw-serif mt-8 text-[24px]">Libre Baskerville <em>Italic</em></p>
+          <p class="zfw-serif mt-4 text-[15px] leading-[1.6] opacity-80 break-words">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</p>
+        </div>
+        <div class="pt-8 md:pl-12 pb-12 border-t md:border-t-0 border-[#2d2d2d]" data-reveal>
+          <p class="zfw-caps text-[11px] opacity-60">Text and subheads</p>
+          <p class="zfw-sans mt-6 text-[clamp(110px,16vw,240px)] leading-[0.9]">Aa</p>
+          <p class="zfw-sans mt-8 text-[24px]">Outfit Light <span style="font-weight:500">Medium</span></p>
+          <p class="zfw-sans mt-4 text-[15px] leading-[1.6] opacity-80 break-words">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- Design language: the timber lines from the brand guide, then the pattern -------------------------->
+  <section class="zfw-white px-6 md:px-10 pt-28 md:pt-[180px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Design language</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>Lines like a timber <em>frame.</em></h2>
+      <p class="mt-10 max-w-[480px]" data-reveal>Inspired by the clear, geometric structure of a half-timbered house, thin lines divide every layout into fields, like beams divide a facade. Now and then a diagonal brace adds an accent.</p>
+    </div>
+    <!-- The timber lines as in the brand guide: posts, beams and two braces at 45 degrees, drawn in on scroll -->
+    <div class="mt-16 md:mt-24 -mx-6 md:-mx-10 zfw-beige" data-zfw-lines>
+      <svg viewBox="0 0 2000 1126" class="w-full h-auto block" fill="none" stroke="#2d2d2d" stroke-width="2" aria-hidden="true">
+        <path d="M0,127 H2000"/>
+        <path d="M814,0 V1126"/>
+        <path d="M1312,0 V1126"/>
+        <path d="M1864,0 V1126"/>
+        <path d="M0,377 H814"/>
+        <path d="M0,627 H1312"/>
+        <path d="M400,627 V1126"/>
+        <path d="M0,877 H400"/>
+        <path d="M814,627 L1312,127"/>
+        <path d="M814,627 L1312,1126"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-------------------------- The practice -------------------------->
+  <section class="zfw-ink px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>The practice</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>Old house, new <em>life.</em></h2>
+      <p class="mt-10 max-w-[480px]" data-reveal>Wooden floors, high windows and calm colours. The old city map covers the staircase, the signet hangs at the end of the corridor and appears on the team's scrubs.</p>
+    </div>
+    <div class="mt-16 md:mt-24 max-w-[1536px] mx-auto grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+      {% assign shots = "sign:The signet on the wall of the practice,detail:The signet on the scrubs,treatment-room:Treatment room on wooden floors,team-1:The team laughing together,staircase:The old city map as wallpaper in the staircase,consultation:Consultation with a patient" | split: "," %}
+      {% for s in shots %}{% assign p = s | split: ":" %}
+      <div class="overflow-hidden aspect-[2/3]" data-reveal-image><img src="{{ img }}{{ p[0] }}.jpg" alt="{{ p[1] }}" class="w-full h-full object-cover" loading="lazy"></div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-------------------------- Website: scroll through the homepage on desktop and mobile -------------------------->
+  <!-- The section is several screens tall; the screens stick while the pages inside scroll along -->
+  <section class="zfw-sage relative h-[340vh]" data-zfw-web>
+    <div class="sticky top-0 h-screen overflow-hidden flex flex-col justify-center px-6 md:px-10">
+      <div class="max-w-[1300px] w-full mx-auto grid md:grid-cols-[minmax(0,1fr)_minmax(0,2.2fr)] gap-10 md:gap-16 items-center">
+        <div class="max-w-[400px]">
+          <p class="opacity-70">Website</p>
+          <h2 class="mt-8">Booked in a few <em>clicks.</em></h2>
+          <p class="mt-8">The website brings it all together: the values, the team, the house and its history, and online booking from the first screen. I designed the website; the development was done by others. Keep scrolling to look through it.</p>
+        </div>
+        <div class="relative">
+          <!-- Browser -->
+          <div class="bg-white shadow-[0_30px_80px_-30px_rgba(45,45,45,0.45)] rounded-[6px] overflow-hidden">
+            <div class="flex gap-1.5 px-3 py-2.5 bg-[#f1f0ec]"><span class="w-2 h-2 rounded-full bg-[#2d2d2d]/20"></span><span class="w-2 h-2 rounded-full bg-[#2d2d2d]/20"></span><span class="w-2 h-2 rounded-full bg-[#2d2d2d]/20"></span></div>
+            <div class="relative aspect-[16/10] overflow-hidden" data-zfw-screen>
+              <img src="{{ img }}website-home.jpg" alt="Zahnfachwerk homepage" class="absolute top-0 left-0 w-full h-auto will-change-transform" loading="lazy">
+            </div>
+          </div>
+          <!-- Phone -->
+          <div class="absolute -right-2 md:-right-8 -bottom-10 md:-bottom-16 w-[28%] max-w-[230px] rounded-[22px] md:rounded-[30px] bg-[#2d2d2d] p-[5px] md:p-[7px] shadow-[0_30px_60px_-20px_rgba(45,45,45,0.55)]">
+            <div class="relative aspect-[9/19] rounded-[17px] md:rounded-[24px] overflow-hidden bg-white" data-zfw-screen>
+              <img src="{{ img }}website-mobile.jpg" alt="Zahnfachwerk homepage on a phone" class="absolute top-0 left-0 w-full h-auto will-change-transform" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- Next case -------------------------->
+  {% assign cases = site.data.cases | where_exp: 'c', 'c.url' %}
+  {% for case in cases %}{% if case.url == page.url %}{% assign next_index = forloop.index | modulo: cases.size %}{% endif %}{% endfor %}
+  {% assign next = cases[next_index] %}
+  <section class="zfw-beige px-6 md:px-10 py-24 md:py-[140px] text-center">
+    <a href="{{ next.url }}" class="group inline-block" data-reveal>
+      <p class="opacity-70">Next case</p>
+      <h2 class="mt-6">{{ next.name }} <em>→</em></h2>
+    </a>
+    <p class="mt-12" data-reveal><a href="/work/" class="rd-button [--rd-btn:#2d2d2d] [--rd-btn-hover:#e8e6df]"><span>All work</span></a></p>
+  </section>
+
+</div>

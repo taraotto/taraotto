@@ -17,12 +17,11 @@
   var pairs = document.querySelector('[data-galeria-pairs]');
   if (pairs) {
     var combos = [
-      // background, signet, logotype, light background (eyebrow turns anthracite)
-      ['#145a5a', '#e6781e', '#c8e6cd'], ['#c3e6f5', '#2d4669', '#87005f', true], ['#5f64be', '#f0eb73', '#d2d7f0'],
-      ['#ebdceb', '#5f64be', '#05c3dc', true], ['#87005f', '#c8e6cd', '#ebdceb']
+      // background, signet, logotype
+      ['#145a5a', '#e6781e', '#c8e6cd'], ['#c3e6f5', '#2d4669', '#87005f'], ['#5f64be', '#f0eb73', '#d2d7f0'],
+      ['#ebdceb', '#5f64be', '#05c3dc'], ['#87005f', '#c8e6cd', '#ebdceb']
     ];
     var pairBg = pairs.querySelector('[data-galeria-pair-bg]');
-    var pairTitle = pairs.querySelector('[data-galeria-pair-title]');
     var pairWord = pairs.querySelector('[data-galeria-pair-word]');
     var pairSignet = logo('pairs').querySelector('g[stroke-width="114"]');
     var shownPair = 0;
@@ -34,7 +33,6 @@
       pairBg.style.background = c[0];
       pairSignet.style.transition = 'stroke 0.7s';
       pairSignet.setAttribute('stroke', c[1]);
-      pairTitle.style.color = c[3] ? '#52545a' : '#ffffff';
       pairWord.style.color = c[2];
     };
     window.addEventListener('scroll', showPair, { passive: true });
@@ -85,21 +83,6 @@
       onEnterBack: function () { sketchTl.restart(); },
       onLeave: function () { sketchTl.pause(0); },
       onLeaveBack: function () { sketchTl.pause(0); }
-    });
-  }
-
-  // ------------ Campaign: scroll sideways through the motifs (desktop; small screens swipe) ------------
-  var strip = document.querySelector('[data-galeria-strip]');
-  var track = document.querySelector('[data-galeria-track]');
-  if (strip && track && window.matchMedia('(min-width: 768px)').matches) {
-    gsap.to(track, {
-      x: function () { return -(track.scrollWidth - window.innerWidth); },
-      ease: 'none',
-      scrollTrigger: {
-        trigger: strip, start: 'center center', pin: strip, scrub: 1,
-        end: function () { return '+=' + (track.scrollWidth - window.innerWidth); },
-        invalidateOnRefresh: true
-      }
     });
   }
 
