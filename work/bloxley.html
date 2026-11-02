@@ -1,0 +1,187 @@
+---
+layout: redesign
+title: Bloxley
+permalink: /work/bloxley/
+header-in-hero: true
+theme: bloxley
+scripts:
+  - /assets/js/bloxley.js
+---
+{% comment %}
+  Bloxley case, built in the Bloxley brand: a sky from deep to light blue, azure, midnight and three moods of the
+  sky (breeze, sunset, sunrise). The focus is on colour, cards and imagery; the logo only appears on the cards.
+  The social posts are shown as they appear on Instagram. Only public, non-confidential content.
+  The card switch lives in /assets/js/bloxley.js.
+{% endcomment %}
+{% assign img = '/assets/images/redesign/cases/bloxley/' %}
+
+<style>
+  .blx { --blx-midnight: #002d50; --blx-azure: #429bd7; --blx-light: #ecf5fb; color: var(--blx-midnight); }
+  .blx p { text-wrap: pretty; }
+  .blx-white { background: #ffffff; }
+  .blx-light { background: var(--blx-light); }
+  /* The sky gradient: always deep at the top, lighter towards the bottom */
+  .blx-sky { background: linear-gradient(180deg, #005087 0%, #429bd7 100%); color: #ffffff; }
+
+  /* Card switch */
+  /* The card stays where it is; only its colour changes, together with the background */
+  .blx-card[aria-hidden="true"] { visibility: hidden; }
+  .blx-chip { border: 1px solid currentColor; border-radius: 999px; padding: 0.5em 1.1em; transition: background-color 0.3s, color 0.3s; }
+  .blx-chip[aria-pressed="true"] { background: currentColor; }
+  .blx-chip[aria-pressed="true"] span { color: var(--blx-chip-bg); }
+</style>
+
+<div class="blx">
+
+  <!-------------------------- Hero: a light blue card held against the sky -------------------------->
+  <section class="relative h-screen min-h-[620px] overflow-hidden flex items-end bg-[#1c8fd0]" data-intro="reveal">
+    {% include rd-header.html %}
+    <img src="{{ img }}press-04.jpg" alt="A hand holding a light blue Bloxley card against a blue sky" class="absolute inset-0 w-full h-full object-cover object-[60%_50%]">
+    <div class="relative w-full px-6 md:px-10 pb-10 text-white flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+      <h1 data-split>Wings for<br>your <em>money.</em></h1>
+      <p class="md:text-right" data-intro="fade">Bloxley<br>Brand Design, Art Direction, 2025</p>
+    </div>
+  </section>
+
+  <!-------------------------- Intro -------------------------->
+  <section class="blx-white px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>The challenge</p>
+      <p class="font-display font-thin mt-8 text-[30px] md:text-[52px] leading-[1.15]" data-split>Money moves around the world all day. A young fintech wanted it to feel as light as the <em>sky.</em></p>
+      <div class="mt-12 md:mt-[72px] grid md:grid-cols-2 gap-10 md:gap-20 max-w-[1000px]" data-reveal>
+        <p>Bloxley is building an all-in-one money app: one account, a card and payments across currencies, made to feel simple and effortless.</p>
+        <p>Together with my strategic partner Rüdiger Goetz, I developed the brand concept and the logo. After that, I was responsible for the brand, with a focus on colour, cards and imagery.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- Cards: switch between the colours -------------------------->
+  <!-- The background changes with the card, like on the Bloxley website -->
+  <!-- One full screen; pointing at a colour (or tapping it) shows its card -->
+  <section class="relative min-h-screen flex items-center py-20 text-white transition-colors duration-700" style="background:#1490cc" data-blx-cards>
+    <div class="w-full px-6 md:px-10">
+    <div class="w-full max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] gap-14 md:gap-20 items-center">
+      <div class="max-w-[440px]">
+        <p class="opacity-70" data-reveal>Cards</p>
+        <h2 class="mt-8" data-split>One card, every <em>sky.</em></h2>
+        <p class="mt-8" data-reveal>Each card carries a soft gradient from the palette, with the signet as the only mark. Five shades for everyday banking, from the light breeze to the deep midnight.</p>
+        {% assign cards = "Azure:azure:#1490cc:#ffffff|Breeze:breeze:#bfe5fb:#002d50|Midnight:midnight:#0b3f63:#ffffff|Sunrise:sunrise:#e8874a:#ffffff|Sunset:sunset:#e894bd:#ffffff" | split: "|" %}
+        <!-- Hover or tap a colour to see its card -->
+        <div class="mt-10 flex flex-wrap gap-3" role="group" aria-label="Card colours" data-reveal>
+          {% for c in cards %}{% assign p = c | split: ":" %}
+          <button type="button" class="blx-chip text-[14px]" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}" data-blx-card="{{ forloop.index0 }}" data-bg="{{ p[2] }}" data-fg="{{ p[3] }}"><span>{{ p[0] }}</span></button>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="relative w-full max-w-[620px] mx-auto aspect-[1536/969]">
+        {% for c in cards %}{% assign p = c | split: ":" %}
+        <img src="{{ img }}card-{{ p[1] }}.jpg" alt="Bloxley debit card in {{ p[0] }}" class="blx-card absolute inset-0 w-full h-full rounded-[4.5%] shadow-[0_30px_60px_-20px_rgba(0,20,40,0.45)]" aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}" loading="lazy">
+        {% endfor %}
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-------------------------- More cards: the colourful ones in the air, the midnight and the black one in hand -------------------------->
+  <section class="blx-white px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1536px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+      <div class="md:col-span-2 overflow-hidden aspect-[16/9] rounded-[10px]" data-reveal-image><img src="{{ img }}press-06.jpg" alt="Bloxley cards in azure, breeze, sunrise and sunset falling through the sky" class="w-full h-full object-cover" loading="lazy"></div>
+      <div class="overflow-hidden aspect-[16/9] rounded-[10px]" data-reveal-image><img src="{{ img }}press-05.jpg" alt="A midnight Bloxley card held against a dark blue background" class="w-full h-full object-cover" loading="lazy"></div>
+      <div class="overflow-hidden aspect-[16/9] bg-black rounded-[10px]" data-reveal-image><img src="{{ img }}card-dark.jpg" alt="A hand holding up a black Bloxley card in the dark" class="w-full h-full object-cover" loading="lazy"></div>
+    </div>
+  </section>
+
+  <!-------------------------- Colour: the moods of the sky -------------------------->
+  <section class="blx-light px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Colour</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>Every mood of the <em>sky.</em></h2>
+      <p class="mt-10 max-w-[480px]" data-reveal>The palette is inspired by the ever-changing sky. A gradient from deep to light blue carries the brand, azure adds contrast and midnight blue is for text. Breeze, sunset and sunrise bring the sky's moods.</p>
+    </div>
+    <!-- Arranged like the colour page of the brand guidelines: five columns, three rows, small gaps.
+         The separators have spaces around them, so Tailwind finds the placement classes. -->
+    {% comment %} Fields: name; hex; background; text colour; placement on large screens {% endcomment %}
+    {% assign colours = "Sky Gradient ; 005087 → 429BD7 ; linear-gradient(180deg,#005087,#429bd7) ; #ffffff ; md:row-span-3 | Azure Blue ; 19B4FA ; #19b4fa ; #ffffff ; md:row-span-3 | Midnight Blue ; 002D50 ; #002d50 ; #ffffff ; md:col-start-3 md:row-start-1 md:row-span-3 | White ; FFFFFF ; #ffffff ; #002d50 ; md:col-start-4 md:row-start-1 md:row-span-2 border border-[#002d50]/20 | Cosmos Black ; 080908 ; #080908 ; #ffffff ; md:col-start-4 md:row-start-3 | Breeze Blue ; A0DCFF ; #a0dcff ; #002d50 ; md:col-start-5 md:row-start-1 | Sunset Pink ; FFA0CD ; #ffa0cd ; #ffffff ; md:col-start-5 md:row-start-2 | Sunrise Orange ; FF7323 ; #ff7323 ; #ffffff ; md:col-start-5 md:row-start-3" | split: " | " %}
+    <div class="mt-16 md:mt-24 max-w-[1300px] mx-auto grid grid-cols-2 md:grid-cols-5 md:grid-rows-3 gap-2 md:h-[600px]">
+      {% for c in colours %}{% assign p = c | split: " ; " %}
+      <div class="{{ p[4] | strip }} min-h-[120px] p-4 md:p-5 flex flex-col justify-between rounded-[6px]" style="background:{{ p[2] }};color:{{ p[3] }}" data-reveal>
+        <span class="text-[13px] md:text-[14px]" style="font-weight:500">{{ p[0] }}</span>
+        <span class="text-[12px] opacity-80">#{{ p[1] }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-------------------------- Imagery: look up -------------------------->
+  <!-- Follows the colours on the same light blue, so it needs no space of its own at the top -->
+  <section class="blx-light px-6 md:px-10 pb-28 md:pb-[180px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Imagery</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>Always looking <em>up.</em></h2>
+      <p class="mt-10 max-w-[480px]" data-reveal>People in motion, seen from below against open skies. The images are bright, natural and full of light, so that money feels like freedom rather than a chore.</p>
+    </div>
+    <!-- Big and bold: a pair of people in motion, wide palms, then a row of three, all within the page margin -->
+    <div class="mt-16 md:mt-24 max-w-[1536px] mx-auto grid grid-cols-2 gap-4 md:gap-8">
+      <div class="overflow-hidden aspect-[3/4] rounded-[10px]" data-reveal-image><img src="{{ img }}imagery-cloth.jpg" alt="A woman holding an orange cloth in the wind" class="w-full h-full object-cover" loading="lazy"></div>
+      <div class="overflow-hidden aspect-[3/4] rounded-[10px]" data-reveal-image><img src="{{ img }}imagery-stretch.jpg" alt="Two people stretching with resistance bands" class="w-full h-full object-cover" loading="lazy"></div>
+    </div>
+    <div class="mt-4 md:mt-8 max-w-[1536px] mx-auto overflow-hidden h-[50vh] md:h-[75vh] rounded-[10px]" data-reveal-image>
+      <img src="{{ img }}imagery-palms.jpg" alt="Palm trees against a blue sky" class="w-full h-full object-cover" loading="lazy">
+    </div>
+    <div class="mt-4 md:mt-8 max-w-[1536px] mx-auto grid grid-cols-3 gap-4 md:gap-8">
+      <div class="overflow-hidden aspect-[2/3] rounded-[10px]" data-reveal-image><img src="{{ img }}imagery-lifestyle.jpg" alt="A woman with curly hair leaning back in the sun" class="w-full h-full object-cover" loading="lazy"></div>
+      <div class="overflow-hidden aspect-[2/3] rounded-[10px]" data-reveal-image><img src="{{ img }}imagery-getty.jpg" alt="A man on a diving tower with arms spread out" class="w-full h-full object-cover" loading="lazy"></div>
+      <div class="overflow-hidden aspect-[2/3] rounded-[10px]" data-reveal-image><img src="{{ img }}imagery-kiril.jpg" alt="A hot air balloon in a clear blue sky" class="w-full h-full object-cover object-[76%_50%]" loading="lazy"></div>
+    </div>
+  </section>
+
+  <!-------------------------- Social posts, as on Instagram -------------------------->
+  <section class="blx-white px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Social media</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>Light words, big <em>skies.</em></h2>
+      <p class="mt-10 max-w-[480px]" data-reveal>Short lowercase lines on bright photos, the signet small in the corner. The posts introduce the brand before launch, sometimes with a wink, sometimes with a glimpse of the app.</p>
+    </div>
+    <!-- The posts as they appear on Instagram: three columns, hairline gaps -->
+    <div class="mt-16 md:mt-24 max-w-[760px] mx-auto grid grid-cols-3 gap-[3px]" data-reveal>
+      <img src="{{ img }}ig-01.jpg" alt="Bloxley Instagram post: A notification from James asking for bank details again" class="w-full aspect-[4/5] object-cover" loading="lazy">
+      <img src="{{ img }}ig-02.jpg" alt="Bloxley Instagram post: global lives require global finance: Berlin and Toronto side by side" class="w-full aspect-[4/5] object-cover" loading="lazy">
+      <img src="{{ img }}ig-03.jpg" alt="Bloxley Instagram post: different look, same financially empowering benefits: Bloxley cards in the sky" class="w-full aspect-[4/5] object-cover" loading="lazy">
+      <img src="{{ img }}ig-04.jpg" alt="Bloxley Instagram post: finance built for the life you live: a woman walking across a field" class="w-full aspect-[4/5] object-cover" loading="lazy">
+      <img src="{{ img }}ig-05.jpg" alt="Bloxley Instagram post: earn in 3 currencies, spend in 2 more: money in a jeans pocket" class="w-full aspect-[4/5] object-cover" loading="lazy">
+      <img src="{{ img }}ig-06.jpg" alt="Bloxley Instagram post: splitting dinner should feel like texting the group chat: friends at a table" class="w-full aspect-[4/5] object-cover" loading="lazy">
+      <img src="{{ img }}ig-07.jpg" alt="Bloxley Instagram post: A woman jumping into a lake, with send, request and split buttons" class="w-full aspect-[4/5] object-cover" loading="lazy">
+      <img src="{{ img }}ig-08.jpg" alt="Bloxley Instagram post: sending money should feel like sending a text: a runner against the sky" class="w-full aspect-[4/5] object-cover" loading="lazy">
+      <img src="{{ img }}ig-09.jpg" alt="Bloxley Instagram post: worldwide financial freedom at the tip of your fingers: a hand against pink clouds" class="w-full aspect-[4/5] object-cover" loading="lazy">
+      <img src="{{ img }}ig-10.jpg" alt="Bloxley Instagram post: every cross-border transfer tells a story: a plane wing above pink clouds" class="w-full aspect-[4/5] object-cover" loading="lazy">
+      <img src="{{ img }}ig-11.jpg" alt="Bloxley Instagram post: money that moves at the speed of a message: a running gazelle" class="w-full aspect-[4/5] object-cover" loading="lazy">
+      <img src="{{ img }}ig-12.jpg" alt="Bloxley Instagram post: did dorothy really wear ruby slippers: a red shoe on blue" class="w-full aspect-[4/5] object-cover" loading="lazy">
+    </div>
+  </section>
+
+  <!-------------------------- Merchandise -------------------------->
+  <section class="blx-sky px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Merchandise</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>Blue sky, <em>everywhere.</em></h2>
+    </div>
+    <div class="mt-16 md:mt-24 max-w-[1536px] mx-auto grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+      <div class="overflow-hidden aspect-square rounded-[10px]" data-reveal-image><img src="{{ img }}jersey.jpg" alt="A blue Bloxley jersey" class="w-full h-full object-cover" loading="lazy"></div>
+      <div class="overflow-hidden aspect-square rounded-[10px]" data-reveal-image><img src="{{ img }}socks-sky.jpg" alt="Blue Bloxley socks" class="w-full h-full object-cover" loading="lazy"></div>
+      <div class="col-span-2 md:col-span-1 overflow-hidden aspect-[2/1] md:aspect-square rounded-[10px]" data-reveal-image><img src="{{ img }}notebook.jpg" alt="A blue Bloxley notebook" class="w-full h-full object-cover" loading="lazy"></div>
+    </div>
+  </section>
+
+  <!-------------------------- Next case -------------------------->
+  {% assign cases = site.data.cases | where_exp: 'c', 'c.url' %}
+  {% for case in cases %}{% if case.url == page.url %}{% assign next_index = forloop.index | modulo: cases.size %}{% endif %}{% endfor %}
+  {% assign next = cases[next_index] %}
+  <section class="blx-white px-6 md:px-10 py-28 md:py-[180px] text-center">
+    <a href="{{ next.url }}" class="group inline-block" data-reveal>
+      <p class="opacity-70">Next case</p>
+      <h2 class="mt-6">{{ next.name }} <em>→</em></h2>
+    </a>
+    <p class="mt-12" data-reveal><a href="/work/" class="rd-button [--rd-btn:#002d50] [--rd-btn-hover:#ffffff]"><span>All work</span></a></p>
+  </section>
+
+</div>

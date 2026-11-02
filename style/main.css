@@ -260,6 +260,8 @@ li          { @apply border-b border-black text-xs uppercase tracking-[.3em] fon
   @apply font-inter text-[14px] leading-[normal] tracking-normal font-normal not-italic normal-case p-0 border-0 cursor-auto;
 }
 :where(.rd) a, :where(.rd) p a { @apply no-underline cursor-pointer; }
+/* Text inside a link keeps the link's pointer instead of the reset's cursor-auto */
+:where(.rd) a :is(p, li, h1, h2, h3, h4) { cursor: inherit; }
 
 /* Longer running text (travel guides): more air between lines, no single word on the last line */
 .rd-reading :is(p, li) { line-height: 1.5; text-wrap: pretty; }

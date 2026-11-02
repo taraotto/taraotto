@@ -16,7 +16,12 @@
   image: /assets/images/redesign/studio-work-team.jpg
   url: /work/zahnfachwerk/
 - name: Disgusting Food Museum
-  services: Brand Design, Art Direction, Web Design
+  services: Brand Design, Art Direction
   text: "A museum that challenges what we find disgusting, with a brand that is as bold as its exhibits."
   image: /assets/images/redesign/cases/dfm/cup.jpg
   url: /work/dfm/
+- name: Bloxley
+  services: Brand Design, Art Direction
+  text: "A brand for a young fintech that makes money feel as light as the sky."
+  image: /assets/images/redesign/cases/bloxley/card-hand.jpg
+  url: /work/bloxley/

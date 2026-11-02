@@ -19,7 +19,7 @@
     var combos = [
       // background, signet, logotype
       ['#145a5a', '#e6781e', '#c8e6cd'], ['#c3e6f5', '#2d4669', '#87005f'], ['#5f64be', '#f0eb73', '#d2d7f0'],
-      ['#ebdceb', '#5f64be', '#05c3dc'], ['#87005f', '#c8e6cd', '#ebdceb']
+      ['#ebdceb', '#5f64be', '#05c3dc']
     ];
     var pairBg = pairs.querySelector('[data-galeria-pair-bg]');
     var pairWord = pairs.querySelector('[data-galeria-pair-word]');
