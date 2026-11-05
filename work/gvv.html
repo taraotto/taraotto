@@ -1,0 +1,364 @@
+---
+layout: redesign
+title: GVV
+permalink: /work/gvv/
+header-in-hero: true
+theme: gvv
+scripts:
+  - /assets/js/gvv.js
+---
+{% comment %}
+  GVV case, built in the GVV Direkt brand: blue and navy, Montserrat and the dialog boxes as design language.
+  The focus is on the before and after and on the brand architecture with its colors. Done at KW43; the website
+  was made by colleagues, the text says so.
+  Interaction lives in /assets/js/gvv.js; without it everything is shown in its final state.
+{% endcomment %}
+{% assign img = '/assets/images/redesign/cases/gvv/' %}
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  .gvv { --gvv-navy: #003c6e; --gvv-blue: #00aad2; --gvv-purple: #b47ddc; --gvv-pale: #eef6f8; --gvv-grey: #e3e2e2; color: var(--gvv-navy); }
+  .gvv p { text-wrap: pretty; }
+  .gvv .text-center p, .gvv p.text-center { text-wrap: balance; }
+  .gvv-white { background: #ffffff; }
+  .gvv-pale { background: var(--gvv-pale); }
+  .gvv-grey { background: var(--gvv-grey); }
+  .gvv-navy { background: var(--gvv-navy); color: #ffffff; }
+  .gvv-sky { background: var(--gvv-blue); color: #002a4e; }
+  /* The brand's own type, used where the brand speaks for itself */
+  .gvv-type { font-family: 'Montserrat', sans-serif; font-weight: 600; font-style: normal; letter-spacing: -0.005em; }
+  /* Logos: every brand brings its pair of colors, the case only sets them */
+  .gvv-direkt { --gvv-bright: #00aad2; --gvv-dark: #003c6e; }
+  .gvv-kommunal { --gvv-bright: #00b987; --gvv-dark: #005546; }
+  .gvv-versicherungen { --gvv-bright: #00a0a0; --gvv-dark: #004b5a; }
+  /* Dialog boxes: the design language of the brand */
+  .gvv-box { display: inline-block; font-family: 'Montserrat', sans-serif; font-weight: 600; line-height: 1.25; padding: 0.7em 1.05em; border-radius: 0.75em; }
+  .gvv-box--navy { background: var(--gvv-navy); color: #ffffff; }
+  .gvv-box--blue { background: var(--gvv-blue); color: #ffffff; }
+  .gvv-box--purple { background: var(--gvv-purple); color: #ffffff; }
+  .gvv-box--white { background: #ffffff; color: var(--gvv-navy); }
+  .gvv-box--green { background: #00b987; color: #ffffff; }
+  .gvv-box--teal { background: #00a0a0; color: #ffffff; }
+  /* Before and after: the upper picture is cut off at the divider, the range field keeps it usable by keyboard */
+  [data-gvv-compare] { --pos: 50%; touch-action: pan-y; cursor: ew-resize; user-select: none; }
+  [data-gvv-compare] img { pointer-events: none; }
+  .gvv-before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+  .gvv-divider { left: var(--pos); }
+  [data-gvv-compare] input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; pointer-events: none; }
+  [data-gvv-compare]:focus-within .gvv-knob { outline: 2px solid var(--gvv-navy); outline-offset: 3px; }
+  /* Buttons that switch something on the page */
+  .gvv-chip { border: 1px solid currentColor; border-radius: 999px; padding: 0.55em 1.2em; transition: background-color 0.3s, color 0.3s, border-color 0.3s; }
+  .gvv-chip[aria-pressed="true"] { background: var(--gvv-navy); border-color: var(--gvv-navy); color: #ffffff; }
+  .gvv-step { transition: opacity 0.4s; }
+  .gvv-step[aria-pressed="false"] { opacity: 0.45; }
+  .gvv-step:hover { opacity: 1; }
+  /* Brand architecture: the logos stand in their final places, and with the script the section sticks while they get there */
+  [data-gvv-arch] .gvv-arch-inner { min-height: 100vh; }
+  [data-gvv-arch].is-live { height: 320vh; }
+  [data-gvv-arch].is-live .gvv-arch-inner { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+  .gvv-node { position: absolute; transform: translate(-50%, -50%); }
+  /* Colour rings */
+  [data-gvv-rings] circle { transition: stroke 1s, stroke-dasharray 1.2s cubic-bezier(.65,0,.35,1), stroke-dashoffset 1.2s cubic-bezier(.65,0,.35,1); }
+</style>
+
+<div class="gvv">
+
+  <!-------------------------- Hero: the dog from the brand poster, with its line in the brand's dialog boxes -------------------------->
+  <section class="gvv-pale relative h-screen min-h-[620px] overflow-hidden" data-intro="reveal">
+    {% include rd-header.html %}
+    <!-- On phones the dog sits in the lower half, so the headline stays on the pale background above it -->
+    <img src="{{ img }}hero-dog.jpg" alt="A black dog licking its nose against a pale blue background" class="absolute inset-x-0 bottom-0 w-full h-[52%] md:h-full object-cover object-[74%_100%] [mask-image:linear-gradient(to_bottom,transparent,black_18%)] md:[mask-image:none]">
+    <div class="absolute left-6 md:left-10 bottom-[24%] md:bottom-auto md:top-[26%] flex flex-col items-start gap-3 text-[14px] md:text-[20px]">
+      <span class="gvv-box gvv-box--navy" data-intro="fade">Wow-Wow-Wow.</span>
+      <span class="gvv-box gvv-box--blue ml-6 md:ml-12" data-intro="fade">Ein neues Design<br>für ein gutes Gefühl.</span>
+    </div>
+    <div class="absolute inset-x-0 top-[170px] md:top-auto md:bottom-0 px-6 md:px-10 md:pb-10">
+      <h1 data-split>A new design for<br>a good <em>feeling.</em></h1>
+      <p class="mt-6" data-intro="fade">GVV, at KW43<br>Brand Design, Art Direction, 2020–2021</p>
+    </div>
+  </section>
+
+  <!-------------------------- Intro -------------------------->
+  <section class="gvv-white px-6 md:px-10 py-28 md:py-[200px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>The challenge</p>
+      <p class="font-display font-thin mt-8 text-[30px] md:text-[52px] leading-[1.15]" data-split>GVV is not one of the big insurers, but it is close to its customers. Its brand kept its <em>distance.</em></p>
+      <div class="mt-12 md:mt-[72px] grid md:grid-cols-2 gap-10 md:gap-20 max-w-[1000px]" data-reveal>
+        <p>The Cologne insurer has one foot in municipal insurance and one in private customers. Its private branch wanted to be seen more clearly, become better known and stand apart from its municipal sister.</p>
+        <p>As Senior Art Director at KW43 Branddesign in Düsseldorf, I looked after GVV. Starting from a brand fit check, we modernised the brand as a whole, then brought it to a wide range of media.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- Before and after: the whole brand, then one ad -------------------------->
+  <section class="gvv-grey py-28 md:py-[180px]">
+    <div class="px-6 md:px-10 max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Before and after</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>Same values, a new <em>look.</em></h2>
+      <p class="mt-10 max-w-[480px]" data-reveal>The positioning "for a good feeling" stayed, since it was right all along. The way it looked did not tell it yet. Drag to compare.</p>
+    </div>
+    {% assign pairs = "compare-before.jpg;compare-after.jpg;2400/1215;The old brand: GVV Privatversicherung logo, website, a flyer and a roadside screen;The new brand: GVV Direkt logo, website, a poster and a social post|roadside-car.jpg;ooh-car-1.jpg;2400/1696;Old roadside screen in teal with the word Kölner;New ad with a smiling man and the line Günstig hat bei mir Vorfahrt in a dialog box" | split: "|" %}
+    {% for pair in pairs %}{% assign p = pair | split: ";" %}
+    <div class="mt-16 md:mt-24 {% if forloop.first %} max-w-[1920px] {% else %} max-w-[1000px] px-6 md:px-0 {% endif %} mx-auto">
+      <div class="relative overflow-hidden {% unless forloop.first %} rounded-[10px] {% endunless %}" style="aspect-ratio:{{ p[2] }}" data-gvv-compare>
+        <img src="{{ img }}{{ p[1] }}" alt="{{ p[4] }}" class="absolute inset-0 w-full h-full object-cover" loading="lazy" draggable="false">
+        <img src="{{ img }}{{ p[0] }}" alt="{{ p[3] }}" class="gvv-before absolute inset-0 w-full h-full object-cover" loading="lazy" draggable="false">
+        <div class="gvv-divider absolute inset-y-0 w-[2px] -ml-[1px] bg-[#003c6e]">
+          <span class="gvv-knob absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-[#003c6e] text-white flex items-center justify-center text-[15px]" aria-hidden="true">↔</span>
+        </div>
+        <span class="absolute left-3 md:left-5 top-3 md:top-5 gvv-box gvv-box--white text-[11px] md:text-[14px]">Before</span>
+        <span class="absolute right-3 md:right-5 top-3 md:top-5 gvv-box gvv-box--navy text-[11px] md:text-[14px]">After</span>
+        <input type="range" min="0" max="100" value="50" aria-label="Compare before and after">
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+
+  <!-------------------------- Logo: four steps from the old mark to the new one -------------------------->
+  <section class="gvv-white px-6 md:px-10 py-28 md:py-[180px]" data-gvv-switch>
+    <div class="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-14 md:gap-20 items-center">
+      <div class="relative w-[80vw] md:w-full max-w-[560px] mx-auto aspect-square">
+        {% for i in (1..4) %}
+        <img src="{{ img }}logo-step-{{ i }}.jpg" alt="The GVV mark, step {{ i }}" class="absolute inset-0 w-full h-full transition-opacity duration-500 {% if i != 4 %} opacity-0 {% endif %}" loading="lazy" data-gvv-view>
+        {% endfor %}
+      </div>
+      <div class="max-w-[520px]">
+        <p class="opacity-70" data-reveal>Logo</p>
+        <h2 class="mt-8" data-split>An evolution, not a <em>revolution.</em></h2>
+        <p class="mt-8" data-reveal>The logo was carrying the identity well. Its curved lines already felt positive, so we only refined its form.</p>
+        {% assign steps = "The starting point:A crest shape, and condensed letters that felt distant and official.|A new construction:A form built on a clean grid, made for digital media.|Softer corners:Rounded corners make the mark more approachable.|Geometric letters:Friendly type that fits the circle. The special G stayed." | split: "|" %}
+        <ol class="mt-10 border-t border-[#003c6e]/25" data-reveal>
+          {% for s in steps %}{% assign q = s | split: ":" %}
+          <li class="border-b border-[#003c6e]/25">
+            <button type="button" class="gvv-step w-full text-left py-4 md:py-5 grid grid-cols-[2.2em_1fr]" aria-pressed="{% if forloop.last %}true{% else %}false{% endif %}" data-gvv-pick>
+              <span>{{ forloop.index }}</span>
+              <span><span class="block" style="font-weight:500">{{ q[0] }}</span><span class="block mt-1 text-[15px]">{{ q[1] }}</span></span>
+            </button>
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- The name -------------------------->
+  <section class="gvv-navy px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>The name</p>
+      <p class="gvv-type mt-10 text-[clamp(44px,10vw,150px)] leading-[1.05]" data-reveal><span class="opacity-40 line-through decoration-[0.05em]">GVV Privat</span><br><span class="text-[#00aad2]">GVV Direkt</span></p>
+      <p class="mt-12 max-w-[520px]" data-reveal>"Privat" sounded exclusive and made people think of private health insurance. "Direkt" is clear and concise, says what kind of insurer this is and points to the personal connection with its customers.</p>
+    </div>
+  </section>
+
+  <!-------------------------- Brand architecture: the umbrella brand splits in two while the section sticks -------------------------->
+  <section class="gvv-white" data-gvv-arch>
+    <div class="gvv-arch-inner flex flex-col px-6 md:px-10 pt-20 md:pt-16 pb-10">
+      <div class="max-w-[1300px] w-full mx-auto">
+        <p class="opacity-70">Brand architecture</p>
+        <h2 class="mt-4 md:mt-6">One family, two <em>directions.</em></h2>
+        <p class="mt-4 md:mt-6 max-w-[560px]">Under the umbrella of GVV Versicherungen, GVV Direkt and GVV Kommunal stand side by side. The established blue-green of the umbrella splits up: blue for Direkt, green for Kommunal.</p>
+      </div>
+      <!-- Parent above, children below; the script starts them all in the middle of the stage -->
+      <div class="relative flex-1 min-h-[420px] md:min-h-[380px] mt-6 w-full max-w-[1300px] mx-auto" data-gvv-stage>
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="absolute inset-0 w-full h-full hidden md:block" fill="none" stroke="#a0a0a0" aria-hidden="true" data-gvv-late>
+          <path d="M50,32 V48 M26,48 H74 M26,48 V58 M74,48 V58" stroke-width="1.5" stroke-dasharray="2 5" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <div class="gvv-node gvv-versicherungen left-1/2 top-[14%] md:top-[18%] z-10" data-gvv-parent>
+          {% include gvv-logo.html brand="versicherungen" class="h-[84px] md:h-[150px] w-auto max-w-none" %}
+        </div>
+        <div class="gvv-node gvv-direkt left-1/2 md:left-[26%] top-[46%] md:top-[72%] flex flex-col items-center" data-gvv-child data-bright="#00aad2" data-dark="#003c6e">
+          {% include gvv-logo.html brand="direkt" class="h-[84px] md:h-[130px] w-auto max-w-none" %}
+          <span class="gvv-box gvv-box--blue text-[12px] md:text-[14px] whitespace-nowrap" data-gvv-late>Für ein gutes Gefühl.</span>
+        </div>
+        <div class="gvv-node gvv-kommunal left-1/2 md:left-[74%] top-[80%] md:top-[72%] flex flex-col items-center" data-gvv-child data-bright="#00b987" data-dark="#005546">
+          {% include gvv-logo.html brand="kommunal" class="h-[84px] md:h-[130px] w-auto max-w-none" %}
+          <span class="gvv-box gvv-box--green text-[12px] md:text-[14px] whitespace-nowrap" data-gvv-late>Für unsere kommunale Gemeinschaft.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- Colors: as in the brand's color sheet, click to copy; then the rings before and after -------------------------->
+  <section class="gvv-pale px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Colors</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>Different, but <em>equal.</em></h2>
+      <p class="mt-10 max-w-[520px]" data-reveal>Teal read as medical. A bright blue makes Direkt optimistic and forward-looking, a fresh green gives Kommunal its own character. Each brand gets a primary color, a dark partner and an accent. Click a color to copy it.</p>
+    </div>
+    {% comment %} Fields per brand: logo; name|hex|text colour; ... {% endcomment %}
+    {% assign palettes = "direkt;Blue|#00AAD2|#003c6e;Navy|#003C6E|#ffffff;Purple|#B47DDC|#003c6e,kommunal;Green|#00B987|#005546;Dark green|#005546|#ffffff;Lime|#A0D200|#005546,versicherungen;Blue-green|#00A0A0|#ffffff;Deep petrol|#004B5A|#ffffff" | split: "," %}
+    <div class="mt-16 md:mt-24 max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-3">
+      {% for pal in palettes %}{% assign fields = pal | split: ";" %}{% assign logo-brand = fields[0] %}
+      <div class="flex flex-col gap-2 md:h-[640px]">
+        <div class="gvv-{{ fields[0] }} h-[64px] md:h-[84px] shrink-0 -ml-2 md:-ml-3">{% include gvv-logo.html brand=logo-brand class="h-full w-auto max-w-full" %}</div>
+        {% for f in fields offset: 1 %}{% assign c = f | split: "|" %}
+        <button type="button" class="{% if forloop.first %} md:flex-[3] {% elsif forloop.index == 2 %} md:flex-[2] {% else %} md:flex-[1] {% endif %} min-h-[110px] text-left p-4 md:p-5 flex flex-col justify-end rounded-[6px]" style="background:{{ c[1] }};color:{{ c[2] }}" data-gvv-copy="{{ c[1] }}">
+          <span style="font-weight:500">{{ c[0] }}</span>
+          <span class="mt-1 text-[13px] opacity-80" data-gvv-copy-label>{{ c[1] }}</span>
+        </button>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+    <div class="mt-2 max-w-[1300px] mx-auto grid grid-cols-2 gap-2">
+      <button type="button" class="h-[84px] text-left px-4 md:px-5 flex items-center justify-between rounded-[6px] bg-[#A0A0A0] text-[#003c6e]" data-gvv-copy="#A0A0A0"><span style="font-weight:500">Grey</span><span class="text-[13px]" data-gvv-copy-label>#A0A0A0</span></button>
+      <button type="button" class="h-[84px] text-left px-4 md:px-5 flex items-center justify-between rounded-[6px] bg-[#D2D2D2] text-[#003c6e]" data-gvv-copy="#D2D2D2"><span style="font-weight:500">Light grey</span><span class="text-[13px]" data-gvv-copy-label>#D2D2D2</span></button>
+    </div>
+
+    <!-- The share of every colour as a ring. Each segment: colour and length before, and after -->
+    <div class="mt-28 md:mt-[180px] max-w-[1100px] mx-auto" data-gvv-rings>
+      <div class="grid md:grid-cols-[1fr_1.4fr] gap-10 md:gap-20 items-end">
+        <h3 class="font-display font-thin text-[30px] md:text-[44px] leading-[1.1]" data-split>From dusty to <em>fresh.</em></h3>
+        <div>
+          <p class="max-w-[460px]" data-reveal>The rings show how much of each color a brand uses. Before, both brands leaned on the same teal, with orange or beige beside it. Now each has its own climate, tuned to the other.</p>
+          <div class="mt-8 flex gap-3" role="group" aria-label="Show the colors" data-reveal>
+            <button type="button" class="gvv-chip text-[14px]" aria-pressed="false" data-gvv-state="before">Before</button>
+            <button type="button" class="gvv-chip text-[14px]" aria-pressed="true" data-gvv-state="after">After</button>
+          </div>
+        </div>
+      </div>
+      {% assign ring-direkt = "#00a0a0 50|#00aad2 50,#0a9fe0 25|#003c6e 25,#f39200 8.5|#b47ddc 8.5,#7c8a90 8|#a0a0a0 8,#4f6a8f 8.5|#d2d2d2 8.5" | split: "," %}
+      {% assign ring-kommunal = "#00a0a0 50|#00b987 50,#b9ad95 25|#005546 25,#e8d6ac 12.5|#a0d200 8.5,#a0a0a0 12.5|#a0a0a0 8,#d2d2d2 0|#d2d2d2 8.5" | split: "," %}
+      <div class="mt-14 md:mt-20 grid grid-cols-2 gap-8 md:gap-20 max-w-[800px] mx-auto text-center">
+        {% assign ring-brands = "Direkt,Kommunal" | split: "," %}
+        {% for brand in ring-brands %}
+        {% if brand == "Direkt" %}{% assign ring = ring-direkt %}{% else %}{% assign ring = ring-kommunal %}{% endif %}
+        <div>
+          <svg viewBox="0 0 42 42" class="w-full h-auto -rotate-90" fill="none" stroke-width="6" role="img" aria-label="Color shares of GVV {{ brand }}">
+            {% assign start = 0 %}
+            {% for seg in ring %}{% assign s = seg | split: "|" %}{% assign a = s[1] | split: " " %}
+            <circle cx="21" cy="21" r="15.915" stroke="{{ a[0] }}" stroke-dasharray="{{ a[1] }} {{ 100 | minus: a[1] }}" stroke-dashoffset="{{ start | times: -1 }}" data-before="{{ s[0] }}" data-after="{{ s[1] }}"/>
+            {% assign start = start | plus: a[1] %}
+            {% endfor %}
+          </svg>
+          <p class="gvv-type mt-4 text-[15px] md:text-[20px]">{{ brand }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- Design language: plain words in dialog boxes -------------------------->
+  <section class="gvv-white px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] gap-16 md:gap-20 items-start">
+      <div class="md:sticky md:top-24 max-w-[440px]">
+        <p class="opacity-70" data-reveal>Design language</p>
+        <h2 class="mt-8" data-split>Insurance, in plain <em>words.</em></h2>
+        <p class="mt-10" data-reveal>GVV speaks plainly: uncomplicated, direct and with concrete messages. So the brand talks in dialog boxes, as if you were texting with someone who knows their stuff. They make every headline a small conversation, with a wink.</p>
+      </div>
+      {% assign chat = "navy;Günstig hat bei mir Vorfahrt.;Going cheap has right of way.|blue;Unsere Kfz-Versicherung: Preiswert & persönlich.;Our car insurance: good value and personal.|navy;Die Kids haben Nachbars Fenster zerlegt.;The kids smashed the neighbours' window.|blue;Scherben bringen Glück.;Broken glass brings good luck.|navy;Wow-Wow-Wow.;A pun on wow and woof.|purple;Ein neues Design für ein gutes Gefühl.;A new design for a good feeling." | split: "|" %}
+      <div class="flex flex-col gap-8 md:gap-10 text-[20px] md:text-[32px]">
+        {% for line in chat %}{% assign p = line | split: ";" %}
+        <div class="flex flex-col {% if p[0] == 'navy' %} items-start {% else %} items-end text-right {% endif %}" data-reveal>
+          <span class="gvv-box gvv-box--{{ p[0] }} max-w-[90%] text-left">{{ p[1] }}</span>
+          <span class="mt-2 text-[14px] opacity-70">{{ p[2] }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- Typography -------------------------->
+  <section class="gvv-sky px-6 md:px-10 py-28 md:py-[160px]">
+    <div class="max-w-[1100px] mx-auto grid md:grid-cols-[1fr_1fr] gap-12 md:gap-20 items-center">
+      <div>
+        <p class="opacity-70" data-reveal>Typography</p>
+        <h2 class="mt-8" data-split>Friendly, and easy to <em>read.</em></h2>
+        <p class="mt-10 max-w-[440px]" data-reveal>The old condensed Frutiger was factual and saved space, but it was harder to read and hard to warm to. Montserrat is built from the same geometry as the new letters in the logo, and made for screens.</p>
+      </div>
+      <div data-reveal>
+        <p class="gvv-type text-[clamp(110px,16vw,230px)] leading-[0.9]">Aa</p>
+        <p class="gvv-type mt-8 text-[24px]">Montserrat</p>
+        <p class="mt-3 text-[15px] leading-[1.6] break-words" style="font-family:'Montserrat',sans-serif;font-weight:400">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</p>
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- Imagery: characters on a light background, and real life -------------------------->
+  <section class="gvv-pale px-6 md:px-10 py-28 md:py-[180px]" data-gvv-switch>
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Imagery</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>Friendly faces, and the things they <em>care about.</em></h2>
+      <p class="mt-10 max-w-[480px]" data-reveal>Likeable characters on a light background act as testimonials and storytellers, with whatever they want to protect beside them. It leaves room for the dialog boxes, and there is always someone looking back at you.</p>
+      {% assign visuals = "kfz2:Car:A woman with a small white car behind her shoulder,mofa:Motorbike:A woman in a blazer with a motorbike,hausrat:Home contents:A man with a sofa and a lamp,wohngebaeude:Building:A man with crossed arms and a fire extinguisher,junge:Moving in:A young woman with moving boxes,hund:Dog:A black dog licking its nose" | split: "," %}
+      <div class="mt-12 flex flex-wrap gap-3" role="group" aria-label="Show a motif" data-reveal>
+        {% for v in visuals %}{% assign p = v | split: ":" %}
+        <button type="button" class="gvv-chip text-[14px]" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}" data-gvv-pick>{{ p[1] }}</button>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="mt-10 md:mt-14 max-w-[1536px] mx-auto relative overflow-hidden aspect-[4/3] md:aspect-[3840/1660] rounded-[10px] bg-white" data-reveal-image>
+      {% for v in visuals %}{% assign p = v | split: ":" %}
+      <img src="{{ img }}visual-{{ p[0] }}.jpg" alt="{{ p[2] }}" class="absolute inset-0 w-full h-full object-cover object-right transition-opacity duration-500 {% unless forloop.first %} opacity-0 {% endunless %}" loading="lazy" data-gvv-view>
+      {% endfor %}
+    </div>
+    <div class="mt-4 md:mt-8 max-w-[1536px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+      {% assign life = "car:A couple in a green car with the windows down,scooter:A woman leaning on an electric scooter,motorbike:A couple with a motorbike at the coast,field:A girl sitting in a meadow near a village" | split: "," %}
+      {% for l in life %}{% assign p = l | split: ":" %}
+      <div class="overflow-hidden aspect-[4/5] rounded-[10px]" data-reveal-image><img src="{{ img }}life-{{ p[0] }}.jpg" alt="{{ p[1] }}" class="w-full h-full object-cover" loading="lazy"></div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-------------------------- Media: all the things the brand had to work on, then a selection -------------------------->
+  <section class="gvv-navy px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1100px] mx-auto">
+      <p class="opacity-70" data-reveal>Media</p>
+      <h2 class="mt-8 max-w-[760px]" data-split>One voice, from billboard to <em>ballpoint.</em></h2>
+      <p class="mt-10 max-w-[480px]" data-reveal>Once the brand stood, it had to arrive everywhere: in print, on the company's own grounds, on the road and at the stadium. Together with a styleguide for all three brands, we developed a long list of media.</p>
+    </div>
+    {% assign media = "Styleguide,Out-of-home,Brand poster,Brand leporello,Customer magazine,Insurance policies,Advertorials,Ads,Car mailings,Referral flyers,Accident guide,Claims guide,Wall planner,Christmas cards,Advent calendar,Child finder,Signage,Flags,Illuminated displays,Parking barriers,Perimeter boards,Vehicle wrap,Internal posters,Envelopes,Notepads,Ballpoint pens,Stamps,Mugs" | split: "," %}
+    <div class="mt-14 md:mt-20 max-w-[1300px] mx-auto flex flex-wrap gap-2 md:gap-3 text-[14px] md:text-[20px]" data-reveal>
+      {% for m in media %}{% assign k = forloop.index | modulo: 5 %}
+      <span class="gvv-box {% if k == 0 %} gvv-box--purple {% elsif k == 2 or k == 4 %} gvv-box--white {% else %} gvv-box--blue {% endif %}">{{ m }}</span>
+      {% endfor %}
+    </div>
+    <div class="mt-16 md:mt-24 max-w-[1536px] mx-auto flex flex-col gap-4 md:gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+        <div class="overflow-hidden rounded-[10px]" data-reveal-image><img src="{{ img }}ooh-car-1.jpg" alt="Out-of-home motif: Günstig hat bei mir Vorfahrt" class="w-full h-auto" loading="lazy"></div>
+        <div class="overflow-hidden rounded-[10px]" data-reveal-image><img src="{{ img }}ooh-car-2.jpg" alt="Out-of-home motif: Ich fahr voll auf den Preis ab" class="w-full h-auto" loading="lazy"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-[1500fr_3071fr] gap-4 md:gap-8">
+        <div class="overflow-hidden rounded-[10px]" data-reveal-image><img src="{{ img }}poster-dog.jpg" alt="Brand poster with a dog: Wow-Wow-Wow. Ein neues Design für ein gutes Gefühl" class="w-full h-full object-cover" loading="lazy"></div>
+        <div class="overflow-hidden rounded-[10px] bg-white" data-reveal-image><img src="{{ img }}magazine.jpg" alt="Spread of the customer magazine Im Vertrauen" class="w-full h-full object-cover" loading="lazy"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+        <div class="overflow-hidden rounded-[10px] bg-white" data-reveal-image><img src="{{ img }}planner-direkt.jpg" alt="GVV Direkt wall planner 2021 in blue" class="w-full h-auto" loading="lazy"></div>
+        <div class="overflow-hidden rounded-[10px] bg-white" data-reveal-image><img src="{{ img }}planner-kommunal.jpg" alt="GVV Kommunal wall planner 2021 in green" class="w-full h-auto" loading="lazy"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-[1474fr_1724fr] gap-4 md:gap-8">
+        <div class="overflow-hidden rounded-[10px]" data-reveal-image><img src="{{ img }}mug.jpg" alt="Two white GVV mugs, one with the logo and one with dialog boxes" class="w-full h-full object-cover" loading="lazy"></div>
+        <div class="overflow-hidden rounded-[10px]" data-reveal-image><img src="{{ img }}christmas.jpg" alt="Christmas card with a snowy house, in the colors of GVV Kommunal" class="w-full h-full object-cover" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- Website: by colleagues, shown with credit -------------------------->
+  <section class="gvv-white px-6 md:px-10 py-28 md:py-[180px]">
+    <div class="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] gap-12 md:gap-20 items-center">
+      <div class="max-w-[420px]">
+        <p class="opacity-70" data-reveal>Website</p>
+        <h2 class="mt-8" data-split>The brand, <em>online.</em></h2>
+        <p class="mt-8" data-reveal>The website was designed and developed by my colleagues at KW43. It shows how the brand works on screen, right down to the dialog boxes.</p>
+        <p class="mt-10" data-reveal><a href="https://gvv-direkt.de/" target="_blank" rel="noopener" class="rd-button [--rd-btn:#003c6e] [--rd-btn-hover:#ffffff]"><span>gvv-direkt.de</span></a></p>
+      </div>
+      <div class="bg-white shadow-[0_30px_80px_-30px_rgba(0,60,110,0.45)] rounded-[6px] overflow-hidden max-w-[800px] w-full md:ml-auto" data-reveal>
+        <div class="flex gap-1.5 px-3 py-2.5 bg-[#eef6f8]"><span class="w-2 h-2 rounded-full bg-[#003c6e]/20"></span><span class="w-2 h-2 rounded-full bg-[#003c6e]/20"></span><span class="w-2 h-2 rounded-full bg-[#003c6e]/20"></span></div>
+        <img src="{{ img }}website-home.jpg" alt="The GVV Direkt homepage: Top in Preis und Leistung" class="w-full h-auto" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-------------------------- Next case -------------------------->
+  {% assign cases = site.data.cases | where_exp: 'c', 'c.url' %}
+  {% for case in cases %}{% if case.url == page.url %}{% assign next_index = forloop.index | modulo: cases.size %}{% endif %}{% endfor %}
+  {% assign next = cases[next_index] %}
+  <section class="gvv-pale px-6 md:px-10 py-24 md:py-[140px] text-center">
+    <a href="{{ next.url }}" class="group inline-block" data-reveal>
+      <p class="opacity-70">Next case</p>
+      <h2 class="mt-6">{{ next.name }} <em>→</em></h2>
+    </a>
+    <p class="mt-12" data-reveal><a href="/work/" class="rd-button [--rd-btn:#003c6e] [--rd-btn-hover:#eef6f8]"><span>All work</span></a></p>
+  </section>
+
+</div>

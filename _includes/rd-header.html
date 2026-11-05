@@ -1,7 +1,7 @@
 <!------------------ Site Header (Redesign) ------------------>
 {% comment %}
   Colours follow the page's `theme`: dark (default, cream on olive), light (olive on cream), tro (TRO off-white on charcoal)
-  galeria (white on the veiled flyer photo), zahnfachwerk (anthracite on sage), dfm (white on the mint photo) or bloxley (white on the sky).
+  galeria (white on the veiled flyer photo), zahnfachwerk (anthracite on sage), dfm (white on the mint photo), bloxley (white on the sky) or gvv (navy on pale blue)
   --rd-bg is the colour behind the header, used for "TO" on the filled stamp.
 {% endcomment %}
 {% if page.theme == 'light' %}
@@ -14,6 +14,8 @@
   {% assign header-theme = 'text-white [--rd-bg:#1c8fd0]' %}
 {% elsif page.theme == 'dfm' %}
   {% assign header-theme = 'text-white [--rd-bg:#7fbf9f]' %}
+{% elsif page.theme == 'gvv' %}
+  {% assign header-theme = 'text-[#003c6e] [--rd-bg:#eef6f8]' %}
 {% elsif page.theme == 'tro' %}
   {% assign header-theme = 'text-[#f5f5f3] [--rd-bg:#1e1e1e]' %}
 {% else %}
