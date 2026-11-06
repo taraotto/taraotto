@@ -166,7 +166,12 @@ li          { @apply border-b border-black text-xs uppercase tracking-[.3em] fon
 /* ------------ Angebot content (markdown typography) ------------ */
 
 .angebot-content h1 {
-  @apply font-display font-light normal-case text-[2.25rem] leading-[2.75rem] md:text-[3rem] md:leading-[3.5rem] tracking-[.01em] pt-1 pb-4;
+  @apply font-display font-light normal-case text-[2.25rem] leading-[2.75rem] md:text-[3rem] md:leading-[3.5rem] tracking-[.01em] pt-12 md:pt-16 pb-4;
+}
+
+/* Directly under a section label the extra space isn't needed */
+.angebot-content h2 + h1 {
+  @apply pt-1;
 }
 
 .angebot-content h2 {
@@ -224,8 +229,6 @@ li          { @apply border-b border-black text-xs uppercase tracking-[.3em] fon
 
 .angebot-content table {
   @apply w-full text-left text-[0.8rem] my-6;
-  display: block;
-  overflow-x: auto;
 }
 
 /* Hide header rows that carry no real labels, e.g. `| | |` price tables */
@@ -247,5 +250,43 @@ li          { @apply border-b border-black text-xs uppercase tracking-[.3em] fon
 
 .angebot-content tr td:last-child {
   @apply font-semibold;
+}
+
+/* Price line under a section. In markdown: `| Pauschal | 3.600 € |` followed by `{: .preis}` */
+.angebot-content table.preis td {
+  @apply py-4 align-baseline;
+}
+
+.angebot-content table.preis tr:first-child td {
+  @apply border-t border-sage-500;
+}
+
+.angebot-content table.preis tr:last-child td {
+  @apply border-b border-sage-500;
+}
+
+.angebot-content table.preis tr td:first-child {
+  @apply text-xs uppercase tracking-[.15em] font-semibold;
+}
+
+.angebot-content table.preis tr td:last-child {
+  @apply font-semibold text-right whitespace-nowrap pr-0;
+}
+
+.angebot-content table.preis tr:first-child td:last-child {
+  @apply text-lg;
+}
+
+/* Last row as prominent total. In markdown: `{: .summe}` after the table */
+.angebot-content table.summe tr:last-child td {
+  @apply py-4 align-baseline border-y border-sage-500;
+}
+
+.angebot-content table.summe tr:last-child td:first-child {
+  @apply text-xs uppercase tracking-[.15em] font-semibold;
+}
+
+.angebot-content table.summe tr:last-child td:last-child {
+  @apply text-2xl font-semibold whitespace-nowrap;
 }
 
