@@ -216,7 +216,7 @@ li          { @apply border-b border-black text-xs uppercase tracking-[.3em] fon
 }
 
 .angebot-content li {
-  @apply text-[0.85rem] leading-6 tracking-[0.02em] font-normal normal-case border-none py-0;
+  @apply text-[0.85rem] leading-6 tracking-[0.02em] font-normal normal-case border-none py-0 cursor-auto;
 }
 
 .angebot-content hr {

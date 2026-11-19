@@ -1,4 +1,5 @@
 ---
+published: false
 image: /assets/images/portfolio/window.jpg
 title: Visuelles Erscheinungsbild
 doc_type: Projektskizze

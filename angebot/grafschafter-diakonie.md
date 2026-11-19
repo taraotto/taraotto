@@ -2,7 +2,7 @@
 image: /assets/images/angebot/care.jpg
 title: Designentwicklung Grafschafter Diakonie
 doc_type: Projektskizze und Angebot
-client: Grafschafter Diakonie gGmbH – Diakonisches Werk Kirchenkreis Moers
+client: Grafschafter Diakonie – Diakonisches Werk Kirchenkreis Moers
 contact: "[Name Ansprechpartnerin]"
 date: November 2026
 valid_until: 31. Januar 2027
@@ -32,14 +32,14 @@ Die Grafschafter Diakonie ist für viele Menschen da – in ganz unterschiedlich
 
 Die strategische Grundlage: Wo steht die Grafschafter Diakonie heute, und wo will sie hin?
 
-- Fragebogen vorab zur Haltung, Zielgruppen und Zielen
-- Remote-Kickoff (ca. 1,5 Std.) mit den festen Ansprechpersonen
-- Bestandsaufnahme aller vorhandenen Designelemente und Medien (Website, Print, Social Media, Beschilderung, Stellenanzeigen)
+- Fragebogen vorab zu Haltung, Zielgruppen und Zielen
+- Remote-Kickoff (ca. 60 Minuten)
+- Bestandsaufnahme aller vorhandenen Designelemente und Medien (Website, Print, Social Media, Unternehmensbroschüre)
 - Abgleich mit den Vorgaben des Diakonie-Corporate-Designs: Was ist verbindlich, wo gibt es Spielraum?
-- Wettbewerbsanalyse: visueller Auftritt von 5–6 vergleichbaren Trägern in der Region (z. B. Caritas, AWO, DRK, andere diakonische Werke) – sowohl im Wettbewerb um Klient:innen als auch um Fachkräfte
+- Wettbewerbsanalyse: visueller Auftritt von 5–6 vergleichbaren Trägern in der Region (z. B. Caritas, AWO, DRK, andere diakonische Werke)
 - Ergebnis: kompakte Präsentation mit Brandfit (Werte, Tonalität, Gestaltungsprinzipien) als Leitplanke für die Designentwicklung. Dieses Dokument ist die Grundlage für alle weiteren Bausteine.
 
-| Preis | 1.350 € netto\* |
+| Preis | 1.200&nbsp;€ netto\* |
 | Timing | ca. 2 Wochen |
 {: .preis}
 
@@ -47,15 +47,15 @@ Die strategische Grundlage: Wo steht die Grafschafter Diakonie heute, und wo wil
 
 Aus dem Bestand und dem Brandfit entsteht die Designsprache.
 
-- **Typografie:** Auswahl bzw. Schärfung der Hausschriften inkl. Hierarchien; Prüfung der Schrift in der Ortsbezeichnung des Logos
+- **Typografie:** Auswahl bzw. Schärfung der Hausschriften inkl. Hierarchien
 - **Farbe:** Aufgeräumte Farbpalette mit Primär- und Sekundärfarben, abgeleitet aus den Diakonie-Farben, inkl. Werten für Print und Digital und geprüfter Barrierefreiheit (Kontraste)
-- **Logo:** Feinschliff im Rahmen der Diakonie-Vorgaben (Ortsbezeichnung, Schutzraum, Varianten, Größen)
+- **Logo:** Feinschliff im Rahmen der Diakonie-Vorgaben (Typografie, Schutzraum, Varianten, Größen)
 - **Designsprache:** Gestaltungsraster, grafische Elemente und Layoutprinzipien, die den Auftritt eigenständig machen
 - **Bildsprache:** Leitlinien zu Motiven, Perspektive, Licht und Bildausschnitt sowie Moodboard (keine Fotoproduktion)
-- Präsentation von zwei Gestaltungsansätzen, gezeigt an typischen Anwendungen (z. B. Website-Startseite, Flyer, Stellenanzeige, Social-Media-Post)
-- Ausarbeitung des gewählten Ansatzes
+- Entwicklung eines fundierten Gestaltungsansatzes auf Basis des Brandfits, gezeigt an typischen Anwendungen (z. B. Website-Startseite, Flyer, Social Media)
+- Ausarbeitung und Feinschliff des Gestaltungsansatzes
 
-| Preis | 3.600 € netto\* |
+| Preis | 4.000&nbsp;€ netto\* |
 | Timing | ca. 6 Wochen |
 {: .preis}
 
@@ -63,46 +63,39 @@ Aus dem Bestand und dem Brandfit entsteht die Designsprache.
 
 Alle Regeln an einem Ort, verständlich für Mitarbeitende und externe Dienstleister.
 
-- Styleguide als PDF, ca. 20–25 Seiten
+- Styleguide als PDF, ca. 15–20 Seiten
 - Inhalte: Haltung und Brandfit, Logo und Logoanwendung, Farben, Typografie, Designelemente, Bildsprache, Anwendungsbeispiele, Do's & Don'ts
 - Übergabe aller Daten (Logo-Varianten, Farbwerte, offene Gestaltungsdateien)
 
-| Preis | 1.800 € netto\* |
-| Timing | ca. 2 Wochen |
+| Preis | 2.000&nbsp;€ netto\* |
+| Timing | ca. 3 Wochen |
 {: .preis}
 
 # *4. Projektkoordination und Abstimmung*
 
 Terminkoordination, bis zu vier Termine zur Präsentation und Abstimmung der Zwischenstände (je bis 60 Minuten), die laufende Kommunikation per E-Mail und Telefon sowie die Datenübergabe zum Projektabschluss.
 
-Darüber hinausgehender Abstimmungsaufwand wird nach Aufwand mit 100 € netto je Stunde berechnet.
+Darüber hinausgehender Abstimmungsaufwand wird nach Aufwand mit 100&nbsp;€ netto je Stunde berechnet.
 
-| Preis | 450 € netto\* |
+| Preis | 800&nbsp;€ netto\* |
 {: .preis}
 
 ---
 
 ## Optionale Leistungen
 
-# *Iconsprache*
+# *Icons und Medien*
 
-Definition eines Iconstils passend zur Designsprache und Gestaltung von bis zu 12 Icons, z. B. für die Leistungsbereiche. Ergänzung im Styleguide.
+Umsetzung der neuen Designsprache in einer eigenen Iconsprache und ersten Anwendungen:
 
-| Preis | 900 € netto\* |
-{: .preis}
-
-# *Medien*
-
-Umsetzung der neuen Designsprache in ersten Anwendungen:
-
-| Medium | Umfang | Netto |
+| Leistung | Umfang | Netto |
 |---|---|---|
-| Geschäftsausstattung | Briefbogen, Visitenkarte, E-Mail-Signatur | 1.350 €\* |
-| Flyer-Vorlage | DIN lang, als Muster und Vorlage für weitere Bereiche | 900 €\* |
-| Präsentationsvorlage | PowerPoint-Master mit Basislayouts | 1.350 €\* |
-| Social-Media-Vorlagen | Post- und Story-Templates | 900 €\* |
+| Iconsprache | Iconstil passend zur Designsprache und bis zu 8 Icons, z. B. für die Leistungsbereiche| 800&nbsp;€\* |
+| Geschäftsausstattung | Briefbogen, Visitenkarte, E-Mail-Signatur | 800&nbsp;€\* |
+| Flyer-Vorlage | DIN lang, als Muster und Vorlage für weitere Bereiche | 550&nbsp;€\* |
+| Social-Media-Vorlagen | Post- und Story-Templates | 550&nbsp;€\* |
 
-Weitere Medien biete ich gern nach Bedarf an.
+Die Vorlagen werden in InDesign oder Figma geliefert. Andere Programme sind nach Absprache möglich. Weitere Medien biete ich gern nach Bedarf an.
 
 ---
 
@@ -110,11 +103,11 @@ Weitere Medien biete ich gern nach Bedarf an.
 
 | Leistung | Netto |
 |---|---|
-| Brandfit & Wettbewerbsanalyse | 1.350 €\* |
-| Designentwicklung | 3.600 €\* |
-| Brand Styleguide | 1.800 €\* |
-| Projektkoordination und Abstimmung | 450 €\* |
-| **Gesamt** | **7.200 €\*** |
+| Brandfit & Wettbewerbsanalyse | 1.200&nbsp;€\* |
+| Designentwicklung | 4.000&nbsp;€\* |
+| Brand Styleguide | 2.000&nbsp;€\* |
+| Projektkoordination und Abstimmung | 800&nbsp;€\* |
+| **Gesamt** | **8.000&nbsp;€\*** |
 {: .summe}
 
 \*Alle Preise verstehen sich netto zuzüglich der gesetzlichen Mehrwertsteuer von 19 Prozent.
@@ -125,38 +118,40 @@ Weitere Medien biete ich gern nach Bedarf an.
 
 **Korrekturschleifen**
 
-Je Baustein sind zwei Korrekturschleifen enthalten. Weitergehende Anpassungen und Änderungswünsche nach erfolgter Freigabe werden nach Aufwand mit 100 € netto je Stunde berechnet und vorab abgestimmt.
+Je Baustein sind zwei Korrekturschleifen enthalten. Weitergehende Anpassungen und Änderungswünsche nach erfolgter Freigabe werden nach Aufwand mit 100&nbsp;€ netto je Stunde berechnet und vorab abgestimmt.
 
 **Zusammenarbeit**
 
-Die Zusammenarbeit läuft überwiegend remote: Kickoff und Abstimmungen finden per Videokonferenz statt. Ein bis zwei Präsentationen – etwa die Vorstellung der Gestaltungsansätze – mache ich gern persönlich bei Ihnen vor Ort.
+Die Zusammenarbeit läuft überwiegend remote. Kickoff und Abstimmungen finden per Videokonferenz statt. Eine Präsentation – etwa die Vorstellung des Gestaltungsansatzes – mache ich gern persönlich bei Ihnen vor Ort.
 
 Ich bitte darum, ein bis zwei feste Ansprechpersonen zu benennen, über die Rückmeldungen gebündelt und Freigaben erteilt werden. Das beschleunigt den Prozess und vermeidet widersprüchliche Anforderungen.
 
 **Abstimmung mit der Diakonie**
 
-Eventuell nötige Freigaben durch den Diakonie-Landesverband holt die Grafschafter Diakonie ein; ich bereite die Unterlagen dafür vor.
+Eventuell nötige Freigaben durch den Diakonie-Landesverband holt die Grafschafter Diakonie ein.
 
 **Nebenkosten**
 
 Nicht im Honorar enthalten sind:
 
-- Schriftlizenzen. Ich schlage Schriften vor und weise die Lizenzkosten vorab aus; wo möglich, berücksichtige ich kostenfrei lizenzierte Alternativen.
+- Schriftlizenzen. Ich schlage Schriften vor und weise die Lizenzkosten vorab aus. Wo möglich, berücksichtige ich kostenfrei lizenzierte Alternativen.
 - Fotoproduktion und Bildlizenzen
 - Produktions- und Druckkosten
 - Umsetzung der Website
 
 **Freigabe und Schutzrechte**
 
-Mit der Freigabe übernimmt der Auftraggeber die Verantwortung für die inhaltliche Richtigkeit von Texten, Namen, Terminen und Bildmaterial.
-
-Die Prüfung, Anmeldung und der Schutz von Marken sowie sonstigen Schutzrechten liegen in der Verantwortung des Auftraggebers.
+Mit der Freigabe übernimmt der Auftraggeber die Verantwortung für die inhaltliche Richtigkeit von Texten, Namen, Terminen und Bildmaterial. Die Prüfung, Anmeldung und der Schutz von Marken sowie sonstigen Schutzrechten liegen in der Verantwortung des Auftraggebers.
 
 **Nutzungsrechte**
 
-Mit vollständiger Bezahlung des Honorars erhält die Grafschafter Diakonie das räumlich, zeitlich und inhaltlich unbeschränkte, ausschließliche Nutzungsrecht an den freigegebenen Gestaltungsergebnissen für alle eigenen Medien. Die Weiterentwicklung der Gestaltung durch Dritte erfolgt nach vorheriger Absprache.
+Mit vollständiger Bezahlung des Honorars erhält die Grafschafter Diakonie das räumlich und zeitlich unbeschränkte, ausschließliche Nutzungsrecht an den freigegebenen Gestaltungsergebnissen für alle eigenen Medien. Die Weiterentwicklung der Gestaltung durch Dritte erfolgt nach vorheriger Absprache.
 
 Nicht ausgeführte Entwurfsvarianten verbleiben bei mir. Ich behalte mir das Recht vor, die entwickelten Arbeiten zu Präsentationszwecken in meinem Portfolio und in meiner Eigenwerbung zu veröffentlichen.
+
+**Einsatz von KI**
+
+Ich nutze KI-Werkzeuge unterstützend, etwa für Recherche, Strukturierung und Textentwürfe. Logo, Designsprache, Icons und alle weiteren Gestaltungsergebnisse entstehen als meine eigene gestalterische Leistung. KI-Dienste nutze ich nur in Versionen, bei denen meine Eingaben nicht zum Training der Modelle verwendet werden. KI-generierte Bilder setze ich nur nach Absprache mit Ihnen ein.
 
 **Zeitplan**
 
@@ -169,13 +164,13 @@ Ich arbeite in Wochenetappen. Mein Vorschlag für den Ablauf:
 | 21. Dezember – 3. Januar | Weihnachtspause |
 | 4. Januar – 12. Februar 2027 | Designentwicklung inkl. Präsentation und Korrekturschleifen |
 | 15.–19. Februar | Pause (Studio geschlossen) |
-| 22. Februar – 5. März | Brand Styleguide und Datenübergabe |
+| 22. Februar – 12. März | Brand Styleguide und Datenübergabe |
 
-So kann der neue Auftritt **Anfang März 2027** stehen. Den Zeitplan stimmen wir beim Kickoff gemeinsam ab, damit er gut zu Ihren Terminen und Abläufen passt. Sollten sich Rückmeldungen einmal verzögern, verschiebt sich der Zeitplan entsprechend.
+So kann der neue Auftritt **Mitte März 2027** stehen. Den Zeitplan stimmen wir beim Kickoff gemeinsam ab, damit er gut zu Ihren Terminen und Abläufen passt. Sollten sich Rückmeldungen einmal verzögern, verschiebt sich der Zeitplan entsprechend. Optionale Leistungen verlängern den Zeitplan entsprechend.
 
 **Zahlungsbedingungen**
 
-25 % des Honorars werden bei Auftragserteilung fällig, die verbleibenden 75 % nach Abschluss des jeweiligen Bausteins. Das Zahlungsziel beträgt 14 Tage.
+25 % des Gesamthonorars werden bei Auftragserteilung fällig, die verbleibenden 75 % nach Abschluss des Gesamtprojekts. Das Zahlungsziel beträgt 14 Tage.
 
 ---
 
@@ -187,6 +182,3 @@ Ich freue mich darauf, der Grafschafter Diakonie zu einem klaren und eigenständ
 
 Mit freundlichen Grüßen,  
 Tara Otto
-
-Studio Tara Otto · Düsseldorf  
-hello@taraotto.com · taraotto.com
